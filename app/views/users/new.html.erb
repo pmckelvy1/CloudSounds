@@ -1,0 +1,19 @@
+<form class="sign-in-up-form group" action="<%= users_url %>" method="post">
+  <%= auth_token %>
+  <div>
+    <label for="email">Please enter your email:</label>
+    <input id="email" type="text" name="user[email]" value="<%= @user.email %>">
+  </div>
+
+  <div>
+    <label for="username">What would you like to be called?:</label>
+    <input id="username" type="text" name="user[username]" value="<%= @user.username %>">
+  </div>
+
+  <div>
+    <label for="password">You also need a password: (min 8 characters)</label>
+    <input id="password" type="password" name="user[password]">
+  </div>
+
+  <button type="submit" name="sign-up">Create new account!</button>
+</form>

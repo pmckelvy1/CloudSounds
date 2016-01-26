@@ -1,0 +1,117 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sign-in-button {
+
+}
+
+.sign-in_form {
+
+}
+
+.sign-in-up-form {
+  width: 600px;
+  background: white;
+  box-sizing: border-box;
+  border: 2px solid black;
+  padding: 10px;
+  margin: auto;
+}
+
+.sign-in-up-form div {
+  padding: 20px;
+  display: block;
+}
+
+.sign-in-up-form input {
+  width: 200px;
+  border: 1px solid #ccc;
+  display: block;
+  float: right;
+}
+
+.sign-in-up-form label {
+  display: block;
+  float: left;
+  width: auto;
+}
+
+.sign-in-up-form button {
+  display: block;
+  float: none;
+  margin: auto;
+  padding: 10px 20px;
+  background: #ccc;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+
+//////////////////
+// USER PROFLIE //
+//////////////////
+
+// HEADER //
+
+.profile-header {
+  display: block;
+  height: 265px;
+  background: blue;
+  position: relative;
+}
+
+.profile-picture {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 35px;
+  left: 35px;
+}
+
+.profile-header-image {
+  width: 1240px;
+  height: 265px;
+}
+
+.profile-header-nav {
+  display: block;
+}
+
+.profile-header-nav-list {
+  display: block;
+  float: left;
+}
+
+.profile-header-nav-list li {
+  display: block;
+  float: left;
+  padding: 20px;
+}
+
+// MAIN CONTENT //
+
+.profile-main {
+  padding: 0px 30px;
+}
+
+.profile-content {
+  display: block;
+  float: left;
+  width: 850px;
+  background: green;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+// SIDEBAR //
+
+.profile-sidebar {
+  width: 330px;
+  display: block;
+  float: right;
+  background: red;
+  padding: 20px;
+  box-sizing: border-box;
+}

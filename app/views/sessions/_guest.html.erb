@@ -1,0 +1,6 @@
+<form class="guest-user-sign-in" action="<%= session_url %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="user[email]" value="guest_user@guest.com">
+  <input type="hidden" name="user[password]" value="guest_password">
+  <button type="submit" class="guest-sign-in-button">Sign In As Guest!</button>
+</form>

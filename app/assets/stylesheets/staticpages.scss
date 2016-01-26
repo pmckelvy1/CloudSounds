@@ -1,0 +1,99 @@
+// Place all the styles related to the staticpages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// HEADER //
+
+.header {
+  background: #383838;
+  color: #aaa;
+  display: block;
+}
+
+.header-nav {
+  margin: auto;
+  width: 1240px;
+  display: block;
+  box-sizing: border-box;
+}
+
+.header-logo {
+  display: block;
+  float: left;
+}
+
+.header-logo img {
+  width: 40px;
+  height: 40px;
+}
+
+.header-nav div {
+  display: block;
+}
+
+// .header-nav form {
+//   display: block;
+//   padding: 14px;
+// }
+
+.header-nav a {
+  display: block;
+  padding: 14px;
+}
+
+.header-nav ul {
+  display: block;
+  padding: 14px;
+}
+
+.header-nav a:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.header-nav ul:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.header-nav-site-nav {
+  display: block;
+  float: left;
+}
+
+.header-nav-site-nav div {
+  display: block;
+  float: left;
+}
+
+.header-nav-profile-nav {
+  display: block;
+  float: right;
+}
+
+.header-nav-profile-nav div {
+  display: block;
+  float: left;
+}
+
+.sign-in-or-up {
+  display: block;
+  float: right;
+}
+
+.sign-in-or-up a {
+  display: block;
+  float: left;
+  padding: 14px;
+}
+
+
+// MAIN CONTENT //
+
+.main {
+  background: white;
+  width: 1240px;
+  margin: auto;
+  height: 1000px;
+  box-sizing: border-box;
+}
