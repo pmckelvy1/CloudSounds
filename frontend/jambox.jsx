@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var UserFeed = require('./components/user_feed');
+
 var Jambox = React.createClass({
 
   render: function () {

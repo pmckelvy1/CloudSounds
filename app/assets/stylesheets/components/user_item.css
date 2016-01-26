@@ -1,0 +1,26 @@
+.user-item {
+  background: #eee;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 500px;
+  height: 190px;
+  margin: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.user-profile-thumb {
+  display: block;
+  float: left;
+}
+
+.user-profile-thumb img {
+  width: 150px;
+  height: 150px;
+}
+
+.user-name {
+  display: block;
+  float: left;
+  margin-left: 20px;
+}
