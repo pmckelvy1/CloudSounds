@@ -20,6 +20,10 @@ var resetUsers = function(users) {
   });
 };
 
+var addUser = function(user) {
+  _users[user.id] = user;
+};
+
 UserStore.isCurrentUser = function(userId) {
   return userId === _currentUser.id;
 };
@@ -56,6 +60,10 @@ UserStore.__onDispatch = function (payload) {
       break;
     case UserConstants.CURRENT_USER_RECEIVED:
       resetCurrentUser(payload.user);
+      UserStore.__emitChange();
+      break;
+    case UserConstants.USER_RECEIVED:
+      addUser(payload.user);
       UserStore.__emitChange();
       break;
   }

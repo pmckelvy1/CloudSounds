@@ -23,6 +23,8 @@ class User < ActiveRecord::Base
     source: :user
   )
 
+  has_many :songs
+
   after_initialize :ensure_session_token
 
   attr_reader :password

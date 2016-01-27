@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   before_action :ensure_logged_in
 
   def show
-    @user = User.includes(:followed_users).find(params[:id])
+    @user = User.includes(:followed_users, :songs).find(params[:id])
     if @user
       render :show
     else
@@ -13,7 +13,8 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.where('users.id != ?', current_user.id)
+    # @users = User.where('users.id != ?', current_user.id)
+    @users = User.all
     render :index
   end
 

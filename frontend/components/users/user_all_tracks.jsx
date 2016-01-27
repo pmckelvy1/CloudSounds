@@ -6,7 +6,6 @@ var UserAllTracks = React.createClass({
   render: function () {
     return (
       <div className="test-page-text">ALL USER TRACKS GO HERE (+ REPOSTS)
-        <TrackFeed />
       </div>
     );
   }

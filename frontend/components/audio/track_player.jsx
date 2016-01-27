@@ -7,7 +7,9 @@ var TrackPlayer = React.createClass({
     return (
       <div className="track-player">
         <div className="thumb-large"><img src="/assets/note.png"/></div>
-        <h2 className="track-name">TRACK NAME</h2>
+        <h1 className="track-artist-name">ARTIST NAME</h1>
+        <h2 className="track-name">{this.props.song.title}</h2>
+        <h3 className="track-info">{this.props.song.info}</h3>
         <TrackWaveform />
       </div>
     );

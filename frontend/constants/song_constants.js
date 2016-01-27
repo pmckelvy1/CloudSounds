@@ -1,0 +1,7 @@
+var SongConstants = {
+  USER_SONGS_RECEIVED: "USER_SONGS_RECEIVED",
+  SONG_RECEIVED: "SONG_RECEIVED",
+  SONGS_RECEIVED: "SONGS_RECEIVED"
+};
+
+module.exports = SongConstants;

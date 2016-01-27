@@ -14,7 +14,7 @@
   float: left;
   margin-left: 20px;
   font-size: 20px;
-  color: #999;
+  color: #aaa;
 }
 
 .track-waveform {
@@ -23,4 +23,12 @@
   width: 450px;
   height: 55px;
   background: orange;
+}
+
+.track-info {
+  display: block;
+  float: left;
+  margin-left: 20px;
+  font-size: 16px;
+  color: #444;
 }

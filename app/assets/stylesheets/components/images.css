@@ -1,11 +1,11 @@
 .thumb-large {
-  width: 175px;
-  height: 175px;
+  width: 150px;
+  height: 150px;
   display: block;
   float: left;
 }
 
 .thumb-large img {
-  width: 175px;
-  height: 175px;
+  width: 150px;
+  height: 150px;
 }
