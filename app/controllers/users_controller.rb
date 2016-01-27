@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.where(id: params[:id]).includes(:followed_users)[0]
     if @user
       render :show
     else
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.where("id != ?", current_user.id)
     render :index
   end
 

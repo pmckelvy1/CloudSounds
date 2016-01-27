@@ -13,3 +13,5 @@ me = User.create!(email: 'pmckelvy1@gmail.com', username: 'pmckelvy', password: 
 darth = User.create!(email: 'darth_vader@gmail.com', username: 'd_vader', password: 'starwars')
 bach = User.create!(email: 'johansebass@gmail.com', username: 'bach_rachs', password: 'classical')
 bowie = User.create!(email: 'dbowie@gmail.com', username: 'David Bowie', password: 'ziggystardust')
+
+Follow.destroy_all
