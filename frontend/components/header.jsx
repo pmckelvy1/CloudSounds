@@ -15,14 +15,14 @@ var Header = React.createClass({
 
           <div className="header-nav-site-nav group">
             <div className="header-logo"><img src='/assets/note.png'/></div>
-            <div className="home"><a href="#">Home</a></div>
+            <div className="home"><a href="#/api/users">Home</a></div>
             <div className="collection"><a href="#">Collection</a></div>
           </div>
 
           <div className="header-nav-profile-nav group">
 
             {/* if logged_in? */}
-            <div className="upload-link"><a href="#">Upload</a></div>
+            <div className="upload-link"><a href="#/api/upload">Upload</a></div>
             <div className="profile-link"><a href="#/api/users/18">Profile</a></div>
             <div className="alerts"><ul>Aler</ul></div>
             <div className="messages"><ul>Mail</ul></div>

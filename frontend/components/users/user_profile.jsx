@@ -4,7 +4,8 @@ var React = require('react'),
     UserProfileNav = require('./user_profile_nav'),
     UserProfileHeader = require('./user_profile_header'),
     UserProfileNavOptions = require('./user_profile_nav_options'),
-    UserLikesSnapshot = require('./user_likes_snapshot');
+    UserLikesSnapshot = require('./user_likes_snapshot'),
+    UserFollowsSnapshot = require('./user_follows_snapshot');
 
 var UserProfile = React.createClass({
   getInitialState: function () {
@@ -35,6 +36,7 @@ var UserProfile = React.createClass({
             <div className="test-page-text">{this.state.user.username}</div>
             <UserInfo userInfo={this.state.user.info} />
             <UserLikesSnapshot />
+            <UserFollowsSnapshot />
           </div>
 
           <div className="profile-content group">
