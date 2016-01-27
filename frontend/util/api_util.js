@@ -64,6 +64,7 @@ var ApiUtil = {
     });
   },
 
+  // GET THE SONGS THAT BELONG TO A SPECIFIC USER
   getUserSongs: function(userId) {
     $.ajax({
       type: 'GET',
@@ -72,6 +73,19 @@ var ApiUtil = {
       data: { user_id: userId },
       success: function (songs) {
         SongActions.receiveUserSongs(songs);
+      }
+    });
+  },
+
+  // GET ALL OF THE SONGS OF ALL OF THE ARTISTS THAT THE
+  // CURRENT USER FOLLOWS, ORDER BY MOST RECENT, MAX 20 AT A TIME
+  fetchAllSongs: function() {
+    $.ajax({
+      type: 'GET',
+      url: '/api/songs',
+      dataType: 'JSON',
+      success: function (songs) {
+        SongActions.receiveAllSongs(songs);
       }
     });
   }

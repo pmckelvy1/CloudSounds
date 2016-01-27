@@ -30,7 +30,6 @@ var App = React.createClass({
 var routes = (
   <Route path='/' component={Header}>
     <IndexRoute component={UserFeed} />
-    <Route path='/api/users' component={UserFeed} />
     <Route path='/api/upload' component={UploadPage} />
     <Route path='/api/users/:id' component={UserProfile}>
       <Route path='/api/users/:id/all' component={UserAllTracks} />

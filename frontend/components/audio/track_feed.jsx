@@ -6,7 +6,7 @@ var TrackFeed = React.createClass({
 
   render: function () {
     var trackComponents = this.props.songs.map(function (song) {
-      return <TrackPlayer song={song} />;
+      return <TrackPlayer key={song.id} song={song} />;
     });
     return (
       <div className="track-feed">

@@ -17,7 +17,7 @@ var SongActions = {
     });
   },
 
-  receiveSongs: function(songs) {
+  receiveAllSongs: function(songs) {
     Dispatcher.dispatch({
       actionType: SongConstants.SONGS_RECEIVED,
       songs: songs

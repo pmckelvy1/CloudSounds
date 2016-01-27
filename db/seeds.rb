@@ -30,17 +30,17 @@ s11 = Song.create!(user_id: bach.id, title: "Moonlight Sonata", info: "Beethoven
 
 Follow.destroy_all
 
-# f1 = Follow.create!(user_id: guest.id, followed_id: me.id);
-# f2 = Follow.create!(user_id: guest.id, followed_id: darth.id);
-# f3 = Follow.create!(user_id: guest.id, followed_id: bach.id);
-# f4 = Follow.create!(user_id: me.id, followed_id: guest.id);
-# f5 = Follow.create!(user_id: me.id, followed_id: bowie.id);
-# f6 = Follow.create!(user_id: darth.id, followed_id: bach.id);
-# f7 = Follow.create!(user_id: darth.id, followed_id: me.id);
-# f8 = Follow.create!(user_id: darth.id, followed_id: guest.id);
-# f9 = Follow.create!(user_id: darth.id, followed_id: bowie.id);
-# f10 = Follow.create!(user_id: bowie.id, followed_id: bach.id);
-# f11 = Follow.create!(user_id: bowie.id, followed_id: guest.id);
-# f12 = Follow.create!(user_id: bach.id, followed_id: guest.id);
-# f13 = Follow.create!(user_id: bach.id, followed_id: me.id);
-# f14 = Follow.create!(user_id: bach.id, followed_id: darth.id);
+f1 = Follow.create!(user_id: guest.id, followed_id: me.id);
+f2 = Follow.create!(user_id: guest.id, followed_id: darth.id);
+f3 = Follow.create!(user_id: guest.id, followed_id: bach.id);
+f4 = Follow.create!(user_id: me.id, followed_id: guest.id);
+f5 = Follow.create!(user_id: me.id, followed_id: bowie.id);
+f6 = Follow.create!(user_id: darth.id, followed_id: bach.id);
+f7 = Follow.create!(user_id: darth.id, followed_id: me.id);
+f8 = Follow.create!(user_id: darth.id, followed_id: guest.id);
+f9 = Follow.create!(user_id: darth.id, followed_id: bowie.id);
+f10 = Follow.create!(user_id: bowie.id, followed_id: bach.id);
+f11 = Follow.create!(user_id: bowie.id, followed_id: guest.id);
+f12 = Follow.create!(user_id: bach.id, followed_id: guest.id);
+f13 = Follow.create!(user_id: bach.id, followed_id: me.id);
+f14 = Follow.create!(user_id: bach.id, followed_id: darth.id);

@@ -17,7 +17,7 @@ var Header = React.createClass({
 
           <div className="header-nav-site-nav group">
             <div className="header-logo"><img src='/assets/note.png'/></div>
-            <div className="home"><a href="#/api/users">Home</a></div>
+            <div className="home"><a href="#">Home</a></div>
             <div className="collection"><a href="#">Collection</a></div>
           </div>
 

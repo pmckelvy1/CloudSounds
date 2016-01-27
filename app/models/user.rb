@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
   )
 
   has_many :songs
+  has_many(
+    :followed_songs,
+    through: :followed_users,
+    source: :songs
+  )
 
   after_initialize :ensure_session_token
 

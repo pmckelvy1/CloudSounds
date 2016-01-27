@@ -3,6 +3,7 @@
   height: 150px;
   display: block;
   float: left;
+  margin-right: 20px;
 }
 
 .thumb-large img {
