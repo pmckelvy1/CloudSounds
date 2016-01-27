@@ -1,0 +1,35 @@
+
+.user-profile-header {
+  display: block;
+  height: 265px;
+  background: blue;
+  position: relative;
+}
+
+.user-profile-picture {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 35px;
+  left: 35px;
+}
+
+.user-profile-header-image {
+  width: 1240px;
+  height: 265px;
+}
+
+.user-profile-header-nav {
+  display: block;
+}
+
+.user-profile-header-nav-list {
+  display: block;
+  float: left;
+}
+
+.user-profile-header-nav-list li {
+  display: block;
+  float: left;
+  padding: 20px;
+}

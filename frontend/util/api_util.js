@@ -6,7 +6,7 @@ var ApiUtil = {
   fetchUsers: function () {
     $.ajax({
       type: 'GET',
-      url: '/users',
+      url: '/api/users',
       dataType: 'JSON',
       success: function (users) {
         UserActions.receiveUsers(users);
@@ -22,6 +22,7 @@ var ApiUtil = {
       data: { user: userInfo },
       success: function (user) {
         UserActions.receiveUser(user);
+        // FollowActions.receiveCurrentUserFollows(user.follows);
       }
     });
   },
@@ -30,7 +31,7 @@ var ApiUtil = {
     $.ajax({
       type: 'POST',
       method: 'DELETE',
-      url: '/follows/' + follow.id,
+      url: '/api/follows/' + follow.id,
       dataType: 'JSON',
       success: function (followData) {
         FollowActions.receiveUnFollow(followData);
@@ -41,7 +42,7 @@ var ApiUtil = {
   follow: function (followedId) {
     $.ajax({
       type: 'POST',
-      url: '/follows',
+      url: '/api/follows',
       dataType: 'JSON',
       data: { followed_id: followedId },
       success: function (follow) {

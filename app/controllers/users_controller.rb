@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  before_action :ensure_logged_in, only: [:show, :index]
-
   def new
     @user = User.new
     render :new
@@ -16,21 +14,6 @@ class UsersController < ApplicationController
       flash[:errors] = @user.errors.full_messages
       render :new
     end
-  end
-
-  def show
-    @user = User.where(id: params[:id]).includes(:followed_users)[0]
-    if @user
-      render :show
-    else
-      flash[:errors] = ['could not find that user']
-      redirect_to root_url
-    end
-  end
-
-  def index
-    @users = User.where("id != ?", current_user.id)
-    render :index
   end
 
   private

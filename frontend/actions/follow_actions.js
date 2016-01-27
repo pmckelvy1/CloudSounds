@@ -14,6 +14,13 @@ var FollowActions = {
       actionType: FollowConstants.USER_UNFOLLOWED,
       follow: follow
     });
+  },
+
+  receiveCurrentUserFollows: function(follows) {
+    Dispatcher.dispatch({
+      actionType: FollowConstants.RECEIVE_CURRENT_USER_FOLLOWS,
+      follows: follows
+    });
   }
 };
 

@@ -8,6 +8,13 @@ var UserActions = {
       actionType: UserConstants.USERS_RECEIVED,
       users: users
     });
+  },
+
+  receiveCurrentUser: function(user) {
+    Dispatcher.dispatch({
+      actionType: UserConstants.CURRENT_USER_RECEIVED,
+      user: user
+    });
   }
 };
 

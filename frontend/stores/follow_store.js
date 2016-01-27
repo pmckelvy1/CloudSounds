@@ -51,6 +51,10 @@ FollowStore.__onDispatch = function (payload) {
       FollowStore.removeFollow(payload.follow);
       FollowStore.__emitChange();
       break;
+    // case FollowConstants.RECEIVE_CURRENT_USER_FOLLOWS:
+    //   resetFollows(payload.follows);
+    //   FollowStore.__emitChange();
+    //   break;
   }
 };
 

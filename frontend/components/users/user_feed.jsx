@@ -1,7 +1,7 @@
 var React = require('react'),
     UserItem = require('./user_item'),
-    UserStore = require('../stores/user_store'),
-    ApiUtil = require('../util/api_util');
+    UserStore = require('../../stores/user_store'),
+    ApiUtil = require('../../util/api_util');
 
 var UserFeed = React.createClass({
   getInitialState: function () {

@@ -1,6 +1,6 @@
 var React = require('react'),
     UserStore = require('react'),
-    FollowButton = require('./buttons/follow_button');
+    FollowButton = require('../buttons/follow_button');
 
 var UserItem = React.createClass({
 

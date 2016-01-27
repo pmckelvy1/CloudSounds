@@ -1,0 +1,31 @@
+.main-feed {
+  width: 879px;
+  border-right: 1px solid #ccc;
+}
+
+.track-item {
+  background: #eee;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 700px;
+  height: 190px;
+  margin: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.track-thumb {
+  display: block;
+  float: left;
+}
+
+.track-thumb img {
+  width: 150px;
+  height: 150px;
+}
+
+.user-name {
+  display: block;
+  float: left;
+  margin-left: 20px;
+}

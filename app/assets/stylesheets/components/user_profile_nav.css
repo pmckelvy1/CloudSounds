@@ -1,0 +1,32 @@
+.user-profile-nav {
+  display: block;
+  float: left;
+  width: 880px;
+  background: orange;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.user-profile-nav-tab {
+  font-size: 20px;
+  font-weight: normal;
+  display: block;
+  float: left;
+  border-bottom: 1px solid #ccc;
+  margin-right: 25px;
+}
+
+.user-profile-nav-tab:hover {
+  border-bottom: 1px solid black;
+  color: #888;
+}
+
+.user-profile-nav-options {
+  display: block;
+  float: right;
+  width: 360px;
+  background: yellow;
+  font-size: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}

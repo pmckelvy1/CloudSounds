@@ -24,11 +24,11 @@ var UserLogIn = React.createClass({
       <form className="sign-in-up-form group">
         <div>
           <label for="email">Email:</label>
-          <input id="email" type="text" valueLink={this.linkState('email')}>
+          <input id="email" type="text" valueLink={this.linkState('email')}/>
         </div>
         <div>
           <label for="password">Password</label>
-          <input id="password" type="password" valueLink={this.linkState('password')}>
+          <input id="password" type="password" valueLink={this.linkState('password')}/>
         </div>
         <button type="submit" onClick={this.signInAsUser} name="sign-in">Sign In!</button>
 
