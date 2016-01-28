@@ -30,6 +30,13 @@ class User < ActiveRecord::Base
     source: :songs
   )
 
+  has_many :likes
+  has_many(
+    :liked_songs,
+    through: :likes,
+    source: :song
+  )
+
   after_initialize :ensure_session_token
 
   attr_reader :password

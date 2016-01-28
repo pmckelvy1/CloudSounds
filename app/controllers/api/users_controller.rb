@@ -3,7 +3,7 @@ class Api::UsersController < ApplicationController
   before_action :ensure_logged_in
 
   def show
-    @user = User.includes(:followed_users, :songs).find(params[:id])
+    @user = User.includes(:followed_users, :songs, :likes).find(params[:id])
     if @user
       render :show
     else

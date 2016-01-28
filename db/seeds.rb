@@ -16,17 +16,17 @@ bowie = User.create!(email: 'dbowie@gmail.com', username: 'David Bowie', passwor
 
 Song.destroy_all
 
-s1 = Song.create!(user_id: guest.id, title: "Yellow Submarine", info: "Originally by the beatles.  From the album 'Yellow Submarine'.")
-s2 = Song.create!(user_id: guest.id, title: "A Little Help From My Friends", info: "Originally by the beatles.  SARGEANT PEPPER!")
-s3 = Song.create!(user_id: guest.id, title: "Happy Birthday", info: "Originally by the beatles.  I'm so glad it's your birthday!")
-s4 = Song.create!(user_id: me.id, title: "Been There Before", info: "Featuring Julia Lauren on vocals!")
-s5 = Song.create!(user_id: me.id, title: "Punch Funk Love", info: "From the new Pitchslap album.")
-s6 = Song.create!(user_id: darth.id, title: "Imperial March", info: "Music by John Williams.")
-s7 = Song.create!(user_id: bowie.id, title: "Ziggy Stardust", info: "We were ziggy's band.")
-s8 = Song.create!(user_id: bowie.id, title: "Space Oddity", info: "Out there...")
-s9 = Song.create!(user_id: bach.id, title: "Brandenburg Concerto No. 1", info: "Old school, ya heard?")
-s10 = Song.create!(user_id: bach.id, title: "Minuet in G Minor", info: "...but im a major G.")
-s11 = Song.create!(user_id: bach.id, title: "Moonlight Sonata", info: "Beethoven ripped me off!")
+s1 = Song.create!(user_id: guest.id, username: guest.username, title: "Yellow Submarine", info: "Originally by the beatles.  From the album 'Yellow Submarine'.")
+s2 = Song.create!(user_id: guest.id, username: guest.username, title: "A Little Help From My Friends", info: "Originally by the beatles.  SARGEANT PEPPER!")
+s3 = Song.create!(user_id: guest.id, username: guest.username, title: "Happy Birthday", info: "Originally by the beatles.  I'm so glad it's your birthday!")
+s4 = Song.create!(user_id: me.id, username: me.username, title: "Been There Before", info: "Featuring Julia Lauren on vocals!")
+s5 = Song.create!(user_id: me.id, username: me.username, title: "Punch Funk Love", info: "From the new Pitchslap album.")
+s6 = Song.create!(user_id: darth.id, username: darth.username, title: "Imperial March", info: "Music by John Williams.")
+s7 = Song.create!(user_id: bowie.id, username: bowie.username, title: "Ziggy Stardust", info: "We were ziggy's band.")
+s8 = Song.create!(user_id: bowie.id, username: bowie.username, title: "Space Oddity", info: "Out there...")
+s9 = Song.create!(user_id: bach.id, username: bach.username, title: "Brandenburg Concerto No. 1", info: "Old school, ya heard?")
+s10 = Song.create!(user_id: bach.id, username: bach.username, title: "Minuet in G Minor", info: "...but im a major G.")
+s11 = Song.create!(user_id: bach.id, username: bach.username, title: "Moonlight Sonata", info: "Beethoven ripped me off!")
 
 Follow.destroy_all
 
@@ -44,3 +44,5 @@ f11 = Follow.create!(user_id: bowie.id, followed_id: guest.id);
 f12 = Follow.create!(user_id: bach.id, followed_id: guest.id);
 f13 = Follow.create!(user_id: bach.id, followed_id: me.id);
 f14 = Follow.create!(user_id: bach.id, followed_id: darth.id);
+
+Like.destroy_all

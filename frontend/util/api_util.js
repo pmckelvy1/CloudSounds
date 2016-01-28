@@ -1,6 +1,7 @@
 var UserActions = require('../actions/user_actions');
 var FollowActions = require('../actions/follow_actions');
 var SongActions = require('../actions/song_actions');
+var LikeActions = require('../actions/like_actions');
 
 var ApiUtil = {
 
@@ -23,6 +24,7 @@ var ApiUtil = {
       success: function (user) {
         UserActions.receiveSingleUser(user);
         SongActions.receiveUserSongs(user.songs);
+        LikeActions.receiveLikes(user.likes);
       }
     });
   },
@@ -86,6 +88,30 @@ var ApiUtil = {
       dataType: 'JSON',
       success: function (songs) {
         SongActions.receiveAllSongs(songs);
+      }
+    });
+  },
+
+  like: function(songId) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/likes',
+      dataType: 'JSON',
+      data: { song_id: songId },
+      success: function (like) {
+        LikeActions.receiveLike(like);
+      }
+    });
+  },
+
+  unLike: function(like) {
+    $.ajax({
+      type: 'POST',
+      method: 'DELETE',
+      url: '/api/likes/' + like.id,
+      dataType: 'JSON',
+      success: function (likeData) {
+        LikeActions.receiveUnLike(likeData);
       }
     });
   }

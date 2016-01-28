@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :index, :edit, :update]
     resources :songs
     resources :follows, only: [:create, :index, :destroy]
+    resources :likes, only: [:create, :index, :destroy, :show]
   end
 
   resources :users, only: [:new, :create]
