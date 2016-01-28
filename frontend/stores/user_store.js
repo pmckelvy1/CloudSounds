@@ -7,6 +7,8 @@ var UserStore = new Store(Dispatcher);
 
 var _users = {};
 
+var _user = {};
+
 // var _currentUser = null;
 //
 // var resetCurrentUser = function (user) {
@@ -20,9 +22,13 @@ var resetUsers = function(users) {
   });
 };
 
-var addUser = function(user) {
-  _users[user.id] = user;
+var resetUser = function(user) {
+  _user = user;
 };
+
+// var addUser = function(user) {
+//   _users[user.id] = user;
+// };
 
 UserStore.isCurrentUser = function(userId) {
   return userId === _currentUser.id;
@@ -52,6 +58,14 @@ UserStore.find = function(id) {
   return _users[id];
 };
 
+UserStore.getUserSongs = function() {
+  return _user.songs;
+};
+
+UserStore.getUserLikedSongs = function () {
+  return _user.liked_songs;
+};
+
 UserStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case UserConstants.USERS_RECEIVED:
@@ -59,11 +73,13 @@ UserStore.__onDispatch = function (payload) {
       UserStore.__emitChange();
       break;
     case UserConstants.CURRENT_USER_RECEIVED:
-      resetCurrentUser(payload.user);
+      // resetCurrentUser(payload.user);
+      resetUser(payload.user);
       UserStore.__emitChange();
       break;
     case UserConstants.USER_RECEIVED:
-      addUser(payload.user);
+      // addUser(payload.user);
+      resetUser(payload.user);
       UserStore.__emitChange();
       break;
   }

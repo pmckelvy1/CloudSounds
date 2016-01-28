@@ -9,3 +9,6 @@ end
 json.likes @user.likes do |like|
   json.partial! 'api/likes/like', like: like
 end
+json.liked_songs @user.liked_songs do |song|
+  json.partial! 'api/songs/song', song: song
+end

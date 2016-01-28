@@ -9,7 +9,7 @@ var Header = React.createClass({
 
   render: function () {
     var currentUserId = document.getElementById('current-user-id').innerHTML;
-    var currentUserProfileLink = '#/api/users/' + currentUserId;
+    var currentUserProfileLink = '#/users/' + currentUserId;
     return (
       <div>
       <div className="header group">
@@ -24,7 +24,7 @@ var Header = React.createClass({
           <div className="header-nav-profile-nav group">
 
             {/* if logged_in? */}
-            <div className="upload-link"><a href="#/api/upload">Upload</a></div>
+            <div className="upload-link"><a href="#/upload">Upload</a></div>
             <div className="profile-link"><a href={currentUserProfileLink}>Profile</a></div>
             <div className="alerts"><ul>Aler</ul></div>
             <div className="messages"><ul>Mail</ul></div>
