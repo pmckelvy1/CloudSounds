@@ -7,6 +7,7 @@ var UserReposts = require('./components/users/user_reposts');
 var UserPlaylists = require('./components/users/user_playlists');
 var UserAllTracks = require('./components/users/user_all_tracks');
 var UploadPage = require('./components/upload');
+var SongUpload = require('./components/audio/song_upload');
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -30,7 +31,7 @@ var App = React.createClass({
 var routes = (
   <Route path='/' component={Header}>
     <IndexRoute component={UserFeed} />
-    <Route path='/upload' component={UploadPage} />
+    <Route path='/upload' component={SongUpload} />
     <Route path='/users/:id' component={UserProfile}>
       <IndexRoute component={UserAllTracks} />
       <Route path='/users/:id/all' component={UserAllTracks} />

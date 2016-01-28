@@ -37,6 +37,14 @@ class User < ActiveRecord::Base
     source: :song
   )
 
+  has_one(
+    :profile_picture,
+    class_name: "Image",
+    foreign_key: :user_id,
+    primary_key: :id,
+    as: :imageable
+  )
+
   after_initialize :ensure_session_token
 
   attr_reader :password

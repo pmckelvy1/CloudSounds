@@ -12,17 +12,17 @@ var UserTracks = React.createClass({
     return { userId: userId, songs: UserStore.getUserSongs() };
   },
 
-  // componentDidMount: function () {
-  //   var ts = SongStore.addListener(function () {
-  //     this.setState({ songs: SongStore.allUserSongs(this.state.userId) });
-  //   }.bind(this));
-  //   this.setState({ tsToken: ts });
-  //   ApiUtil.getUserSongs(this.state.userId);
-  // },
-  //
-  // componentWillUnmount: function () {
-  //   this.state.tsToken.remove();
-  // },
+  componentDidMount: function () {
+    var us = UserStore.addListener(function () {
+      this.setState({ songs: UserStore.getUserSongs(this.state.userId) });
+    }.bind(this));
+    this.setState({ usToken: us });
+    ApiUtil.getUserSongs(this.state.userId);
+  },
+
+  componentWillUnmount: function () {
+    this.state.usToken.remove();
+  },
 
   render: function () {
     return (

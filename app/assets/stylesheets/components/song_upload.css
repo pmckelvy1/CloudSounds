@@ -1,0 +1,81 @@
+.song-upload-form {
+  width: 600px;
+  display: block;
+  margin: auto;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  padding: 5px;
+  background: #CCE7F0;
+}
+
+.upload-label {
+  font-size: 18px;
+  display: block;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+.song-title-label {
+
+}
+
+.song-title-input {
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  display: block;
+  margin: auto;
+  text-align: center;
+  background: white;
+}
+
+.song-info-label {
+
+}
+
+.song-info-input {
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  display: block;
+  margin: auto;
+  width: 300px;
+  height: 200px;
+  background: white;
+}
+
+.song-artwork-label {
+
+}
+
+.song-artwork-input {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.preview-image {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin: auto;
+  background: white;
+  margin-bottom: 5px;
+}
+
+.upload-button {
+  font-weight: 450;
+  margin: auto;
+  display: block;
+  padding: 5px 10px;
+  font-size: 26px;
+  background: orange;
+  border-radius: 2px;
+}
+
+.upload-title {
+  font-size: 20px;
+  display: block;
+  margin: auto;
+  text-align: center;
+}

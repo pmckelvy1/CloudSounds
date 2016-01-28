@@ -3,6 +3,13 @@ class Api::SongsController < ApplicationController
   end
 
   def create
+    @song = Song.create(song_params)
+    # @song = Song.create(song_params)
+    @song.user_id = current_user.id
+    @song.username = current_user.username
+    if @song.save
+      render :show
+    end
   end
 
   def index
@@ -31,6 +38,6 @@ class Api::SongsController < ApplicationController
 
   private
     def song_params
-      params.require(:song).permit(:title, :info)
+      params.require(:song).permit(:title, :info, :image)
     end
 end

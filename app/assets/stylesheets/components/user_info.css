@@ -1,0 +1,30 @@
+.user-profile-info {
+  display: block;
+}
+
+.user-stats {
+  color: #eee;
+}
+
+.user-stats li {
+  display: block;
+  float: left;
+}
+
+.user-stats a {
+  display: block;
+  padding: 5px;
+  background: red;
+}
+
+.stat {
+  display: block;
+  font-size: 32px;
+  width: 40px;
+}
+
+.stat-title {
+  display: block;
+  font-size: 17px;
+  width: 40px;
+}

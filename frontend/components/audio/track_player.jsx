@@ -8,7 +8,7 @@ var TrackPlayer = React.createClass({
     var userURL = '#/users/' + this.props.song.user_id;
     return (
       <div className="track-player">
-        <div className="thumb-large"><img src="/assets/note.png"/></div>
+        <div className="thumb-large"><img src={this.props.song.image_url}/></div>
         <h1 className="track-artist-name"><a href={userURL}>{this.props.song.username}</a></h1>
         <h2 className="track-name">{this.props.song.title}</h2>
         <TrackWaveform />

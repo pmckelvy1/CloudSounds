@@ -23,8 +23,8 @@ var ApiUtil = {
       dataType: 'JSON',
       success: function (user) {
         UserActions.receiveSingleUser(user);
-        SongActions.receiveUserSongs(user.songs);
-        LikeActions.receiveLikes(user.likes);
+        // SongActions.receiveUserSongs(user.songs);
+        // LikeActions.receiveLikes(user.likes);
       }
     });
   },
@@ -114,6 +114,23 @@ var ApiUtil = {
         LikeActions.receiveUnLike(likeData);
       }
     });
+  },
+
+  createSong: function(songData, callback) {
+    // UPLOAD SONG
+    $.ajax({
+      type: 'POST',
+      url: '/api/songs/',
+      dataType: 'JSON',
+      processData: false,
+      contentType: false,
+      data: songData,
+      success: function (data) {
+        debugger
+        callback && callback();
+      }
+    });
+
   }
 
 };

@@ -46,6 +46,10 @@ UserStore.removeCurrentUser = function () {
   _currentUser = null;
 };
 
+UserStore.getUser = function () {
+  return _user;
+};
+
 UserStore.all = function () {
   var users = [];
   for (var id in _users) {

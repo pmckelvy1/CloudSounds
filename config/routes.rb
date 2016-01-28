@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :songs
     resources :follows, only: [:create, :index, :destroy]
     resources :likes, only: [:create, :index, :destroy, :show]
+    resources :reposts, only: [:create, :index, :destroy, :show]
+    resources :images, only: [:create, :destroy, :show]
   end
 
   resources :users, only: [:new, :create]

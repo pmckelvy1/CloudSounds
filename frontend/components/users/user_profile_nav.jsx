@@ -4,11 +4,11 @@ var React = require('react'),
 var UserProfileNav = React.createClass({
 
   render: function () {
-    var allLink = '#/users/' + this.props.userId + '/all';
-    var tracksLink = '#/users/' + this.props.userId + '/tracks';
-    var likesLink = '#/users/' + this.props.userId + '/likes';
-    var repostsLink = '#/users/' + this.props.userId + '/reposts';
-    var playlistsLink = '#/users/' + this.props.userId + '/playlists';
+    var allLink = '#/users/' + this.props.user.id + '/all';
+    var tracksLink = '#/users/' + this.props.user.id + '/tracks';
+    var likesLink = '#/users/' + this.props.user.id + '/likes';
+    var repostsLink = '#/users/' + this.props.user.id + '/reposts';
+    var playlistsLink = '#/users/' + this.props.user.id + '/playlists';
     return (
       <div className="user-profile-nav">
         <ul>

@@ -6,6 +6,8 @@ var React = require('react'),
     UserProfileNavOptions = require('./user_profile_nav_options'),
     UserLikesSnapshot = require('./user_likes_snapshot'),
     UserFollowsSnapshot = require('./user_follows_snapshot'),
+    UserProfileMain = require('./user_profile_main'),
+    UserProfileSidebar = require('./user_profile_sidebar.jsx'),
     ApiUtil = require('../../util/api_util');
 
 var UserProfile = React.createClass({
@@ -15,9 +17,7 @@ var UserProfile = React.createClass({
   },
 
   componentDidMount: function () {
-    var us = UserStore.addListener(function () {
-      this.setState({ user: UserStore.find(this.props.params.id) });
-    }.bind(this));
+    var us = UserStore.addListener(this.onChange);
     this.setState({ usToken: us });
     ApiUtil.fetchSingleUser(this.props.params.id);
   },
@@ -26,27 +26,23 @@ var UserProfile = React.createClass({
     this.state.usToken.remove();
   },
 
+  componentWillReceiveProps: function (newProps) {
+    ApiUtil.fetchSingleUser(newProps.params.id);
+  },
+
+  onChange: function () {
+    this.setState({ user: UserStore.getUser(this.props.params.id) });
+  },
+
   render: function () {
     return (
       <div>
-        <UserProfileHeader userId={this.props.params.id} />
-        <UserProfileNav userId={this.props.params.id} />
-        <UserProfileNavOptions userId={this.props.params.id} />
-        <div className="profile-main group">
-          <div className="profile-sidebar group">
-            <div className="test-page-text">USER PROFILE</div>
-            <div className="test-page-text">{this.state.user.username}</div>
-            <UserInfo userInfo={this.state.user.info} />
-            <UserLikesSnapshot userId={this.props.params.id} />
-            <UserFollowsSnapshot userId={this.props.params.id} />
-          </div>
-
-          <div className="profile-content group">
-            {this.props.children}
-          </div>
-        </div>
+        <UserProfileHeader user={this.state.user} />
+        <UserProfileNav user={this.state.user} />
+        <UserProfileNavOptions user={this.state.user} />
+        <UserProfileSidebar user={this.state.user} />
+        <UserProfileMain children={this.props.children} user={this.state.user} />
       </div>
-
     );
   }
 
