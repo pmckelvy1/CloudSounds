@@ -1,32 +1,33 @@
 var React = require("react"),
     ApiActions = require('../../actions/api/api_actions'),
-    FollowStore = require('../../stores/follow_store');
+    FollowStore = require('../../stores/follow_store'),
+    CurrentUserStore = require('../../stores/current_user_store');
 
 var FollowButton = React.createClass({
   getInitialState: function () {
-    return { follows: FollowStore.doesFollow(this.props.followedId) };
+    return { follows: CurrentUserStore.doesFollow(this.props.followedId) };
   },
 
   componentDidMount: function () {
-    var fs = FollowStore.addListener(function () {
+    var cus = CurrentUserStore.addListener(function () {
       // set the follow state
-      this.setState({ follows: FollowStore.doesFollow(this.props.followedId)});
+      this.setState({ follows: CurrentUserStore.doesFollow(this.props.followedId)});
       // if there is a follow, grab it
-      if (FollowStore.doesFollow(this.props.followedId)) {
-        this.setState({ follow: FollowStore.find(this.props.followedId)});
-      }
+      // if (CurrentUserStore.doesFollow(this.props.followedId)) {
+      //   this.setState({ followedId: CurrentUserStore.find(this.props.followedId)});
+      // }
     }.bind(this));
-    this.setState({ fsToken: fs });
+    this.setState({ cusToken: cus });
   },
 
   componentWillUnmount: function () {
-    this.state.fsToken.remove();
+    this.state.cusToken.remove();
   },
 
   toggleFollow: function (e) {
     e.preventDefault();
     if (this.state.follows) {
-      ApiActions.unFollow(this.state.follow);
+      ApiActions.unFollow(this.props.followedId);
     } else {
       ApiActions.follow(this.props.followedId);
     }

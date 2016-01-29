@@ -8,19 +8,19 @@ var UserInfo = React.createClass({
     var followedStat;
     var songStat;
 
-    if (this.props.user.followings && this.props.user.followings > 0) {
+    if (this.props.user.followings > 0) {
       followingStat = this.props.user.followings.length;
     } else {
       followingStat = 0;
     }
 
-    if (this.props.user.followed_users && this.props.user.followed_users > 0) {
+    if (this.props.user.followed_users > 0) {
       followingStat = this.props.user.followed_users.length;
     } else {
       followedStat = 0;
     }
 
-    if (this.props.user.songs && this.props.user.songs > 0) {
+    if (this.props.user.songs > 0) {
       followingStat = this.props.user.songs.length;
     } else {
       songStat = 0;
@@ -31,12 +31,12 @@ var UserInfo = React.createClass({
         <ul className="user-stats group">
           <li>
             <a href="#">
-              <span className="stat-title">Followers</span><span className="stat">{followingStat}</span>
+              <span className="stat-title">Following</span><span className="stat">{followedStat}</span>
             </a>
           </li>
           <li>
             <a href="#">
-              <span className="stat-title">Following</span><span className="stat">{followedStat}</span>
+              <span className="stat-title">Followers</span><span className="stat">{followingStat}</span>
             </a>
           </li>
           <li>

@@ -5,8 +5,8 @@ var ApiActions = {
     ApiUtil.follow(followedId);
   },
 
-  unFollow: function(follow) {
-    ApiUtil.unFollow(follow);
+  unFollow: function(followedId) {
+    ApiUtil.unFollow(followedId);
   },
 
   like: function(songId) {

@@ -42,20 +42,20 @@ FollowStore.doesFollow = function(followedId) {
 };
 
 FollowStore.__onDispatch = function (payload) {
-  switch(payload.actionType) {
-    case FollowConstants.USER_FOLLOWED:
-      FollowStore.addFollow(payload.follow);
-      FollowStore.__emitChange();
-      break;
-    case FollowConstants.USER_UNFOLLOWED:
-      FollowStore.removeFollow(payload.follow);
-      FollowStore.__emitChange();
-      break;
+  // switch(payload.actionType) {
+  //   case FollowConstants.USER_FOLLOWED:
+  //     FollowStore.addFollow(payload.follow);
+  //     FollowStore.__emitChange();
+  //     break;
+  //   case FollowConstants.USER_UNFOLLOWED:
+  //     FollowStore.removeFollow(payload.follow);
+  //     FollowStore.__emitChange();
+  //     break;
     // case FollowConstants.RECEIVE_CURRENT_USER_FOLLOWS:
     //   resetFollows(payload.follows);
     //   FollowStore.__emitChange();
     //   break;
-  }
+  // }
 };
 
 module.exports = FollowStore;

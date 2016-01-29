@@ -1,0 +1,10 @@
+.track-player-mini {
+  background: #eee;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 250px;
+  height: 60px;
+  margin: 20px;
+  padding: 5px;
+  box-sizing: border-box;
+}

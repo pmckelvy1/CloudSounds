@@ -42,11 +42,11 @@ var ApiUtil = {
     });
   },
 
-  unFollow: function (follow) {
+  unFollow: function (followedId) {
     $.ajax({
       type: 'POST',
       method: 'DELETE',
-      url: '/api/follows/' + follow.id,
+      url: '/api/follows/' + followedId,
       dataType: 'JSON',
       success: function (followData) {
         FollowActions.receiveUnFollow(followData);
@@ -60,8 +60,8 @@ var ApiUtil = {
       url: '/api/follows',
       dataType: 'JSON',
       data: { followed_id: followedId },
-      success: function (follow) {
-        FollowActions.receiveFollow(follow);
+      success: function (followedUser) {
+        FollowActions.receiveFollow(followedUser);
       }
     });
   },

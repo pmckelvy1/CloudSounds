@@ -7,11 +7,12 @@ class Api::FollowsController < ApplicationController
 
   def create
     @follow = Follow.create!(user_id: current_user.id, followed_id: params[:followed_id])
-    render :show
+    @user = @follow.followed_user
+    render 'api/users/followed'
   end
 
   def destroy
-    @follow = Follow.find(params[:id])
+    @follow = Follow.find_by_followed_id(params[:id])
     @follow.destroy!
     render :show
   end

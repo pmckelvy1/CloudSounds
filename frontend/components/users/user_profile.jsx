@@ -12,7 +12,6 @@ var React = require('react'),
 
 var UserProfile = React.createClass({
   getInitialState: function () {
-    var userId = this.props.params.id;
     return { user: {} };
   },
 
@@ -36,10 +35,10 @@ var UserProfile = React.createClass({
   },
 
   render: function () {
-    if (this.state.user === {}) {
+    if (Object.keys(this.state.user).length === 0) {
       return (
         <div className="loader">Loading...</div>
-      )
+      );
     } else {
       return (
         <div>

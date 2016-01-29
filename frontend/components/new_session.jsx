@@ -11,10 +11,6 @@ var SessionForm = React.createClass({
 
   submit: function (e) {
     e.preventDefault();
-    var userData = new FormData();
-    userData.append('user[email]', this.state.email);
-    userData.append('user[password]', this.state.password);
-    debugger
     // var credentials = $(e.currentTarget).serializeJSON;
     var credentials = Object.assign({}, this.state);
     SessionsApiUtil.login(credentials, function () {
@@ -24,10 +20,8 @@ var SessionForm = React.createClass({
 
   guestSubmit: function (e) {
     e.preventDefault();
-    var userData = new FormData();
-    userData.append('user[email]', 'guest_user@guest.com');
-    userData.append('user[password]', 'guest_password');
-    SessionsApiUtil.login(userData, function () {
+    var credentials = { email: 'guest_user@guest.com', password: 'guest_password' };
+    SessionsApiUtil.login(credentials, function () {
       this.history.pushState({}, "/");
     }.bind(this));
   },
