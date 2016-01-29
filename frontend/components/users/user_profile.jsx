@@ -8,7 +8,8 @@ var React = require('react'),
     UserFollowsSnapshot = require('./user_follows_snapshot'),
     UserProfileMain = require('./user_profile_main'),
     UserProfileSidebar = require('./user_profile_sidebar.jsx'),
-    ApiUtil = require('../../util/api_util');
+    ApiUtil = require('../../util/api_util'),
+    CurrentUserStore = require('../../stores/current_user_store');
 
 var UserProfile = React.createClass({
   getInitialState: function () {

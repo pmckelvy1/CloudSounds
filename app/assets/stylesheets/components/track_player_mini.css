@@ -18,3 +18,14 @@
 .buttons {
   display: none;
 }
+
+.like-button-mini {
+  color: #eee;
+  display: block;
+  float: left;
+  padding: 1px 2px;
+}
+
+.like-button-mini:hover {
+  color: #999;
+}

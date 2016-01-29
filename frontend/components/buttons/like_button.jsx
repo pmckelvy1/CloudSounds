@@ -4,16 +4,16 @@ var React = require("react"),
 
 var LikeButton = React.createClass({
   getInitialState: function () {
-    return { likes: CurrentUserStore.doesLike(this.props.songId) };
+    return { likes: CurrentUserStore.doesLike(this.props.song.id) };
   },
 
   componentDidMount: function () {
     var cus = CurrentUserStore.addListener(function () {
       // set the like state
-      this.setState({ likes: CurrentUserStore.doesLike(this.props.songId)});
+      this.setState({ likes: CurrentUserStore.doesLike(this.props.song.id)});
       // if there is a like, grab it
-      // if (CurrentUserStore.doesLike(this.props.songId)) {
-      //   this.setState({ like: CurrentUserStore.find(this.props.songId)});
+      // if (CurrentUserStore.doesLike(this.props.song.id)) {
+      //   this.setState({ like: CurrentUserStore.find(this.props.song.id)});
       // }
     }.bind(this));
     this.setState({ cusToken: cus });
@@ -23,12 +23,12 @@ var LikeButton = React.createClass({
     this.state.cusToken.remove();
   },
 
-  toggleFollow: function (e) {
+  toggleLike: function (e) {
     e.preventDefault();
     if (this.state.likes) {
-      ApiActions.unLike(this.props.songId);
+      ApiActions.unLike(this.props.song.id);
     } else {
-      ApiActions.like(this.props.songId);
+      ApiActions.like(this.props.song.id);
     }
   },
 
@@ -40,7 +40,7 @@ var LikeButton = React.createClass({
       likeButtonText = "♡";
     }
     return (
-      <button className="like-button" onClick={this.toggleFollow}>{likeButtonText}</button>
+      <button onClick={this.toggleLike}>{likeButtonText} {this.props.song.num_likes}</button>
     );
   }
 

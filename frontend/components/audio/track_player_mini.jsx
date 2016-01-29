@@ -12,7 +12,7 @@ var TrackPlayerMini = React.createClass({
         <h1><a href={userURL}>{this.props.song.username}</a></h1>
         <h2>{this.props.song.title}</h2>
         <div className="buttons group">
-          <LikeButton songId={this.props.song.id}/>
+          <LikeButton className="like-button-mini" song={this.props.song}/>
         </div>
       </div>
     );

@@ -10,6 +10,7 @@ var CurrentUserStore = new Store(Dispatcher);
 
 var _followedUsers = {};
 var _likedSongs = {};
+var _followedSongs = {};
 
 var resetFollowedUsers = function(followedUsers) {
   _followedUsers = {};
@@ -25,12 +26,27 @@ var resetLikedSongs = function(likedSongs) {
   });
 };
 
+var resetFollowedSongs = function(followedSongs) {
+  _followedSongs = {};
+  followedSongs.forEach(function(followedSong) {
+    _followedSongs[followedSong.id] = followedSong;
+  });
+};
+
 var removeFollow = function (follow) {
   delete _followedUsers[follow.followed_id];
+  for (var id in _followedSongs) {
+    if (_followedSongs[id].user_id === follow.followed_id) {
+      delete _followedSongs[id];
+    }
+  }
 };
 
 var addFollow = function (followedUser) {
   _followedUsers[followedUser.id] = followedUser;
+  followedUser.songs.forEach(function(song) {
+    _followedSongs[song.id] = song;
+  });
 };
 
 var removeLike = function (like) {
@@ -47,6 +63,10 @@ CurrentUserStore.doesFollow = function(followedId) {
   } else {
     return false;
   }
+};
+
+CurrentUserStore.getUserSongs = function () {
+  return _currentUser.songs;
 };
 
 CurrentUserStore.currentUser = function () {
@@ -81,6 +101,14 @@ CurrentUserStore.likedSongs = function () {
   return likedSongs;
 };
 
+CurrentUserStore.followedSongs = function () {
+  var followedSongs = [];
+  for (var id in _followedSongs) {
+    followedSongs.push(_followedSongs[id]);
+  }
+  return followedSongs;
+};
+
 CurrentUserStore.isLoggedIn = function () {
   return !!_currentUser.id;
 };
@@ -96,6 +124,7 @@ CurrentUserStore.__onDispatch = function (payload) {
       _currentUser = payload.currentUser;
       resetFollowedUsers(payload.currentUser.followed_users);
       resetLikedSongs(payload.currentUser.liked_songs);
+      resetFollowedSongs(payload.currentUser.followed_songs);
       CurrentUserStore.__emitChange();
       break;
     case FollowConstants.USER_FOLLOWED:

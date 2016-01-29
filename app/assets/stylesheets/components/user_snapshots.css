@@ -2,5 +2,6 @@
   display: block;
   width: 320px;
   box-sizing: border-box;
-  background: blue;
+  background: lightblue;
+  min-height: 205px;
 }

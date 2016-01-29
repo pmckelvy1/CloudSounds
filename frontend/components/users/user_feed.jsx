@@ -8,12 +8,12 @@ var React = require('react'),
 
 var UserFeed = React.createClass({
   getInitialState: function () {
-    return { songs: CurrentUserStore.currentUser().followed_songs };
+    return { songs: CurrentUserStore.followedSongs() };
   },
 
   componentDidMount: function () {
     var ssToken = CurrentUserStore.addListener(function () {
-      this.setState({ songs: CurrentUserStore.currentUser().followed_songs });
+      this.setState({ songs: CurrentUserStore.followedSongs() });
     }.bind(this));
 
     SessionsApiUtil.fetchCurrentUser();
@@ -34,7 +34,7 @@ var UserFeed = React.createClass({
     } else {
       return (
         <div className="loader">Loading...</div>
-      )
+      );
     }
     // var userItems = this.state.users.map(function(user) {
     //   return <UserItem key={user.id} user={user} />;

@@ -12,7 +12,7 @@ var TrackPlayer = React.createClass({
         <h1 className="track-artist-name"><a href={userURL}>{this.props.song.username}</a></h1>
         <h2 className="track-name">{this.props.song.title}</h2>
         <TrackWaveform />
-        <LikeButton songId={this.props.song.id}/>
+        <LikeButton className="like-button" song={this.props.song}/>
       </div>
     );
   }

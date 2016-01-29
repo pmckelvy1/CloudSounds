@@ -9,15 +9,12 @@ var UserLikesSnapshot = React.createClass({
   },
 
   componentDidMount: function () {
-    var storeToken;
-    if (this.props.user.id === CurrentUserStore.currentUserId()) {
-      storeToken = CurrentUserStore.addListener(function() {
-        this.setState({ likedSongs: CurrentUserStore.likedSongs() });
-      }.bind(this));
-      this.setState({ likedSongs: CurrentUserStore.likedSongs() });
-    } else {
-      this.setState({ likedSongs: this.props.user.liked_songs });
-    }
+    // var storeToken;
+    // storeToken = UserStore.addListener(function() {
+    //   this.setState({ likedSongs: UserStore.getUserLikedSongs() });
+    // }.bind(this));
+    this.setState({ likedSongs: UserStore.getUserLikedSongs() });
+    // this.setState({ storeToken: storeToken });
   },
 
   componentWillUnmount: function () {
@@ -32,20 +29,21 @@ var UserLikesSnapshot = React.createClass({
     //     <div className="loader">Loading...</div>
     //   );
     // } else {
-      var liked_songs = this.state.likedSongs;
-      var likedSongs = [];
-      for (var i = 0; i < 3 && i < liked_songs.length; i++) {
-        likedSongs.push(<li key={i} ><TrackPlayerMini song={liked_songs[i]} /></li>);
-      }
-      return (
-        <div className="user-likes-snapshot">
-          <h1>105 Likes</h1>
-          <ul className="group">
-            {likedSongs}
-          </ul>
-        </div>
-      );
+    var liked_songs = this.state.likedSongs;
+    var numLikedSongs = liked_songs.length;
+    var likedSongs = [];
+    for (var i = 0; i < 3 && i < liked_songs.length; i++) {
+      likedSongs.push(<li key={i} ><TrackPlayerMini song={liked_songs[i]} /></li>);
     }
+    return (
+      <div className="user-likes-snapshot">
+        <h1>{numLikedSongs} Likes</h1>
+        <ul className="group">
+          {likedSongs}
+        </ul>
+      </div>
+    );
+  }
   // }
 });
 

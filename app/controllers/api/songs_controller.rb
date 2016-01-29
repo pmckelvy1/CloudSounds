@@ -17,7 +17,7 @@ class Api::SongsController < ApplicationController
     # IF NOT GIVEN A USER ID, GET ALL OF THE SONGS BY USERS
     # THAT THE CURRENT USER FOLLOWS
     if params[:user_id]
-      @songs = Song.where(user_id: params[:user_id])
+      @songs = Song.where(user_id: params[:user_id]).includes(:likes)[0]
     else
       @songs = User.find(current_user.id).followed_songs
     end
