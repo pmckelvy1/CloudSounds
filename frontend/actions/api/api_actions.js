@@ -13,8 +13,8 @@ var ApiActions = {
     ApiUtil.like(songId);
   },
 
-  unLike: function(like) {
-    ApiUtil.unLike(like);
+  unLike: function(songId) {
+    ApiUtil.unLike(songId);
   }
 };
 

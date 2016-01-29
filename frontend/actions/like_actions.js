@@ -9,10 +9,10 @@ var LikeActions = {
     });
   },
 
-  receiveLike: function(like) {
+  receiveLike: function(likedSong) {
     Dispatcher.dispatch({
       actionType: LikeConstants.LIKE_RECEIVED,
-      like: like
+      likedSong: likedSong
     });
   },
 

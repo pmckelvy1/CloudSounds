@@ -1,6 +1,7 @@
 var Store = require('flux/utils').Store,
     Dispatcher = require('../dispatcher/dispatcher'),
-    LikeConstants = require('../constants/like_constants');
+    LikeConstants = require('../constants/like_constants'),
+    CurrentUserConstants = require('../constants/current_user_constants');
 
 var LikeStore = new Store(Dispatcher);
 
@@ -42,20 +43,24 @@ LikeStore.doesLike = function(likedId) {
 };
 
 LikeStore.__onDispatch = function (payload) {
-  switch (payload.actionType) {
-    case LikeConstants.LIKE_RECEIVED:
-      addLike(payload.like);
-      LikeStore.__emitChange();
-      break;
-    case LikeConstants.UNLIKE_RECEIVED:
-      removeLike(payload.like);
-      LikeStore.__emitChange();
-      break;
-    case LikeConstants.LIKES_RECEIVED:
-      resetLikes(payload.likes);
-      LikeStore.__emitChange();
-      break;
-  }
+  // switch (payload.actionType) {
+  //   case LikeConstants.LIKE_RECEIVED:
+  //     addLike(payload.like);
+  //     LikeStore.__emitChange();
+  //     break;
+  //   case LikeConstants.UNLIKE_RECEIVED:
+  //     removeLike(payload.like);
+  //     LikeStore.__emitChange();
+  //     break;
+  //   case LikeConstants.LIKES_RECEIVED:
+  //     resetLikes(payload.likes);
+  //     LikeStore.__emitChange();
+  //     break;
+  //   case CurrentUserConstants.RECEIVE_CURRENT_USER:
+  //     resetLikes(payload.currentUser.likes);
+  //     LikeStore.__emitChange();
+  //     break;
+  // }
 };
 
 module.exports = LikeStore;

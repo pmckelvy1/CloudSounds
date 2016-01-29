@@ -98,17 +98,17 @@ var ApiUtil = {
       url: '/api/likes',
       dataType: 'JSON',
       data: { song_id: songId },
-      success: function (like) {
-        LikeActions.receiveLike(like);
+      success: function (likedSong) {
+        LikeActions.receiveLike(likedSong);
       }
     });
   },
 
-  unLike: function(like) {
+  unLike: function(songId) {
     $.ajax({
       type: 'POST',
       method: 'DELETE',
-      url: '/api/likes/' + like.id,
+      url: '/api/likes/' + songId,
       dataType: 'JSON',
       success: function (likeData) {
         LikeActions.receiveUnLike(likeData);
@@ -126,7 +126,6 @@ var ApiUtil = {
       contentType: false,
       data: songData,
       success: function (data) {
-        debugger
         callback && callback();
       }
     });

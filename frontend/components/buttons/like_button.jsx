@@ -1,32 +1,32 @@
 var React = require("react"),
     ApiActions = require('../../actions/api/api_actions'),
-    LikeStore = require('../../stores/like_store');
+    CurrentUserStore = require('../../stores/current_user_store');
 
 var LikeButton = React.createClass({
   getInitialState: function () {
-    return { likes: LikeStore.doesLike(this.props.songId) };
+    return { likes: CurrentUserStore.doesLike(this.props.songId) };
   },
 
   componentDidMount: function () {
-    var ls = LikeStore.addListener(function () {
+    var cus = CurrentUserStore.addListener(function () {
       // set the like state
-      this.setState({ likes: LikeStore.doesLike(this.props.songId)});
+      this.setState({ likes: CurrentUserStore.doesLike(this.props.songId)});
       // if there is a like, grab it
-      if (LikeStore.doesLike(this.props.songId)) {
-        this.setState({ like: LikeStore.find(this.props.songId)});
-      }
+      // if (CurrentUserStore.doesLike(this.props.songId)) {
+      //   this.setState({ like: CurrentUserStore.find(this.props.songId)});
+      // }
     }.bind(this));
-    this.setState({ lsToken: ls });
+    this.setState({ cusToken: cus });
   },
 
   componentWillUnmount: function () {
-    this.state.lsToken.remove();
+    this.state.cusToken.remove();
   },
 
   toggleFollow: function (e) {
     e.preventDefault();
     if (this.state.likes) {
-      ApiActions.unLike(this.state.like);
+      ApiActions.unLike(this.props.songId);
     } else {
       ApiActions.like(this.props.songId);
     }
