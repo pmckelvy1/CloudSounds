@@ -51,10 +51,12 @@ var addFollow = function (followedUser) {
 
 var removeLike = function (like) {
   delete _likedSongs[like.song_id];
+  _followedSongs[like.song_id].num_likes -= 1;
 };
 
 var addLike = function (likedSong) {
   _likedSongs[likedSong.id] = likedSong;
+  _followedSongs[likedSong.id] = likedSong;
 };
 
 CurrentUserStore.doesFollow = function(followedId) {

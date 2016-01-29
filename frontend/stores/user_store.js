@@ -40,9 +40,10 @@ var updateUnlikedSong = function(like) {
   if (like.user_id == _user.id) {
     delete _likedSongs[like.song_id];
   }
-  if (_songs[like.song_id]) {
-    _songs[like.song_id].num_likes -= 1;
-  }
+  // DECREMENTED BY 2
+  // if (_songs[like.song_id]) {
+  //   _songs[like.song_id].num_likes -= 1;
+  // }
 };
 
 UserStore.isCurrentUser = function(userId) {

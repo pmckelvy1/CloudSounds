@@ -15,19 +15,19 @@ var UserTracks = React.createClass({
 
   componentDidMount: function () {
     var cus;
-    if (this.state.userId == CurrentUserStore.currentUserId()) {
-      cus = CurrentUserStore.addListener(function () {
-        this.setState({ songs: CurrentUserStore.getUserSongs() });
-      }.bind(this));
-      this.setState({ cusToken: cus });
-      this.setState({ songs: CurrentUserStore.getUserSongs(this.state.userId) });
-    } else {
+    // if (this.state.userId == CurrentUserStore.currentUserId()) {
+    //   cus = CurrentUserStore.addListener(function () {
+    //     this.setState({ songs: CurrentUserStore.getUserSongs() });
+    //   }.bind(this));
+    //   this.setState({ cusToken: cus });
+    //   this.setState({ songs: CurrentUserStore.getUserSongs(this.state.userId) });
+    // } else {
       cus = UserStore.addListener(function () {
         this.setState({ songs: UserStore.getUserSongs() });
       }.bind(this));
       this.setState({ cusToken: cus });
       this.setState({ songs: UserStore.getUserSongs(this.state.userId) });
-    }
+    // }
   },
 
   componentWillUnmount: function () {
