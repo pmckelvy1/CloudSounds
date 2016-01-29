@@ -2,9 +2,19 @@
   background: #eee;
   border: 1px solid black;
   border-radius: 5px;
-  width: 250px;
+  width: 320px;
   height: 60px;
-  margin: 20px;
-  padding: 5px;
+  margin-bottom: 2px;
+  padding: 5px 0px;
   box-sizing: border-box;
+  font-size: 14px;
+}
+
+.track-player-mini:hover .buttons {
+  display: block;
+  float: right;
+}
+
+.buttons {
+  display: none;
 }

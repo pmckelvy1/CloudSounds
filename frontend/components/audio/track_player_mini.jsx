@@ -9,9 +9,11 @@ var TrackPlayerMini = React.createClass({
     return (
       <div className="track-player-mini">
         <div className="thumb-mini"><img src={this.props.song.image_url}/></div>
-        <h1 className="track-artist-name"><a href={userURL}>{this.props.song.username}</a></h1>
-        <h2 className="track-name">{this.props.song.title}</h2>
-        <LikeButton songId={this.props.song.id}/>
+        <h1><a href={userURL}>{this.props.song.username}</a></h1>
+        <h2>{this.props.song.title}</h2>
+        <div className="buttons group">
+          <LikeButton songId={this.props.song.id}/>
+        </div>
       </div>
     );
   }
