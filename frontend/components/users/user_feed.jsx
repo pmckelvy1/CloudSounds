@@ -2,20 +2,21 @@ var React = require('react'),
     UserItem = require('./user_item'),
     SongStore = require('../../stores/song_store'),
     ApiUtil = require('../../util/api_util'),
-    TrackFeed = require('../audio/track_feed');
+    TrackFeed = require('../audio/track_feed'),
+    CurrentUserStore = require('../../stores/current_user_store'),
+    SessionsApiUtil = require('../../util/sessions_api_util');
 
 var UserFeed = React.createClass({
   getInitialState: function () {
-    return { songs: SongStore.all() };
+    return { songs: CurrentUserStore.currentUser().followed_songs };
   },
 
   componentDidMount: function () {
-    var ssToken = SongStore.addListener(function () {
-      this.setState({ songs: SongStore.all() });
+    var ssToken = CurrentUserStore.addListener(function () {
+      this.setState({ songs: CurrentUserStore.currentUser().followed_songs });
     }.bind(this));
 
-    ApiUtil.fetchUsers();
-    ApiUtil.fetchAllSongs();
+    SessionsApiUtil.fetchCurrentUser();
     this.setState({ ssToken: ssToken });
   },
 
@@ -24,14 +25,20 @@ var UserFeed = React.createClass({
   },
 
   render: function () {
+    if (this.state.songs) {
+      return (
+        <div className="user-feed">
+          <TrackFeed songs={this.state.songs} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="loader">Loading...</div>
+      )
+    }
     // var userItems = this.state.users.map(function(user) {
     //   return <UserItem key={user.id} user={user} />;
     // });
-    return (
-      <div className="user-feed">
-        <TrackFeed songs={this.state.songs} />
-      </div>
-    );
   }
 });
 

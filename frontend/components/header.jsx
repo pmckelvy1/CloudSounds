@@ -1,15 +1,30 @@
 var React = require('react');
+var CurrentUserStore = require('../stores/current_user_store');
+var SessionApiUtil = require('../util/sessions_api_util');
 
 var Header = React.createClass({
 
-  //
-  // navigateToProfile: function () {
-  //
-  // }
+  getInitialState: function () {
+    return {
+      currentUser: CurrentUserStore.currentUser()
+    };
+  },
+
+  componentDidMount: function () {
+    CurrentUserStore.addListener(this._onChange);
+  },
+
+  _onChange: function () {
+    this.setState({currentUser: CurrentUserStore.currentUser()});
+  },
+
+  logout: function () {
+    this.setState({ currentUser: {} });
+    SessionApiUtil.logout();
+  },
 
   render: function () {
-    var currentUserId = document.getElementById('current-user-id').innerHTML;
-    var currentUserProfileLink = '#/users/' + currentUserId;
+    var currentUserProfileLink = '#/users/' + this.state.currentUser.id;
     return (
       <div>
       <div className="header group">

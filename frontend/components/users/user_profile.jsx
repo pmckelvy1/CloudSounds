@@ -13,7 +13,7 @@ var React = require('react'),
 var UserProfile = React.createClass({
   getInitialState: function () {
     var userId = this.props.params.id;
-    return { user: UserStore.find(userId) };
+    return { user: {} };
   },
 
   componentDidMount: function () {
@@ -31,19 +31,26 @@ var UserProfile = React.createClass({
   },
 
   onChange: function () {
+    this.setState({ user: {} });
     this.setState({ user: UserStore.getUser(this.props.params.id) });
   },
 
   render: function () {
-    return (
-      <div>
-        <UserProfileHeader user={this.state.user} />
-        <UserProfileNav user={this.state.user} />
-        <UserProfileNavOptions user={this.state.user} />
-        <UserProfileSidebar user={this.state.user} />
-        <UserProfileMain children={this.props.children} user={this.state.user} />
-      </div>
-    );
+    if (this.state.user === {}) {
+      return (
+        <div className="loader">Loading...</div>
+      )
+    } else {
+      return (
+        <div>
+          <UserProfileHeader user={this.state.user} />
+          <UserProfileNav user={this.state.user} />
+          <UserProfileNavOptions user={this.state.user} />
+          <UserProfileSidebar user={this.state.user} />
+          <UserProfileMain children={this.props.children} user={this.state.user} />
+        </div>
+      );
+    }
   }
 
 });

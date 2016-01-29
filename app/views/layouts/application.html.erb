@@ -8,50 +8,10 @@
 </head>
 <body>
 
-
-  <!-- <div class="header group">
-    <div class="header-nav group">
-
-      <div class="header-nav-site-nav group">
-        <div class="header-logo"><img src='/assets/note.png'></div>
-        <div class="home"><a href="#">Home</a></div>
-        <div class="collection"><a href="#">Collection</a></div>
-      </div>
-
-      <div class="header-nav-profile-nav group">
-
-        <% if logged_in? %>
-        <div class="upload-link"><a href="#">Upload</a></div>
-        <div class="profile-link"><a href="#">Profile</a></div>
-        <div class="alerts"><ul>Aler</ul></div>
-        <div class="messages"><ul>Mail</ul></div>
-        <div class="settings"><a href="#">Sett</a></div>
-        <div>
-          <form class="sign-out-form" action="<%= session_url %>" method="post">
-            <input type="hidden" name="_method" value="DELETE">
-            <%= auth_token %>
-            <button type="submit" name="sign-out" class="sign-out-button">Sign Out</button>
-          </form>
-        </div>
-        <% else %>
-        <div class="sign-in-or-up group">
-          <a href="<%= new_user_url %>">Sign Up!</a>
-          <a href="<%= new_session_url %>">Sign In!</a>
-        </div>
-        <% end %>
-
-      </div>
-
-    </div>
-  </div> -->
-
   <div class="main">
     <%= show_errors %>
     <%= yield %>
   </div>
-
-  <div id="current-user-id"><% if current_user %><%= current_user.id %><% end %></div>
-
 
 </body>
 </html>
