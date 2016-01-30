@@ -29,21 +29,27 @@ var resetUserLikedSongs = function(songs) {
 
 var updateLikedSong = function(song) {
   if (song.user_id == _user.id) {
-    if (typeof _songs[song.id] != 'undefined') {
+    // if (typeof _songs[song.id] != 'undefined') {
       _songs[song.id] = song;
-    }
+    // }
+    _likedSongs[song.id] = song;
+
+  } else if (_likedSongs[song.id]) {
+    _likedSongs[song.id] = song;
   }
-  _likedSongs[song.id] = song;
 };
 
 var updateUnlikedSong = function(like) {
-  if (like.user_id == _user.id) {
+  // if (like.user_id == _user.id) {
+  //   delete _likedSongs[like.song_id];
+  // }
+  if (_likedSongs[like.song_id]) {
     delete _likedSongs[like.song_id];
   }
   // DECREMENTED BY 2
-  // if (_songs[like.song_id]) {
-  //   _songs[like.song_id].num_likes -= 1;
-  // }
+  if (_songs[like.song_id]) {
+    _songs[like.song_id].num_likes -= 1;
+  }
 };
 
 UserStore.isCurrentUser = function(userId) {
