@@ -1,8 +1,11 @@
 var React = require('react');
 var CurrentUserStore = require('../stores/current_user_store');
 var SessionApiUtil = require('../util/sessions_api_util');
+var History = require('react-router').History;
+
 
 var Header = React.createClass({
+  mixins: [History],
 
   getInitialState: function () {
     return {
@@ -20,7 +23,9 @@ var Header = React.createClass({
 
   logout: function () {
     this.setState({ currentUser: {} });
-    SessionApiUtil.logout();
+    SessionApiUtil.logout(function () {
+      this.history.pushState({}, '/login');
+    }.bind(this));
   },
 
   render: function () {
@@ -45,11 +50,7 @@ var Header = React.createClass({
             <div className="messages"><ul>Mail</ul></div>
             <div className="settings"><a href="#">Sett</a></div>
             <div>
-              <form className="sign-out-form"  method="post">
-                <input type="hidden" name="_method" value="DELETE"/>
-                {/* auth_token */}
-                <button type="button" name="sign-out" className="sign-out-button">Sign Out</button>
-              </form>
+              <button onClick={this.logout} className="sign-out-button">Sign Out</button>
             </div>
             {/*  else */}
             <div className="sign-in-or-up group">

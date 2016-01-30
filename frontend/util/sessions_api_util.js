@@ -24,7 +24,7 @@ var SessionsApiUtil = {
       method: 'DELETE',
       dataType: 'json',
       success: function () {
-        callback();
+        callback && callback();
       }
     });
   },
