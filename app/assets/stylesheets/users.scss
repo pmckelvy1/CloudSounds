@@ -11,10 +11,9 @@
 }
 
 .sign-in-up-form {
-  width: 600px;
+  width: 350px;
   background: white;
   box-sizing: border-box;
-  border: 2px solid black;
   padding: 10px;
   margin: auto;
 }
@@ -38,6 +37,25 @@
 }
 
 .sign-in-up-form button {
+  display: block;
+  float: none;
+  margin: auto;
+  padding: 10px 20px;
+  background: #ccc;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.guest-user-sign-in {
+  width: 600px;
+  background: white;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: auto;
+}
+
+.guest-sign-in-button {
   display: block;
   float: none;
   margin: auto;

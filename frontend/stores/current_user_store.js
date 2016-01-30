@@ -133,6 +133,14 @@ CurrentUserStore.__onDispatch = function (payload) {
       resetFollowedSongs(payload.currentUser.followed_songs);
       CurrentUserStore.__emitChange();
       break;
+    case CurrentUserConstants.USER_LOG_OUT:
+      _currentUser = {};
+      _followedUsers = {};
+      _likedSongs = {};
+      _followedSongs = {};
+      _currentUserHasBeenFetched = false;
+      CurrentUserStore.__emitChange();
+      break;
     case FollowConstants.USER_FOLLOWED:
       addFollow(payload.followedUser);
       CurrentUserStore.__emitChange();

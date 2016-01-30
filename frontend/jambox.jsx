@@ -11,6 +11,7 @@ var SongUpload = require('./components/audio/song_upload');
 var CurrentUserStore = require('./stores/current_user_store');
 var SessionsApiUtil = require('./util/sessions_api_util');
 var SessionForm = require('./components/new_session');
+var NewUserForm = require('./components/new_user');
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -33,10 +34,11 @@ var IndexRoute = ReactRouter.IndexRoute;
 
 var routes = (
   <Route path='/' component={Header}>
-    <IndexRoute component={UserFeed} onEnter={_ensureLoggedIn}/>
+    <IndexRoute component={UserFeed} onEnter={_ensureLoggedIn} />
     <Route path='login' component={SessionForm} />
-    <Route path='/upload' component={SongUpload} />
-    <Route path='/users/:id' component={UserProfile}>
+    <Route path='signup' component={NewUserForm} />
+    <Route path='/upload' component={SongUpload} onEnter={_ensureLoggedIn} />
+    <Route path='/users/:id' component={UserProfile} onEnter={_ensureLoggedIn}>
       <IndexRoute component={UserAllTracks} />
       <Route path='/users/:id/all' component={UserAllTracks} />
       <Route path='/users/:id/tracks' component={UserTracks} />

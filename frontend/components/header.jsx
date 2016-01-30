@@ -30,6 +30,17 @@ var Header = React.createClass({
 
   render: function () {
     var currentUserProfileLink = '#/users/' + this.state.currentUser.id;
+    var sessionButtons;
+    if (CurrentUserStore.isLoggedIn()) {
+      sessionButtons =  <div>
+        <button onClick={this.logout} className="sign-out-button">Sign Out</button>
+      </div>;
+    } else {
+      sessionButtons =  <div className="sign-in-or-up group">
+        <a href="#/signup">Sign Up!</a>
+        <a href="#/login">Sign In!</a>
+      </div>;
+    }
     return (
       <div>
       <div className="header group">
@@ -42,23 +53,12 @@ var Header = React.createClass({
           </div>
 
           <div className="header-nav-profile-nav group">
-
-            {/* if logged_in? */}
             <div className="upload-link"><a href="#/upload">Upload</a></div>
             <div className="profile-link"><a href={currentUserProfileLink}>Profile</a></div>
             <div className="alerts"><ul>Aler</ul></div>
             <div className="messages"><ul>Mail</ul></div>
             <div className="settings"><a href="#">Sett</a></div>
-            <div>
-              <button onClick={this.logout} className="sign-out-button">Sign Out</button>
-            </div>
-            {/*  else */}
-            <div className="sign-in-or-up group">
-              <a href="#">Sign Up!</a>
-              <a href="#">Sign In!</a>
-            </div>
-            {/* end */}
-
+            {sessionButtons}
           </div>
 
         </div>

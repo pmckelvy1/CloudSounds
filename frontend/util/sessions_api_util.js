@@ -24,6 +24,7 @@ var SessionsApiUtil = {
       method: 'DELETE',
       dataType: 'json',
       success: function () {
+        CurrentUserActions.userLogOut();
         callback && callback();
       }
     });
@@ -35,8 +36,28 @@ var SessionsApiUtil = {
       type: 'GET',
       dataType: 'json',
       success: function (currentUser) {
-        CurrentUserActions.receiveCurrentUser(currentUser);
+        console.log('fetched');
+        if (Object.keys(currentUser).length != 0) {
+          CurrentUserActions.receiveCurrentUser(currentUser);
+        }
         cb && cb(currentUser);
+      }
+    });
+  },
+
+  createNewUser: function (userData, success) {
+    console.log('signing up');
+    $.ajax({
+      url: '/api/users',
+      type: 'POST',
+      dataType: 'JSON',
+      data: userData,
+      processData: false,
+      contentType: false,
+      success: function (user) {
+        CurrentUserActions.receiveCurrentUser(user);
+        UserActions.receiveSingleUser(user);
+        success && success();
       }
     });
   }

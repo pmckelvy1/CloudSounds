@@ -43,7 +43,7 @@ var SessionForm = React.createClass({
           <button type="submit" name="sign-in">Sign In!</button>
         </form>
 
-        <form className="guest-user-sign-in sign-in-up-form group" onSubmit={this.guestSubmit} method="post">
+        <form className="guest-user-sign-in  group" onSubmit={this.guestSubmit} method="post">
           <input type="hidden" name="email" value="guest_user@guest.com"/>
           <input type="hidden" name="password" value="guest_password"/>
           <button type="submit" className="guest-sign-in-button">Sign In As Guest!</button>
