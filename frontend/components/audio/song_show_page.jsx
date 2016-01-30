@@ -5,10 +5,11 @@ var TrackPlayerLarge = require('./track_player_large');
 var CommentInputBox = require('../comments/comment_input_box');
 var CommentIndexLarge = require('../comments/comment_index_large');
 var LikeButton = require('../buttons/like_button');
+var CurrentUserStore = require('../../stores/current_user_store');
 
 var SongShowPage = React.createClass({
   getInitialState: function () {
-    return { song: {} };
+    return { song: {}, currentUserProfilePic: CurrentUserStore.getCurrentUserProfilePic() };
   },
 
   componentDidMount: function () {
@@ -34,9 +35,18 @@ var SongShowPage = React.createClass({
       return (
         <div className="user-show-page">
           <TrackPlayerLarge song={this.state.song} />
-          <CommentInputBox song={this.state.song} />
-          <CommentIndexLarge songId={this.state.song.id} />
-          <LikeButton className="like-button" song={this.state.song}/>
+          <div className="song-show-page-main">
+            <div className="comment-input-thumb-enlcosure group">
+              <img className="comment-input-thumb" src={this.state.currentUserProfilePic}/>
+              <CommentInputBox song={this.state.song} />
+            </div>
+
+            <CommentIndexLarge songId={this.state.song.id} />
+            <LikeButton className="like-button" song={this.state.song}/>
+          </div>
+          <div className="song-show-page-sidebar">
+
+          </div>
         </div>
       );
     }

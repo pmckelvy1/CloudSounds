@@ -138,7 +138,6 @@ var ApiUtil = {
       url: '/api/songs/' + songId,
       dataType: 'JSON',
       success: function (song) {
-        debugger
         SongActions.receiveSingleSong(song);
       }
     });

@@ -123,6 +123,10 @@ CurrentUserStore.userHasBeenFetched = function () {
   return _currentUserHasBeenFetched;
 };
 
+CurrentUserStore.getCurrentUserProfilePic = function () {
+  return _currentUser.image_url;
+};
+
 CurrentUserStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case CurrentUserConstants.RECEIVE_CURRENT_USER:

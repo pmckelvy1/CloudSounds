@@ -1,0 +1,19 @@
+.song-show-page-main {
+  display: block;
+  float: left;
+  width: 880px;
+  background: green;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  border-left: 1px solid #ccc;
+}
+
+.song-show-page-sidebar {
+  width: 360px;
+  min-height: 200px;
+  display: block;
+  float: right;
+  background: red;
+  padding: 20px;
+  box-sizing: border-box;
+}

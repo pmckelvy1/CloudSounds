@@ -1,20 +1,33 @@
 .comment-input-box {
-  padding: 10px;
+  padding: 7px;
   display: block;
-  width: 750px;
-  height: 40px;
-  background: #aaa;
+  float: left;
+  background: #ddd;
+  box-sizing: border-box;
+  width: 778px;
 }
 
 .comment-body-input {
   background: white;
   display: block;
-  border: 1px solid black;
+  width: 100%;
+  border: 1px solid #777;
+  border-radius: 3px;
+  padding: 3px;
+  box-sizing: border-box;
 }
 
 .comment-input-thumb {
   width: 40px;
   height: 40px;
+  display: block;
+  float: left;
+}
+
+.comment-input-thumb-enlcosure {
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+  width: 820px;
 }
 
 .comment-index-large {

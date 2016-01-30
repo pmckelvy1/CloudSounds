@@ -4,6 +4,7 @@
   display: block;
   float: right;
   border: 1px solid black;
+  box-sizing: border-box;
 }
 
 .thumb-large img {

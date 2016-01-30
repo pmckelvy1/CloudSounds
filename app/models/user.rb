@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
   validates :email, :username, :password_digest, :session_token, presence: true
   validates :email, :username, uniqueness: true
   validates :password, length: { minimum: 8, allow_nil: true }
+  has_attached_file :image, default_url: 'guest_profile_picture.jpg'
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  has_attached_file :header_image, default_url: 'guest_header_picture.jpg'
+  validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\Z/
 
   has_many :follows, dependent: :destroy
   has_many(
