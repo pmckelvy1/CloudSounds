@@ -12,18 +12,6 @@ var UserLikes = React.createClass({
     return { userId: userId, songs: UserStore.getUserLikedSongs() };
   },
 
-  // componentDidMount: function () {
-  //   var ts = SongStore.addListener(function () {
-  //     this.setState({ songs: SongStore.allUserSongs(this.state.userId) });
-  //   }.bind(this));
-  //   this.setState({ tsToken: ts });
-  //   ApiUtil.getUserSongs(this.state.userId);
-  // },
-  //
-  // componentWillUnmount: function () {
-  //   this.state.tsToken.remove();
-  // },
-
   render: function () {
     return (
       <div><TrackFeed songs={this.state.songs} /></div>

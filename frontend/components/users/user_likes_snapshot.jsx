@@ -17,11 +17,11 @@ var UserLikesSnapshot = React.createClass({
     // this.setState({ storeToken: storeToken });
   },
 
-  componentWillUnmount: function () {
-    if (this.state.storeToken) {
-      this.state.storeToken.remove();
-    }
-  },
+  // componentWillUnmount: function () {
+  //   if (this.state.storeToken) {
+  //     this.state.storeToken.remove();
+  //   }
+  // },
 
   render: function () {
     // if (Object.keys(this.state.likedSongs).length === 0) {

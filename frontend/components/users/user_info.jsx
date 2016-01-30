@@ -7,14 +7,14 @@ var UserInfo = React.createClass({
     var followingStat;
     var followersStat;
     var songStat;
-    if (this.props.user.num_followings.length > 0) {
-      followersStat = this.props.user.num_followings;
+    if (this.props.user.num_followers > 0) {
+      followersStat = this.props.user.num_followers;
     } else {
       followersStat = 0;
     }
 
-    if (this.props.user.followed_users.length > 0) {
-      followingStat = this.props.user.followed_users.length;
+    if (this.props.user.num_followed_users > 0) {
+      followingStat = this.props.user.num_followed_users;
     } else {
       followingStat = 0;
     }
@@ -24,7 +24,6 @@ var UserInfo = React.createClass({
     } else {
       songStat = 0;
     }
-
     return (
       <div className="user-profile-info">
         <ul className="user-stats group">
