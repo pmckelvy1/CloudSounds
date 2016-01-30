@@ -12,6 +12,7 @@ var CurrentUserStore = require('./stores/current_user_store');
 var SessionsApiUtil = require('./util/sessions_api_util');
 var SessionForm = require('./components/new_session');
 var NewUserForm = require('./components/new_user');
+var SongShowPage = require('./components/audio/song_show_page');
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -46,6 +47,7 @@ var routes = (
       <Route path='/users/:id/reposts' component={UserReposts} />
       <Route path='/users/:id/playlists' component={UserPlaylists} />
     </Route>
+    <Route path='/songs/:id' component={SongShowPage} onEnter={_ensureLoggedIn} />
   </Route>
 );
 

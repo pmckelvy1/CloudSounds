@@ -22,7 +22,7 @@
     guard-for-in: 1
     max-len:
       - 1
-      - 80
+      - 150
       - 4
     no-alert: 0
     no-cond-assign: 2

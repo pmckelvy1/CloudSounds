@@ -25,6 +25,7 @@ class Api::SongsController < ApplicationController
   end
 
   def show
+    @song = Song.where(id: params[:id]).includes(:liking_users, :likes)[0]
   end
 
   def edit

@@ -9,6 +9,17 @@
   box-sizing: border-box;
 }
 
+.track-player-large {
+  position: relative;
+  background: #eee;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 1240px;
+  height: 380px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 .track-title {
   display: block;
   float: left;
@@ -17,12 +28,31 @@
   color: #aaa;
 }
 
+.track-title-large {
+  display: block;
+  float: left;
+  margin-left: 15px;
+  font-size: 24px;
+  color: white;
+  background: black;
+  padding: 5px;
+}
+
 .track-waveform {
   display: block;
   float: left;
   width: 450px;
   height: 55px;
   background: orange;
+}
+
+.track-waveform-large {
+  position: absolute;
+  bottom: 20px;
+  width: 750px;
+  height: 200px;
+  background: orange;
+  margin-left: 20px;
 }
 
 .track-info {
@@ -35,4 +65,66 @@
 
 .track-artist-name {
   font-size: 12px;
+}
+
+.track-artist-name-large {
+  padding: 5px;
+  margin-left: 15px;
+  font-size: 12px/1.4;
+  color: #aaa;
+  background: black;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.track-artist-name-div {
+  display: block;
+}
+
+.play-circle {
+  position: relative;
+  display: block;
+  float: left;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 5px;
+  background: #40C9FF;
+}
+
+.play-triangle {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 19px;
+  left: 18px;
+  transform: rotate(-90deg);
+  border-top: 30px solid white;
+  border-bottom: 0;
+  border-right: 22px solid transparent;
+  border-left: 22px solid transparent;
+}
+
+.pause {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 36px;
+  top: 6px;
+  left: 9px;
+  width: 11px;
+  margin: 10px;
+  background: white;
+}
+
+.pause-right {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 28px;
+  top: 6px;
+  height: 36px;
+  width: 11px;
+  margin: 10px;
+  background: white;
 }

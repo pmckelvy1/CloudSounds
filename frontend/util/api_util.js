@@ -129,7 +129,17 @@ var ApiUtil = {
         callback && callback();
       }
     });
+  },
 
+  fetchSingleSong: function(songId) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/songs/' + songId,
+      dataType: 'JSON',
+      success: function (song) {
+        SongActions.receiveSingleSong(song);
+      }
+    });
   }
 
 };
