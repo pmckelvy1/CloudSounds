@@ -38,7 +38,7 @@ var SongShowPage = React.createClass({
           <div className="song-show-page-main">
             <div className="comment-input-thumb-enlcosure group">
               <img className="comment-input-thumb" src={this.state.currentUserProfilePic}/>
-              <CommentInputBox song={this.state.song} />
+              <CommentInputBox songId={this.state.song.id} />
             </div>
 
             <CommentIndexLarge songId={this.state.song.id} />

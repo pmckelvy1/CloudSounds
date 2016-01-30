@@ -11,7 +11,7 @@ var resetComments = function (comments) {
   _comments = {};
   comments.forEach(function(comment) {
     if (_comments[comment.song_id]) {
-      _comments[comment.song_id].push(comment);
+      _comments[comment.song_id].unshift(comment);
     } else {
       _comments[comment.song_id] = [comment];
     }
@@ -20,7 +20,7 @@ var resetComments = function (comments) {
 
 var addComment = function (comment) {
   if (_comments[comment.song_id]) {
-    _comments[comment.song_id].push(comment);
+    _comments[comment.song_id].unshift(comment);
   } else {
     _comments[comment.song_id] = [comment];
   }

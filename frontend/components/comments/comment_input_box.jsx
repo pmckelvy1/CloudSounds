@@ -6,7 +6,7 @@ var CommentInputBox = React.createClass({
   mixins: [LinkedState],
 
   getInitialState: function () {
-    return { body: "" };
+    return { body: "" , song_id: this.props.songId };
   },
 
   submit: function (e) {

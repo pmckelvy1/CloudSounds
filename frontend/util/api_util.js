@@ -146,10 +146,8 @@ var ApiUtil = {
   createComment: function(comment, callback) {
     $.ajax({
       type: 'POST',
-      url: '/api/songs/',
+      url: '/api/comments/',
       dataType: 'JSON',
-      processData: false,
-      contentType: false,
       data: { comment: comment },
       success: function (commentData) {
         CommentActions.receiveComment(commentData);
