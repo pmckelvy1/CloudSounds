@@ -2,6 +2,7 @@ var UserActions = require('../actions/user_actions');
 var FollowActions = require('../actions/follow_actions');
 var SongActions = require('../actions/song_actions');
 var LikeActions = require('../actions/like_actions');
+var CommentActions = require('../actions/comment_actions');
 
 var ApiUtil = {
 
@@ -137,7 +138,23 @@ var ApiUtil = {
       url: '/api/songs/' + songId,
       dataType: 'JSON',
       success: function (song) {
+        debugger
         SongActions.receiveSingleSong(song);
+      }
+    });
+  },
+
+  createComment: function(comment, callback) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/songs/',
+      dataType: 'JSON',
+      processData: false,
+      contentType: false,
+      data: { comment: comment },
+      success: function (commentData) {
+        CommentActions.receiveComment(commentData);
+        callback && callback();
       }
     });
   }

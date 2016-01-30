@@ -4,7 +4,6 @@ class Api::SongsController < ApplicationController
 
   def create
     @song = Song.create(song_params)
-    # @song = Song.create(song_params)
     @song.user_id = current_user.id
     @song.username = current_user.username
     if @song.save
@@ -25,7 +24,7 @@ class Api::SongsController < ApplicationController
   end
 
   def show
-    @song = Song.where(id: params[:id]).includes(:liking_users, :likes)[0]
+    @song = Song.where(id: params[:id]).includes(:liking_users, :likes, comments: [:user])[0]
   end
 
   def edit

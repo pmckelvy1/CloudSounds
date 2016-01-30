@@ -49,10 +49,10 @@
 .track-waveform-large {
   position: absolute;
   bottom: 20px;
-  width: 750px;
+  width: 815px;
   height: 200px;
   background: orange;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .track-info {
@@ -79,6 +79,10 @@
 
 .track-artist-name-div {
   display: block;
+}
+
+.play-button-large {
+  margin-left: 10px;
 }
 
 .play-circle {

@@ -46,3 +46,26 @@ f13 = Follow.create!(user_id: bach.id, followed_id: me.id);
 f14 = Follow.create!(user_id: bach.id, followed_id: darth.id);
 
 Like.destroy_all
+
+Comment.destroy_all
+
+c1 = Comment.create!(user_id: guest.id, song_id: s1.id, body: "awesome song!")
+c2 = Comment.create!(user_id: guest.id, song_id: s2.id, body: "i love this part")
+c3 = Comment.create!(user_id: guest.id, song_id: s6.id, body: "class vader")
+c4 = Comment.create!(user_id: guest.id, song_id: s1.id, body: "awesome song!")
+c5 = Comment.create!(user_id: bowie.id, song_id: s6.id, body: "wow!")
+c6 = Comment.create!(user_id: bowie.id, song_id: s2.id, body: "great job with this one!")
+c7 = Comment.create!(user_id: bowie.id, song_id: s3.id, body: "love the guitar here")
+c8 = Comment.create!(user_id: bowie.id, song_id: s4.id, body: "when's the album coming out?")
+c9 = Comment.create!(user_id: darth.id, song_id: s1.id, body: "terrible")
+c10 = Comment.create!(user_id: darth.id, song_id: s7.id, body: "awful")
+c11 = Comment.create!(user_id: darth.id, song_id: s3.id, body: "a jedi must have made this. horrible.")
+c12 = Comment.create!(user_id: darth.id, song_id: s5.id, body: "lackluster performance")
+c13 = Comment.create!(user_id: darth.id, song_id: s1.id, body: "this must be a joke, right?")
+c14 = Comment.create!(user_id: me.id, song_id: s8.id, body: "come play a show in NY!")
+c15 = Comment.create!(user_id: me.id, song_id: s9.id, body: "when can i get this on itunes?")
+c17 = Comment.create!(user_id: darth.id, song_id: s4.id, body: "you should go back there.")
+c18 = Comment.create!(user_id: bowie.id, song_id: s4.id, body: "awoopwa wooha")
+c19 = Comment.create!(user_id: bach.id, song_id: s4.id, body: "quite elementary")
+c20 = Comment.create!(user_id: guest.id, song_id: s4.id, body: "i can dig it")
+c21 = Comment.create!(user_id: bach.id, song_id: s4.id, body: "on second thought, i rather enjoy the groove of this piece.")

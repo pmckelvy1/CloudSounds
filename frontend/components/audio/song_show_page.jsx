@@ -2,6 +2,9 @@ var React = require('react');
 var ApiUtil = require('../../util/api_util');
 var SongStore = require('../../stores/song_store');
 var TrackPlayerLarge = require('./track_player_large');
+var CommentInputBox = require('../comments/comment_input_box');
+var CommentIndexLarge = require('../comments/comment_index_large');
+var LikeButton = require('../buttons/like_button');
 
 var SongShowPage = React.createClass({
   getInitialState: function () {
@@ -31,6 +34,9 @@ var SongShowPage = React.createClass({
       return (
         <div className="user-show-page">
           <TrackPlayerLarge song={this.state.song} />
+          <CommentInputBox song={this.state.song} />
+          <CommentIndexLarge songId={this.state.song.id} />
+          <LikeButton className="like-button" song={this.state.song}/>
         </div>
       );
     }

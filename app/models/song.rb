@@ -10,4 +10,6 @@ class Song < ActiveRecord::Base
     through: :likes,
     source: :user
   )
+
+  has_many :comments
 end
