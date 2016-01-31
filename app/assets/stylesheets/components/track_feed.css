@@ -1,4 +1,6 @@
 .track-feed {
-  width: 859px;
-  /*border-right: 1px solid #ccc;*/
+  width: 880px;
+  padding: 0px 30px;
+  box-sizing: border-box;
+  border-right: 1px solid #eee;
 }

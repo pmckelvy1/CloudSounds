@@ -117,10 +117,8 @@
   display: block;
   float: left;
   width: 880px;
-  background: green;
-  padding: 20px;
+  padding: 20px 0px;
   box-sizing: border-box;
-  border-left: 1px solid #ccc;
 }
 
 // SIDEBAR //
@@ -129,8 +127,7 @@
   width: 360px;
   display: block;
   float: right;
-  background: red;
-  padding: 20px;
+  padding: 20px 30px;
   box-sizing: border-box;
 }
 

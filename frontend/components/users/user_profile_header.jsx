@@ -6,7 +6,7 @@ var UserProfileHeader = React.createClass({
   render: function () {
     return (
       <div className="user-profile-header">
-        HEADER
+        <img className="user-profile-picture" src={this.props.user.image_url} />
       </div>
     );
   }

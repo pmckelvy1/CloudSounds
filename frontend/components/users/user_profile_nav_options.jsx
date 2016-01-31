@@ -15,7 +15,6 @@ var UserProfileNavOptions = React.createClass({
     }
     return (
       <div className="user-profile-nav-options">
-        Nav Options
         {options}
       </div>
     );

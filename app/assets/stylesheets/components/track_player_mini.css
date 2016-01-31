@@ -1,8 +1,7 @@
 .track-player-mini {
-  background: #eee;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 320px;
+  background: white;
+  position: relative;
+  width: 300px;
   height: 60px;
   margin-bottom: 2px;
   padding: 5px 0px;
@@ -32,6 +31,14 @@
 
 .play-button-mini {
   margin-left: 10px;
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  display: none;
+}
+
+.track-player-mini:hover .play-button-mini {
+  display: block;
 }
 
 .play-circle-mini {

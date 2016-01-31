@@ -1,7 +1,6 @@
 .user-likes-snapshot {
   display: block;
-  width: 320px;
+  width: 300px;
   box-sizing: border-box;
-  background: lightblue;
   min-height: 205px;
 }

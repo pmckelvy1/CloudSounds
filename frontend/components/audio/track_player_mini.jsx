@@ -15,8 +15,8 @@ var TrackPlayerMini = React.createClass({
     }
     return (
       <div className="track-player-mini">
-        <div className="play-button-mini">{playButton}</div>
         <div className="thumb-mini"><img src={this.props.song.image_url}/></div>
+        <div className="play-button-mini">{playButton}</div>
         <h1><a href={userURL}>{this.props.song.username}</a></h1>
         <h2><a href={songURL}>{this.props.song.title}</a></h2>
         <div className="buttons group">

@@ -1,32 +1,39 @@
 .user-profile-nav {
   display: block;
+  position: relative;
   float: left;
-  width: 880px;
-  background: orange;
-  padding: 20px;
+  width: 850px;
+  padding-top: 20px;
+  margin-left: 30px;
   box-sizing: border-box;
+  border-bottom: 1px solid #eee;
 }
 
 .user-profile-nav-tab {
   font-size: 20px;
+  position: relative;
+  bottom: -1px;
   font-weight: normal;
   display: block;
   float: left;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
   margin-right: 25px;
+  line-height: 1.6;
 }
 
 .user-profile-nav-tab:hover {
   border-bottom: 1px solid black;
-  color: #888;
 }
 
 .user-profile-nav-options {
   display: block;
   float: right;
-  width: 360px;
-  background: yellow;
+  width: 330px;
   font-size: 20px;
-  padding: 20px;
+  padding-top: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-right: 30px;
+  height: 54px;
   box-sizing: border-box;
 }

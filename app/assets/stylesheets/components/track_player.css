@@ -1,13 +1,10 @@
 .track-player {
   position: relative;
-  background: #eee;
-  border: 1px solid black;
   border-radius: 5px;
-  width: 700px;
-  height: 190px;
-  margin: 20px;
-  padding: 16px;
+  width: 820px;
+  height: 160px;
   box-sizing: border-box;
+  margin-bottom: 40px;
 }
 
 .track-player-large {
@@ -23,10 +20,11 @@
 
 .track-title {
   display: block;
-  float: left;
-  margin-left: 20px;
-  font-size: 20px;
-  color: #aaa;
+  position: absolute;
+  top: 25px;
+  left: 218px;
+  font-size: 16px;
+  color: #777;
 }
 
 .track-title-large {
@@ -41,9 +39,11 @@
 
 .track-waveform {
   display: block;
-  float: left;
-  width: 450px;
-  height: 55px;
+  position: absolute;
+  bottom: 40px;
+  left: 175px;
+  width: 645px;
+  height: 65px;
   background: orange;
 }
 
@@ -66,19 +66,36 @@
 
 .track-artist-name {
   font-size: 12px;
+  color: #ccc;
+}
+
+.track-artist-name:hover {
+  font-size: 12px;
+  color: black;
 }
 
 .track-artist-name-large {
   padding: 5px;
   margin-left: 15px;
   font-size: 12px/1.4;
-  color: #aaa;
+  color: #ccc;
   background: black;
   display: inline-block;
   margin-bottom: 5px;
 }
 
+.track-artist-name-large:hover {
+  color: white;
+}
+
 .track-artist-name-div {
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: 218px;
+}
+
+.track-artist-name-div-large {
   display: block;
 }
 
@@ -135,7 +152,10 @@
 }
 
 .play-button {
-  margin-left: 10px;
+  display: block;
+  position: absolute;
+  left: 175px;
+  top: 10px;
 }
 
 .play-circle {

@@ -32,17 +32,18 @@ var UserInfo = React.createClass({
               <span className="stat-title">Following</span><span className="stat">{followingStat}</span>
             </a>
           </li>
-          <li>
+          <li className="stat-border">
             <a href="#">
               <span className="stat-title">Followers</span><span className="stat">{followersStat}</span>
             </a>
           </li>
-          <li>
+          <li className="stat-border">
             <a href="#">
               <span className="stat-title">Tracks</span><span className="stat">{songStat}</span>
             </a>
           </li>
         </ul>
+        <div className="user-info-text">{this.props.user.info}</div>
       </div>
     );
   }
