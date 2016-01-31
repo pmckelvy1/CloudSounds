@@ -1,4 +1,5 @@
 .track-player {
+  position: relative;
   background: #eee;
   border: 1px solid black;
   border-radius: 5px;
@@ -85,7 +86,7 @@
   margin-left: 10px;
 }
 
-.play-circle {
+.play-circle-large {
   position: relative;
   display: block;
   float: left;
@@ -96,7 +97,7 @@
   background: #0BF;
 }
 
-.play-triangle {
+.play-triangle-large {
   content: "";
   display: block;
   position: absolute;
@@ -109,7 +110,7 @@
   border-left: 22px solid transparent;
 }
 
-.pause {
+.pause-large {
   content: "";
   display: block;
   position: absolute;
@@ -121,7 +122,7 @@
   background: white;
 }
 
-.pause-right {
+.pause-right-large {
   content: "";
   display: block;
   position: absolute;
@@ -130,5 +131,57 @@
   height: 36px;
   width: 11px;
   margin: 10px;
+  background: white;
+}
+
+.play-button {
+  margin-left: 10px;
+}
+
+.play-circle {
+  position: relative;
+  display: block;
+  float: left;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 4px;
+  background: #0BF;
+}
+
+.play-triangle {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  transform: rotate(-90deg);
+  border-top: 15px solid white;
+  border-bottom: 0;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+}
+
+.pause {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 18px;
+  top: 4px;
+  left: 3px;
+  width: 7px;
+  margin: 6px;
+  background: white;
+}
+
+.pause-right {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 16px;
+  top: 4px;
+  height: 18px;
+  width: 7px;
+  margin: 6px;
   background: white;
 }

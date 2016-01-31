@@ -9,9 +9,9 @@ var TrackPlayerLarge = React.createClass({
     var songURL = '#/songs/' + this.props.song.id;
     var playButton;
     if (true) {
-      playButton = <div className="play-circle"><div className="play-triangle"/></div>;
+      playButton = <div className="play-circle-large"><div className="play-triangle-large"/></div>;
     } else {
-      playButton = <div className="play-circle"><div className="pause"/><div className="pause-right"/></div>;
+      playButton = <div className="play-circle-large"><div className="pause-large"/><div className="pause-right-large"/></div>;
     }
     return (
       <div className="track-player-large">

@@ -45,7 +45,6 @@ var SongShowPage = React.createClass({
             <SongShowButtons song={this.state.song} />
             <CommentIndexLargeUserInfo user={this.state.song.user} />
             <CommentIndexLarge songId={this.state.song.id} />
-            <LikeButton className="like-button" song={this.state.song}/>
           </div>
           <div className="song-show-page-sidebar">
 

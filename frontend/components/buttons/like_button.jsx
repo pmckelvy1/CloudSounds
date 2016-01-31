@@ -40,7 +40,7 @@ var LikeButton = React.createClass({
       likeButtonText = <i className="fa fa-heart-o"></i>;
     }
     return (
-      <button onClick={this.toggleLike}>{likeButtonText} {this.props.song.num_likes}</button>
+      <button className="like-button"  onClick={this.toggleLike}>{likeButtonText} {this.props.song.num_likes}</button>
     );
   }
 
