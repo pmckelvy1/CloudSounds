@@ -7,7 +7,7 @@ var TrackUserMini = React.createClass({
     var userURL = '#/users/' + this.props.user.id;
     return (
       <div className="track-player-mini">
-        <div className="thumb-mini"><img src='#'/></div>
+        <div className="thumb-mini"><img src={this.props.user.image_url}/></div>
         <h1><a href={userURL}>{this.props.user.username}</a></h1>
         <FollowButton className="follow-button" followedId={this.props.user.id}/>
       </div>
