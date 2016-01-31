@@ -2,7 +2,7 @@
   padding: 7px;
   display: block;
   float: left;
-  background: #ddd;
+  background: #f5f5f5;
   box-sizing: border-box;
   width: 778px;
 }
@@ -11,7 +11,7 @@
   background: white;
   display: block;
   width: 100%;
-  border: 1px solid #777;
+  border: 1px solid #ccc;
   border-radius: 3px;
   padding: 3px;
   box-sizing: border-box;
@@ -25,14 +25,14 @@
 }
 
 .comment-input-thumb-enlcosure {
-  border: 1px solid #aaa;
+  border: 1px solid #ccc;
   box-sizing: border-box;
   width: 820px;
 }
 
 .comment-index-large {
   display: block;
-  width: 820px;
+  width: 670px;
   min-height: 200px;
   box-sizing: border-box;
 }
@@ -40,7 +40,7 @@
 .comment-index-item-large {
   display: block;
   padding: 5px;
-  width: 820px;
+  width: 670px;
   background: white;
   height: 50px;
   box-sizing: border-box;
@@ -48,6 +48,13 @@
 
 .comment-body-large {
 
+}
+
+.comment-index-large-user-info {
+  display: block;
+  float: left;
+  width: 120px;
+  margin-right: 30px;
 }
 
 .comment-user-name {

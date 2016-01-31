@@ -14,3 +14,16 @@
 .like-button:hover {
   border: 1px solid #999;
 }
+
+.like-button-large {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 5px;
+  display: block;
+  float: left;
+}
+
+.like-button-large:hover {
+  border: 1px solid #999;
+}

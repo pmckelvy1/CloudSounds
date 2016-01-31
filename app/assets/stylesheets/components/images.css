@@ -25,6 +25,13 @@
   height: 160px;
 }
 
+.thumb-med {
+  width: 120px;
+  height: 120px;
+  display: block;
+  float: left;
+}
+
 .thumb-mini {
   width: 45px;
   height: 45px;

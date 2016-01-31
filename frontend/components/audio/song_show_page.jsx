@@ -6,6 +6,8 @@ var CommentInputBox = require('../comments/comment_input_box');
 var CommentIndexLarge = require('../comments/comment_index_large');
 var LikeButton = require('../buttons/like_button');
 var CurrentUserStore = require('../../stores/current_user_store');
+var CommentIndexLargeUserInfo = require('../comments/comment_index_large_user_info');
+var SongShowButtons = require('../buttons/song_show_buttons');
 
 var SongShowPage = React.createClass({
   getInitialState: function () {
@@ -40,7 +42,8 @@ var SongShowPage = React.createClass({
               <img className="comment-input-thumb" src={this.state.currentUserProfilePic}/>
               <CommentInputBox songId={this.state.song.id} />
             </div>
-
+            <SongShowButtons song={this.state.song} />
+            <CommentIndexLargeUserInfo user={this.state.song.user} />
             <CommentIndexLarge songId={this.state.song.id} />
             <LikeButton className="like-button" song={this.state.song}/>
           </div>

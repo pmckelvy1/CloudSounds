@@ -16,3 +16,11 @@
   padding: 20px;
   box-sizing: border-box;
 }
+
+.song-show-buttons {
+  width: 820px;
+  padding: 10px 0px;
+  display: block;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 10px;
+}
