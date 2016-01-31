@@ -49,11 +49,11 @@ var addFollow = function (followedUser) {
   });
 };
 
-var removeLike = function (like) {
-  delete _likedSongs[like.song_id];
-  // if (_followedSongs[like.song_id]) {
-  //   _followedSongs[like.song_id].num_likes -= 1;
-  // }
+var removeLike = function (unLikedSong) {
+  delete _likedSongs[unLikedSong.id];
+  if (_followedSongs[unLikedSong.id]) {
+    _followedSongs[unLikedSong.id] = unLikedSong;
+  }
 };
 
 var addLike = function (likedSong) {
@@ -154,7 +154,7 @@ CurrentUserStore.__onDispatch = function (payload) {
       CurrentUserStore.__emitChange();
       break;
     case LikeConstants.UNLIKE_RECEIVED:
-      removeLike(payload.like);
+      removeLike(payload.unLikedSong);
       CurrentUserStore.__emitChange();
       break;
     case LikeConstants.LIKE_RECEIVED:

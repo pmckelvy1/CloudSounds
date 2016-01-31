@@ -16,10 +16,10 @@ var LikeActions = {
     });
   },
 
-  receiveUnLike: function(like) {
+  receiveUnLike: function(unLikedSong) {
     Dispatcher.dispatch({
       actionType: LikeConstants.UNLIKE_RECEIVED,
-      like: like
+      unLikedSong: unLikedSong
     });
   }
 };

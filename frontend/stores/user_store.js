@@ -59,16 +59,16 @@ var updateLikedSong = function(song) {
   }
 };
 
-var updateUnlikedSong = function(like) {
+var updateUnlikedSong = function(unLikedSong) {
   // if (like.user_id == _user.id) {
   //   delete _likedSongs[like.song_id];
   // }
-  if (_likedSongs[like.song_id]) {
-    delete _likedSongs[like.song_id];
+  if (_likedSongs[unLikedSong.id]) {
+    delete _likedSongs[unLikedSong.id];
   }
   // DECREMENTED BY 2
-  if (_songs[like.song_id]) {
-    _songs[like.song_id].num_likes -= 1;
+  if (_songs[unLikedSong.id]) {
+    _songs[unLikedSong.id] = unLikedSong;
   }
 };
 
@@ -164,7 +164,7 @@ UserStore.__onDispatch = function (payload) {
       break;
     case LikeConstants.UNLIKE_RECEIVED:
       if (Object.keys(_user).length > 0) {
-        updateUnlikedSong(payload.like);
+        updateUnlikedSong(payload.unLikedSong);
         UserStore.__emitChange();
       }
       break;

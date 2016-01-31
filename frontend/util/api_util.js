@@ -111,8 +111,8 @@ var ApiUtil = {
       method: 'DELETE',
       url: '/api/likes/' + songId,
       dataType: 'JSON',
-      success: function (likeData) {
-        LikeActions.receiveUnLike(likeData);
+      success: function (unLikedSong) {
+        LikeActions.receiveUnLike(unLikedSong);
       }
     });
   },
