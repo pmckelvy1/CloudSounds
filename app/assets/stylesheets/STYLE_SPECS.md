@@ -8,5 +8,5 @@ header-image-height: 265px
 
 # COLORS
 
-main blue: #40C9FF
+main blue: #0bf
 main dark gray: #383838

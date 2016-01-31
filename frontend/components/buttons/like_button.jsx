@@ -35,9 +35,9 @@ var LikeButton = React.createClass({
   render: function () {
     var likeButtonText;
     if (this.state.likes) {
-      likeButtonText = "♥";
+      likeButtonText = <i className="fa fa-heart liked"></i>;
     } else {
-      likeButtonText = "♡";
+      likeButtonText = <i className="fa fa-heart-o"></i>;
     }
     return (
       <button onClick={this.toggleLike}>{likeButtonText} {this.props.song.num_likes}</button>

@@ -5,8 +5,8 @@
   background: white;
   color: black;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 1px 2px;
+  border-radius: 3px;
+  padding: 5px 10px;
   display: block;
   float: left;
 }
@@ -17,13 +17,18 @@
 
 .like-button-large {
   background: white;
+  color: black;
   border: 1px solid #ccc;
   border-radius: 3px;
-  padding: 5px;
+  padding: 5px 10px;
   display: block;
   float: left;
 }
 
 .like-button-large:hover {
   border: 1px solid #999;
+}
+
+.liked {
+  color: #0BF;
 }
