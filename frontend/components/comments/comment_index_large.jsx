@@ -27,7 +27,9 @@ var CommentIndexLarge = React.createClass({
       );
     } else {
       var comments = this.state.comments.map(function(comment) {
-      return <li key={comment.id}><CommentIndexItemLarge comment={comment} /></li>;
+      return <li key={comment.id}>
+        <CommentIndexItemLarge comment={comment} />
+      </li>;
       });
       return (
         <div className="comment-index-large">

@@ -32,16 +32,36 @@
 
 .comment-index-large {
   display: block;
-  width: 800px;
+  width: 820px;
   min-height: 200px;
-  border: 1px solid black;
+  box-sizing: border-box;
 }
 
 .comment-index-item-large {
   display: block;
   padding: 5px;
-  width: 600px;
-  background: red;
+  width: 820px;
+  background: white;
   height: 50px;
-  border: 1px solid black;
+  box-sizing: border-box;
+}
+
+.comment-body-large {
+
+}
+
+.comment-user-name {
+  font-size: 14px;
+  line-height: 1.3;
+  color: #777;
+  display: block;
+  float: left;
+}
+
+.says-at {
+  font-size: 13px;
+  color: #ccc;
+  display: inline-block;
+  padding-bottom: 1px;
+  padding-left: 4px;
 }

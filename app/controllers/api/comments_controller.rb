@@ -3,6 +3,7 @@ class Api::CommentsController < ApplicationController
     @comment = Comment.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
+      @comment = Comment.where(id: @comment.id).includes(:user)[0]
       render :show
     else
       render json: ['could not save comment']
@@ -10,7 +11,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    @comment = Comment.where(song_id: params[:song_id])
+    @comment = Comment.where(song_id: params[:song_id]).includes(:user)
     render :index
   end
 
