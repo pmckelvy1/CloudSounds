@@ -2,7 +2,8 @@ var Store = require('flux/utils').Store,
     Dispatcher = require('../dispatcher/dispatcher'),
     UserConstants = require('../constants/user_constants'),
     LikeConstants = require('../constants/like_constants'),
-    FollowConstants = require('../constants/follow_constants');
+    FollowConstants = require('../constants/follow_constants'),
+    CurrentUserStore = require('../stores/current_user_store');
 
 var UserStore = new Store(Dispatcher);
 
@@ -46,12 +47,14 @@ var resetFollowedUsers = function(users) {
 
 var updateLikedSong = function(song) {
   if (song.user_id == _user.id) {
-    // if (typeof _songs[song.id] != 'undefined') {
-      _songs[song.id] = song;
-    // }
-    _likedSongs[song.id] = song;
-
+    _songs[song.id] = song;
+    if (_likedSongs[song.id]) {
+      _likedSongs[song.id] = song;
+    }
   } else if (_likedSongs[song.id]) {
+    _likedSongs[song.id] = song;
+  }
+  if (_user.id === CurrentUserStore.currentUserId()) {
     _likedSongs[song.id] = song;
   }
 };
