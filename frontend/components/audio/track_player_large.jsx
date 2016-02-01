@@ -17,7 +17,8 @@ var TrackPlayerLarge = React.createClass({
 
     wavesurfer.on('ready', function () {
         wavesurfer.play();
-    });
+        this.setState({});
+    }.bind(this));
 
     wavesurfer.load(this.props.song.audio_url);
 
@@ -59,8 +60,6 @@ var TrackPlayerLarge = React.createClass({
           </div>
         </button>;
     }
-
-
 
     return (
       <div className="track-player-large">
