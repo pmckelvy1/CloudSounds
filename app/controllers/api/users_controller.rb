@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:followings, :follows, :followed_users, followed_songs: [:likes], liked_songs: [:likes], songs: [:likes]).find(params[:id])
+    @user = User.includes(:followings, :follows, followed_users: [:followings], followed_songs: [:likes], liked_songs: [:likes], songs: [:likes]).find(params[:id])
     if @user
       render :show
     else

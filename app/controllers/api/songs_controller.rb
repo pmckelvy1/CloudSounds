@@ -7,6 +7,9 @@ class Api::SongsController < ApplicationController
     @song.user_id = current_user.id
     @song.username = current_user.username
     if @song.save
+      @user = User.find(@song.user_id)
+      @user.num_songs += 1
+      @user.save!
       render :show
     end
   end

@@ -93,3 +93,18 @@
   margin: 2px;
   background: white;
 }
+
+.num-songs {
+  display: block;
+  float: left;
+  color: #aaa;
+  margin-top: 3px;
+}
+
+.num-followers {
+  display: block;
+  float: left;
+  color: #aaa;
+  margin-right: 5px;
+  margin-top: 3px;
+}
