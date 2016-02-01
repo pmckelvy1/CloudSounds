@@ -47,10 +47,9 @@
 
 .track-waveform-large {
   position: absolute;
-  bottom: 20px;
+  bottom: 0px;
   width: 815px;
-  height: 200px;
-  background: orange;
+  height: 150px;
   margin-left: 10px;
 }
 
@@ -75,6 +74,7 @@
 .track-artist-name-large {
   padding: 5px;
   margin-left: 15px;
+  margin-top: 10px;
   font-size: 12px/1.4;
   color: #ccc;
   background: black;
@@ -99,6 +99,7 @@
 
 .play-button-large {
   margin-left: 10px;
+  margin-top: 10px;
   position: relative;
   display: block;
   float: left;

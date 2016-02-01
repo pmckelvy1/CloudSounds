@@ -11,8 +11,10 @@ var TrackPlayerLarge = React.createClass({
     this.setState({});
     var wavesurfer = WaveSurfer.create({
         container: '.wave',
-        waveColor: 'violet',
-        progressColor: 'purple'
+        waveColor: 'silver',
+        progressColor: '#0BF',
+        barWidth: 2,
+        cursorWidth: 0
     });
 
     wavesurfer.on('ready', function () {
