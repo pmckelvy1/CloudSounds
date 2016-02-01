@@ -125,28 +125,3 @@
   min-height: 1000px;
   box-sizing: border-box;
 }
-
-// FOOTER //
-
-.footer {
-  background: #eee;
-  color: black;
-  display: block;
-  width: 100%;
-  position: fixed;
-  z-index: 5;
-  bottom: 0px;
-  left: 0px;
-}
-
-.footer-song-info {
-  width: 360px;
-  padding: 15px 10px;
-  box-sizing: border-box;
-}
-
-.footer-song-playback {
-  width: 880px;
-  padding: 15px 10px;
-  box-sizing: border-box;
-}

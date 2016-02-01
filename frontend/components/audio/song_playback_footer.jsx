@@ -4,7 +4,7 @@ var PlayingSongActions = require('../../actions/playing_song_actions');
 
 var SongPlaybackFooter = React.createClass({
   getInitialState: function () {
-    return { song: CurrentPlayingSongStore.getSong() };
+    return { song: CurrentPlayingSongStore.getSong() , isPlaying: CurrentPlayingSongStore.isPlaying() };
   },
 
   componentDidMount: function () {
@@ -18,7 +18,7 @@ var SongPlaybackFooter = React.createClass({
 
   updateSong: function () {
     // this.setState({ song: CurrentPlayingSongStore.getSong() });
-    this.setState({ currentTime: CurrentPlayingSongStore.getCurrentTime() });
+    this.setState({ currentTime: CurrentPlayingSongStore.getCurrentTime(), isPlaying: CurrentPlayingSongStore.isPlaying() });
   },
 
   playPause: function () {
@@ -27,7 +27,7 @@ var SongPlaybackFooter = React.createClass({
 
   render: function () {
     var playButton;
-    if (true) {
+    if (this.state.isPlaying) {
       playButton = <button onClick={this.playPause} className="playback-play-button">
         <div className="playback-play-triangle"></div>
       </button>;

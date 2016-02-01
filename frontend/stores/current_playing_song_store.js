@@ -34,6 +34,14 @@ CurrentPlayingSongStore.getCurrentTime = function () {
   return _currentSong.getCurrentTime();
 };
 
+CurrentPlayingSongStore.isPlaying = function () {
+  if (_currentSong) {
+    return _currentSong.isPlaying();
+  } else {
+    return false;
+  }
+};
+
 
 CurrentPlayingSongStore.__onDispatch = function (payload) {
   switch(payload.actionType) {

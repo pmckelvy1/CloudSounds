@@ -1,3 +1,27 @@
+.footer {
+  background: #eee;
+  color: black;
+  display: block;
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+  bottom: 0px;
+  left: 0px;
+  height: 45px;
+}
+
+.footer-song-info {
+  width: 360px;
+  padding: 15px 10px;
+  box-sizing: border-box;
+}
+
+.footer-song-playback {
+  width: 880px;
+  padding: 15px 10px;
+  box-sizing: border-box;
+}
+
 .playback-footer-play-pause-button {
   display: block;
   float: left;
@@ -15,13 +39,12 @@
   content: "";
   display: block;
   position: absolute;
-  top: 19px;
-  left: 18px;
+  top: 22px;
   transform: rotate(-90deg);
-  border-top: 30px solid black;
+  border-top: 20px solid black;
   border-bottom: 0;
-  border-right: 22px solid transparent;
-  border-left: 22px solid transparent;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
 }
 
 .playback-pause-button {
@@ -32,10 +55,9 @@
   content: "";
   display: block;
   position: absolute;
-  height: 36px;
-  top: 6px;
-  left: 9px;
-  width: 11px;
+  height: 28px;
+  top: 8px;
+  width: 8px;
   margin: 10px;
   background: black;
 }
@@ -44,10 +66,10 @@
   content: "";
   display: block;
   position: absolute;
-  left: 28px;
-  top: 6px;
-  height: 36px;
-  width: 11px;
+  left: 13px;
+  top: 8px;
+  height: 28px;
+  width: 8px;
   margin: 10px;
   background: black;
 }
