@@ -1,0 +1,53 @@
+.playback-footer-play-pause-button {
+  display: block;
+  float: left;
+  position: absolute;
+  bottom: 50px;
+}
+
+.playback-play-button {
+  position: relative;
+  bottom: 0px;
+  z-index: 2;
+}
+
+.playback-play-triangle {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 19px;
+  left: 18px;
+  transform: rotate(-90deg);
+  border-top: 30px solid black;
+  border-bottom: 0;
+  border-right: 22px solid transparent;
+  border-left: 22px solid transparent;
+}
+
+.playback-pause-button {
+
+}
+
+.playback-pause-left {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 36px;
+  top: 6px;
+  left: 9px;
+  width: 11px;
+  margin: 10px;
+  background: black;
+}
+
+.playback-pause-right {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 28px;
+  top: 6px;
+  height: 36px;
+  width: 11px;
+  margin: 10px;
+  background: black;
+}

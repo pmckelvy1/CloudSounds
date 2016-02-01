@@ -2,6 +2,7 @@ var React = require('react');
 var CurrentUserStore = require('../stores/current_user_store');
 var SessionApiUtil = require('../util/sessions_api_util');
 var History = require('react-router').History;
+var SongPlaybackFooter = require('./audio/song_playback_footer');
 
 
 var Header = React.createClass({
@@ -51,24 +52,25 @@ var Header = React.createClass({
     }
     return (
       <div>
-      <div className="header group">
-        <div className="header-nav group">
+        <div className="header group">
+          <div className="header-nav group">
 
-          <div className="header-nav-site-nav group">
-            <i className="fa fa-music blue header-logo-note"></i>
-            <div className="header-logo"><i className="fa fa-cloud fa-2x"></i></div>
-            <div className="home header-left"><a href="#">Home</a></div>
-            <div className="collection header-left"><a href="#">Collection</a></div>
+            <div className="header-nav-site-nav group">
+              <i className="fa fa-music blue header-logo-note"></i>
+              <div className="header-logo"><i className="fa fa-cloud fa-2x"></i></div>
+              <div className="home header-left"><a href="#">Home</a></div>
+              <div className="collection header-left"><a href="#">Collection</a></div>
+            </div>
+
+            <div className="header-nav-profile-nav group">
+              {sessionButtons}
+            </div>
+
           </div>
-
-          <div className="header-nav-profile-nav group">
-            {sessionButtons}
-          </div>
-
         </div>
+        {this.props.children}
+        <SongPlaybackFooter />
       </div>
-      {this.props.children}
-    </div>
     );
   }
 });

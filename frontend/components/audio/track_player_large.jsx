@@ -1,6 +1,11 @@
 var React = require('react');
 var TrackWaveformLarge = require('./track_waveform_large');
 var LikeButton = require('../buttons/like_button');
+var CurrentPlayingSongStore = require('../../stores/current_playing_song_store');
+var PlayingSongActions = require('../../actions/playing_song_actions');
+var CurrentUserStore = require('../../stores/current_user_store');
+var Dispatcher = require('../../dispatcher/dispatcher');
+var SongStore = require('../../stores/song_store');
 
 var TrackPlayerLarge = React.createClass({
   getInitialState: function () {
@@ -8,7 +13,7 @@ var TrackPlayerLarge = React.createClass({
   },
 
   componentDidMount: function () {
-    this.setState({});
+    // this.setState({});
     var wavesurfer = WaveSurfer.create({
         container: '.wave',
         waveColor: 'silver',
@@ -19,17 +24,29 @@ var TrackPlayerLarge = React.createClass({
     });
 
     wavesurfer.on('ready', function () {
-        wavesurfer.play();
-        this.setState({});
+      // PlayingSongActions.play();
+      wavesurfer.play();
+      this.setState({});
     }.bind(this));
 
     wavesurfer.load(this.props.song.audio_url);
 
     this.setState({ wavesurfer: wavesurfer });
+
+    setTimeout(function () {
+      PlayingSongActions.receiveWavesurfer(wavesurfer);
+    }, 0);
+
+    this.setState({ storeToken: storeToken });
   },
 
+  // componentWillUnmount: function () {
+  //   this.state.storeToken.remove();
+  // },
+
   playPause: function () {
-    this.state.wavesurfer.playPause();
+    // this.state.wavesurfer.playPause();
+    PlayingSongActions.playPause();
     this.setState({});
   },
 
@@ -46,6 +63,10 @@ var TrackPlayerLarge = React.createClass({
   },
 
   render: function () {
+
+    // if (this.state.wavesurfer) {
+    //   PlayingSongActions.newSong(this.state.wavesurfer);
+    // }
     var userURL = '#/users/' + this.props.song.user_id;
     var songURL = '#/songs/' + this.props.song.id;
     var playButton;
