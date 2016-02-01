@@ -28,8 +28,10 @@ var UserFeed = React.createClass({
     if (this.state.songs) {
       return (
         <div className="user-feed">
+        <div className="user-feed-header">Hear the latest posts from the people you're following</div>
           <TrackFeed songs={this.state.songs} />
         </div>
+
       );
     } else {
       return (
