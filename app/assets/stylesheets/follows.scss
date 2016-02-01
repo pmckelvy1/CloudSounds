@@ -2,16 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .follow-button {
-  background: white;
-  color: black;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 3px 5px;
+  border-radius: 3px;
+  padding: 5px 10px;
   display: block;
-  float: right;
   font-size: 12px;
+  box-sizing: border-box;
 }
 
-.follow-button:hover {
-  border: 1px solid #999;
+// .follow-button:hover {
+//   border: 1px solid #999;
+// }
+
+.float-left {
+  display: block;
+  float: left;
+}
+
+.float-right {
+  display: block;
+  float: right;
+}
+
+.followed {
+  background: #0BF;
+  color: white;
+}
+
+.not-followed {
+  color: #0BF;
+  background: white;
+  border: 1px solid #0BF;
 }

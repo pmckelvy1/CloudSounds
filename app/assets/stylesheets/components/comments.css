@@ -32,8 +32,14 @@
 
 .comment-index-large {
   display: block;
-  width: 670px;
-  min-height: 200px;
+  width: 550px;
+  box-sizing: border-box;
+}
+
+.song-info-and-comments {
+  display: block;
+  float: left;
+  width: 550px;
   box-sizing: border-box;
 }
 
@@ -63,6 +69,13 @@
   color: #777;
   display: block;
   float: left;
+}
+
+.comment-index-header {
+  color: #aaa;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .says-at {

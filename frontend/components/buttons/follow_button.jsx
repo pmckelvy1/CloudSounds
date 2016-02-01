@@ -34,14 +34,22 @@ var FollowButton = React.createClass({
   },
 
   render: function () {
-    var followButtonText;
+    var followButton;
     if (this.state.follows) {
-      followButtonText = "Following";
+      followButton = <button className="follow-button followed"
+        onClick={this.toggleFollow}>
+        Following
+      </button>;
     } else {
-      followButtonText = "Follow";
+      followButton = <button className="follow-button not-followed"
+        onClick={this.toggleFollow}>
+        Follow
+      </button>;
     }
     return (
-      <button className="follow-button" onClick={this.toggleFollow}>{followButtonText}</button>
+      <div>
+        {followButton}
+      </div>
     );
   }
 

@@ -10,8 +10,6 @@
 .track-player-large {
   position: relative;
   background: #eee;
-  border: 1px solid black;
-  border-radius: 5px;
   width: 1240px;
   height: 380px;
   padding: 20px;

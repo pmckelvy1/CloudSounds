@@ -8,6 +8,7 @@ var LikeButton = require('../buttons/like_button');
 var CurrentUserStore = require('../../stores/current_user_store');
 var CommentIndexLargeUserInfo = require('../comments/comment_index_large_user_info');
 var SongShowButtons = require('../buttons/song_show_buttons');
+var SongInfo = require('./song_info');
 
 var SongShowPage = React.createClass({
   getInitialState: function () {
@@ -44,7 +45,10 @@ var SongShowPage = React.createClass({
             </div>
             <SongShowButtons song={this.state.song} />
             <CommentIndexLargeUserInfo user={this.state.song.user} />
-            <CommentIndexLarge songId={this.state.song.id} />
+            <div className="song-info-and-comments">
+              <SongInfo song={this.state.song} />
+              <CommentIndexLarge songId={this.state.song.id} />
+            </div>
           </div>
           <div className="song-show-page-sidebar">
 

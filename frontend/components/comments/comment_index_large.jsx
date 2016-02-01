@@ -32,7 +32,10 @@ var CommentIndexLarge = React.createClass({
       </li>;
       });
       return (
-        <div className="comment-index-large">
+        <div className="comment-index-large group">
+          <div className="comment-index-header">
+            <i className="fa fa-comment"></i> {comments.length} comments
+          </div>
           <ul>
             {comments}
           </ul>
