@@ -26,7 +26,9 @@ var UserFollowsSnapshot = React.createClass({
     }
     return (
       <div className="user-likes-snapshot">
-        <h1>{numFollowedUsers} Follows</h1>
+        <div className="snapshot-header">
+          <h1><i className="fa fa-users"></i> {numFollowedUsers} following</h1>
+        </div>
         <ul className="group">
           {followedUsers}
         </ul>

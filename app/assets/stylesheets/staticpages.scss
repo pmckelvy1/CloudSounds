@@ -8,6 +8,8 @@
   background: #383838;
   color: #aaa;
   display: block;
+  width: 100%;
+  position: relative;
 }
 
 .header-nav {
@@ -20,6 +22,16 @@
 .header-logo {
   display: block;
   float: left;
+  padding: 7px 15px 7px 15px;
+  background: #0BF;
+  color: white;
+}
+
+.header-logo-note {
+  position: absolute;
+  z-index: 1;
+  left: 21px;
+  top: 15px;
 }
 
 .header-logo img {
@@ -87,6 +99,19 @@
   padding: 14px;
 }
 
+.header-left a {
+  padding: 14px 15px 14px 15px;
+  border-right: 1px solid black;
+}
+
+.profile-link {
+  position: relative;
+}
+
+.profile-link a {
+  padding-left: 45px;
+}
+
 
 // MAIN CONTENT //
 
@@ -94,6 +119,6 @@
   background: white;
   width: 1240px;
   margin: auto;
-  height: 1000px;
+  min-height: 1000px;
   box-sizing: border-box;
 }

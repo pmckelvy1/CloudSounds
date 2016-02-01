@@ -1,0 +1,11 @@
+.white {
+  color: #aaa !important;
+}
+
+.white:hover {
+  color: white !important;
+}
+
+.blue {
+  color: #0bf !important;
+}

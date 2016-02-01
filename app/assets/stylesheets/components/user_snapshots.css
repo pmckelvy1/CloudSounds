@@ -3,4 +3,11 @@
   width: 300px;
   box-sizing: border-box;
   min-height: 205px;
+  color: #aaa;
+}
+
+.snapshot-header {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0px;
+  margin-bottom: 15px;
 }

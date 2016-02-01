@@ -37,7 +37,9 @@ var UserLikesSnapshot = React.createClass({
     }
     return (
       <div className="user-likes-snapshot">
-        <h1>{numLikedSongs} Likes</h1>
+        <div className="snapshot-header">
+          <h1><i className="fa fa-heart"></i> {numLikedSongs} likes</h1>
+        </div>
         <ul className="group">
           {likedSongs}
         </ul>
