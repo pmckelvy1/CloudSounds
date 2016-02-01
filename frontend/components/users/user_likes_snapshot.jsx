@@ -2,6 +2,7 @@ var React = require('react');
 var TrackPlayerMini = require('../audio/track_player_mini');
 var CurrentUserStore = require('../../stores/current_user_store');
 var UserStore = require('../../stores/user_store');
+var LikeStore = require('../../stores/like_store');
 
 var UserLikesSnapshot = React.createClass({
   getInitialState: function () {
@@ -13,15 +14,23 @@ var UserLikesSnapshot = React.createClass({
     // storeToken = UserStore.addListener(function() {
     //   this.setState({ likedSongs: UserStore.getUserLikedSongs() });
     // }.bind(this));
-    this.setState({ likedSongs: UserStore.getUserLikedSongs() });
+    this.setState({ likedSongs: LikeStore.getLikedSongs() });
     // this.setState({ storeToken: storeToken });
+    var ls = LikeStore.addListener(this.getLikesForSongs);
+    this.setState({ lsToken: ls });
   },
 
-  // componentWillUnmount: function () {
-  //   if (this.state.storeToken) {
-  //     this.state.storeToken.remove();
-  //   }
-  // },
+  componentWillUnmount: function () {
+    if (this.state.lsToken) {
+      this.state.lsToken.remove();
+    }
+  },
+
+  getLikesForSongs: function () {
+    // var likedSongIds = [this.state.likedSongs[0], this.state.likedSongs[1], this.state.likedSongs[2]];
+    var ls = CurrentUserStore.likedSongs();
+    this.setState({ likedSongs: LikeStore.getLikedSongs() });
+  },
 
   render: function () {
     // if (Object.keys(this.state.likedSongs).length === 0) {

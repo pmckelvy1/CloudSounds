@@ -21,7 +21,7 @@ class Api::SongsController < ApplicationController
     if params[:user_id]
       @songs = Song.where(user_id: params[:user_id]).includes(:likes)[0]
     else
-      @songs = User.find(current_user.id).followed_songs
+      @songs = User.find(current_user.id).followed_songs.includes(:likes)
     end
     render :index
   end

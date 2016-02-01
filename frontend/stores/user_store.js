@@ -92,6 +92,10 @@ UserStore.getUser = function () {
   return _user;
 };
 
+UserStore.userId = function () {
+  return _user.id;
+};
+
 // UserStore.all = function () {
 //   var users = [];
 //   for (var id in _users) {
@@ -110,6 +114,14 @@ UserStore.getUserSongs = function() {
     songs.push(_songs[id]);
   }
   return songs;
+};
+
+UserStore.doesLikeSong = function(songId) {
+  if (_likedSongs[songId]) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 UserStore.getUserLikedSongs = function () {
@@ -156,18 +168,18 @@ UserStore.__onDispatch = function (payload) {
       resetFollowedUsers(payload.user.followed_users);
       UserStore.__emitChange();
       break;
-    case LikeConstants.LIKE_RECEIVED:
-      if (Object.keys(_user).length > 0) {
-        updateLikedSong(payload.likedSong);
-        UserStore.__emitChange();
-      }
-      break;
-    case LikeConstants.UNLIKE_RECEIVED:
-      if (Object.keys(_user).length > 0) {
-        updateUnlikedSong(payload.unLikedSong);
-        UserStore.__emitChange();
-      }
-      break;
+    // case LikeConstants.LIKE_RECEIVED:
+    //   if (Object.keys(_user).length > 0) {
+    //     updateLikedSong(payload.likedSong);
+    //     // UserStore.__emitChange();
+    //   }
+    //   break;
+    // case LikeConstants.UNLIKE_RECEIVED:
+    //   if (Object.keys(_user).length > 0) {
+    //     updateUnlikedSong(payload.unLikedSong);
+    //     // UserStore.__emitChange();
+    //   }
+      // break;
     case FollowConstants.USER_FOLLOWED:
       if (_user.id == payload.followedUser.id) {
         _user.num_followers += 1;

@@ -1,25 +1,62 @@
 var Store = require('flux/utils').Store,
     Dispatcher = require('../dispatcher/dispatcher'),
     LikeConstants = require('../constants/like_constants'),
-    CurrentUserConstants = require('../constants/current_user_constants');
+    CurrentUserConstants = require('../constants/current_user_constants'),
+    CurrentUserStore = require('./current_user_store'),
+    UserStore = require('./user_store');
 
 var LikeStore = new Store(Dispatcher);
 
 var _likes = {};
+var _likedSongs = {};
 
-var resetLikes = function (likes) {
+var resetLikes = function (songs) {
   _likes = {};
-  likes.forEach(function (like) {
-    _likes[like.song_id] = like;
+  _likedSongs = {};
+  songs.forEach(function (song) {
+    if (UserStore.doesLikeSong(song.id)){
+      _likedSongs[song.id] = song;
+    }
+    _likes[song.id] = song.num_likes;
   });
 };
 
-var addLike = function (like) {
-  _likes[like.song_id] = like;
+var addLike = function (likedSong) {
+  if (_likes[likedSong.id]) {
+    _likes[likedSong.id] += 1;
+  } else {
+    _likes[likedSong.id] = 1;
+  }
+  if (_likedSongs[likedSong.id] || CurrentUserStore.currentUserId() == UserStore.userId()) {
+    _likedSongs[likedSong.id] = likedSong;
+  }
 };
 
-var removeLike = function (like) {
-  delete _likes[like.song_id];
+var removeLike = function (unLikedSong) {
+  if (_likes[unLikedSong.id]) {
+    _likes[unLikedSong.id] -= 1;
+  }
+  if (CurrentUserStore.currentUserId() == UserStore.userId()) {
+    delete _likedSongs[unLikedSong.id];
+  } else if (_likedSongs[unLikedSong.id]) {
+    _likedSongs[unLikedSong.id] = unLikedSong;
+  }
+};
+
+LikeStore.getNumLikes = function(songId) {
+  if (_likes[songId]) {
+    return _likes[songId];
+  } else {
+    return 0;
+  }
+};
+
+LikeStore.getLikedSongs = function () {
+  likedSongs = [];
+  for (var id in _likedSongs) {
+    likedSongs.push(_likedSongs[id]);
+  }
+  return likedSongs;
 };
 
 LikeStore.all = function () {
@@ -43,24 +80,25 @@ LikeStore.doesLike = function(likedId) {
 };
 
 LikeStore.__onDispatch = function (payload) {
-  // switch (payload.actionType) {
-  //   case LikeConstants.LIKE_RECEIVED:
-  //     addLike(payload.like);
-  //     LikeStore.__emitChange();
-  //     break;
-  //   case LikeConstants.UNLIKE_RECEIVED:
-  //     removeLike(payload.like);
-  //     LikeStore.__emitChange();
-  //     break;
-  //   case LikeConstants.LIKES_RECEIVED:
-  //     resetLikes(payload.likes);
-  //     LikeStore.__emitChange();
-  //     break;
-  //   case CurrentUserConstants.RECEIVE_CURRENT_USER:
-  //     resetLikes(payload.currentUser.likes);
-  //     LikeStore.__emitChange();
-  //     break;
-  // }
+  switch (payload.actionType) {
+    case LikeConstants.LIKE_RECEIVED:
+      addLike(payload.likedSong);
+      LikeStore.__emitChange();
+      break;
+    case LikeConstants.UNLIKE_RECEIVED:
+      removeLike(payload.unLikedSong);
+      LikeStore.__emitChange();
+      break;
+    case LikeConstants.LIKES_RECEIVED:
+      resetLikes(payload.songs);
+      LikeStore.__emitChange();
+      break;
+    // case CurrentUserConstants.RECEIVE_CURRENT_USER:
+    // debugger
+    //   resetLikes(payload.currentUser.likes);
+    //   LikeStore.__emitChange();
+    //   break;
+  }
 };
 
 module.exports = LikeStore;

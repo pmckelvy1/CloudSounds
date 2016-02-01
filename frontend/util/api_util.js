@@ -25,7 +25,7 @@ var ApiUtil = {
       success: function (user) {
         UserActions.receiveSingleUser(user);
         // SongActions.receiveUserSongs(user.songs);
-        // LikeActions.receiveLikes(user.likes);
+        LikeActions.receiveLikes(user.liked_songs.concat(user.songs));
       }
     });
   },
@@ -76,6 +76,7 @@ var ApiUtil = {
       data: { user_id: userId },
       success: function (songs) {
         SongActions.receiveUserSongs(songs);
+        LikeActions.receiveLikes(songs);
       }
     });
   },
@@ -89,6 +90,7 @@ var ApiUtil = {
       dataType: 'JSON',
       success: function (songs) {
         SongActions.receiveAllSongs(songs);
+        LikeActions.receiveLikes(songs);
       }
     });
   },

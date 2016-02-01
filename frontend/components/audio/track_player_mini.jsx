@@ -19,9 +19,6 @@ var TrackPlayerMini = React.createClass({
         <div className="play-button-mini">{playButton}</div>
         <h1 className="artist-name-mini"><a href={userURL}>{this.props.song.username}</a></h1>
         <h2><a href={songURL}>{this.props.song.title}</a></h2>
-        <div className="buttons group">
-          <LikeButton song={this.props.song}/>
-        </div>
       </div>
     );
   }

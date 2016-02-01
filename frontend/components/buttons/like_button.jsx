@@ -1,26 +1,30 @@
 var React = require("react"),
     ApiActions = require('../../actions/api/api_actions'),
-    CurrentUserStore = require('../../stores/current_user_store');
+    CurrentUserStore = require('../../stores/current_user_store'),
+    LikeStore = require('../../stores/like_store'),
+    UserStore = require('../../stores/user_store');
 
 var LikeButton = React.createClass({
   getInitialState: function () {
-    return { likes: CurrentUserStore.doesLike(this.props.song.id) };
+    return { likes: CurrentUserStore.doesLike(this.props.song.id), numLikes: LikeStore.getNumLikes(this.props.song.id) };
   },
 
   componentDidMount: function () {
     var cus = CurrentUserStore.addListener(function () {
-      // set the like state
-      this.setState({ likes: CurrentUserStore.doesLike(this.props.song.id)});
-      // if there is a like, grab it
-      // if (CurrentUserStore.doesLike(this.props.song.id)) {
-      //   this.setState({ like: CurrentUserStore.find(this.props.song.id)});
-      // }
+      this.setState({ likes: CurrentUserStore.doesLike(this.props.song.id) });
+      // this.setState({ numLikes: LikeStore.getNumLikes(this.props.song.id) });
     }.bind(this));
-    this.setState({ cusToken: cus });
+
+    var ls = LikeStore.addListener(function () {
+      this.setState({ numLikes: LikeStore.getNumLikes(this.props.song.id) });
+    }.bind(this));
+
+    this.setState({ cusToken: cus , lsToken: ls });
   },
 
   componentWillUnmount: function () {
     this.state.cusToken.remove();
+    this.state.lsToken.remove();
   },
 
   toggleLike: function (e) {
@@ -38,12 +42,12 @@ var LikeButton = React.createClass({
     if (this.state.likes) {
       likeButton = <button className="like-button liked"
         onClick={this.toggleLike}>
-        <i className="fa fa-heart"></i> {this.props.song.num_likes}
+        <i className="fa fa-heart"></i> {this.state.numLikes}
       </button>;
     } else {
       likeButton = <button className="like-button not-liked"
         onClick={this.toggleLike}>
-        <i className="fa fa-heart-o"></i> {this.props.song.num_likes}
+        <i className="fa fa-heart-o"></i> {this.state.numLikes}
       </button>;
     }
     return (

@@ -2,10 +2,10 @@ var LikeConstants = require('../constants/like_constants'),
     Dispatcher = require('../dispatcher/dispatcher');
 
 var LikeActions = {
-  receiveLikes: function(likes) {
+  receiveLikes: function(songs) {
     Dispatcher.dispatch({
       actionType: LikeConstants.LIKES_RECEIVED,
-      likes: likes
+      songs: songs
     });
   },
 
