@@ -6,15 +6,30 @@ var SongUpload = React.createClass({
   mixins: [LinkedState],
 
   getInitialState: function () {
-    return { title: "", info: "", imageFile: null, imageURL: ""};
+    return { title: "", info: "", imageFile: null, imageURL: "", audioFile: null, audioURL: ""};
   },
 
-  changeFile: function (e) {
+  changeImageFile: function (e) {
     var reader = new FileReader();
     var file = e.currentTarget.files[0];
 
     reader.onloadend = function () {
       this.setState({imageFile: file, imageURL: reader.result});
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file); // will trigger a load end event when it completes, and invoke reader.onloadend
+    } else {
+      this.setState({imageFile: null, imageUrl: ""});
+    }
+  },
+
+  changeAudioFile: function (e) {
+    var reader = new FileReader();
+    var file = e.currentTarget.files[0];
+
+    reader.onloadend = function () {
+      this.setState({audioFile: file, audioURL: reader.result});
     }.bind(this);
 
     if (file) {
@@ -32,6 +47,7 @@ var SongUpload = React.createClass({
     songData.append("song[title]", this.state.title);
     songData.append("song[info]", this.state.info);
     songData.append("song[image]", this.state.imageFile);
+    songData.append("song[audio]", this.state.audioFile);
 
     ApiUtil.createSong(songData, this.resetForm);
   },
@@ -56,11 +72,14 @@ var SongUpload = React.createClass({
 
 
           <label htmlFor="artwork" className="song-artwork-label upload-label">Upload song artwork:</label>
-            <input id="artwork" type="file" className="song-artwork-input" onChange={this.changeFile}></input>
+            <input id="artwork" type="file" className="song-artwork-input" onChange={this.changeImageFile}></input>
 
 
           <img className="preview-image" src={this.state.imageURL}/>
           <button className="upload-button">Upload</button>
+
+          <label htmlFor="audio" className="song-audio-label upload-label">Upload song audio:</label>
+            <input id="audio" type="file" className="song-audio-input" onChange={this.changeAudioFile}></input>
 
         </form>
       </div>

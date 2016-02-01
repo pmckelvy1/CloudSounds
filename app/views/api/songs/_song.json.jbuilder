@@ -12,4 +12,5 @@ json.comments do |commentElement|
   end
 end
 json.image_url asset_path(song.image.url)
+json.audio_url asset_path(song.audio.url)
 json.num_likes song.likes.length

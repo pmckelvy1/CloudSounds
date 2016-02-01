@@ -22,7 +22,9 @@ module.exports = {
       },
       {
         test: /\.node$/,
-        loader: "node-loader"
+        loader: ["node-loader",
+                "file-loader",
+                "url-loader"]
       }
     ]
   },
