@@ -33,3 +33,16 @@
   float: left;
   padding: 20px;
 }
+
+.artist-name-large {
+  padding: 7px 7px;
+  margin-left: 15px;
+  font-size: 24px;
+  color: white;
+  background: black;
+  display: block;
+  margin-bottom: 5px;
+  position: absolute;
+  top: 35px;
+  left: 250px;
+}

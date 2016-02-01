@@ -8,7 +8,9 @@ var CommentIndexLargeUserInfo = React.createClass({
       <div className="comment-index-large-user-info">
         <img className="thumb-med" src={this.props.user.image_url} />
         <div className="artist-info-name">{this.props.user.username}</div>
-        <FollowButton className="float-left" followedId={this.props.user.id} />
+        <div className="follow-button-container">
+          <FollowButton followedId={this.props.user.id} />
+        </div>
       </div>
     );
   }

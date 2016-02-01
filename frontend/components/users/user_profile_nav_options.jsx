@@ -11,7 +11,7 @@ var UserProfileNavOptions = React.createClass({
     if (this.props.user.id == CurrentUserStore.currentUserId()) {
       options = <EditButton />;
     } else {
-      options = <FollowButton className="float-right" followedId={this.props.user.id}/>;
+      options = <FollowButton followedId={this.props.user.id}/>;
     }
     return (
       <div className="user-profile-nav-options">

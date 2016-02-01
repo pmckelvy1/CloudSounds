@@ -5,6 +5,7 @@
   border-radius: 3px;
   padding: 5px 10px;
   display: block;
+  float: right;
   font-size: 12px;
   box-sizing: border-box;
 }
@@ -32,4 +33,9 @@
   color: #0BF;
   background: white;
   border: 1px solid #0BF;
+}
+
+.follow-button-container {
+  display: block;
+  float: left;
 }
