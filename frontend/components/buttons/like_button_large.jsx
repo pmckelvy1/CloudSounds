@@ -34,14 +34,20 @@ var LikeButtonLarge = React.createClass({
 
   render: function () {
     var likeButtonText;
+    var likeButton;
     if (this.state.likes) {
-      likeButtonText = <i className="fa fa-heart liked"> Liked</i>;
+      likeButtonText = <i className="fa fa-heart"> Liked</i>;
+      likeButton = <button className="like-button-large liked"
+        onClick={this.toggleLike}>{likeButtonText}</button>;
     } else {
       likeButtonText = <i className="fa fa-heart-o"> Like</i>;
+      likeButton = <button className="like-button-large not-liked"
+        onClick={this.toggleLike}>{likeButtonText}</button>;
     }
     return (
-      <button className="like-button-large"
-        onClick={this.toggleLike}>{likeButtonText}</button>
+      <div>
+        {likeButton}
+      </div>
     );
   }
 

@@ -34,13 +34,22 @@ var LikeButton = React.createClass({
 
   render: function () {
     var likeButtonText;
+    var likeButton;
     if (this.state.likes) {
-      likeButtonText = <i className="fa fa-heart liked"></i>;
+      likeButton = <button className="like-button liked"
+        onClick={this.toggleLike}>
+        <i className="fa fa-heart"></i> {this.props.song.num_likes}
+      </button>;
     } else {
-      likeButtonText = <i className="fa fa-heart-o"></i>;
+      likeButton = <button className="like-button not-liked"
+        onClick={this.toggleLike}>
+        <i className="fa fa-heart-o"></i> {this.props.song.num_likes}
+      </button>;
     }
     return (
-      <button className="like-button"  onClick={this.toggleLike}>{likeButtonText} {this.props.song.num_likes}</button>
+      <div>
+        {likeButton}
+      </div>
     );
   }
 

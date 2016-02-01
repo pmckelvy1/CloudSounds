@@ -3,8 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .like-button {
   background: white;
-  color: black;
-  border: 1px solid #ccc;
   border-radius: 3px;
   padding: 3px 6px;
   display: block;
@@ -19,8 +17,6 @@
 
 .like-button-large {
   background: white;
-  color: black;
-  border: 1px solid #ccc;
   border-radius: 3px;
   padding: 5px 10px;
   display: block;
@@ -33,4 +29,11 @@
 
 .liked {
   color: #0BF;
+  border: 1px solid #0BF;
+
+}
+
+.not-liked {
+  color: black;
+  border: 1px solid #ccc;
 }
