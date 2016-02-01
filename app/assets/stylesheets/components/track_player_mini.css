@@ -94,6 +94,12 @@
   background: white;
 }
 
+.track-waveform-mini {
+  width: 0px;
+  height: 0px;
+  display: block;
+}
+
 .num-songs {
   display: block;
   float: left;

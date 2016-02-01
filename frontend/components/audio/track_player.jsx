@@ -17,7 +17,8 @@ var TrackPlayer = React.createClass({
         barWidth: 2,
         cursorWidth: 0,
         height: 65,
-        width: 645
+        width: 645,
+        fillParent: true
     });
 
     wavesurfer.on('ready', function () {
