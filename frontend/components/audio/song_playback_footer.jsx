@@ -49,10 +49,7 @@ var SongPlaybackFooter = React.createClass({
           <div className="playback-footer-play-pause-button">
             {playButton}
           </div>
-          {this.state.currentTime}
-          <div className="footer-playback-container">
-            <SongPlaybackBar />
-          </div>
+          <SongPlaybackBar />
         </div>
       </div>
     );
