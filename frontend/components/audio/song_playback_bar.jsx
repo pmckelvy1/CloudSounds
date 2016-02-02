@@ -47,6 +47,7 @@ var SongPlaybackBar = React.createClass({
         <div className="playback-status"
           style={widthStyle}>
         </div>
+        <div className="playback-status-incomplete"></div>
       </div>
     );
   }
