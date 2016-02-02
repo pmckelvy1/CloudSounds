@@ -4,8 +4,8 @@ var PlayingSongConstants = require('../constants/playing_song_constants');
 
 var CurrentPlayingSongStore = new Store(Dispatcher);
 
-_queuedSongs = {};
-_currentSong = null;
+var _queuedSongs = {};
+var _currentSong = null;
 
 var playSong = function () {
   _currentSong.playPause();
@@ -31,7 +31,7 @@ CurrentPlayingSongStore.getSong = function () {
 };
 
 CurrentPlayingSongStore.getCurrentTime = function () {
-  return _currentSong.getCurrentTime();
+  return Math.fround(_currentSong.getCurrentTime());
 };
 
 CurrentPlayingSongStore.isPlaying = function () {
@@ -42,6 +42,11 @@ CurrentPlayingSongStore.isPlaying = function () {
   }
 };
 
+CurrentPlayingSongStore.getDuration = function () {
+  if (_currentSong) {
+    return Math.fround(_currentSong.getDuration());
+  }
+};
 
 CurrentPlayingSongStore.__onDispatch = function (payload) {
   switch(payload.actionType) {

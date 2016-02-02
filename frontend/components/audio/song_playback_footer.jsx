@@ -1,6 +1,7 @@
 var React = require('react');
 var CurrentPlayingSongStore = require('../../stores/current_playing_song_store');
 var PlayingSongActions = require('../../actions/playing_song_actions');
+var SongPlaybackBar = require('./song_playback_bar');
 
 var SongPlaybackFooter = React.createClass({
   getInitialState: function () {
@@ -27,14 +28,18 @@ var SongPlaybackFooter = React.createClass({
 
   render: function () {
     var playButton;
-    if (this.state.isPlaying) {
-      playButton = <button onClick={this.playPause} className="playback-play-button">
-        <div className="playback-play-triangle"></div>
+    if (!this.state.isPlaying) {
+      playButton = <button onClick={this.playPause}>
+        <div className="playback-play-button">
+          <div className="playback-play-triangle"></div>
+        </div>
       </button>;
     } else {
-      playButton = <button onClick={this.playPause} className="playback-play-button">
-        <div className="playback-pause-left"></div>
-        <div className="playback-pause-right"></div>
+      playButton = <button onClick={this.playPause}>
+        <div className="playback-play-button">
+          <div className="playback-pause-left"></div>
+          <div className="playback-pause-right"></div>
+        </div>
       </button>;
     }
 
@@ -42,10 +47,11 @@ var SongPlaybackFooter = React.createClass({
       <div className="footer">
         <div className="footer-song-playback">
           <div className="playback-footer-play-pause-button">
-          <div className="footer-playback-container">
-          {this.state.currentTime}
-          {playButton}
+            {playButton}
           </div>
+          {this.state.currentTime}
+          <div className="footer-playback-container">
+            <SongPlaybackBar />
           </div>
         </div>
       </div>

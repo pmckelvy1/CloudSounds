@@ -25,7 +25,7 @@ var TrackPlayerLarge = React.createClass({
 
     wavesurfer.on('ready', function () {
       // PlayingSongActions.play();
-      wavesurfer.play();
+      PlayingSongActions.playPause();
       this.setState({});
     }.bind(this));
 
@@ -37,7 +37,6 @@ var TrackPlayerLarge = React.createClass({
       PlayingSongActions.receiveWavesurfer(wavesurfer);
     }, 0);
 
-    this.setState({ storeToken: storeToken });
   },
 
   // componentWillUnmount: function () {

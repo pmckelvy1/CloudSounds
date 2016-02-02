@@ -22,17 +22,25 @@
   box-sizing: border-box;
 }
 
+.footer-playback-container {
+  position: absolute;
+  bottom: 25px;
+  left: 200px;
+}
+
 .playback-footer-play-pause-button {
   display: block;
   float: left;
   position: absolute;
-  bottom: 50px;
+  bottom: 53px;
+  left: 100px;
 }
 
 .playback-play-button {
-  position: relative;
+  display: block;
+  float: left;
+  position: absolute;
   bottom: 0px;
-  z-index: 2;
 }
 
 .playback-play-triangle {
@@ -40,6 +48,7 @@
   display: block;
   position: absolute;
   top: 22px;
+  left: 10px;
   transform: rotate(-90deg);
   border-top: 20px solid black;
   border-bottom: 0;
@@ -72,4 +81,26 @@
   width: 8px;
   margin: 10px;
   background: black;
+}
+
+.playback-bar {
+  width: 500px;
+  display: block;
+  float: left;
+  position: relative;
+}
+
+.status-dot {
+  position: absolute;
+  bottom: -12px;
+}
+
+.playback-status {
+  display: block;
+  float: left;
+  position: absolute;
+  bottom: -3px;
+  height: 2px;
+  background: #0BF;
+  z-index: 1;
 }
