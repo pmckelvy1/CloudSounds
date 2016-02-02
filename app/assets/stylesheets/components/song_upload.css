@@ -45,7 +45,7 @@
   float: left;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 400px;
+  width: 420px;
   height: 150px;
   background: white;
 }
@@ -54,9 +54,8 @@
   display: block;
   float: right;
   width: 440px;
-  padding: 20px;
+  padding: 0px 20px 20px 0px;
   box-sizing: border-box;
-  padding-top: 60px;
 }
 
 .song-artwork-label {
