@@ -1,6 +1,8 @@
 var React = require('react');
 var TrackWaveform = require('./track_waveform');
 var LikeButton = require('../buttons/like_button');
+var CurrentPlayingSongStore = require('../../stores/current_playing_song_store');
+var PlayingSongActions = require('../../actions/playing_song_actions');
 
 var TrackPlayer = React.createClass({
   getInitialState: function () {
@@ -28,6 +30,10 @@ var TrackPlayer = React.createClass({
     wavesurfer.load(this.props.song.audio_url);
 
     this.setState({ wavesurfer: wavesurfer });
+
+    setTimeout(function () {
+      PlayingSongActions.receiveWavesurfer(wavesurfer);
+    }, 0);
   },
 
   playPause: function () {

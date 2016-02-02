@@ -24,7 +24,6 @@ var TrackPlayerLarge = React.createClass({
     });
 
     wavesurfer.on('ready', function () {
-      // PlayingSongActions.play();
       PlayingSongActions.playPause();
       this.setState({});
     }.bind(this));

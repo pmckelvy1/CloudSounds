@@ -40,7 +40,8 @@
   display: block;
   float: left;
   position: absolute;
-  bottom: 0px;
+  bottom: -48px;
+  left: 10px;
 }
 
 .playback-play-triangle {
@@ -57,7 +58,11 @@
 }
 
 .playback-pause-button {
-
+  display: block;
+  float: left;
+  position: absolute;
+  bottom: -48px;
+  left: 8px;
 }
 
 .playback-pause-left {
@@ -131,4 +136,18 @@
   position: absolute;
   right: -50px;
   bottom: -10px;
+}
+
+.next-song-button {
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  left: 150px;
+}
+
+.last-song-button {
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  left: 75px;
 }

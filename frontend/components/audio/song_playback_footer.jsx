@@ -26,19 +26,26 @@ var SongPlaybackFooter = React.createClass({
     PlayingSongActions.playPause();
   },
 
+  lastSong: function () {
+    PlayingSongActions.lastSong();
+  },
+
+  nextSong: function () {
+    PlayingSongActions.nextSong();
+  },
+
   render: function () {
     var playButton;
     if (!this.state.isPlaying) {
       playButton = <button onClick={this.playPause}>
         <div className="playback-play-button">
-          <div className="playback-play-triangle"></div>
+          <i className="fa fa-play fa-2x"></i>
         </div>
       </button>;
     } else {
       playButton = <button onClick={this.playPause}>
-        <div className="playback-play-button">
-          <div className="playback-pause-left"></div>
-          <div className="playback-pause-right"></div>
+        <div className="playback-pause-button">
+          <i className="fa fa-pause fa-2x"></i>
         </div>
       </button>;
     }
@@ -46,8 +53,18 @@ var SongPlaybackFooter = React.createClass({
     return (
       <div className="footer">
         <div className="footer-song-playback">
+          <div className="last-song-button">
+            <button onClick={this.lastSong}>
+              <i className="fa fa-step-backward fa-2x"></i>
+            </button>
+          </div>
           <div className="playback-footer-play-pause-button">
             {playButton}
+          </div>
+          <div className="next-song-button">
+            <button onClick={this.nextSong}>
+              <i className="fa fa-step-forward fa-2x"></i>
+            </button>
           </div>
           <SongPlaybackBar />
         </div>
