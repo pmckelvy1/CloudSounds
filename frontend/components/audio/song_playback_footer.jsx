@@ -19,37 +19,6 @@ var SongPlaybackFooter = React.createClass({
     this.state.storeToken.remove();
   },
 
-  // setPlayStatus: function () {
-  //   this.setState({ currentTime: CurrentPlayingSongStore.getCurrentTime(),
-  //     isPlaying: CurrentPlayingSongStore.isPlaying(), });
-  // },
-
-  // setPlayStatus: function () {
-  //   this.setState({ WSObject: CurrentPlayingSongStore.getSong() });
-  //   // this.setState({ song: CurrentPlayingSongStore.getSong() });
-  //   if (this.state.WSObject && (this.state.WSObject.id === CurrentPlayingSongStore.getSong().id)) {
-  //     if (CurrentPlayingSongStore.isPlaying()) {
-  //       this.state.WSObject.wavesurfer.play(CurrentPlayingSongStore.getCurrentTime());
-  //     } else {
-  //       if (this.state.WSObject.wavesurfer.isPlaying()) {
-  //         this.state.WSObject.wavesurfer.pause();
-  //       } else {
-  //         this.state.WSObject.wavesurfer.play();
-  //       }
-  //     }
-  //     this.setState({ currentTime: CurrentPlayingSongStore.getCurrentTime(),
-  //       isPlaying: CurrentPlayingSongStore.isPlaying() });
-  //   } else if (this.state.WSObject && (this.state.WSObject.id !== CurrentPlayingSongStore.getSong().id)) {
-  //     this.setState({ WSObject: CurrentPlayingSongStore.getSong(),
-  //       currentTime: CurrentPlayingSongStore.getCurrentTime(),
-  //       isPlaying: CurrentPlayingSongStore.isPlaying() });
-  //     if (CurrentPlayingSongStore.isPlaying()) {
-  //       this.state.WSObject.wavesurfer.play(CurrentPlayingSongStore.getCurrentTime());
-  //     } else {
-  //       this.state.WSObject.wavesurfer.pause();
-  //     }
-  //   }
-  // },
   playPause: function () {
     PlayingSongActions.playPause();
   },
@@ -84,20 +53,16 @@ var SongPlaybackFooter = React.createClass({
 
   render: function () {
     var playButton;
+    var forwardButton;
+    var backButton;
+
     if (!this.isPlaying()) {
-      // if (this.state.WSObject) {
-      //   this.state.WSObject.wavesurfer.play();
-      // }
       playButton = <button onClick={this.pP}>
         <div className="playback-play-button">
           <i className="fa fa-play fa-2x"></i>
         </div>
       </button>;
     } else {
-
-      // if (this.state.WSObject) {
-      //   this.state.WSObject.wavesurfer.pause();
-      // }
       playButton = <button onClick={this.pP}>
         <div className="playback-pause-button">
           <i className="fa fa-pause fa-2x"></i>
@@ -105,22 +70,42 @@ var SongPlaybackFooter = React.createClass({
       </button>;
     }
 
+    if (CurrentPlayingSongStore.hasNext()) {
+      forwardButton = <div className="next-song-button">
+        <button onClick={this.nextSong}>
+        <i className="fa fa-step-forward fa-2x"></i>
+        </button>
+      </div>;
+    } else {
+      forwardButton = <div className="next-song-button disabled">
+        <button disabled="true">
+        <i className="fa fa-step-forward fa-2x"></i>
+        </button>
+      </div>;
+    }
+
+    if (CurrentPlayingSongStore.hasPrev()) {
+      backButton = <div className="last-song-button">
+        <button onClick={this.lastSong}>
+        <i className="fa fa-step-backward fa-2x"></i>
+        </button>
+      </div>;
+    } else {
+      backButton = <div className="last-song-button disabled">
+        <button disabled="true">
+        <i className="fa fa-step-backward fa-2x"></i>
+        </button>
+      </div>;
+    }
+
     return (
       <div className="footer">
         <div className="footer-song-playback">
-          <div className="last-song-button">
-            <button onClick={this.lastSong}>
-              <i className="fa fa-step-backward fa-2x"></i>
-            </button>
-          </div>
+          {backButton}
           <div className="playback-footer-play-pause-button">
             {playButton}
           </div>
-          <div className="next-song-button">
-            <button onClick={this.nextSong}>
-              <i className="fa fa-step-forward fa-2x"></i>
-            </button>
-          </div>
+          {forwardButton}
           <SongPlaybackBar />
         </div>
       </div>

@@ -1,6 +1,5 @@
 var React = require('react');
 var CurrentPlayingSongStore = require('../../stores/current_playing_song_store');
-var PlaybackBarStore = require('../../stores/playback_bar_store');
 
 var SongPlaybackBar = React.createClass({
   getInitialState: function () {
@@ -76,7 +75,7 @@ var SongPlaybackBar = React.createClass({
     var hours = parseInt(totalSec / 3600) % 24;
     var minutes = parseInt(totalSec / 60) % 60;
     var seconds = totalSec % 60;
-    hours = (hours == 0 ? "" : hours + ":");
+    hours = (hours === 0 ? "" : hours + ":");
     // hours = (hours < 10 ? "0" + hours : hours);
 
     var result = hours + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);

@@ -56,8 +56,11 @@ var Header = React.createClass({
           <div className="header-nav group">
 
             <div className="header-nav-site-nav group">
-              <i className="fa fa-music blue header-logo-note"></i>
-              <div className="header-logo"><i className="fa fa-cloud fa-2x"></i></div>
+
+              <div className="header-logo">
+                <i className="fa fa-music blue header-logo-note"></i>
+                <i className="fa fa-cloud fa-2x header-logo-cloud"></i>
+              </div>
               <div className="home header-left"><a href="#">Home</a></div>
               <div className="collection header-left"><a href="#">Collection</a></div>
             </div>

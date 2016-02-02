@@ -151,3 +151,12 @@
   bottom: 5px;
   left: 75px;
 }
+
+.disabled {
+  color: #ccc;
+}
+
+.disabled:hover {
+  color: #ccc;
+  cursor: auto;
+}

@@ -88,28 +88,6 @@ var playPause = function (songId) {
   } else {
     _currentSong.wavesurfer.playPause();
   }
-
-  // if (_currentSong.id === songId || !songId) {
-  //   _currentSong.wavesurfer.playPause();
-  // } else {
-  //   if (_currentSong.wavesurfer.isPlaying()) {
-  //     _currentSong.wavesurfer.pause();
-  //     _currentTime = _currentSong.wavesurfer.getCurrentTime();
-  //   }
-  //   _pastSongsIdArray.push(_currentSong.id);
-  //
-  //   // REMOVE SONG FROM EITHER ARRAY
-  //   var allSongsIds = _queuedSongsIdArray + _pastSongsIdArray;
-  //   var idx = allSongsIds.indexOf(songId);
-  //   if (idx >= _queuedSongsIdArray.length) {
-  //     _pastSongsIdArray.splice(idx - _queuedSongsIdArray.length, 1);
-  //   } else {
-  //     _queuedSongsIdArray.splice(idx, 1);
-  //   }
-  //
-  //   _currentSong = _songs[songId];
-  //   _currentSong.wavesurfer.play();
-  // }
 };
 
 var resetSong = function (WSObject) {
@@ -118,6 +96,22 @@ var resetSong = function (WSObject) {
     _pastSongsIdArray.push(_currentSong.id);
   }
   _currentSong = WSObject;
+};
+
+CurrentPlayingSongStore.hasNext = function () {
+  if (_queuedSongsIdArray.length === 0) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+CurrentPlayingSongStore.hasPrev = function () {
+  if (_pastSongsIdArray.length === 0) {
+    return false;
+  } else {
+    return true;
+  }
 };
 
 CurrentPlayingSongStore.getSong = function () {

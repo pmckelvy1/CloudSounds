@@ -52,40 +52,6 @@ var TrackPlayer = React.createClass({
     this.playPause(this.state.WSObject.id);
   },
 
-  // playPause: function () {
-  //   // this.state.WSObject.wavesurfer.playPause();
-  //   PlayingSongActions.playPause(this.state.WSObject.id);
-  //   this.setState({});
-  // },
-  //
-  // setPlayStatus: function () {
-  //   if (this.state.WSObject) {
-  //     if (CurrentPlayingSongStore.isPlaying(this.state.WSObject.id)) {
-  //       this.state.WSObject.wavesurfer.play();
-  //     } else {
-  //       if (this.state.WSObject.wavesurfer.isPlaying()) {
-  //         this.state.WSObject.wavesurfer.pause();
-  //       }
-  //     }
-  //     // else {
-  //     //   this.state.WSObject.wavesurfer.pause();
-  //     // }
-  //   }
-  //   this.setState({});
-  // },
-  //
-  // isPlaying: function () {
-  //   if (this.state.WSObject && this.state.WSObject.wavesurfer) {
-  //     if (this.state.WSObject.wavesurfer.isPlaying(this.state.WSObject.id)) {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   } else {
-  //     return false;
-  //   }
-  // },
-
   render: function () {
     var userURL = '#/users/' + this.props.song.user_id;
     var songURL = '#/songs/' + this.props.song.id;
