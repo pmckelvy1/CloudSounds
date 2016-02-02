@@ -12,11 +12,15 @@ var _currentTime = 0;
 
 var addSong = function (WSObject) {
   if (_currentSong) {
-    _queuedSongsIdArray.push(WSObject.id);
-    _songs[WSObject.id] = WSObject;
+    if (!_songs[WSObject.id]){
+      _queuedSongsIdArray.push(WSObject.id);
+      _songs[WSObject.id] = WSObject;
+    }
   } else {
-    _songs[WSObject.id] = WSObject;
-    _currentSong = WSObject;
+    if (!_songs[WSObject.id]){
+      _songs[WSObject.id] = WSObject;
+      _currentSong = WSObject;
+    }
   }
 };
 
