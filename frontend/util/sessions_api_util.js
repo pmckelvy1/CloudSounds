@@ -36,7 +36,6 @@ var SessionsApiUtil = {
       type: 'GET',
       dataType: 'json',
       success: function (currentUser) {
-        console.log('fetched');
         if (Object.keys(currentUser).length != 0) {
           CurrentUserActions.receiveCurrentUser(currentUser);
         }
@@ -46,7 +45,6 @@ var SessionsApiUtil = {
   },
 
   createNewUser: function (userData, success) {
-    console.log('signing up');
     $.ajax({
       url: '/api/users',
       type: 'POST',

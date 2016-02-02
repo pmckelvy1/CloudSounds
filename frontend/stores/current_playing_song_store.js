@@ -4,66 +4,163 @@ var PlayingSongConstants = require('../constants/playing_song_constants');
 
 var CurrentPlayingSongStore = new Store(Dispatcher);
 
-var _queuedSongs = [];
-var _pastSongs = [];
+var _queuedSongsIdArray = [];
+var _pastSongsIdArray = [];
+var _songs = {};
 var _currentSong = null;
+var _currentTime = 0;
 
-var addSong = function (wavesurfer) {
+var addSong = function (WSObject) {
   if (_currentSong) {
-    _queuedSongs.push(wavesurfer);
+    _queuedSongsIdArray.push(WSObject.id);
+    _songs[WSObject.id] = WSObject;
   } else {
-    _currentSong = wavesurfer;
+    _songs[WSObject.id] = WSObject;
+    _currentSong = WSObject;
   }
 };
 
 var nextSong = function () {
-  _pastSongs.push(Object.assign({}, _currentSong));
-  _currentSong = _queuedSongs.shift();
+  // _pastSongs.push(Object.assign({}, _currentSong));
+  if (_currentSong.wavesurfer.isPlaying()) {
+    _currentSong.wavesurfer.pause();
+  }
+  _pastSongsIdArray.push(_currentSong.id);
+  var nextId = _queuedSongsIdArray.shift();
+  _currentSong = _songs[nextId];
+  _currentSong.wavesurfer.play();
 };
 
 var lastSong = function () {
-  _queuedSongs.unshift(Object.assign({}, _currentSong));
-  _currentSong = _pastSongs.pop();
+  // _queuedSongsIdArray.unshift(Object.assign({}, _currentSong));
+  if (_currentSong.wavesurfer.isPlaying()) {
+    _currentSong.wavesurfer.pause();
+  }
+  _queuedSongsIdArray.unshift(_currentSong.id);
+  var lastId = _pastSongsIdArray.pop();
+  _currentSong = _songs[lastId];
+  _currentSong.wavesurfer.play();
 };
 
 var playSong = function () {
-  _currentSong.playPause();
+  if (_currentSong) {
+    _currentSong.wavesurfer.play(_currentTime);
+  }
 };
 
 var pauseSong = function () {
-  _currentSong.playPause();
-};
-
-var playPause = function () {
-  _currentSong.playPause();
-};
-
-var resetSong = function (song) {
-  if (_currentSong && _currentSong.isPlaying()) {
-    _currentSong.playPause();
+  if (_currentSong) {
+    _currentSong.wavesurfer.pause();
+    _currentTime = _currentSong.wavesurfer.getCurrentTime();
   }
-  _currentSong = song;
+};
+
+var queueSong = function (songId) {
+  // DEQUEUE CURRENT SONG
+  _pastSongsIdArray.push(_currentSong.id);
+
+  // REMOVE SONG FROM EITHER ARRAY
+  var allSongsIds = _queuedSongsIdArray + _pastSongsIdArray;
+  var idx = allSongsIds.indexOf(songId);
+  if (idx >= _queuedSongsIdArray.length) {
+    _pastSongsIdArray.splice(idx - _queuedSongsIdArray.length, 1);
+  } else {
+    _queuedSongsIdArray.splice(idx, 1);
+  }
+
+  // SET CURRENT SONG TO NEW SONG
+  _currentSong = _songs[songId];
+
+  // PLAY IT
+  _currentSong.wavesurfer.play();
+};
+
+var playPause = function (songId) {
+  if (songId) {
+    if (_currentSong.id !== songId) {
+      if (_currentSong.wavesurfer.isPlaying()) {
+        _currentSong.wavesurfer.pause();
+      }
+      queueSong(songId);
+    } else {
+      _currentSong.wavesurfer.playPause();
+    }
+  } else {
+    _currentSong.wavesurfer.playPause();
+  }
+
+  // if (_currentSong.id === songId || !songId) {
+  //   _currentSong.wavesurfer.playPause();
+  // } else {
+  //   if (_currentSong.wavesurfer.isPlaying()) {
+  //     _currentSong.wavesurfer.pause();
+  //     _currentTime = _currentSong.wavesurfer.getCurrentTime();
+  //   }
+  //   _pastSongsIdArray.push(_currentSong.id);
+  //
+  //   // REMOVE SONG FROM EITHER ARRAY
+  //   var allSongsIds = _queuedSongsIdArray + _pastSongsIdArray;
+  //   var idx = allSongsIds.indexOf(songId);
+  //   if (idx >= _queuedSongsIdArray.length) {
+  //     _pastSongsIdArray.splice(idx - _queuedSongsIdArray.length, 1);
+  //   } else {
+  //     _queuedSongsIdArray.splice(idx, 1);
+  //   }
+  //
+  //   _currentSong = _songs[songId];
+  //   _currentSong.wavesurfer.play();
+  // }
+};
+
+var resetSong = function (WSObject) {
+  if (_currentSong && _currentSong.wavesurfer.isPlaying()) {
+    _currentSong.wavesurfer.pause();
+    _pastSongsIdArray.push(_currentSong.id);
+  }
+  _currentSong = WSObject;
 };
 
 CurrentPlayingSongStore.getSong = function () {
   return _currentSong;
 };
 
-CurrentPlayingSongStore.getCurrentTime = function () {
-  return Math.fround(_currentSong.getCurrentTime());
-};
-
-CurrentPlayingSongStore.isPlaying = function () {
-  if (_currentSong) {
-    return _currentSong.isPlaying();
+CurrentPlayingSongStore.hasSong = function (songId) {
+  if (_songs[songId]) {
+    return true;
   } else {
     return false;
   }
 };
 
+CurrentPlayingSongStore.getCurrentTime = function () {
+  if (_currentSong.wavesurfer.isPlaying()) {
+    return _currentSong.wavesurfer.getCurrentTime();
+  } else {
+    return _currentTime;
+  }
+};
+
 CurrentPlayingSongStore.getDuration = function () {
   if (_currentSong) {
-    return Math.fround(_currentSong.getDuration());
+    return _currentSong.wavesurfer.getDuration();
+  }
+};
+
+CurrentPlayingSongStore.isPlaying = function (songId) {
+  if (songId) {
+    // SPECIFIC SONG QUERY
+    if (_currentSong && _currentSong.id === songId) {
+      return _currentSong.wavesurfer.isPlaying();
+    } else {
+      return false;
+    }
+  } else {
+    // GENERIC SONG QUERY
+    if (_currentSong) {
+      return _currentSong.wavesurfer.isPlaying();
+    } else {
+      return false;
+    }
   }
 };
 
@@ -78,7 +175,7 @@ CurrentPlayingSongStore.__onDispatch = function (payload) {
       CurrentPlayingSongStore.__emitChange();
       break;
     case PlayingSongConstants.NEW_SONG:
-      addSong(payload.wavesurfer);
+      addSong(payload.WSObject);
       // resetSong(payload.wavesurfer);
       CurrentPlayingSongStore.__emitChange();
       break;
@@ -91,7 +188,7 @@ CurrentPlayingSongStore.__onDispatch = function (payload) {
       CurrentPlayingSongStore.__emitChange();
       break;
     case PlayingSongConstants.PLAY_PAUSE:
-      playPause();
+      playPause(payload.songId);
       CurrentPlayingSongStore.__emitChange();
       break;
   }

@@ -3,10 +3,13 @@ var TrackWaveform = require('./track_waveform');
 var LikeButton = require('../buttons/like_button');
 var CurrentPlayingSongStore = require('../../stores/current_playing_song_store');
 var PlayingSongActions = require('../../actions/playing_song_actions');
+var PlaybackFunctions = require('../../mixins/playback_functions');
 
 var TrackPlayer = React.createClass({
+  mixins: [PlaybackFunctions],
+
   getInitialState: function () {
-    return { wavesurfer: null };
+    return { WSObject: null };
   },
 
   componentDidMount: function () {
@@ -24,54 +27,88 @@ var TrackPlayer = React.createClass({
     });
 
     wavesurfer.on('ready', function () {
-        this.setState({});
+        // this.setState({});
     }.bind(this));
 
     wavesurfer.load(this.props.song.audio_url);
 
-    this.setState({ wavesurfer: wavesurfer });
+    var WSObject = { id: this.props.song.id, wavesurfer: wavesurfer };
+
+    this.setState({ WSObject: WSObject });
 
     setTimeout(function () {
-      PlayingSongActions.receiveWavesurfer(wavesurfer);
+      PlayingSongActions.receiveWavesurfer(WSObject);
     }, 0);
+
+    var storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
+    this.setState({ storeToken: storeToken });
   },
 
-  playPause: function () {
-    this.state.wavesurfer.playPause();
-    this.setState({});
+  componentWillUnmount: function () {
+    this.state.storeToken.remove();
   },
 
-  isPlaying: function () {
-    if (this.state.wavesurfer) {
-      if (this.state.wavesurfer.isPlaying()) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
+  pP: function () {
+    this.playPause(this.state.WSObject.id);
   },
+
+  // playPause: function () {
+  //   // this.state.WSObject.wavesurfer.playPause();
+  //   PlayingSongActions.playPause(this.state.WSObject.id);
+  //   this.setState({});
+  // },
+  //
+  // setPlayStatus: function () {
+  //   if (this.state.WSObject) {
+  //     if (CurrentPlayingSongStore.isPlaying(this.state.WSObject.id)) {
+  //       this.state.WSObject.wavesurfer.play();
+  //     } else {
+  //       if (this.state.WSObject.wavesurfer.isPlaying()) {
+  //         this.state.WSObject.wavesurfer.pause();
+  //       }
+  //     }
+  //     // else {
+  //     //   this.state.WSObject.wavesurfer.pause();
+  //     // }
+  //   }
+  //   this.setState({});
+  // },
+  //
+  // isPlaying: function () {
+  //   if (this.state.WSObject && this.state.WSObject.wavesurfer) {
+  //     if (this.state.WSObject.wavesurfer.isPlaying(this.state.WSObject.id)) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   } else {
+  //     return false;
+  //   }
+  // },
 
   render: function () {
     var userURL = '#/users/' + this.props.song.user_id;
     var songURL = '#/songs/' + this.props.song.id;
     var playButton;
-    if (this.isPlaying()) {
-        playButton = <button onClick={this.playPause}>
-          <div className="play-circle">
-          <div className="pause"/>
-          <div className="pause-right"/>
-          </div>
-        </button>;
-    } else {
-      playButton = <button onClick={this.playPause}>
-          <div className="play-circle">
-          <div className="play-triangle"/>
-          </div>
-        </button>;
-    }
 
+    if (!this.state.WSObject) {
+      playButton = <div className="loader">Loading...</div>;
+    } else {
+      if (this.isPlaying(this.state.WSObject.id)) {
+          playButton = <button onClick={this.pP}>
+            <div className="play-circle">
+            <div className="pause"/>
+            <div className="pause-right"/>
+            </div>
+          </button>;
+      } else {
+        playButton = <button onClick={this.pP}>
+            <div className="play-circle">
+            <div className="play-triangle"/>
+            </div>
+          </button>;
+      }
+    }
     var playerKeyWav = 'wave' + this.props.song.id;
     return (
       <div className="track-player">

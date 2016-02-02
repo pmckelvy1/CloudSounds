@@ -14,9 +14,10 @@ var PlayingSongActions = {
     });
   },
 
-  playPause: function () {
+  playPause: function (songId) {
     Dispatcher.dispatch({
-      actionType: PlayingSongConstants.PLAY_PAUSE
+      actionType: PlayingSongConstants.PLAY_PAUSE,
+      songId: songId
     });
   },
 
@@ -32,10 +33,10 @@ var PlayingSongActions = {
     });
   },
 
-  receiveWavesurfer: function (wavesurfer) {
+  receiveWavesurfer: function (WSObject) {
     Dispatcher.dispatch({
       actionType: PlayingSongConstants.NEW_SONG,
-      wavesurfer: wavesurfer
+      WSObject: WSObject
     });
   }
 };

@@ -6,10 +6,13 @@ var PlayingSongActions = require('../../actions/playing_song_actions');
 var CurrentUserStore = require('../../stores/current_user_store');
 var Dispatcher = require('../../dispatcher/dispatcher');
 var SongStore = require('../../stores/song_store');
+var PlaybackFunctions = require('../../mixins/playback_functions');
 
 var TrackPlayerLarge = React.createClass({
+  mixins: [PlaybackFunctions],
+
   getInitialState: function () {
-    return { wavesurfer: null };
+    return { WSObject: null };
   },
 
   componentDidMount: function () {
@@ -24,41 +27,32 @@ var TrackPlayerLarge = React.createClass({
     });
 
     wavesurfer.on('ready', function () {
-      PlayingSongActions.playPause();
-      this.setState({});
+      // this.setState({});
+      this.pP();
     }.bind(this));
 
     wavesurfer.load(this.props.song.audio_url);
 
-    this.setState({ wavesurfer: wavesurfer });
+    var WSObject = { id: this.props.song.id, wavesurfer: wavesurfer };
+
+    this.setState({ WSObject: WSObject });
 
     setTimeout(function () {
-      PlayingSongActions.receiveWavesurfer(wavesurfer);
+      PlayingSongActions.receiveWavesurfer(WSObject);
     }, 0);
 
+    var storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
+    this.setState({ storeToken: storeToken });
   },
 
-  // componentWillUnmount: function () {
-  //   this.state.storeToken.remove();
-  // },
-
-  playPause: function () {
-    // this.state.wavesurfer.playPause();
-    PlayingSongActions.playPause();
-    this.setState({});
+  componentWillUnmount: function () {
+    this.state.storeToken.remove();
   },
 
-  isPlaying: function () {
-    if (this.state.wavesurfer) {
-      if (this.state.wavesurfer.isPlaying()) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
+  pP: function () {
+    this.playPause(this.state.WSObject.id);
   },
+
 
   render: function () {
 
@@ -68,19 +62,24 @@ var TrackPlayerLarge = React.createClass({
     var userURL = '#/users/' + this.props.song.user_id;
     var songURL = '#/songs/' + this.props.song.id;
     var playButton;
-    if (this.isPlaying()) {
-        playButton = <button onClick={this.playPause}>
-          <div className="play-circle-large">
-          <div className="pause-large"/>
-          <div className="pause-right-large"/>
-          </div>
-        </button>;
+
+    if (!this.state.WSObject) {
+      playButton = <div className="loader">Loading...</div>;
     } else {
-      playButton = <button onClick={this.playPause}>
+      if (this.isPlaying(this.state.WSObject.id)) {
+        playButton = <button onClick={this.pP}>
           <div className="play-circle-large">
-          <div className="play-triangle-large"/>
+            <div className="pause-large"/>
+            <div className="pause-right-large"/>
           </div>
         </button>;
+      } else {
+        playButton = <button onClick={this.pP}>
+          <div className="play-circle-large">
+            <div className="play-triangle-large"/>
+          </div>
+        </button>;
+      }
     }
 
     return (
@@ -95,7 +94,6 @@ var TrackPlayerLarge = React.createClass({
       </div>
     );
   }
-
 });
 
 module.exports = TrackPlayerLarge;

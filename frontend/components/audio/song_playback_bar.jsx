@@ -4,7 +4,7 @@ var PlaybackBarStore = require('../../stores/playback_bar_store');
 
 var SongPlaybackBar = React.createClass({
   getInitialState: function () {
-    return { time: 0, totalTime: PlaybackBarStore.getDuration() };
+    return { time: 0, totalTime: CurrentPlayingSongStore.getDuration() };
   },
 
   componentDidMount: function () {
@@ -15,8 +15,8 @@ var SongPlaybackBar = React.createClass({
   onPlayback: function() {
     if (CurrentPlayingSongStore.isPlaying()) {
       var interval = setInterval(function () {
-        this.setState({ time: PlaybackBarStore.getCurrentTime(),
-          totalTime: PlaybackBarStore.getDuration() });
+        this.setState({ time: CurrentPlayingSongStore.getCurrentTime(),
+          totalTime: CurrentPlayingSongStore.getDuration() });
         }.bind(this), 10);
       this.setState({ interval: interval });
     } else {

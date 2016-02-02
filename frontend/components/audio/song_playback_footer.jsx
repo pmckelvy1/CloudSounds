@@ -2,14 +2,16 @@ var React = require('react');
 var CurrentPlayingSongStore = require('../../stores/current_playing_song_store');
 var PlayingSongActions = require('../../actions/playing_song_actions');
 var SongPlaybackBar = require('./song_playback_bar');
+var PlaybackFunctions = require('../../mixins/playback_functions');
 
 var SongPlaybackFooter = React.createClass({
+
   getInitialState: function () {
-    return { song: CurrentPlayingSongStore.getSong() , isPlaying: CurrentPlayingSongStore.isPlaying() };
+    return { WSObject: CurrentPlayingSongStore.getSong() , isPlaying: CurrentPlayingSongStore.isPlaying() };
   },
 
   componentDidMount: function () {
-    var storeToken = CurrentPlayingSongStore.addListener(this.updateSong);
+    var storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
     this.setState({ storeToken: storeToken });
   },
 
@@ -17,13 +19,59 @@ var SongPlaybackFooter = React.createClass({
     this.state.storeToken.remove();
   },
 
-  updateSong: function () {
-    // this.setState({ song: CurrentPlayingSongStore.getSong() });
-    this.setState({ currentTime: CurrentPlayingSongStore.getCurrentTime(), isPlaying: CurrentPlayingSongStore.isPlaying() });
-  },
+  // setPlayStatus: function () {
+  //   this.setState({ currentTime: CurrentPlayingSongStore.getCurrentTime(),
+  //     isPlaying: CurrentPlayingSongStore.isPlaying(), });
+  // },
 
+  // setPlayStatus: function () {
+  //   this.setState({ WSObject: CurrentPlayingSongStore.getSong() });
+  //   // this.setState({ song: CurrentPlayingSongStore.getSong() });
+  //   if (this.state.WSObject && (this.state.WSObject.id === CurrentPlayingSongStore.getSong().id)) {
+  //     if (CurrentPlayingSongStore.isPlaying()) {
+  //       this.state.WSObject.wavesurfer.play(CurrentPlayingSongStore.getCurrentTime());
+  //     } else {
+  //       if (this.state.WSObject.wavesurfer.isPlaying()) {
+  //         this.state.WSObject.wavesurfer.pause();
+  //       } else {
+  //         this.state.WSObject.wavesurfer.play();
+  //       }
+  //     }
+  //     this.setState({ currentTime: CurrentPlayingSongStore.getCurrentTime(),
+  //       isPlaying: CurrentPlayingSongStore.isPlaying() });
+  //   } else if (this.state.WSObject && (this.state.WSObject.id !== CurrentPlayingSongStore.getSong().id)) {
+  //     this.setState({ WSObject: CurrentPlayingSongStore.getSong(),
+  //       currentTime: CurrentPlayingSongStore.getCurrentTime(),
+  //       isPlaying: CurrentPlayingSongStore.isPlaying() });
+  //     if (CurrentPlayingSongStore.isPlaying()) {
+  //       this.state.WSObject.wavesurfer.play(CurrentPlayingSongStore.getCurrentTime());
+  //     } else {
+  //       this.state.WSObject.wavesurfer.pause();
+  //     }
+  //   }
+  // },
   playPause: function () {
     PlayingSongActions.playPause();
+  },
+
+  isPlaying: function () {
+    return CurrentPlayingSongStore.isPlaying();
+  },
+
+  setPlayStatus: function () {
+    this.setState({});
+  },
+
+  pP: function () {
+    PlayingSongActions.playPause();
+  },
+
+  play: function () {
+    PlayingSongActions.play();
+  },
+
+  pause: function () {
+    PlayingSongActions.pause();
   },
 
   lastSong: function () {
@@ -36,14 +84,21 @@ var SongPlaybackFooter = React.createClass({
 
   render: function () {
     var playButton;
-    if (!this.state.isPlaying) {
-      playButton = <button onClick={this.playPause}>
+    if (!this.isPlaying()) {
+      // if (this.state.WSObject) {
+      //   this.state.WSObject.wavesurfer.play();
+      // }
+      playButton = <button onClick={this.pP}>
         <div className="playback-play-button">
           <i className="fa fa-play fa-2x"></i>
         </div>
       </button>;
     } else {
-      playButton = <button onClick={this.playPause}>
+
+      // if (this.state.WSObject) {
+      //   this.state.WSObject.wavesurfer.pause();
+      // }
+      playButton = <button onClick={this.pP}>
         <div className="playback-pause-button">
           <i className="fa fa-pause fa-2x"></i>
         </div>
