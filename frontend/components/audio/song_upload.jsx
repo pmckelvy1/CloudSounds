@@ -56,31 +56,33 @@ var SongUpload = React.createClass({
     this.setState({title: "", info: "", imageFile: null, imageUrl: ""});
   },
 
+  doNothing: function () {
+
+  },
+
   render: function () {
 
     return (
-      <div>
-        <h2 className="upload-title">Upload to Jambox</h2>
+      <div className="song-upload-page">
+        <h2 className="upload-title">Upload to CloudSounds</h2>
         <form className="song-upload-form group" onSubmit={this.handleSubmit}>
 
+          <input id="audio" type="file" className="song-audio-input" onChange={this.changeAudioFile}></input>
+
+          <div className="upload-image-box">
+            <input id="artwork" type="file" className="song-artwork-input custom-file-input" onChange={this.changeImageFile}></input>
+            <img className="preview-image" src={this.state.imageURL}/>
+          </div>
+
+          <div className="upload-info-box">
           <label htmlFor="title" className="song-title-label upload-label">Title:</label>
             <input id="title" type="text" className="song-title-input" valueLink={this.linkState('title')}></input>
-
-
           <label htmlFor="info" className="song-info-label upload-label">Description:</label>
             <textarea id="info" className="song-info-input" valueLink={this.linkState('info')}></textarea>
+          </div>
 
 
-          <label htmlFor="artwork" className="song-artwork-label upload-label">Upload song artwork:</label>
-            <input id="artwork" type="file" className="song-artwork-input" onChange={this.changeImageFile}></input>
-
-
-          <img className="preview-image" src={this.state.imageURL}/>
           <button className="upload-button">Upload</button>
-
-          <label htmlFor="audio" className="song-audio-label upload-label">Upload song audio:</label>
-            <input id="audio" type="file" className="song-audio-input" onChange={this.changeAudioFile}></input>
-
         </form>
       </div>
     );

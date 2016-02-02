@@ -1,20 +1,24 @@
 .song-upload-form {
-  width: 600px;
+  width: 780px;
   display: block;
   margin: auto;
-  border: 1px solid #aaa;
-  border-radius: 2px;
+  border: 1px solid #eee;
+  border-radius: 4px;
   padding: 5px;
-  background: #CCE7F0;
+  position: relative;
 }
 
 .upload-label {
-  font-size: 18px;
+  font-size: 14px;
   display: block;
-  margin: auto;
-  text-align: center;
+  text-align: left;
   margin-bottom: 5px;
   margin-top: 20px;
+}
+
+.song-audio-input {
+  margin: auto;
+  display: block;
 }
 
 .song-title-label {
@@ -22,26 +26,37 @@
 }
 
 .song-title-input {
-  border: 1px solid #aaa;
-  border-radius: 2px;
+  font-size: 16px;
   display: block;
-  margin: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   text-align: center;
   background: white;
+  margin-bottom: 20px;
 }
 
 .song-info-label {
-
+  text-align: left;
 }
 
 .song-info-input {
-  border: 1px solid #aaa;
-  border-radius: 2px;
+  font-size: 16px;
   display: block;
-  margin: auto;
-  width: 300px;
-  height: 200px;
+  float: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 400px;
+  height: 150px;
   background: white;
+}
+
+.upload-info-box {
+  display: block;
+  float: right;
+  width: 440px;
+  padding: 20px;
+  box-sizing: border-box;
+  padding-top: 60px;
 }
 
 .song-artwork-label {
@@ -50,32 +65,107 @@
 
 .song-artwork-input {
   display: block;
-  margin: auto;
   text-align: center;
+  position: absolute;
+  bottom: 30px;
+  left: 110px;
 }
 
 .preview-image {
   width: 300px;
   height: 300px;
   display: block;
-  margin: auto;
+  float: left;
   background: white;
   margin-bottom: 5px;
 }
 
+.upload-image-box {
+  display: block;
+  float: left;
+  width: 340px;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.image-upload-button {
+  position: absolute;
+  padding: 5px 15px;
+  background:#0BF;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  bottom: 30px;
+  left: 150px;
+}
+
 .upload-button {
   font-weight: 450;
+  position: absolute;
+  bottom: 10px;
+  left: 390px;
   margin: auto;
   display: block;
   padding: 5px 10px;
   font-size: 26px;
-  background: orange;
-  border-radius: 2px;
+  background: #0BF;
+  border-radius: 4px;
 }
 
 .upload-title {
-  font-size: 20px;
+  font-size: 26px;
+  font-weight: 400;
   display: block;
   margin: auto;
   text-align: center;
+  margin-bottom: 30px;
+}
+
+.song-upload-page {
+  margin-top: 30px;
+}
+
+/*input[type=file] {
+  padding:5px 15px;
+  background:#0BF;
+  border:0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}*/
+.fa-cam {
+  bottom: 40px;
+}
+
+.custom-file-input {
+  font-size: 6.5px;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.custom-file-input::before {
+  content: 'Upload artwork';
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+  z-index: 1;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
