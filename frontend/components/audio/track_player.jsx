@@ -92,7 +92,9 @@ var TrackPlayer = React.createClass({
           <div className={playerKeyWav}/>
         </div>
         <LikeButton song={this.props.song}/>
-        <TrackStats song={this.props.song}/>
+        <div className="track-stats-reg">
+          <TrackStats song={this.props.song}/>
+        </div>
       </div>
     );
   }

@@ -4,6 +4,8 @@ var LikeButton = require('../buttons/like_button');
 var PlaybackFunctions = require('../../mixins/playback_functions');
 var CurrentPlayingSongStore = require('../../stores/current_playing_song_store');
 var PlayingSongActions = require('../../actions/playing_song_actions');
+var TrackStats = require('./track_stats');
+var ApiUtil = require('../../util/api_util');
 
 var TrackPlayerMini = React.createClass({
   mixins: [PlaybackFunctions],
@@ -46,6 +48,10 @@ var TrackPlayerMini = React.createClass({
   },
 
   pP: function () {
+    var cT = CurrentPlayingSongStore.getCurrentTime(this.state.WSObject.id);
+    if (cT === 0) {
+      ApiUtil.addPlay(this.state.WSObject.id);
+    }
     this.playPause(this.state.WSObject.id);
   },
 
@@ -82,6 +88,9 @@ var TrackPlayerMini = React.createClass({
         <h2><a href={songURL}>{this.props.song.title}</a></h2>
         <div className="track-waveform-mini">
           <div className={playerKeyWav}/>
+        </div>
+        <div className='track-stats-mini'>
+          <TrackStats song={this.props.song} />
         </div>
       </div>
     );

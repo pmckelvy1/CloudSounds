@@ -7,6 +7,8 @@ var CurrentUserStore = require('../../stores/current_user_store');
 var Dispatcher = require('../../dispatcher/dispatcher');
 var SongStore = require('../../stores/song_store');
 var PlaybackFunctions = require('../../mixins/playback_functions');
+var TrackStats = require('./track_stats');
+var ApiUtil = require('../../util/api_util');
 
 var TrackPlayerLarge = React.createClass({
   mixins: [PlaybackFunctions],
@@ -50,6 +52,10 @@ var TrackPlayerLarge = React.createClass({
   },
 
   pP: function () {
+    var cT = CurrentPlayingSongStore.getCurrentTime(this.state.WSObject.id);
+    if (cT === 0) {
+      ApiUtil.addPlay(this.state.WSObject.id);
+    }
     this.playPause(this.state.WSObject.id);
   },
 

@@ -9,6 +9,7 @@ var CurrentUserStore = require('../../stores/current_user_store');
 var CommentIndexLargeUserInfo = require('../comments/comment_index_large_user_info');
 var SongShowButtons = require('../buttons/song_show_buttons');
 var SongInfo = require('./song_info');
+var TrackStats = require('./track_stats');
 
 var SongShowPage = React.createClass({
   getInitialState: function () {

@@ -1,15 +1,29 @@
 .track-stats {
   display: block;
-  float: right;
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
 }
 
 .track-stat {
   display: block;
   float: left;
-  font-size: 12px;
   color: #aaa;
   margin: 8px;
+}
+
+.track-stats-reg {
+  font-size: 12px;
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+}
+
+.track-stats-large {
+  font-size: 14px;
+  float: right;
+}
+
+.track-stats-mini {
+  font-size: 12px;
+  position: absolute;
+  bottom: -4px;
+  left: 45px;
 }
