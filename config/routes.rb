@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :reposts, only: [:create, :index, :destroy, :show]
     resources :images, only: [:create, :destroy, :show]
     resources :comments, only: [:create, :destroy]
+    get 'songs/:id/play', to: 'songs#add_play'
   end
 
   # resources :users, only: [:new, :create]

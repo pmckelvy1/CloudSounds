@@ -39,6 +39,13 @@ class Api::SongsController < ApplicationController
   def destroy
   end
 
+  def add_play
+    @song = Song.find(params[:id])
+    @song.num_plays += 1
+    @song.save!
+    render json: {id: @song.id, num_plays: @song.num_plays}
+  end
+
   private
     def song_params
       params.require(:song).permit(:title, :info, :image, :audio)

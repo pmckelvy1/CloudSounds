@@ -3,6 +3,7 @@ var Dispatcher = require('../dispatcher/dispatcher');
 var CurrentUserConstants = require('../constants/current_user_constants');
 var FollowConstants = require('../constants/follow_constants');
 var LikeConstants = require('../constants/like_constants');
+var SongConstants = require('../constants/song_constants');
 
 var _currentUser = {};
 var _currentUserHasBeenFetched = false;
@@ -60,6 +61,15 @@ var addLike = function (likedSong) {
   _likedSongs[likedSong.id] = likedSong;
   if (_followedSongs[likedSong.id]) {
     _followedSongs[likedSong.id] = likedSong;
+  }
+};
+
+var updateNumPlays = function (playData) {
+  if (_likedSongs[playData.id]) {
+    _likedSongs[playData.id].num_plays = playData.num_plays;
+  }
+  if (_followedSongs[playData.id]) {
+    _followedSongs[playData.id].num_plays = playData.num_plays;
   }
 };
 
@@ -159,6 +169,10 @@ CurrentUserStore.__onDispatch = function (payload) {
       break;
     case LikeConstants.LIKE_RECEIVED:
       addLike(payload.likedSong);
+      CurrentUserStore.__emitChange();
+      break;
+    case SongConstants.NUM_PLAYS_RECEIVED:
+      updateNumPlays(payload.playData);
       CurrentUserStore.__emitChange();
       break;
   }

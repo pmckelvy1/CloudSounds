@@ -130,11 +130,15 @@ CurrentPlayingSongStore.hasSong = function (songId) {
   }
 };
 
-CurrentPlayingSongStore.getCurrentTime = function () {
-  if (_currentSong.wavesurfer.isPlaying()) {
-    return _currentSong.wavesurfer.getCurrentTime();
+CurrentPlayingSongStore.getCurrentTime = function (songId) {
+  if (!songId) {
+    if (_currentSong.wavesurfer.isPlaying()) {
+      return _currentSong.wavesurfer.getCurrentTime();
+    } else {
+      return _currentTime;
+    }
   } else {
-    return _currentTime;
+    return _songs[songId].wavesurfer.getCurrentTime();
   }
 };
 

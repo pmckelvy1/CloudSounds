@@ -1,0 +1,15 @@
+.track-stats {
+  display: block;
+  float: right;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+}
+
+.track-stat {
+  display: block;
+  float: left;
+  font-size: 12px;
+  color: #aaa;
+  margin: 8px;
+}

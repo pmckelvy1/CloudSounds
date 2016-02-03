@@ -4,6 +4,8 @@ var LikeButton = require('../buttons/like_button');
 var CurrentPlayingSongStore = require('../../stores/current_playing_song_store');
 var PlayingSongActions = require('../../actions/playing_song_actions');
 var PlaybackFunctions = require('../../mixins/playback_functions');
+var TrackStats = require('./track_stats');
+var ApiUtil = require('../../util/api_util');
 
 var TrackPlayer = React.createClass({
   mixins: [PlaybackFunctions],
@@ -49,6 +51,10 @@ var TrackPlayer = React.createClass({
   },
 
   pP: function () {
+    var cT = CurrentPlayingSongStore.getCurrentTime(this.state.WSObject.id);
+    if (cT === 0) {
+      ApiUtil.addPlay(this.state.WSObject.id);
+    }
     this.playPause(this.state.WSObject.id);
   },
 
@@ -86,6 +92,7 @@ var TrackPlayer = React.createClass({
           <div className={playerKeyWav}/>
         </div>
         <LikeButton song={this.props.song}/>
+        <TrackStats song={this.props.song}/>
       </div>
     );
   }

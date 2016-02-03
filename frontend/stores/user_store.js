@@ -3,7 +3,8 @@ var Store = require('flux/utils').Store,
     UserConstants = require('../constants/user_constants'),
     LikeConstants = require('../constants/like_constants'),
     FollowConstants = require('../constants/follow_constants'),
-    CurrentUserStore = require('../stores/current_user_store');
+    CurrentUserStore = require('../stores/current_user_store'),
+    SongConstants = require('../constants/song_constants');
 
 var UserStore = new Store(Dispatcher);
 
@@ -72,21 +73,17 @@ var updateUnlikedSong = function(unLikedSong) {
   }
 };
 
-// UserStore.isCurrentUser = function(userId) {
-//   return userId === _currentUser.id;
-// };
-//
-// UserStore.getCurrentUser = function () {
-//   return _currentUser;
-// };
-//
-// UserStore.resetCurrentUser = function (user) {
-//   _currentUser = user;
-// };
-//
-// UserStore.removeCurrentUser = function () {
-//   _currentUser = null;
-// };
+var updateNumPlays = function (playData) {
+  if (_likedSongs[playData.id]) {
+    _likedSongs[playData.id].num_plays = playData.num_plays;
+  }
+  if (_followedSongs[playData.id]) {
+    _followedSongs[playData.id].num_plays = playData.num_plays;
+  }
+  if (_songs[playData.id]) {
+    _songs[playData.id].num_plays = playData.num_plays;
+  }
+};
 
 UserStore.getUser = function () {
   return _user;
@@ -95,18 +92,6 @@ UserStore.getUser = function () {
 UserStore.userId = function () {
   return _user.id;
 };
-
-// UserStore.all = function () {
-//   var users = [];
-//   for (var id in _users) {
-//     users.push(_users[id]);
-//   }
-//   return users;
-// };
-//
-// UserStore.find = function(id) {
-//   return _users[id];
-// };
 
 UserStore.getUserSongs = function() {
   var songs = [];
@@ -150,17 +135,11 @@ UserStore.getFollowedUsers = function () {
 
 UserStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
-    // case UserConstants.USERS_RECEIVED:
-    //   resetUsers(payload.users);
-    //   UserStore.__emitChange();
-    //   break;
     case UserConstants.CURRENT_USER_RECEIVED:
-      // resetCurrentUser(payload.user);
       resetUser(payload.user);
       UserStore.__emitChange();
       break;
     case UserConstants.USER_RECEIVED:
-      // addUser(payload.user);
       resetUser(payload.user);
       resetUserSongs(payload.user.songs);
       resetUserLikedSongs(payload.user.liked_songs);
@@ -168,18 +147,6 @@ UserStore.__onDispatch = function (payload) {
       resetFollowedUsers(payload.user.followed_users);
       UserStore.__emitChange();
       break;
-    // case LikeConstants.LIKE_RECEIVED:
-    //   if (Object.keys(_user).length > 0) {
-    //     updateLikedSong(payload.likedSong);
-    //     // UserStore.__emitChange();
-    //   }
-    //   break;
-    // case LikeConstants.UNLIKE_RECEIVED:
-    //   if (Object.keys(_user).length > 0) {
-    //     updateUnlikedSong(payload.unLikedSong);
-    //     // UserStore.__emitChange();
-    //   }
-      // break;
     case FollowConstants.USER_FOLLOWED:
       if (_user.id == payload.followedUser.id) {
         _user.num_followers += 1;
@@ -196,6 +163,10 @@ UserStore.__onDispatch = function (payload) {
         _user.num_followed_users -= 1;
         UserStore.__emitChange();
       }
+      break;
+    case SongConstants.NUM_PLAYS_RECEIVED:
+      updateNumPlays(payload.playData);
+      CurrentUserStore.__emitChange();
       break;
   }
 };

@@ -156,6 +156,17 @@ var ApiUtil = {
         callback && callback();
       }
     });
+  },
+
+  addPlay: function(songId) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/songs/' + songId + '/play',
+      dataType: 'JSON',
+      success: function (data) {
+        SongActions.receiveNumPlays(data);
+      }
+    });
   }
 
 };

@@ -29,6 +29,13 @@ var SongActions = {
       actionType: SongConstants.SONGS_RECEIVED,
       songs: songs
     });
+  },
+
+  receiveNumPlays: function(playData) {
+    Dispatcher.dispatch({
+      actionType: SongConstants.NUM_PLAYS_RECEIVED,
+      playData: playData
+    });
   }
 };
 
