@@ -18,7 +18,21 @@ var TrackPlayer = React.createClass({
   componentDidMount: function () {
     this.setState({});
     var playerKey = this.props.song.id;
-    var wavesurfer = WaveSurfer.create({
+    var storeToken;
+    var WSObject;
+
+    if (CurrentPlayingSongStore.hasSong(playerKey)) {
+      storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
+      WSObject = CurrentPlayingSongStore.getSong(playerKey);
+      this.setState({ storeToken: storeToken, WSObject: WSObject });
+      var selector = '.wave' + playerKey;
+      // var clone = $(WSObject.wavesurfer.container).clone();
+      // $(selector)[0].appendChild(clone[0].children[0]);
+      $(selector)[0].appendChild(WSObject.wavesurfer.container.children[0]);
+      // $(WSObject.wavesurfer.container.children[0]).clone()[0].appendTo($(selector)[0]);
+      // CurrentPlayingSongStore.resetSong(WSObject);
+    } else {
+      var wavesurfer = WaveSurfer.create({
         container: '.wave' + playerKey,
         waveColor: 'silver',
         progressColor: '#0BF',
@@ -27,32 +41,43 @@ var TrackPlayer = React.createClass({
         height: 65,
         width: 645,
         fillParent: true
-    });
+      });
 
-    wavesurfer.on('ready', function () {
+      wavesurfer.on('ready', function () {
         // this.setState({});
-    }.bind(this));
+      }.bind(this));
 
-    wavesurfer.load(this.props.song.audio_url);
+      wavesurfer.load(this.props.song.audio_url);
 
-    var WSObject = { id: this.props.song.id, wavesurfer: wavesurfer };
+      WSObject = { id: this.props.song.id, wavesurfer: wavesurfer };
 
-    this.setState({ WSObject: WSObject });
+      this.setState({ WSObject: WSObject });
 
-    setTimeout(function () {
-      PlayingSongActions.receiveWavesurfer(WSObject);
-    }, 0);
+      setTimeout(function () {
+        PlayingSongActions.receiveWavesurfer(WSObject);
+      }, 0);
 
-    var storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
-    this.setState({ storeToken: storeToken });
+      storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
+      this.setState({ storeToken: storeToken });
 
-    // if (this.props.autoplay) {
-    //   this.playPause(this.state.WSObject.id);
-    // }
+      // if (this.props.autoplay) {
+      //   this.playPause(this.state.WSObject.id);
+      // }
+    }
   },
 
   componentWillUnmount: function () {
     this.state.storeToken.remove();
+    var playerKey = this.props.song.id;
+    WSObject = CurrentPlayingSongStore.getSong(playerKey);
+    if (WSObject.wavesurfer.container.children.length === 0) {
+      var selector = '.wave' + playerKey;
+      // debugger
+      $(WSObject.wavesurfer.container).append($(selector).children()[0]);
+      // a = $(selector).children()
+      // ws.append(a[0])
+      // $(WSObject.wavesurfer.container).appendChild($(selector).children[0]);
+    }
   },
 
   pP: function () {

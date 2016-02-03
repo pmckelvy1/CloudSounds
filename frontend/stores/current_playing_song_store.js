@@ -140,8 +140,12 @@ CurrentPlayingSongStore.hasPrev = function () {
   }
 };
 
-CurrentPlayingSongStore.getSong = function () {
-  return _currentSong;
+CurrentPlayingSongStore.getSong = function (songId) {
+  if (songId) {
+    return _songs[songId];
+  } else {
+    return _currentSong;
+  }
 };
 
 CurrentPlayingSongStore.hasSong = function (songId) {
@@ -150,6 +154,13 @@ CurrentPlayingSongStore.hasSong = function (songId) {
   } else {
     return false;
   }
+};
+
+CurrentPlayingSongStore.resetSong = function (WSObject) {
+  if (_currentSong.id == WSObject.id) {
+    _currentSong = WSObject;
+  }
+  _songs[WSObject.id] = WSObject;
 };
 
 CurrentPlayingSongStore.getCurrentTime = function (songId) {
