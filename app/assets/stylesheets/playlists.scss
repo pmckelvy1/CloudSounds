@@ -5,27 +5,55 @@
   position: relative;
   border-radius: 5px;
   width: 820px;
-  height: 160px;
   box-sizing: border-box;
   margin-bottom: 40px;
 }
 
 .playlist-items {
   display: block;
-  position: absolute;
-  bottom: -20px;
-  left: 160px;
+  margin-left: 180px;
+  margin-top: -40px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-top: 10px;
 }
 
 .playlist-item {
+  font-size: 14px;
+  padding: 5px;
   display: block;
-  width: 660px;
-  height: 30px;
+  color: #999;
+  width: 640px;
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.playlist-item:last-child {
+  border-bottom: 0px;
+}
+
+.playlist-item:hover {
+  color: black;
 }
 
 .playlist-item-info {
   display: block;
   float: left;
+}
+
+.playlist-item-song-title {
+  display: block;
+}
+
+.playlist-item-thumb-tiny {
+  left: 10px;
+  top: 10px;
+  width: 26px;
+  height: 26px;
+  display: block;
+  float: left;
+  margin-right: 10px;
 }
 
 .add-to-playlist-button {

@@ -4,7 +4,8 @@ var Store = require('flux/utils').Store,
     LikeConstants = require('../constants/like_constants'),
     FollowConstants = require('../constants/follow_constants'),
     CurrentUserStore = require('../stores/current_user_store'),
-    SongConstants = require('../constants/song_constants');
+    SongConstants = require('../constants/song_constants'),
+    PlaylistConstants = require('../constants/playlist_constants');
 
 var UserStore = new Store(Dispatcher);
 
@@ -13,6 +14,7 @@ var _songs = {};
 var _likedSongs = {};
 var _followedSongs = {};
 var _followedUsers = {};
+var _playlists = {};
 
 var resetUser = function(user) {
   _user = user;
@@ -43,6 +45,13 @@ var resetFollowedUsers = function(users) {
   _followedUsers = {};
   users.forEach(function(user) {
     _followedUsers[user.id] = user;
+  });
+};
+
+var resetPlaylists = function(playlists) {
+  _playlists = {};
+  playlists.forEach(function(playlist) {
+    _playlists[playlist.id] = playlist;
   });
 };
 
@@ -83,6 +92,10 @@ var updateNumPlays = function (playData) {
   if (_songs[playData.id]) {
     _songs[playData.id].num_plays = playData.num_plays;
   }
+};
+
+var addSongToPlaylist = function (addedSongData) {
+  _playlists[addedSongData.playlist_id].songs.push(addedSongData);
 };
 
 UserStore.getUser = function () {
@@ -133,6 +146,14 @@ UserStore.getFollowedUsers = function () {
   return followedUsers;
 };
 
+UserStore.getPlaylists = function () {
+  var playlists = [];
+  for (var id in _playlists) {
+    playlists.push(_playlists[id]);
+  }
+  return playlists;
+};
+
 UserStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case UserConstants.CURRENT_USER_RECEIVED:
@@ -145,6 +166,7 @@ UserStore.__onDispatch = function (payload) {
       resetUserLikedSongs(payload.user.liked_songs);
       resetUserFollowedSongs(payload.user.followed_songs);
       resetFollowedUsers(payload.user.followed_users);
+      resetPlaylists(payload.user.playlists);
       UserStore.__emitChange();
       break;
     case FollowConstants.USER_FOLLOWED:
@@ -167,6 +189,10 @@ UserStore.__onDispatch = function (payload) {
     case SongConstants.NUM_PLAYS_RECEIVED:
       updateNumPlays(payload.playData);
       CurrentUserStore.__emitChange();
+      break;
+    case PlaylistConstants.ADD_SONG_TO_PLAYLIST:
+      addSongToPlaylist(payload.addedSongData);
+      UserStore.__emitChange();
       break;
   }
 };

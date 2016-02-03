@@ -8,10 +8,10 @@ var PlaylistItem = React.createClass({
     return (
       <div className="playlist-item">
         <div className="plalist-item-info">
-          <img className="thumb-tiny" src={this.props.song.image_url} />
-          <div className="song-title"><a href={songURL}>{this.props.song.title}</a></div>
+          <img className="playlist-item-thumb-tiny" src={this.props.song.image_url} />
+          <div className="playlist-item-song-title"><a href={songURL}>{this.props.song.title}</a></div>
         </div>
-        <div className="track-stats-reg">
+        <div className="track-stats-playlist-item">
           <TrackStats song={this.props.song}/>
         </div>
       </div>

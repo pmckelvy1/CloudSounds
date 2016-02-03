@@ -83,8 +83,19 @@ var TrackPlayer = React.createClass({
       }
     }
     var playerKeyWav = 'wave' + this.props.song.id;
+
+    var hidden;
+    if (this.props.hidden) {
+      position = 'absolute';
+      hidden = 'hidden';
+    } else {
+      position = 'relative';
+      hidden = 'visible';
+    }
+    var hideStyle = { visibility: hidden, position: position };
+
     return (
-      <div className="track-player">
+      <div className="track-player" style={hideStyle}>
         <div className="thumb"><img src={this.props.song.image_url}/></div>
         <div className="play-button">{playButton}</div>
         <div className="track-artist-name-div"><h1 className="track-artist-name"><a href={userURL}>{this.props.song.username}</a></h1></div>
