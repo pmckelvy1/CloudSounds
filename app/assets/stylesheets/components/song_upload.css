@@ -69,6 +69,7 @@
   position: absolute;
   bottom: 30px;
   left: 110px;
+  outline: none;
 }
 
 .preview-image {
@@ -104,12 +105,12 @@
 .upload-button {
   font-weight: 450;
   position: absolute;
-  bottom: 10px;
-  left: 390px;
+  bottom: -40px;
+  left: 330px;
   margin: auto;
   display: block;
   padding: 5px 10px;
-  font-size: 26px;
+  font-size: 18px;
   background: #0BF;
   border-radius: 4px;
 }
@@ -168,4 +169,12 @@
 }
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.required-fields {
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  left: 350px;
+  font-size: 14px;
 }

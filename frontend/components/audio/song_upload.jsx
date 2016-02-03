@@ -75,14 +75,14 @@ var SongUpload = React.createClass({
           </div>
 
           <div className="upload-info-box">
-          <label htmlFor="title" className="song-title-label upload-label">Title:</label>
+          <label htmlFor="title" className="song-title-label upload-label">Title: <span className="blue">*</span></label>
             <input id="title" type="text" className="song-title-input" valueLink={this.linkState('title')}></input>
-          <label htmlFor="info" className="song-info-label upload-label">Description:</label>
+          <label htmlFor="info" className="song-info-label upload-label">Description: <span className="blue">*</span></label>
             <textarea id="info" className="song-info-input" valueLink={this.linkState('info')}></textarea>
           </div>
 
-
-          <button className="upload-button">Upload</button>
+          <div className="required-fields"><span className="blue">*</span> Required fields</div>
+          <button className="upload-button">Save</button>
         </form>
       </div>
     );
