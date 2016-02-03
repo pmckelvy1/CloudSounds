@@ -2,6 +2,8 @@ var React = require('react');
 var History = require('react-router').History;
 var SessionsApiUtil = require('../util/sessions_api_util');
 var LinkedState = require('react-addons-linked-state-mixin');
+var Welcome = require('./welcome');
+var Clouds = require('./clouds');
 
 var NewUserForm = React.createClass({
   mixins: [History, LinkedState],
@@ -45,27 +47,32 @@ var NewUserForm = React.createClass({
 
     return (
       <div>
+        <Welcome />
+        <Clouds />
+        <form className="sign-in-up-form sign-up-form group" onSubmit={this.submit}>
+          <div className="user-info-box">
+            <div>
+              <label htmlFor="email">Email:</label>
+              <input id="email" type="text" name="email" valueLink={this.linkState('email')}/>
+            </div>
+            <div>
+              <label htmlFor="email">Artist name:</label>
+              <input id="email" type="text" name="username" valueLink={this.linkState('username')}/>
+            </div>
+            <div>
+              <label htmlFor="email">Artist info:</label>
+              <input id="email" type="text" name="info" valueLink={this.linkState('info')}/>
+            </div>
+            <div>
+              <label htmlFor="password">Password:</label>
+              <input id="password" type="password" name="password" valueLink={this.linkState('password')}/>
+            </div>
+          </div>
+          <div className="upload-image-box">
+            <input id="artwork" type="file" className="profile-picture-input custom-file-input" onChange={this.changeFile}></input>
+            <img className="preview-image" src={this.state.imageURL}/>
+          </div>
 
-        <form className="sign-in-up-form group" onSubmit={this.submit}>
-          <div>
-            <label htmlFor="email">Email:</label>
-            <input id="email" type="text" name="email" valueLink={this.linkState('email')}/>
-          </div>
-          <div>
-            <label htmlFor="email">Artist name:</label>
-            <input id="email" type="text" name="username" valueLink={this.linkState('username')}/>
-          </div>
-          <div>
-            <label htmlFor="email">Artist info:</label>
-            <input id="email" type="text" name="info" valueLink={this.linkState('info')}/>
-          </div>
-          <div>
-            <label htmlFor="password">Password:</label>
-            <input id="password" type="password" name="password" valueLink={this.linkState('password')}/>
-          </div>
-          // <label htmlFor="artwork" className="song-artwork-label upload-label">Upload song artwork:</label>
-          //   <input id="artwork" type="file" className="song-artwork-input" onChange={this.changeFile}></input>
-          // <img className="preview-image" src={this.state.imageURL}/>
           <button type="submit" name="sign-in">Sign Up!</button>
         </form>
 

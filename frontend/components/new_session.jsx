@@ -2,6 +2,9 @@ var React = require('react');
 var History = require('react-router').History;
 var SessionsApiUtil = require('../util/sessions_api_util');
 var LinkedState = require('react-addons-linked-state-mixin');
+var Welcome = require('./welcome');
+var Clouds = require('./clouds');
+
 
 var SessionForm = React.createClass({
   mixins: [History, LinkedState],
@@ -30,8 +33,9 @@ var SessionForm = React.createClass({
 
     return (
       <div>
-
-        <form className="sign-in-up-form group" onSubmit={this.submit}>
+        <Welcome />
+        <Clouds />
+        <form className="sign-in-up-form sign-in-form group" onSubmit={this.submit}>
           <div>
             <label htmlFor="email">Email:</label>
             <input id="email" type="text" name="email" valueLink={this.linkState('email')}/>
