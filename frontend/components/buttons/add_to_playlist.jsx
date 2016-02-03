@@ -14,6 +14,11 @@ var AddToPlaylist = React.createClass({
   addToPlaylist: function (e) {
     var playlistId = e.currentTarget.dataset.id;
     ApiActions.addSongToPlaylist(playlistId, this.props.song.id);
+    this.setState({ dialogOpen: false });
+  },
+
+  closeDialog: function (e) {
+    this.setState({ dialogOpen: false });
   },
 
   render: function () {
@@ -30,7 +35,7 @@ var AddToPlaylist = React.createClass({
         );
       }.bind(this));
       return (
-        <ul className="playlist-selection-dialog group">
+        <ul className="playlist-selection-dialog group" onMouseLeave={this.closeDialog}>
           {playlists}
         </ul>
       );

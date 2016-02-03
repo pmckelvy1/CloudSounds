@@ -73,6 +73,7 @@ c21 = Comment.create!(user_id: bach.id, song_id: s4.id, body: "on second thought
 Playlist.destroy_all
 
 p1 = Playlist.create!(user_id: guest.id, title: 'You guest it!', info: 'Testing playlist functionality')
+p2 = Playlist.create!(user_id: guest.id, title: 'Electro party music', info: 'Dance. To. This. Playlist.')
 
 PlaylistItem.destroy_all
 
@@ -81,3 +82,9 @@ pi2 = PlaylistItem.create!(playlist_id: p1.id, song_id: s2.id, song_ord: 1)
 pi3 = PlaylistItem.create!(playlist_id: p1.id, song_id: s3.id, song_ord: 2)
 pi4 = PlaylistItem.create!(playlist_id: p1.id, song_id: s5.id, song_ord: 3)
 pi5 = PlaylistItem.create!(playlist_id: p1.id, song_id: s9.id, song_ord: 4)
+
+pi6 = PlaylistItem.create!(playlist_id: p2.id, song_id: s10.id, song_ord: 0)
+pi7 = PlaylistItem.create!(playlist_id: p2.id, song_id: s3.id, song_ord: 1)
+pi8 = PlaylistItem.create!(playlist_id: p2.id, song_id: s4.id, song_ord: 2)
+pi9 = PlaylistItem.create!(playlist_id: p2.id, song_id: s11.id, song_ord: 3)
+pi10 = PlaylistItem.create!(playlist_id: p2.id, song_id: s7.id, song_ord: 4)
