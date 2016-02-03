@@ -87,6 +87,21 @@ var PlaylistTrackPlayer = React.createClass({
     this.playPause(this.state.currentSong.id);
   },
 
+  playSong: function (e) {
+    if (this.isPlaying(this.state.currentSong.id)) {
+      this.playPause(this.state.currentSong.id);
+    }
+    var songId = e.currentTarget.dataset.id;
+    var idx;
+    this.props.playlist.songs.forEach(function (song, i) {
+      if (song.id == songId) {
+        idx = i;
+      }
+    }.bind(this));
+    this.setState({ currentSong: this.props.playlist.songs[idx], autoplay: true });
+    // this.playPause(songId);
+  },
+
   render: function () {
 
     var userURL = '#/users/' + this.props.playlist.user_id;
@@ -121,9 +136,9 @@ var PlaylistTrackPlayer = React.createClass({
     this.props.playlist.songs.forEach(function (song) {
       var displayStyle;
       if (this.state.currentSong.id == song.id) {
-        trackPlayer = <TrackPlayer key={song.id} song={song} />;
+        trackPlayer = <TrackPlayer key={song.id} song={song} autoplay={this.state.autoplay}/>;
       }
-      playlistItems.push(<PlaylistItem key={song.id} song={song} />);
+      playlistItems.push(<PlaylistItem key={song.id} song={song} playSong={this.playSong} />);
     }.bind(this));
     return (
       <div className="playlist-track-player">

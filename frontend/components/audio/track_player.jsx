@@ -45,6 +45,10 @@ var TrackPlayer = React.createClass({
 
     var storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
     this.setState({ storeToken: storeToken });
+
+    // if (this.props.autoplay) {
+    //   this.playPause(this.state.WSObject.id);
+    // }
   },
 
   componentWillUnmount: function () {
