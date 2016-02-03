@@ -15,6 +15,10 @@ var ApiActions = {
 
   unLike: function(songId) {
     ApiUtil.unLike(songId);
+  },
+
+  addSongToPlaylist: function(playlistId, songId) {
+    ApiUtil.addSongToPlaylist(playlistId, songId);
   }
 };
 

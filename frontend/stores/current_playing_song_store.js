@@ -24,6 +24,24 @@ var addSong = function (WSObject) {
   }
 };
 
+var addSongs = function (WSPlaylist) {
+  WSPlaylist.forEach(function(WSObject) {
+    if (_currentSong) {
+      if (!_songs[WSObject.id]){
+        _queuedSongsIdArray.push(WSObject.id);
+        _songs[WSObject.id] = WSObject;
+      } else {
+        _queuedSongsIdArray.push(WSObject.id);
+      }
+    } else {
+      if (!_songs[WSObject.id]){
+        _songs[WSObject.id] = WSObject;
+        _currentSong = WSObject;
+      }
+    }
+  });
+};
+
 var nextSong = function () {
   // _pastSongs.push(Object.assign({}, _currentSong));
   if (_currentSong.wavesurfer.isPlaying()) {
@@ -102,6 +120,10 @@ var resetSong = function (WSObject) {
   _currentSong = WSObject;
 };
 
+CurrentPlayingSongStore.getCurrentPlayingId = function () {
+  return _currentSong.id;
+};
+
 CurrentPlayingSongStore.hasNext = function () {
   if (_queuedSongsIdArray.length === 0) {
     return false;
@@ -178,7 +200,10 @@ CurrentPlayingSongStore.__onDispatch = function (payload) {
       break;
     case PlayingSongConstants.NEW_SONG:
       addSong(payload.WSObject);
-      // resetSong(payload.wavesurfer);
+      CurrentPlayingSongStore.__emitChange();
+      break;
+    case PlayingSongConstants.NEW_PLAYLIST:
+      addSongs(payload.WSPlaylist);
       CurrentPlayingSongStore.__emitChange();
       break;
     case PlayingSongConstants.NEXT_SONG:

@@ -3,6 +3,7 @@ var FollowActions = require('../actions/follow_actions');
 var SongActions = require('../actions/song_actions');
 var LikeActions = require('../actions/like_actions');
 var CommentActions = require('../actions/comment_actions');
+var PlaylistActions = require('../actions/playlist_actions');
 
 var ApiUtil = {
 
@@ -165,6 +166,18 @@ var ApiUtil = {
       dataType: 'JSON',
       success: function (data) {
         SongActions.receiveNumPlays(data);
+      }
+    });
+  },
+
+  addSongToPlaylist: function(playlistId, songId) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/playlists/' + playlistId + '/playlist_items',
+      dataType: 'JSON',
+      data: { playlist_item: { song_id: songId, playlist_id: playlistId }},
+      success: function (addedSongData) {
+        PlaylistActions.addSongToPlaylist(addedSongData);
       }
     });
   }

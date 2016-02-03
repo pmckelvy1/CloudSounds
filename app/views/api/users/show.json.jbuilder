@@ -17,3 +17,6 @@ end
 json.liked_songs @user.liked_songs do |song|
   json.partial! 'api/songs/song', song: song
 end
+json.playlists @user.playlists do |playlist|
+  json.partial 'api/playlists/playlist', playlist: playlist
+end

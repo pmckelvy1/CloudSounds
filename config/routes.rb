@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :images, only: [:create, :destroy, :show]
     resources :comments, only: [:create, :destroy]
     get 'songs/:id/play', to: 'songs#add_play'
+    resources :playlists do
+      resources :playlist_items
+    end
+    resources :playlist_items, only: [:destroy, :edit, :update]
   end
 
   # resources :users, only: [:new, :create]

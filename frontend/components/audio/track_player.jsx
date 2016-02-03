@@ -6,6 +6,7 @@ var PlayingSongActions = require('../../actions/playing_song_actions');
 var PlaybackFunctions = require('../../mixins/playback_functions');
 var TrackStats = require('./track_stats');
 var ApiUtil = require('../../util/api_util');
+var AddToPlaylist = require('../buttons/add_to_playlist');
 
 var TrackPlayer = React.createClass({
   mixins: [PlaybackFunctions],
@@ -91,9 +92,10 @@ var TrackPlayer = React.createClass({
         <div className="track-waveform">
           <div className={playerKeyWav}/>
         </div>
-        <LikeButton song={this.props.song}/>
+        <LikeButton song={this.props.song} />
+        <AddToPlaylist song={this.props.song} />
         <div className="track-stats-reg">
-          <TrackStats song={this.props.song}/>
+          <TrackStats song={this.props.song} />
         </div>
       </div>
     );

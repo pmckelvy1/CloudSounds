@@ -51,6 +51,18 @@ class User < ActiveRecord::Base
 
   has_many :comments
 
+  has_many :playlists
+  has_many(
+    :playlist_items,
+    through: :playlists,
+    source: :playlist_items
+  )
+  has_many(
+    :playlisted_songs,
+    through: :playlist_items,
+    source: :song
+  )
+
   after_initialize :ensure_session_token
 
   attr_reader :password

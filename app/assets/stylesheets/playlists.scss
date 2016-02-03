@@ -1,0 +1,56 @@
+// Place all the styles related to the playlists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.playlist-track-player {
+  position: relative;
+  border-radius: 5px;
+  width: 820px;
+  height: 160px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+}
+
+.playlist-items {
+  display: block;
+  position: absolute;
+  bottom: -20px;
+  left: 160px;
+}
+
+.playlist-item {
+  display: block;
+  width: 660px;
+  height: 30px;
+}
+
+.playlist-item-info {
+  display: block;
+  float: left;
+}
+
+.add-to-playlist-button {
+  background: white;
+  border-radius: 3px;
+  padding: 3px 6px;
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  left: 225px;
+}
+
+.add-to-playlist-button:hover {
+  border: 1px solid #999;
+}
+
+.playlist-selection-dialog {
+  background: white;
+  border-radius: 3px;
+  padding: 10px;
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  left: 225px;
+  width: 200px;
+  z-index: 2;
+  border: 1px solid #ccc;
+}

@@ -38,6 +38,13 @@ var PlayingSongActions = {
       actionType: PlayingSongConstants.NEW_SONG,
       WSObject: WSObject
     });
+  },
+
+  receivePlaylist: function (WSPlaylist) {
+    Dispatcher.dispatch({
+      actionType: PlayingSongConstants.NEW_PLAYLIST,
+      WSPlaylist: WSPlaylist
+    });
   }
 };
 

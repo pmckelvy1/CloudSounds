@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201141925) do
+ActiveRecord::Schema.define(version: 20160203141651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,27 @@ ActiveRecord::Schema.define(version: 20160201141925) do
 
   add_index "likes", ["song_id"], name: "index_likes_on_song_id", using: :btree
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
+
+  create_table "playlist_items", force: :cascade do |t|
+    t.integer  "playlist_id", null: false
+    t.integer  "song_id",     null: false
+    t.integer  "song_ord",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "playlist_items", ["playlist_id"], name: "index_playlist_items_on_playlist_id", using: :btree
+  add_index "playlist_items", ["song_id"], name: "index_playlist_items_on_song_id", using: :btree
+
+  create_table "playlists", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.string   "title",      null: false
+    t.text     "info",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "playlists", ["user_id"], name: "index_playlists_on_user_id", using: :btree
 
   create_table "reposts", force: :cascade do |t|
     t.integer  "song_id",    null: false

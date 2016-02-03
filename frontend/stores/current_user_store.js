@@ -4,6 +4,7 @@ var CurrentUserConstants = require('../constants/current_user_constants');
 var FollowConstants = require('../constants/follow_constants');
 var LikeConstants = require('../constants/like_constants');
 var SongConstants = require('../constants/song_constants');
+var PlaylistConstants = require('../constants/playlist_constants');
 
 var _currentUser = {};
 var _currentUserHasBeenFetched = false;
@@ -12,6 +13,7 @@ var CurrentUserStore = new Store(Dispatcher);
 var _followedUsers = {};
 var _likedSongs = {};
 var _followedSongs = {};
+var _playlists = {};
 
 var resetFollowedUsers = function(followedUsers) {
   _followedUsers = {};
@@ -31,6 +33,13 @@ var resetFollowedSongs = function(followedSongs) {
   _followedSongs = {};
   followedSongs.forEach(function(followedSong) {
     _followedSongs[followedSong.id] = followedSong;
+  });
+};
+
+var resetPlaylists = function(playlists) {
+  _playlists = {};
+  playlists.forEach(function(playlist) {
+    _playlists[playlist.id] = playlist;
   });
 };
 
@@ -71,6 +80,10 @@ var updateNumPlays = function (playData) {
   if (_followedSongs[playData.id]) {
     _followedSongs[playData.id].num_plays = playData.num_plays;
   }
+};
+
+var addSongToPlaylist = function (addedSongData) {
+  _playlists[addedSongData.playlist_id].songs.push(addedSongData);
 };
 
 CurrentUserStore.doesFollow = function(followedId) {
@@ -125,6 +138,14 @@ CurrentUserStore.followedSongs = function () {
   return followedSongs;
 };
 
+CurrentUserStore.playlists = function () {
+  var playlists = [];
+  for (var id in _playlists) {
+    playlists.push(_playlists[id]);
+  }
+  return playlists;
+};
+
 CurrentUserStore.isLoggedIn = function () {
   return !!_currentUser.id;
 };
@@ -145,6 +166,7 @@ CurrentUserStore.__onDispatch = function (payload) {
       resetFollowedUsers(payload.currentUser.followed_users);
       resetLikedSongs(payload.currentUser.liked_songs);
       resetFollowedSongs(payload.currentUser.followed_songs);
+      resetPlaylists(payload.currentUser.playlists);
       CurrentUserStore.__emitChange();
       break;
     case CurrentUserConstants.USER_LOG_OUT:
@@ -173,6 +195,10 @@ CurrentUserStore.__onDispatch = function (payload) {
       break;
     case SongConstants.NUM_PLAYS_RECEIVED:
       updateNumPlays(payload.playData);
+      CurrentUserStore.__emitChange();
+      break;
+    case PlaylistConstants.ADD_SONG_TO_PLAYLIST:
+      addSongToPlaylist(payload.addedSongData);
       CurrentUserStore.__emitChange();
       break;
   }

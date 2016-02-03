@@ -69,3 +69,15 @@ c18 = Comment.create!(user_id: bowie.id, song_id: s4.id, body: "awoopwa wooha")
 c19 = Comment.create!(user_id: bach.id, song_id: s4.id, body: "quite elementary")
 c20 = Comment.create!(user_id: guest.id, song_id: s4.id, body: "i can dig it")
 c21 = Comment.create!(user_id: bach.id, song_id: s4.id, body: "on second thought, i rather enjoy the groove of this piece.")
+
+Playlist.destroy_all
+
+p1 = Playlist.create!(user_id: guest.id, title: 'You guest it!', info: 'Testing playlist functionality')
+
+PlaylistItem.destroy_all
+
+pi1 = PlaylistItem.create!(playlist_id: p1.id, song_id: s1.id, song_ord: 0)
+pi2 = PlaylistItem.create!(playlist_id: p1.id, song_id: s2.id, song_ord: 1)
+pi3 = PlaylistItem.create!(playlist_id: p1.id, song_id: s3.id, song_ord: 2)
+pi4 = PlaylistItem.create!(playlist_id: p1.id, song_id: s5.id, song_ord: 3)
+pi5 = PlaylistItem.create!(playlist_id: p1.id, song_id: s9.id, song_ord: 4)
