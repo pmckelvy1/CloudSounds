@@ -79,7 +79,7 @@ PlaylistItem.destroy_all
 
 pi1 = PlaylistItem.create!(playlist_id: p1.id, song_id: s1.id, song_ord: 0)
 pi2 = PlaylistItem.create!(playlist_id: p1.id, song_id: s2.id, song_ord: 1)
-pi3 = PlaylistItem.create!(playlist_id: p1.id, song_id: s3.id, song_ord: 2)
+pi3 = PlaylistItem.create!(playlist_id: p1.id, song_id: s6.id, song_ord: 2)
 pi4 = PlaylistItem.create!(playlist_id: p1.id, song_id: s5.id, song_ord: 3)
 pi5 = PlaylistItem.create!(playlist_id: p1.id, song_id: s9.id, song_ord: 4)
 
