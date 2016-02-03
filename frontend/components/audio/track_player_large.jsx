@@ -18,37 +18,72 @@ var TrackPlayerLarge = React.createClass({
   },
 
   componentDidMount: function () {
-    // this.setState({});
-    var wavesurfer = WaveSurfer.create({
-        container: '.wave',
-        waveColor: 'silver',
-        progressColor: '#0BF',
-        barWidth: 2,
-        cursorWidth: 0,
-        fillParent: true
-    });
+    this.setState({});
+    var playerKey = this.props.song.id;
+    var storeToken;
+    var WSObject;
 
-    wavesurfer.on('ready', function () {
-      // this.setState({});
-      this.pP();
-    }.bind(this));
+    if (CurrentPlayingSongStore.hasSong(playerKey)) {
+      storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
+      WSObject = CurrentPlayingSongStore.getSong(playerKey);
+      this.setState({ storeToken: storeToken, WSObject: WSObject });
+      var selector = '.wave' + playerKey;
 
-    wavesurfer.load(this.props.song.audio_url);
+      // var $container = $(WSObject.wavesurfer.container);
+      // var $children = $($container.children()[0]);
+      // var $grand = $($children.children());
+      //
+      // if ($($grand[0]).attr('width') == '645') {
+      //   $($grand[0]).attr('width', '815');
+      //   $($grand[0]).attr('height', '128');
+      //   $($grand[0]).css('width', '815px');
+      //   $($grand[0]).css('height', '128px');
+      //   var $greatgrand = $($($grand[1]).children()[0]);
+      //   $($($($grand[1]).children()[0])).attr('width', '815');
+      //   $($($($grand[1]).children()[0])).attr('height', '128');
+      //   $($($($grand[1]).children()[0])).css('width', '815px');
+      //   $($($($grand[1]).children()[0])).css('height', '128px');
+      // }
 
-    var WSObject = { id: this.props.song.id, wavesurfer: wavesurfer };
+      $(selector)[0].appendChild(WSObject.wavesurfer.container.children[0]);
+    } else {
+      var wavesurfer = WaveSurfer.create({
+          container: '.wave'+ playerKey,
+          waveColor: 'silver',
+          progressColor: '#0BF',
+          barWidth: 2,
+          cursorWidth: 0,
+          fillParent: true
+      });
 
-    this.setState({ WSObject: WSObject });
+      wavesurfer.on('ready', function () {
+        // this.setState({});
+        this.pP();
+      }.bind(this));
 
-    setTimeout(function () {
-      PlayingSongActions.receiveWavesurfer(WSObject);
-    }, 0);
+      wavesurfer.load(this.props.song.audio_url);
 
-    var storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
-    this.setState({ storeToken: storeToken });
+      WSObject = { id: this.props.song.id, wavesurfer: wavesurfer };
+
+      this.setState({ WSObject: WSObject });
+
+      setTimeout(function () {
+        PlayingSongActions.receiveWavesurfer(WSObject);
+      }, 0);
+
+      storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
+      this.setState({ storeToken: storeToken });
+    }
   },
 
   componentWillUnmount: function () {
     this.state.storeToken.remove();
+    var playerKey = this.props.song.id;
+    WSObject = CurrentPlayingSongStore.getSong(playerKey);
+    if (WSObject.wavesurfer.container.children.length === 0) {
+      var selector = '.wave' + playerKey;
+      $(WSObject.wavesurfer.container).append($(selector).children()[0]);
+    }
   },
 
   pP: function () {
@@ -61,10 +96,6 @@ var TrackPlayerLarge = React.createClass({
 
 
   render: function () {
-
-    // if (this.state.wavesurfer) {
-    //   PlayingSongActions.newSong(this.state.wavesurfer);
-    // }
     var userURL = '#/users/' + this.props.song.user_id;
     var songURL = '#/songs/' + this.props.song.id;
     var playButton;
@@ -87,6 +118,7 @@ var TrackPlayerLarge = React.createClass({
         </button>;
       }
     }
+    var playerKeyWav = 'wave' + this.props.song.id;
 
     return (
       <div className="track-player-large">
@@ -95,7 +127,7 @@ var TrackPlayerLarge = React.createClass({
         <h1 className="track-artist-name-div-large"><a className="track-artist-name-large" href={userURL}>{this.props.song.username}</a></h1>
         <h2 className="track-title-large">{this.props.song.title}</h2>
         <div className="track-waveform-large">
-          <div className="wave"/>
+          <div className={playerKeyWav}/>
         </div>
       </div>
     );

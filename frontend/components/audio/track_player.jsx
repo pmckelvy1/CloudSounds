@@ -26,11 +26,23 @@ var TrackPlayer = React.createClass({
       WSObject = CurrentPlayingSongStore.getSong(playerKey);
       this.setState({ storeToken: storeToken, WSObject: WSObject });
       var selector = '.wave' + playerKey;
-      // var clone = $(WSObject.wavesurfer.container).clone();
-      // $(selector)[0].appendChild(clone[0].children[0]);
+
+      // var $container = $(WSObject.wavesurfer.container);
+      // var $children = $($container.children()[0]);
+      // var $grand = $($children.children());
+      // if ($($grand[0]).attr('width') == '815') {
+      //   $($grand[0]).attr('width', '645');
+      //   $($grand[0]).attr('height', '65');
+      //   $($grand[0]).css('width', '645px');
+      //   $($grand[0]).css('height', '65px');
+      //   var $greatgrand = $($($grand[1]).children()[0]);
+      //   $($($($grand[1]).children()[0])).attr('width', '645');
+      //   $($($($grand[1]).children()[0])).attr('height', '65');
+      //   $($($($grand[1]).children()[0])).css('width', '645px');
+      //   $($($($grand[1]).children()[0])).css('height', '65px');
+      // }
+
       $(selector)[0].appendChild(WSObject.wavesurfer.container.children[0]);
-      // $(WSObject.wavesurfer.container.children[0]).clone()[0].appendTo($(selector)[0]);
-      // CurrentPlayingSongStore.resetSong(WSObject);
     } else {
       var wavesurfer = WaveSurfer.create({
         container: '.wave' + playerKey,
@@ -59,10 +71,6 @@ var TrackPlayer = React.createClass({
 
       storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
       this.setState({ storeToken: storeToken });
-
-      // if (this.props.autoplay) {
-      //   this.playPause(this.state.WSObject.id);
-      // }
     }
   },
 
@@ -72,11 +80,7 @@ var TrackPlayer = React.createClass({
     WSObject = CurrentPlayingSongStore.getSong(playerKey);
     if (WSObject.wavesurfer.container.children.length === 0) {
       var selector = '.wave' + playerKey;
-      // debugger
       $(WSObject.wavesurfer.container).append($(selector).children()[0]);
-      // a = $(selector).children()
-      // ws.append(a[0])
-      // $(WSObject.wavesurfer.container).appendChild($(selector).children[0]);
     }
   },
 
