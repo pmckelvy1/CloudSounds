@@ -44,7 +44,7 @@ var UserProfile = React.createClass({
       return (
         <div>
           <UserProfileHeader user={this.state.user} />
-          <UserProfileNav user={this.state.user} />
+          <UserProfileNav pathname={this.props.location.pathname} user={this.state.user} />
           <UserProfileNavOptions user={this.state.user} />
           <UserProfileSidebar user={this.state.user} />
           <UserProfileMain children={this.props.children} user={this.state.user} />

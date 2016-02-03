@@ -2,6 +2,18 @@ var React = require('react'),
     UserStore = require('../../stores/user_store');
 
 var UserProfileNav = React.createClass({
+  getInitialState: function () {
+    var regex = /\/+(\w+)/;
+    var location = this.props.pathname;
+    var matches = location.match(regex);
+    debugger
+    return { location: 'Tracks' };
+  },
+
+  onClick: function (e) {
+    var newLoc = e.currentTarget.innerHTML;
+    this.setState({ location: newLoc });
+  },
 
   render: function () {
     var allLink = '#/users/' + this.props.user.id + '/all';
@@ -9,14 +21,22 @@ var UserProfileNav = React.createClass({
     var likesLink = '#/users/' + this.props.user.id + '/likes';
     var repostsLink = '#/users/' + this.props.user.id + '/reposts';
     var playlistsLink = '#/users/' + this.props.user.id + '/playlists';
+
+    var links = [];
+    var locs = ['Tracks', 'Likes', 'Playlists'];
+    var linkURL;
+    for (var idx in locs) {
+      linkURL = '#/users/' + this.props.user.id + '/' + locs[idx];
+      if (this.state.location == locs[idx]) {
+        links.push(<li key={idx}><a className="user-profile-nav-tab selected-tab" href={linkURL} onClick={this.onClick}>{locs[idx]}</a></li>);
+      } else {
+        links.push(<li key={idx}><a className="user-profile-nav-tab" href={linkURL} onClick={this.onClick}>{locs[idx]}</a></li>);
+      }
+    }
     return (
       <div className="user-profile-nav">
         <ul>
-          <li><a className="user-profile-nav-tab" href={allLink}>All</a></li>
-          <li><a className="user-profile-nav-tab" href={tracksLink}>Tracks</a></li>
-          <li><a className="user-profile-nav-tab" href={likesLink}>Likes</a></li>
-          <li><a className="user-profile-nav-tab" href={repostsLink}>Reposts</a></li>
-          <li><a className="user-profile-nav-tab" href={playlistsLink}>Playlists</a></li>
+          {links}
         </ul>
       </div>
     );

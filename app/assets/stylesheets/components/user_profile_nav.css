@@ -37,3 +37,13 @@
   height: 54px;
   box-sizing: border-box;
 }
+
+.selected-tab {
+  color: #0BF;
+  border-bottom: 1px solid #0BF;
+}
+
+.selected-tab:hover {
+  color: #0BF;
+  border-bottom: 1px solid #0BF;
+}

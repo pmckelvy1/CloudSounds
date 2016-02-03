@@ -188,7 +188,7 @@ UserStore.__onDispatch = function (payload) {
       break;
     case SongConstants.NUM_PLAYS_RECEIVED:
       updateNumPlays(payload.playData);
-      CurrentUserStore.__emitChange();
+      UserStore.__emitChange();
       break;
     case PlaylistConstants.ADD_SONG_TO_PLAYLIST:
       addSongToPlaylist(payload.addedSongData);
