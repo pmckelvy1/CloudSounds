@@ -27,10 +27,10 @@ var TrackPlayer = React.createClass({
       this.setState({ storeToken: storeToken, WSObject: WSObject });
       var selector = '.wave' + playerKey;
 
-      var $container = $(WSObject.wavesurfer.container);
-      var $children = $($container.children()[0]);
-      var $grand = $($children.children());
-      if ($($grand[0]).attr('width') == '815') {
+      // var $container = $(WSObject.wavesurfer.container);
+      // var $children = $($container.children()[0]);
+      // var $grand = $($children.children());
+      // if ($($grand[0]).attr('width') != '645') {
         // $($grand[0]).attr('width', '645');
         // $($grand[0]).attr('height', '65');
         // $($grand[0]).css('width', '645px');
@@ -40,11 +40,15 @@ var TrackPlayer = React.createClass({
         // $($($($grand[1]).children()[0])).attr('height', '65');
         // $($($($grand[1]).children()[0])).css('width', '645px');
         // $($($($grand[1]).children()[0])).css('height', '65px');
+        // WSObject.wavesurfer.empty();
+        // WSObject.wavesurfer.drawBuffer();
         // WSObject.wavesurfer.Drawer.setHeight()
-      }
-
-
+      // }
       $(selector)[0].appendChild(WSObject.wavesurfer.container.children[0]);
+      // WSObject.wavesurfer.drawer.setWidth(645);
+      // WSObject.wavesurfer.drawer.updateSize();
+      //
+      // WSObject.wavesurfer.drawBuffer();
     } else {
       var wavesurfer = WaveSurfer.create({
         container: '.wave' + playerKey,
@@ -63,7 +67,7 @@ var TrackPlayer = React.createClass({
 
       wavesurfer.load(this.props.song.audio_url);
 
-      WSObject = { id: this.props.song.id, wavesurfer: wavesurfer };
+      WSObject = { id: this.props.song.id, wavesurfer: wavesurfer, song: this.props.song };
 
       this.setState({ WSObject: WSObject });
 

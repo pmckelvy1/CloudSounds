@@ -104,6 +104,19 @@ var SongPlaybackFooter = React.createClass({
         </div>;
       }
 
+      var currentWSObject = CurrentPlayingSongStore.getSong();
+      var currentSongInfo;
+      if (currentWSObject) {
+        var currentSong = currentWSObject.song;
+        var songURL = '#/songs/' + currentWSObject.id;
+        currentSongInfo = <div className="song-footer-info">
+          <img className="thumb-tiny-footer" src={currentSong.image_url}></img>
+          <a href={songURL} className="song-footer-track-title">{currentSong.title}</a>
+        </div>;
+      } else {
+        currentSongInfo = <div className="song-footer-info"></div>;
+      }
+
       return (
         <div className="footer">
           <div className="footer-song-playback">
@@ -113,6 +126,7 @@ var SongPlaybackFooter = React.createClass({
             </div>
             {forwardButton}
             <SongPlaybackBar />
+            {currentSongInfo}
           </div>
         </div>
       );

@@ -52,3 +52,12 @@
   height: 26px;
   display: block;
 }
+
+.thumb-tiny-footer {
+  width: 35px;
+  height: 35px;
+  display: block;
+  float: left;
+  margin-right: 6px;
+  padding: 5px;
+}

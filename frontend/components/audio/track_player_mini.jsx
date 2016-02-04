@@ -31,7 +31,7 @@ var TrackPlayerMini = React.createClass({
 
     wavesurfer.load(this.props.song.audio_url);
 
-    var WSObject = { id: this.props.song.id, wavesurfer: wavesurfer };
+    var WSObject = { id: this.props.song.id, wavesurfer: wavesurfer, song: this.props.song };
 
     this.setState({ WSObject: WSObject });
 

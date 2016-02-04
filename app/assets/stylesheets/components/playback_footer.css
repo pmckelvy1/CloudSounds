@@ -160,3 +160,18 @@
   color: #ccc;
   cursor: auto;
 }
+
+.song-footer-info {
+  display: block;
+  float: right;
+  position: relative;
+  bottom: 15px;
+  right: -430px;
+  width: 400px;
+}
+
+.song-footer-track-title {
+  display: block;
+  float: left;
+  padding: 15px;
+}

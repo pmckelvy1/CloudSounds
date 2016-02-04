@@ -69,7 +69,7 @@ var TrackPlayerLarge = React.createClass({
 
       wavesurfer.load(this.props.song.audio_url);
 
-      WSObject = { id: this.props.song.id, wavesurfer: wavesurfer };
+      WSObject = { id: this.props.song.id, wavesurfer: wavesurfer, song: this.props.song };
 
       this.setState({ WSObject: WSObject });
 
