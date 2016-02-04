@@ -21,27 +21,30 @@ var CommentIndexLarge = React.createClass({
   },
 
   render: function () {
-    if (Object.keys(this.state.comments).length === 0) {
-      return (
-        <div className="loader">Loading...</div>
-      );
+    var comments;
+    if (this.state.comments) {
+      if (Object.keys(this.state.comments).length === 0) {
+        comments = <div className="loader"></div>;
+      } else {
+        comments = this.state.comments.map(function(comment) {
+          return <li key={comment.id}>
+            <CommentIndexItemLarge comment={comment} />
+          </li>;
+        });
+      }
     } else {
-      var comments = this.state.comments.map(function(comment) {
-      return <li key={comment.id}>
-        <CommentIndexItemLarge comment={comment} />
-      </li>;
-      });
-      return (
-        <div className="comment-index-large group">
-          <div className="comment-index-header">
-            <i className="fa fa-comment"></i> {comments.length} comments
-          </div>
-          <ul>
-            {comments}
-          </ul>
-        </div>
-      );
+      comments = <div className="leave-a-comment">Leave a comment!</div>;
     }
+    return (
+      <div className="comment-index-large group">
+        <div className="comment-index-header">
+          <i className="fa fa-comment"></i> {comments.length} comments
+        </div>
+        <ul>
+          {comments}
+        </ul>
+      </div>
+    );
   }
 });
 
