@@ -3,11 +3,10 @@ var React = require('react'),
 
 var UserProfileNav = React.createClass({
   getInitialState: function () {
-    var regex = /\/+(\w+)/;
+    var regex = /\w+$/;
     var location = this.props.pathname;
     var matches = location.match(regex);
-    debugger
-    return { location: 'Tracks' };
+    return { location: matches[0] };
   },
 
   onClick: function (e) {
