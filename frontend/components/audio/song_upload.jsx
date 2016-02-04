@@ -91,7 +91,7 @@ var SongUpload = React.createClass({
           </div>
         <form className="song-upload-form group" onSubmit={this.handleSubmit}>
 
-          <input id="audio" type="file" className="song-audio-input" onChange={this.changeAudioFile}></input>
+          <input id="audio" type="file" className="song-audio-input custom-audio-input" onChange={this.changeAudioFile}></input>
 
           <div className="upload-image-box">
             <input id="artwork" type="file" className="song-artwork-input custom-file-input" onChange={this.changeImageFile}></input>
