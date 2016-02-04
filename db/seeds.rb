@@ -19,14 +19,16 @@ sophie = User.create!(num_songs: 4, email: 'sophiebeats@gmail.com', username: 'S
 
 # RANDOM USERS
 i = 0
-while (i < 100)
+robo_users = []
+while (i < 10)
   name = Faker::Name.name
-  User.create!(username: name,
+  u = User.create!(username: name,
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     info: Faker::Hipster.paragraph,
     image: open(URI.encode(Faker::Avatar.image(name)))
-    )
+  )
+  robo_users.push(u)
   i += 1
 end
 
@@ -45,8 +47,16 @@ s9 = Song.create!(user_id: bach.id, username: bach.username, title: "Brandenburg
 s10 = Song.create!(user_id: bach.id, username: bach.username, title: "Minuet in G Minor", info: "...but im a major G.")
 s11 = Song.create!(user_id: bach.id, username: bach.username, title: "Moonlight Sonata", info: "Beethoven ripped me off!")
 
-# s12 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
-  # audio: File.open('app/assets/audio/03 Lemonade.m4a'), image: File.open('app/assets/images/sophie_slide1.jpg'), num_plays: 56841)
+
+# SOPHIE SONGS
+s12 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
+  audio: File.open('app/assets/audio/Lemonade.m4a'), image: File.open('app/assets/images/sophie_slide1.jpg'), num_plays: 3562)
+s13 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
+  audio: File.open('app/assets/audio/Hard.m4a'), image: File.open('app/assets/images/sophie_slide2.png'), num_plays: 8574)
+s14 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
+  audio: File.open('app/assets/audio/Just Like We Never Said Goodbye.m4a'), image: File.open('app/assets/images/sophie_slide3.jpg'), num_plays: 11453)
+
+sophie_songs = [s12, s13, s14]
 
 Follow.destroy_all
 
@@ -89,6 +99,15 @@ c18 = Comment.create!(user_id: bowie.id, song_id: s4.id, body: "awoopwa wooha")
 c19 = Comment.create!(user_id: bach.id, song_id: s4.id, body: "quite elementary")
 c20 = Comment.create!(user_id: guest.id, song_id: s4.id, body: "i can dig it")
 c21 = Comment.create!(user_id: bach.id, song_id: s4.id, body: "on second thought, i rather enjoy the groove of this piece.")
+
+robo_users.each do |user|
+  i = 0
+  while (i < 3)
+    song_id = Random.rand(3)
+    Comment.create!(user_id: user.id, song_id: sophie_songs[song_id].id, body: Faker::Hipster.sentence)
+    i += 1
+  end
+end
 
 Playlist.destroy_all
 
