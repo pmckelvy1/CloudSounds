@@ -1,12 +1,13 @@
 var React = require('react'),
     LinkedState = require('react-addons-linked-state-mixin'),
-    ApiUtil = require('../../util/api_util');
+    ApiUtil = require('../../util/api_util'),
+    History = require('react-router').History;
 
 var SongUpload = React.createClass({
-  mixins: [LinkedState],
+  mixins: [LinkedState, History],
 
   getInitialState: function () {
-    return { title: "", info: "", imageFile: null, imageURL: "", audioFile: null, audioURL: ""};
+    return { title: "", info: "", imageFile: null, imageURL: "", audioFile: null, audioURL: "", uploading: false};
   },
 
   changeImageFile: function (e) {
@@ -50,11 +51,17 @@ var SongUpload = React.createClass({
     songData.append("song[image]", this.state.imageFile);
     songData.append("song[audio]", this.state.audioFile);
 
-    ApiUtil.createSong(songData, this.resetForm);
+    ApiUtil.createSong(songData, this.uploadSuccess);
+    this.setState({ uploading: true });
   },
 
   resetForm: function() {
     this.setState({title: "", info: "", imageFile: null, imageUrl: ""});
+  },
+
+  uploadSuccess: function (newSongId) {
+    this.resetForm();
+    this.history.pushState(null, '/songs/' + newSongId);
   },
 
   doNothing: function () {
@@ -83,8 +90,23 @@ var SongUpload = React.createClass({
     }
     this.renderProgressBar();
 
-    return (
-      <div className="song-upload-page">
+    var saveButton;
+    if (this.state.audioFile === null || this.state.imageFile === null) {
+      saveButton = <div className="upload-button disabled">Save</div>;
+    } else {
+      saveButton = <button className="upload-button enabled">Save</button>;
+    }
+
+    var page;
+    if (this.state.uploading) {
+      page = <div className="song-upload-page">
+        <div className="upload-spinner group">
+        <div className="loader blue">
+        </div>
+        </div>
+      </div>;
+    } else {
+      page = <div className="song-upload-page">
         <h2 className="upload-title">Upload to CloudSounds</h2>
           <div className="meter animate">
             <span style={widthStyle}><span></span></span>
@@ -106,8 +128,14 @@ var SongUpload = React.createClass({
           </div>
 
           <div className="required-fields"><span className="blue">*</span> Required fields</div>
-          <button className="upload-button">Save</button>
+          {saveButton}
         </form>
+      </div>;
+    }
+
+    return (
+      <div>
+        {page}
       </div>
     );
   }

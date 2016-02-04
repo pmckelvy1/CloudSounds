@@ -105,14 +105,33 @@
 .upload-button {
   font-weight: 450;
   position: absolute;
-  bottom: -40px;
+  bottom: -60px;
   left: 330px;
   margin: auto;
   display: block;
   padding: 5px 10px;
-  font-size: 18px;
+  font-size: 22px;
   background: #0BF;
   border-radius: 4px;
+  border: 2px solid #aaa;
+  color: #aaa;
+}
+
+.disabled {
+  background: #eee;
+}
+
+.disabled:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.enabled {
+  color: black;
+}
+
+.enabled:hover {
+  border: 2px solid black;
 }
 
 .upload-title {

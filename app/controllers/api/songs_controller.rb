@@ -11,6 +11,8 @@ class Api::SongsController < ApplicationController
       @user.num_songs += 1
       @user.save!
       render :show
+    else
+      render json: @song.errors.full_messages
     end
   end
 

@@ -129,8 +129,8 @@ var ApiUtil = {
       processData: false,
       contentType: false,
       data: songData,
-      success: function (data) {
-        callback && callback();
+      success: function (song) {
+        callback && callback(song.id);
       }
     });
   },

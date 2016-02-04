@@ -136,7 +136,6 @@ CurrentPlayingSongStore.remount = function (songId, height) {
 
   wavesurfer.drawer.height = height;
   wavesurfer.drawer.params.height = height;
-  debugger
   // debugger
   // if ($(child).css('height') == '128px')) {
   //
