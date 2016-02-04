@@ -27,20 +27,22 @@ var TrackPlayer = React.createClass({
       this.setState({ storeToken: storeToken, WSObject: WSObject });
       var selector = '.wave' + playerKey;
 
-      // var $container = $(WSObject.wavesurfer.container);
-      // var $children = $($container.children()[0]);
-      // var $grand = $($children.children());
-      // if ($($grand[0]).attr('width') == '815') {
-      //   $($grand[0]).attr('width', '645');
-      //   $($grand[0]).attr('height', '65');
-      //   $($grand[0]).css('width', '645px');
-      //   $($grand[0]).css('height', '65px');
-      //   var $greatgrand = $($($grand[1]).children()[0]);
-      //   $($($($grand[1]).children()[0])).attr('width', '645');
-      //   $($($($grand[1]).children()[0])).attr('height', '65');
-      //   $($($($grand[1]).children()[0])).css('width', '645px');
-      //   $($($($grand[1]).children()[0])).css('height', '65px');
-      // }
+      var $container = $(WSObject.wavesurfer.container);
+      var $children = $($container.children()[0]);
+      var $grand = $($children.children());
+      if ($($grand[0]).attr('width') == '815') {
+        // $($grand[0]).attr('width', '645');
+        // $($grand[0]).attr('height', '65');
+        // $($grand[0]).css('width', '645px');
+        // $($grand[0]).css('height', '65px');
+        // var $greatgrand = $($($grand[1]).children()[0]);
+        // $($($($grand[1]).children()[0])).attr('width', '645');
+        // $($($($grand[1]).children()[0])).attr('height', '65');
+        // $($($($grand[1]).children()[0])).css('width', '645px');
+        // $($($($grand[1]).children()[0])).css('height', '65px');
+        // WSObject.wavesurfer.Drawer.setHeight()
+      }
+
 
       $(selector)[0].appendChild(WSObject.wavesurfer.container.children[0]);
     } else {

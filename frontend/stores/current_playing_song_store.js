@@ -165,11 +165,11 @@ CurrentPlayingSongStore.resetSong = function (WSObject) {
 
 CurrentPlayingSongStore.getCurrentTime = function (songId) {
   if (!songId) {
-    if (_currentSong.wavesurfer.isPlaying()) {
+    // if (_currentSong.wavesurfer.isPlaying()) {
       return _currentSong.wavesurfer.getCurrentTime();
-    } else {
-      return _currentTime;
-    }
+    // } else {
+    //   return _currentTime;
+    // }
   } else {
     return _songs[songId].wavesurfer.getCurrentTime();
   }

@@ -29,11 +29,11 @@ var TrackPlayerLarge = React.createClass({
       this.setState({ storeToken: storeToken, WSObject: WSObject });
       var selector = '.wave' + playerKey;
 
-      // var $container = $(WSObject.wavesurfer.container);
-      // var $children = $($container.children()[0]);
-      // var $grand = $($children.children());
-      //
-      // if ($($grand[0]).attr('width') == '645') {
+      var $container = $(WSObject.wavesurfer.container);
+      var $children = $($container.children()[0]);
+      var $grand = $($children.children());
+      // debugger
+      // if ($($grand[0]).attr('width') != '815') {
       //   $($grand[0]).attr('width', '815');
       //   $($grand[0]).attr('height', '128');
       //   $($grand[0]).css('width', '815px');
@@ -44,8 +44,13 @@ var TrackPlayerLarge = React.createClass({
       //   $($($($grand[1]).children()[0])).css('width', '815px');
       //   $($($($grand[1]).children()[0])).css('height', '128px');
       // }
-
+      // if (WSObject.wavesurfer.Drawer.getWidth() < 825) {
+      //   debugger
+      //   WSObject.wavesurfer.Drawer.setWidth(825);
+      //   WSObject.wavesurfer.Drawer.setHeight(128);
+      // }
       $(selector)[0].appendChild(WSObject.wavesurfer.container.children[0]);
+
     } else {
       var wavesurfer = WaveSurfer.create({
           container: '.wave'+ playerKey,
@@ -53,7 +58,8 @@ var TrackPlayerLarge = React.createClass({
           progressColor: '#0BF',
           barWidth: 2,
           cursorWidth: 0,
-          fillParent: true
+          fillParent: true,
+          pixelRatio: 1
       });
 
       wavesurfer.on('ready', function () {
@@ -73,6 +79,7 @@ var TrackPlayerLarge = React.createClass({
 
       storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
       this.setState({ storeToken: storeToken });
+
     }
   },
 

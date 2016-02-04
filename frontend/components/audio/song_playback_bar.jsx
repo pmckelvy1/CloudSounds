@@ -16,7 +16,7 @@ var SongPlaybackBar = React.createClass({
       var interval = setInterval(function () {
         this.setState({ time: CurrentPlayingSongStore.getCurrentTime(),
           totalTime: CurrentPlayingSongStore.getDuration() });
-        }.bind(this), 10);
+        }.bind(this), 60);
       this.setState({ interval: interval });
     } else {
       if (this.state.interval) {
