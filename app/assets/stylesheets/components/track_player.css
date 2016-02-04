@@ -53,6 +53,7 @@
 
 .track-waveform > wave {
   height: 65px !important;
+  width: 645px !important;
 }
 
 .track-waveform > wave > canvas, .track-waveform > wave > wave{
@@ -69,6 +70,7 @@
 
 .track-waveform-large > wave {
   height: 128px !important;
+  width: 815px !important;
 }
 
 .track-waveform-large > wave > canvas, .track-waveform-large > wave > wave {

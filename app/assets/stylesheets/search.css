@@ -1,0 +1,28 @@
+.search-box {
+  display: block;
+  float: left;
+  padding: 10px;
+}
+
+.search-input {
+  width: 400px;
+  background: white;
+  display: block;
+  float: left;
+}
+
+.search-results-index {
+  border: 1px solid #ccc;
+}
+
+.search-result-index-item {
+  font-size: 14px;
+  padding: 5px 0px;
+  display: block;
+  width: 400px;
+  border-bottom: 1px solid #ccc;
+}
+
+.search-results-page {
+  padding: 30px;
+}

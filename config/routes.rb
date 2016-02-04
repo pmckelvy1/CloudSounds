@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :playlist_items
     end
     resources :playlist_items, only: [:destroy, :edit, :update]
+    get "search", to: "utils#search"
   end
 
   get 'auth/facebook/callback', to: 'sessions#omniauth_facebook'

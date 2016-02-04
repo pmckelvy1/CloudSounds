@@ -3,6 +3,7 @@ var CurrentUserStore = require('../stores/current_user_store');
 var SessionApiUtil = require('../util/sessions_api_util');
 var History = require('react-router').History;
 var SongPlaybackFooter = require('./audio/song_playback_footer');
+var Search = require('./search');
 
 
 var Header = React.createClass({
@@ -34,6 +35,7 @@ var Header = React.createClass({
     var sessionButtons;
     if (CurrentUserStore.isLoggedIn()) {
       sessionButtons =  <div>
+        <Search />
         <div className="upload-link"><a href="#/upload">Upload</a></div>
         <div className="profile-link">
           <a href={currentUserProfileLink}>

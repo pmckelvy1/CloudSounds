@@ -13,6 +13,7 @@ var SessionsApiUtil = require('./util/sessions_api_util');
 var SessionForm = require('./components/new_session');
 var NewUserForm = require('./components/new_user');
 var SongShowPage = require('./components/audio/song_show_page');
+var SearchDisplayPage = require('./components/search_display_page');
 
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -39,6 +40,7 @@ var routes = (
     <Route path='login' component={SessionForm} />
     <Route path='signup' component={NewUserForm} />
     <Route path='/upload' component={SongUpload} onEnter={_ensureLoggedIn} />
+    <Route path='/results' component={SearchDisplayPage} onEnter={_ensureLoggedIn} />
     <Route path='/users/:id' component={UserProfile} onEnter={_ensureLoggedIn}>
       <IndexRoute component={UserTracks} />
       <Route path='/users/:id/all' component={UserAllTracks} />

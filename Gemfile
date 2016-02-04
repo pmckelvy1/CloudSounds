@@ -34,6 +34,8 @@ gem 'figaro'
 gem 'aws-sdk', '~> 1.6'
 gem 'omniauth-facebook'
 
+gem 'pg_search'
+gem 'kaminari'
 # image processing
 # gem "mini_magick"
 # Use Unicorn as the app server

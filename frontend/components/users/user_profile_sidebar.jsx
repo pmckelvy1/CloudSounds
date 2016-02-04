@@ -12,7 +12,6 @@ var UserProfileSidebar = React.createClass({
     return (
       <div className="profile-sidebar group">
         <UserInfo user={this.props.user} />
-        <UserLikesSnapshot user={this.props.user} />
         <UserFollowsSnapshot user={this.props.user} />
       </div>
     );
