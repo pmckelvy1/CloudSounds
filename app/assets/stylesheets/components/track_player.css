@@ -9,11 +9,18 @@
 
 .track-player-large {
   position: relative;
-  background: #eee;
   width: 1240px;
   height: 380px;
   padding: 20px;
   box-sizing: border-box;
+  background: #ffffff;
+  background: -moz-linear-gradient(-45deg, #ffffff 0%, #00bbff 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, #ffffff), color-stop(100%, #00bbff));
+  background: -webkit-linear-gradient(-45deg, #ffffff 0%, #00bbff 100%);
+  background: -o-linear-gradient(-45deg, #ffffff 0%, #00bbff 100%);
+  background: -ms-linear-gradient(-45deg, #ffffff 0%, #00bbff 100%);
+  background: linear-gradient(45deg, #ffffff 0%, #00bbff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00bbff', GradientType=1 );
 }
 
 .track-title {

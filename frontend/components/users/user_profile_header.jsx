@@ -5,7 +5,7 @@ var UserProfileHeader = React.createClass({
 
   render: function () {
     return (
-      <div className="user-profile-header">
+      <div className="user-profile-header gradient-background">
         <img className="user-profile-picture" src={this.props.user.image_url} />
         <h1 className="track-artist-name-div-large">
           <div className="artist-name-large">

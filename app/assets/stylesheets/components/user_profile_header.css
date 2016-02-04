@@ -2,8 +2,16 @@
 .user-profile-header {
   display: block;
   height: 265px;
-  background: blue;
   position: relative;
+  background: #ffffff;
+  background: -moz-linear-gradient(45deg, #ffffff 0%, #00bbff 100%);
+  background: -webkit-gradient(right top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #00bbff));
+  background: -webkit-linear-gradient(45deg, #ffffff 0%, #00bbff 100%);
+  background: -o-linear-gradient(45deg, #ffffff 0%, #00bbff 100%);
+  background: -ms-linear-gradient(45deg, #ffffff 0%, #00bbff 100%);
+  background: linear-gradient(-135deg, #ffffff 0%, #00bbff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00bbff', GradientType=1 );
+
 }
 
 .user-profile-picture {
