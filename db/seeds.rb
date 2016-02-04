@@ -16,7 +16,7 @@ bowie = User.create!(num_songs: 2, email: 'dbowie@gmail.com', username: 'David B
 
 Song.destroy_all
 
-s1 = Song.create!(user_id: guest.id, username: guest.username, title: "Yellow Submarine", info: "Originally by the beatles.  From the album 'Yellow Submarine'.")
+s1 = Song.create(user_id: guest.id, username: guest.username, title: "Yellow Submarine", info: "Originally by the beatles.  From the album 'Yellow Submarine'.")
 s2 = Song.create!(user_id: guest.id, username: guest.username, title: "A Little Help From My Friends", info: "Originally by the beatles.  SARGEANT PEPPER!")
 s3 = Song.create!(user_id: guest.id, username: guest.username, title: "Happy Birthday", info: "Originally by the beatles.  I'm so glad it's your birthday!")
 s4 = Song.create!(user_id: me.id, username: me.username, title: "Been There Before", info: "Featuring Julia Lauren on vocals!")

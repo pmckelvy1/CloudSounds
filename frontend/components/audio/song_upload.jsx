@@ -25,6 +25,7 @@ var SongUpload = React.createClass({
   },
 
   changeAudioFile: function (e) {
+
     var reader = new FileReader();
     var file = e.currentTarget.files[0];
 
@@ -35,7 +36,7 @@ var SongUpload = React.createClass({
     if (file) {
       reader.readAsDataURL(file); // will trigger a load end event when it completes, and invoke reader.onloadend
     } else {
-      this.setState({imageFile: null, imageUrl: ""});
+      this.setState({audioFile: null, audioURL: ""});
     }
   },
 
@@ -60,11 +61,34 @@ var SongUpload = React.createClass({
 
   },
 
+  renderProgressBar: function () {
+    window.requestAnimationFrame(function () {
+      $(".meter > span").each(function() {
+        $(this)
+          .data("origWidth", $(this).width())
+          .width(0)
+          .animate({
+            width: $(this).data("origWidth") // or + "%" if fluid
+          }, 1200);
+      });
+    });
+  },
+
   render: function () {
+    var widthStyle;
+    if (this.state.audioFile) {
+      widthStyle = { width: '100%' };
+    } else {
+      widthStyle = { width: '0%' };
+    }
+    this.renderProgressBar();
 
     return (
       <div className="song-upload-page">
         <h2 className="upload-title">Upload to CloudSounds</h2>
+          <div className="meter animate">
+            <span style={widthStyle}><span></span></span>
+          </div>
         <form className="song-upload-form group" onSubmit={this.handleSubmit}>
 
           <input id="audio" type="file" className="song-audio-input" onChange={this.changeAudioFile}></input>
