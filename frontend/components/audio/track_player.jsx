@@ -24,8 +24,8 @@ var TrackPlayer = React.createClass({
     if (CurrentPlayingSongStore.hasSong(playerKey)) {
       storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
       WSObject = CurrentPlayingSongStore.getSong(playerKey);
+      CurrentPlayingSongStore.remount(playerKey, 65);
       this.setState({ storeToken: storeToken, WSObject: WSObject });
-      var selector = '.wave' + playerKey;
 
       // var $container = $(WSObject.wavesurfer.container);
       // var $children = $($container.children()[0]);
@@ -44,8 +44,17 @@ var TrackPlayer = React.createClass({
         // WSObject.wavesurfer.drawBuffer();
         // WSObject.wavesurfer.Drawer.setHeight()
       // }
-      $(selector)[0].appendChild(WSObject.wavesurfer.container.children[0]);
-      // WSObject.wavesurfer.drawer.setWidth(645);
+      // var container = $(selector)[0];
+      // var wavesurfer = WSObject.wavesurfer;
+      // var child = wavesurfer.container.children[0];
+      //
+      // container.appendChild(child);
+      //
+      // wavesurfer.container = container;
+      // wavesurfer.mediaContainer = container;
+      // wavesurfer.drawer.container = container;
+      // wavesurfer.drawBuffer();
+            // WSObject.wavesurfer.drawer.setWidth(645);
       // WSObject.wavesurfer.drawer.updateSize();
       //
       // WSObject.wavesurfer.drawBuffer();
@@ -122,7 +131,7 @@ var TrackPlayer = React.createClass({
           </button>;
       }
     }
-    var playerKeyWav = 'wave' + this.props.song.id;
+    var playerKeyWav = 'track-waveform wave' + this.props.song.id;
 
     // var hidden;
     // var position;
@@ -141,8 +150,8 @@ var TrackPlayer = React.createClass({
         <div className="play-button">{playButton}</div>
         <div className="track-artist-name-div"><h1 className="track-artist-name"><a href={userURL}>{this.props.song.username}</a></h1></div>
         <h2 className="track-title"><a href={songURL}>{this.props.song.title}</a></h2>
-        <div className="track-waveform">
-          <div className={playerKeyWav}/>
+        <div className={playerKeyWav}>
+
         </div>
         <LikeButton song={this.props.song} />
         <AddToPlaylist song={this.props.song} />

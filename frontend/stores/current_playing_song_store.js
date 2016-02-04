@@ -120,6 +120,45 @@ var resetSong = function (WSObject) {
   _currentSong = WSObject;
 };
 
+CurrentPlayingSongStore.remount = function (songId, height) {
+  var selector = '.wave' + songId;
+  var WSObject = _songs[songId];
+
+  var container = $(selector)[0];
+  var wavesurfer = WSObject.wavesurfer;
+  var child = wavesurfer.container.children[0];
+
+  container.appendChild(child);
+
+  wavesurfer.container = container;
+  wavesurfer.mediaContainer = container;
+  wavesurfer.drawer.container = container;
+
+  wavesurfer.drawer.height = height;
+  wavesurfer.drawer.params.height = height;
+  debugger
+  // debugger
+  // if ($(child).css('height') == '128px')) {
+  //
+  // }
+  // var $grand = $($children.children());
+  // if ($($grand[0]).attr('width') != '815') {
+  //   $($grand[0]).attr('width', '815');
+  //   $($grand[0]).attr('height', '128');
+  //   $($grand[0]).css('width', '815px');
+  //   $($grand[0]).css('height', '128px');
+  //   var $greatgrand = $($($grand[1]).children()[0]);
+  //   $($($($grand[1]).children()[0])).attr('width', '815');
+  //   $($($($grand[1]).children()[0])).attr('height', '128');
+  //   $($($($grand[1]).children()[0])).css('width', '815px');
+  //   $($($($grand[1]).children()[0])).css('height', '128px');
+  // }
+
+  wavesurfer.drawBuffer();
+
+  _songs[songId] = WSObject;
+};
+
 CurrentPlayingSongStore.getCurrentPlayingId = function () {
   if (_currentSong) {
     return _currentSong.id;

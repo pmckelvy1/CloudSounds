@@ -26,12 +26,13 @@ var TrackPlayerLarge = React.createClass({
     if (CurrentPlayingSongStore.hasSong(playerKey)) {
       storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
       WSObject = CurrentPlayingSongStore.getSong(playerKey);
+      CurrentPlayingSongStore.remount(playerKey, 128);
       this.setState({ storeToken: storeToken, WSObject: WSObject });
-      var selector = '.wave' + playerKey;
-
-      var $container = $(WSObject.wavesurfer.container);
-      var $children = $($container.children()[0]);
-      var $grand = $($children.children());
+      // var selector = '.wave' + playerKey;
+      //
+      // var $container = $(WSObject.wavesurfer.container);
+      // var $children = $($container.children()[0]);
+      // var $grand = $($children.children());
       // debugger
       // if ($($grand[0]).attr('width') != '815') {
       //   $($grand[0]).attr('width', '815');
@@ -49,7 +50,17 @@ var TrackPlayerLarge = React.createClass({
       //   WSObject.wavesurfer.Drawer.setWidth(825);
       //   WSObject.wavesurfer.Drawer.setHeight(128);
       // }
-      $(selector)[0].appendChild(WSObject.wavesurfer.container.children[0]);
+      // var container = $(selector)[0];
+      // var wavesurfer = WSObject.wavesurfer;
+      // var child = wavesurfer.container.children[0];
+      //
+      // container.appendChild(child);
+      //
+      // wavesurfer.container = container;
+      // wavesurfer.mediaContainer = container;
+      // wavesurfer.drawer.container = container;
+      // wavesurfer.drawBuffer();
+      // $(selector)[0].appendChild(WSObject.wavesurfer.container.children[0]);
 
     } else {
       var wavesurfer = WaveSurfer.create({
@@ -125,7 +136,7 @@ var TrackPlayerLarge = React.createClass({
         </button>;
       }
     }
-    var playerKeyWav = 'wave' + this.props.song.id;
+    var playerKeyWav = 'track-waveform-large wave' + this.props.song.id;
 
     return (
       <div className="track-player-large">
@@ -133,8 +144,8 @@ var TrackPlayerLarge = React.createClass({
         <div className="thumb-large"><img src={this.props.song.image_url}/></div>
         <h1 className="track-artist-name-div-large"><a className="track-artist-name-large" href={userURL}>{this.props.song.username}</a></h1>
         <h2 className="track-title-large">{this.props.song.title}</h2>
-        <div className="track-waveform-large">
-          <div className={playerKeyWav}/>
+        <div className={playerKeyWav}>
+
         </div>
       </div>
     );

@@ -51,12 +51,32 @@
   height: 65px;
 }
 
+.track-waveform > wave {
+  height: 65px;
+}
+
+.track-waveform > wave > canvas {
+  height: 65px;
+}
+
 .track-waveform-large {
   position: absolute;
   bottom: 0px;
   width: 815px;
-  height: 150px;
+  height: 128px;
   margin-left: 10px;
+}
+
+.track-waveform-large > wave {
+  height: 128px;
+}
+
+.track-waveform-large > wave > canvas {
+  height: 128px;
+}
+
+wave {
+  height: inherit;
 }
 
 .track-info {
