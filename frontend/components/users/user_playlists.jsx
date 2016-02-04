@@ -11,7 +11,7 @@ var React = require('react'),
 var UserPlaylists = React.createClass({
   getInitialState: function () {
     var userId = this.props.params.id;
-    return { userId: userId, playlists: {} };
+    return { userId: userId, playlists: null };
   },
 
   componentDidMount: function () {
@@ -37,13 +37,13 @@ var UserPlaylists = React.createClass({
   },
 
   render: function () {
-    if (Object.keys(this.state.playlists).length === 0) {
+    if (this.state.playlists) {
       return (
-        <div className="loader">Loading...</div>
+        <div><PlaylistFeed playlists={this.state.playlists} /></div>
       );
     } else {
       return (
-        <div><PlaylistFeed playlists={this.state.playlists} /></div>
+        <div className="loader">Loading...</div>
       );
     }
   }

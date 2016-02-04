@@ -5,9 +5,14 @@ var React = require('react'),
 var TrackFeed = React.createClass({
 
   render: function () {
-    var trackComponents = this.props.songs.map(function (song) {
-      return <TrackPlayer key={song.id} song={song} />;
-    });
+    var trackComponents;
+    if(this.props.songs.length === 0) {
+      trackComponents = <div className="no-songs">There's nothing here...</div>;
+    } else {
+      trackComponents = this.props.songs.map(function (song) {
+        return <TrackPlayer key={song.id} song={song} />;
+      });
+    }
     return (
       <div className="track-feed">
         {trackComponents}

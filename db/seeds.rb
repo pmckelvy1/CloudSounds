@@ -19,7 +19,7 @@ sophie = User.create!(num_songs: 4, email: 'sophiebeats@gmail.com', username: 'S
 
 # RANDOM USERS
 i = 0
-while (i < 10)
+while (i < 100)
   name = Faker::Name.name
   User.create!(username: name,
     email: Faker::Internet.email,

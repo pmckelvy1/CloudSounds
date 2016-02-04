@@ -10,7 +10,7 @@ var React = require('react'),
 var UserTracks = React.createClass({
   getInitialState: function () {
     var userId = this.props.params.id;
-    return { userId: userId, songs: {} };
+    return { userId: userId, songs: null };
   },
 
   componentDidMount: function () {
@@ -37,13 +37,13 @@ var UserTracks = React.createClass({
   },
 
   render: function () {
-    if (Object.keys(this.state.songs).length === 0) {
+    if (this.state.songs) {
       return (
-        <div className="loader">Loading...</div>
+        <div><TrackFeed songs={this.state.songs} /></div>
       );
     } else {
       return (
-        <div><TrackFeed songs={this.state.songs} /></div>
+        <div className="loader">Loading...</div>
       );
     }
   }
