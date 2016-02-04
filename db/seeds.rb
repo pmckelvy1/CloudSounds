@@ -5,14 +5,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'open-uri'
 
 User.destroy_all
 
+# ARTISTS
 guest = User.create!(num_songs: 3, email: 'guest_user@guest.com', username: 'guest', password: 'guest_password', info: "This is a guest account.")
 me = User.create!(num_songs: 2, email: 'ryonlawford@gmail.com', username: 'Ryon Lawford', password: 'jamboxcool', info: "Electrified Dancing Musician")
 darth = User.create!(num_songs: 1, email: 'darth_vader@gmail.com', username: 'd_vader', password: 'starwars', info: "Leader of the Imperial Army, Dark Lord, and Sith Master")
 bach = User.create!(num_songs: 3, email: 'johansebass@gmail.com', username: 'bach_rachs', password: 'classical', info: "I play piano.  I also crochet.")
 bowie = User.create!(num_songs: 2, email: 'dbowie@gmail.com', username: 'David Bowie', password: 'ziggystardust', info: "Call me ziggy.")
+sophie = User.create!(num_songs: 4, email: 'sophiebeats@gmail.com', username: 'SOPHIE', password: 'latexhard', info: "Mysterious beat-maker from the nether. \n \n Noises \n Nonsense \n \n I like weird sounds.")
+
+# RANDOM USERS
+i = 0
+while (i < 10)
+  name = Faker::Name.name
+  User.create!(username: name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    info: Faker::Hipster.paragraph,
+    image: open(URI.encode(Faker::Avatar.image(name)))
+    )
+  i += 1
+end
+
 
 Song.destroy_all
 
@@ -27,6 +44,9 @@ s8 = Song.create!(user_id: bowie.id, username: bowie.username, title: "Space Odd
 s9 = Song.create!(user_id: bach.id, username: bach.username, title: "Brandenburg Concerto No. 1", info: "Old school, ya heard?")
 s10 = Song.create!(user_id: bach.id, username: bach.username, title: "Minuet in G Minor", info: "...but im a major G.")
 s11 = Song.create!(user_id: bach.id, username: bach.username, title: "Moonlight Sonata", info: "Beethoven ripped me off!")
+
+# s12 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
+  # audio: File.open('app/assets/audio/03 Lemonade.m4a'), image: File.open('app/assets/images/sophie_slide1.jpg'), num_plays: 56841)
 
 Follow.destroy_all
 

@@ -36,6 +36,8 @@ gem 'omniauth-facebook'
 
 gem 'pg_search'
 gem 'kaminari'
+
+gem 'faker'
 # image processing
 # gem "mini_magick"
 # Use Unicorn as the app server
