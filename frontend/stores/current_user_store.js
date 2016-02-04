@@ -86,6 +86,10 @@ var addSongToPlaylist = function (addedSongData) {
   _playlists[addedSongData.playlist_id].songs.push(addedSongData);
 };
 
+var addNewPlaylist = function (newPlaylist) {
+  _playlists[newPlaylist.id] = newPlaylist;
+};
+
 CurrentUserStore.doesFollow = function(followedId) {
   if (_followedUsers[followedId]) {
     return true;
@@ -199,6 +203,10 @@ CurrentUserStore.__onDispatch = function (payload) {
       break;
     case PlaylistConstants.ADD_SONG_TO_PLAYLIST:
       addSongToPlaylist(payload.addedSongData);
+      CurrentUserStore.__emitChange();
+      break;
+    case PlaylistConstants.ADD_NEW_PLAYLIST:
+      addNewPlaylist(payload.newPlaylist);
       CurrentUserStore.__emitChange();
       break;
   }

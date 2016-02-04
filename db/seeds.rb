@@ -72,8 +72,8 @@ c21 = Comment.create!(user_id: bach.id, song_id: s4.id, body: "on second thought
 
 Playlist.destroy_all
 
-p1 = Playlist.create!(user_id: guest.id, title: 'You guest it!', info: 'Testing playlist functionality')
-p2 = Playlist.create!(user_id: guest.id, title: 'Electro party music', info: 'Dance. To. This. Playlist.')
+p1 = Playlist.create!(user_id: guest.id, title: 'You guest it!')
+p2 = Playlist.create!(user_id: guest.id, title: 'Electro party music')
 
 PlaylistItem.destroy_all
 

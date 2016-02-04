@@ -7,6 +7,13 @@ var PlaylistActions = {
       actionType: PlaylistConstants.ADD_SONG_TO_PLAYLIST,
       addedSongData: addedSongData
     });
+  },
+  
+  addNewPlaylist: function (newPlaylist) {
+    Dispatcher.dispatch({
+      actionType: PlaylistConstants.ADD_NEW_PLAYLIST,
+      newPlaylist: newPlaylist
+    });
   }
 };
 

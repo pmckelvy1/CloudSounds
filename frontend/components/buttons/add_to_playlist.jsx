@@ -1,6 +1,7 @@
 var React = require('react');
 var CurrentUserStore = require('../../stores/current_user_store');
 var ApiActions = require('../../actions/api/api_actions');
+var NewPLaylist = require('./new_playlist');
 
 var AddToPlaylist = React.createClass({
   getInitialState: function () {
@@ -39,6 +40,7 @@ var AddToPlaylist = React.createClass({
           <div className="large-dialog-container">
             <ul className="playlist-selection-dialog-large group" onMouseLeave={this.closeDialog}>
               {playlists}
+              <NewPLaylist song={this.props.song} />
             </ul>
           </div>
         );
@@ -46,6 +48,7 @@ var AddToPlaylist = React.createClass({
         return (
           <ul className="playlist-selection-dialog group" onMouseLeave={this.closeDialog}>
             {playlists}
+            <NewPLaylist song={this.props.song} />
           </ul>
         );
       }

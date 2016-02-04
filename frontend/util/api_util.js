@@ -180,6 +180,18 @@ var ApiUtil = {
         PlaylistActions.addSongToPlaylist(addedSongData);
       }
     });
+  },
+
+  createPlaylist: function (playlistData) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/playlists/',
+      dataType: 'JSON',
+      data: { playlist: playlistData },
+      success: function (newPlaylist) {
+        PlaylistActions.addNewPlaylist(newPlaylist);
+      }
+    });
   }
 
 };
