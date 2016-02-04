@@ -32,7 +32,7 @@ var SessionForm = React.createClass({
   render: function() {
 
     return (
-      <div>
+      <div className="sign-in-up-page">
         <Welcome />
         <Clouds />
         <form className="sign-in-up-form sign-in-form group" onSubmit={this.submit}>
@@ -46,6 +46,9 @@ var SessionForm = React.createClass({
           </div>
           <button type="submit" name="sign-in">Sign In!</button>
         </form>
+
+        <a className="fb-login-button" href="/auth/facebook">Login With Facebook</a>
+
 
         <form className="guest-user-sign-in  group" onSubmit={this.guestSubmit} method="post">
           <input type="hidden" name="email" value="guest_user@guest.com"/>

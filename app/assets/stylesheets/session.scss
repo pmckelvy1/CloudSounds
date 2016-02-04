@@ -28,3 +28,35 @@
   // width: auto;
   // height: auto;
 }
+
+.fb-login-button {
+  padding: 10px;
+  background: #0b49d5;
+  color: #ccc;
+  font-size: 20px;
+  border: 1px solid black;
+  padding: 15px;
+  font-weight: 500;
+  display: block;
+  margin: auto;
+  position: absolute;
+  top: 360px;
+  left: 510px;
+}
+
+.fb-login-div {
+  display: block;
+  position: relative;
+  margin: auto;
+  width: 250px;
+}
+
+.fb-login-button:hover {
+  color: white;
+}
+
+.sign-in-up-page {
+  display: block;
+  margin: auto;
+  position: relative;
+}

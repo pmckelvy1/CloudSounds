@@ -32,6 +32,7 @@ gem 'rails_12factor'
 gem 'paperclip'
 gem 'figaro'
 gem 'aws-sdk', '~> 1.6'
+gem 'omniauth-facebook'
 
 # image processing
 # gem "mini_magick"

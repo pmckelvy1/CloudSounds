@@ -46,7 +46,7 @@ var NewUserForm = React.createClass({
   render: function() {
 
     return (
-      <div>
+      <div className="sign-in-up-page">
         <Welcome />
         <Clouds />
         <form className="sign-in-up-form sign-up-form group" onSubmit={this.submit}>

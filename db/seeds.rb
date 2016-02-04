@@ -9,7 +9,7 @@
 User.destroy_all
 
 guest = User.create!(num_songs: 3, email: 'guest_user@guest.com', username: 'guest', password: 'guest_password', info: "This is a guest account.")
-me = User.create!(num_songs: 2, email: 'pmckelvy1@gmail.com', username: 'pmckelvy', password: 'jamboxcool', info: "This is the account for the creator of this site, Patrick McKelvy")
+me = User.create!(num_songs: 2, email: 'ryonlawford@gmail.com', username: 'Ryon Lawford', password: 'jamboxcool', info: "Electrified Dancing Musician")
 darth = User.create!(num_songs: 1, email: 'darth_vader@gmail.com', username: 'd_vader', password: 'starwars', info: "Leader of the Imperial Army, Dark Lord, and Sith Master")
 bach = User.create!(num_songs: 3, email: 'johansebass@gmail.com', username: 'bach_rachs', password: 'classical', info: "I play piano.  I also crochet.")
 bowie = User.create!(num_songs: 2, email: 'dbowie@gmail.com', username: 'David Bowie', password: 'ziggystardust', info: "Call me ziggy.")
