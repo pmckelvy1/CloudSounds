@@ -52,11 +52,11 @@
 }
 
 .track-waveform > wave {
-  height: 65px;
+  height: 65px !important;
 }
 
-.track-waveform > wave > canvas {
-  height: 65px;
+.track-waveform > wave > canvas, .track-waveform > wave > wave{
+  height: 65px !important;
 }
 
 .track-waveform-large {
@@ -68,16 +68,16 @@
 }
 
 .track-waveform-large > wave {
-  height: 128px;
+  height: 128px !important;
 }
 
-.track-waveform-large > wave > canvas {
-  height: 128px;
+.track-waveform-large > wave > canvas, .track-waveform-large > wave > wave {
+  height: 128px !important;
 }
 
-wave {
+/*wave {
   height: inherit;
-}
+}*/
 
 .track-info {
   display: block;
