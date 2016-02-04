@@ -9,12 +9,7 @@ var LikeButtonLarge = React.createClass({
 
   componentDidMount: function () {
     var cus = CurrentUserStore.addListener(function () {
-      // set the like state
       this.setState({ likes: CurrentUserStore.doesLike(this.props.song.id)});
-      // if there is a like, grab it
-      // if (CurrentUserStore.doesLike(this.props.song.id)) {
-      //   this.setState({ like: CurrentUserStore.find(this.props.song.id)});
-      // }
     }.bind(this));
     this.setState({ cusToken: cus });
   },

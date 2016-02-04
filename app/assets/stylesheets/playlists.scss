@@ -64,9 +64,27 @@
   position: absolute;
   bottom: 5px;
   left: 225px;
+  border: 1px solid #ccc;
 }
 
 .add-to-playlist-button:hover {
+  border: 1px solid #999;
+}
+
+.add-to-playlist-button-large {
+  border-radius: 3px;
+  padding: 5px 10px;
+  display: block;
+  float: left;
+  margin-left: 10px;
+  border: 1px solid #ccc;
+}
+
+.add-to-playlist-button-large:hover {
+  border-radius: 3px;
+  padding: 5px 10px;
+  display: block;
+  float: left;
   border: 1px solid #999;
 }
 
@@ -101,4 +119,41 @@
 
 .playlist-selection-item {
   padding: 5px;
+}
+
+.playlist-selection-dialog-large {
+  background: white;
+  border-radius: 3px;
+  display: block;
+  position: absolute;
+  bottom: -30px;
+  left: 84px;
+  z-index: 2;
+  border: 1px solid #ccc;
+}
+
+.playlist-selection-dialog-large:hover {
+  display: block;
+}
+
+.playlist-selection-dialog-large li {
+  color: #888;
+  border-bottom: 1px solid #ccc;
+}
+
+.playlist-selection-dialog-large li:last-child {
+  border-bottom: 0px;
+}
+
+.playlist-selection-dialog-large li:hover {
+  color: #0BF;
+}
+
+.playlist-selection-item {
+  padding: 5px;
+}
+
+.large-dialog-container {
+  position: relative;
+  display: block;
 }

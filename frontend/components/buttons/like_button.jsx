@@ -12,7 +12,6 @@ var LikeButton = React.createClass({
   componentDidMount: function () {
     var cus = CurrentUserStore.addListener(function () {
       this.setState({ likes: CurrentUserStore.doesLike(this.props.song.id) });
-      // this.setState({ numLikes: LikeStore.getNumLikes(this.props.song.id) });
     }.bind(this));
 
     var ls = LikeStore.addListener(function () {

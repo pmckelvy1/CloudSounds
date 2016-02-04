@@ -34,15 +34,31 @@ var AddToPlaylist = React.createClass({
           </li>
         );
       }.bind(this));
-      return (
-        <ul className="playlist-selection-dialog group" onMouseLeave={this.closeDialog}>
-          {playlists}
-        </ul>
-      );
+      if (this.props.large) {
+        return (
+          <div className="large-dialog-container">
+            <ul className="playlist-selection-dialog-large group" onMouseLeave={this.closeDialog}>
+              {playlists}
+            </ul>
+          </div>
+        );
+      } else {
+        return (
+          <ul className="playlist-selection-dialog group" onMouseLeave={this.closeDialog}>
+            {playlists}
+          </ul>
+        );
+      }
     } else {
-      return (
-        <button className="add-to-playlist-button" onClick={this.openPlaylistDialog}><i className="fa fa-th-list"></i> Add to playlist</button>
-      );
+      if (this.props.large) {
+        return (
+          <button className="add-to-playlist-button-large" onClick={this.openPlaylistDialog}><i className="fa fa-th-list"></i> Add to playlist</button>
+        );
+      } else {
+        return (
+          <button className="add-to-playlist-button" onClick={this.openPlaylistDialog}><i className="fa fa-th-list"></i> Add to playlist</button>
+        );
+      }
     }
   }
 });
