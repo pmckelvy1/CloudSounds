@@ -6,7 +6,12 @@ var UserProfileNav = React.createClass({
     var regex = /\w+$/;
     var location = this.props.pathname;
     var matches = location.match(regex);
-    return { location: matches[0] };
+    var idx = ['Tracks', 'Likes', 'Playlists'].indexOf(matches[0]);
+    if (idx === -1) {
+      return { location: 'Tracks' };
+    } else {
+      return { location: matches[0] };
+    }
   },
 
   onClick: function (e) {

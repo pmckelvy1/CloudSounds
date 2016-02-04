@@ -40,7 +40,7 @@ var routes = (
     <Route path='signup' component={NewUserForm} />
     <Route path='/upload' component={SongUpload} onEnter={_ensureLoggedIn} />
     <Route path='/users/:id' component={UserProfile} onEnter={_ensureLoggedIn}>
-      <IndexRoute component={UserAllTracks} />
+      <IndexRoute component={UserTracks} />
       <Route path='/users/:id/all' component={UserAllTracks} />
       <Route path='/users/:id/tracks' component={UserTracks} />
       <Route path='/users/:id/likes' component={UserLikes} />
