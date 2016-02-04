@@ -1,14 +1,18 @@
 .search-box {
   display: block;
   float: left;
-  padding: 10px;
+  padding: 9px;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .search-input {
-  width: 400px;
+  width: 500px;
   background: white;
   display: block;
   float: left;
+  padding-left: 20px;
+  padding: 5px 25px;
 }
 
 .search-results-index {
@@ -25,4 +29,13 @@
 
 .search-results-page {
   padding: 30px;
+}
+
+.mag-glass {
+  display: block;
+  position: absolute;
+  left: 15px;
+  top: 14px;
+  margin-right: 5px;
+  color: #0BF;
 }

@@ -42,7 +42,7 @@ var Search = React.createClass({
 
     return (
       <div className="search-box">
-        <input className="search-input" type="text" placeholder="wut u want" onKeyUp={ this.search } />
+        <i className="fa fa-search mag-glass"></i><input className="search-input" type="text" placeholder="Search" onKeyUp={ this.search } />
       </div>
     );
   },
