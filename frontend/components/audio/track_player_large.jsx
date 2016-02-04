@@ -86,7 +86,7 @@ var TrackPlayerLarge = React.createClass({
   componentWillUnmount: function () {
     this.state.storeToken.remove();
     var playerKey = this.props.song.id;
-    WSObject = CurrentPlayingSongStore.getSong(playerKey);
+    var WSObject = CurrentPlayingSongStore.getSong(playerKey);
     if (WSObject.wavesurfer.container.children.length === 0) {
       var selector = '.wave' + playerKey;
       $(WSObject.wavesurfer.container).append($(selector).children()[0]);

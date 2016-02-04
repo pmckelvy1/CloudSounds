@@ -121,7 +121,9 @@ var resetSong = function (WSObject) {
 };
 
 CurrentPlayingSongStore.getCurrentPlayingId = function () {
-  return _currentSong.id;
+  if (_currentSong) {
+    return _currentSong.id;
+  }
 };
 
 CurrentPlayingSongStore.hasNext = function () {

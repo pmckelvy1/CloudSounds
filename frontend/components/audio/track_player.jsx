@@ -79,14 +79,15 @@ var TrackPlayer = React.createClass({
   componentWillUnmount: function () {
     this.state.storeToken.remove();
     var playerKey = this.props.song.id;
-    WSObject = CurrentPlayingSongStore.getSong(playerKey);
+    var WSObject = CurrentPlayingSongStore.getSong(playerKey);
     if (WSObject.wavesurfer.container.children.length === 0) {
       var selector = '.wave' + playerKey;
       $(WSObject.wavesurfer.container).append($(selector).children()[0]);
     }
   },
 
-  pP: function () {
+  pP: function (e) {
+    e.preventDefault();
     var cT = CurrentPlayingSongStore.getCurrentTime(this.state.WSObject.id);
     if (cT === 0) {
       ApiUtil.addPlay(this.state.WSObject.id);
@@ -119,18 +120,19 @@ var TrackPlayer = React.createClass({
     }
     var playerKeyWav = 'wave' + this.props.song.id;
 
-    var hidden;
-    if (this.props.hidden) {
-      position = 'absolute';
-      hidden = 'hidden';
-    } else {
-      position = 'relative';
-      hidden = 'visible';
-    }
-    var hideStyle = { visibility: hidden, position: position };
+    // var hidden;
+    // var position;
+    // if (this.props.hidden) {
+    //   position = 'absolute';
+    //   hidden = 'hidden';
+    // } else {
+    //   position = 'relative';
+    //   hidden = 'visible';
+    // }
+    // var hideStyle = { visibility: hidden, position: position };
 
     return (
-      <div className="track-player" style={hideStyle}>
+      <div className="track-player">
         <div className="thumb"><img src={this.props.song.image_url}/></div>
         <div className="play-button">{playButton}</div>
         <div className="track-artist-name-div"><h1 className="track-artist-name"><a href={userURL}>{this.props.song.username}</a></h1></div>

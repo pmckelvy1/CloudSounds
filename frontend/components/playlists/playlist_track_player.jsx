@@ -13,7 +13,20 @@ var PlaylistTrackPlayer = React.createClass({
   mixins: [PlaybackFunctions],
 
   getInitialState: function () {
-    return { WSObject: null, currentPlaying: null, currentSong: this.props.playlist.songs[0]};
+    var currentSong;
+    var currentId = CurrentPlayingSongStore.getCurrentPlayingId();
+    var idx;
+    this.props.playlist.songs.forEach(function (song, i) {
+      if (song.id == currentId) {
+        idx = i;
+        currentSong = song;
+      }
+    });
+    if (idx) {
+      return {WSObject: null, currentPlaying: null, currentSong: currentSong };
+    } else {
+      return { WSObject: null, currentPlaying: null, currentSong: this.props.playlist.songs[0]};
+    }
   },
 
   componentDidMount: function () {
@@ -108,24 +121,24 @@ var PlaylistTrackPlayer = React.createClass({
     var songURL = '#/songs/' + this.state.currentSong.id;
     var playButton;
 
-    if (!this.state.currentSong) {
-      playButton = <div className="loader">Loading...</div>;
-    } else {
-      if (this.isPlaying(this.state.currentSong.id)) {
-          playButton = <button onClick={this.pP}>
-            <div className="play-circle">
-            <div className="pause"/>
-            <div className="pause-right"/>
-            </div>
-          </button>;
-      } else {
-        playButton = <button onClick={this.pP}>
-            <div className="play-circle">
-            <div className="play-triangle"/>
-            </div>
-          </button>;
-      }
-    }
+    // if (!this.state.currentSong) {
+    //   playButton = <div className="loader">Loading...</div>;
+    // } else {
+    //   if (this.isPlaying(this.state.currentSong.id)) {
+    //       playButton = <button onClick={this.pP}>
+    //         <div className="play-circle">
+    //         <div className="pause"/>
+    //         <div className="pause-right"/>
+    //         </div>
+    //       </button>;
+    //   } else {
+    //     playButton = <button onClick={this.pP}>
+    //         <div className="play-circle">
+    //         <div className="play-triangle"/>
+    //         </div>
+    //       </button>;
+    //   }
+    // }
     var playerKeyWav = 'wave' + this.state.currentSong.id;
 
     var playlistItems = [];
