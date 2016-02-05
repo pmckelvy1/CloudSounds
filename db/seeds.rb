@@ -49,14 +49,14 @@ s11 = Song.create!(user_id: bach.id, username: bach.username, title: "Moonlight 
 
 
 # SOPHIE SONGS
-s12 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
+sophie1 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
   audio: File.open('app/assets/audio/Lemonade.m4a'), image: File.open('app/assets/images/sophie_slide1.jpg'), num_plays: 3562)
-s13 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
+sophie2 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Hard', info: "Off the self titled album. \n Latex gloves go so hard.",
   audio: File.open('app/assets/audio/Hard.m4a'), image: File.open('app/assets/images/sophie_slide2.png'), num_plays: 8574)
-s14 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
+sophie3 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Just Like We Never Said Goodbye', info: "Off the self titled album. \n Remixes coming soon!.",
   audio: File.open('app/assets/audio/Just Like We Never Said Goodbye.m4a'), image: File.open('app/assets/images/sophie_slide3.jpg'), num_plays: 11453)
 
-sophie_songs = [s12, s13, s14]
+sophie_songs = [sophie1, sophie2, sophie3]
 
 Follow.destroy_all
 
@@ -110,18 +110,21 @@ robo_users.each do |user|
 end
 
 Playlist.destroy_all
-
-p1 = Playlist.create!(user_id: guest.id, title: 'You guest it!')
-p2 = Playlist.create!(user_id: guest.id, title: 'Electro party music')
-
 PlaylistItem.destroy_all
 
-pi1 = PlaylistItem.create!(playlist_id: p1.id, song_id: s1.id, song_ord: 0)
-pi2 = PlaylistItem.create!(playlist_id: p1.id, song_id: s2.id, song_ord: 1)
-pi3 = PlaylistItem.create!(playlist_id: p1.id, song_id: s6.id, song_ord: 2)
-pi4 = PlaylistItem.create!(playlist_id: p1.id, song_id: s5.id, song_ord: 3)
-pi5 = PlaylistItem.create!(playlist_id: p1.id, song_id: s9.id, song_ord: 4)
+p1 = Playlist.create!(user_id: guest.id, title: 'You guest it!')
+p1a = PlaylistItem.create!(playlist_id: p1.id, song_id: s1.id, song_ord: 0)
+p1b = PlaylistItem.create!(playlist_id: p1.id, song_id: s2.id, song_ord: 1)
+p1c = PlaylistItem.create!(playlist_id: p1.id, song_id: s6.id, song_ord: 2)
+p1d = PlaylistItem.create!(playlist_id: p1.id, song_id: s5.id, song_ord: 3)
+p1e = PlaylistItem.create!(playlist_id: p1.id, song_id: s9.id, song_ord: 4)
 
-pi6 = PlaylistItem.create!(playlist_id: p2.id, song_id: s10.id, song_ord: 0)
-pi7 = PlaylistItem.create!(playlist_id: p2.id, song_id: s3.id, song_ord: 1)
-pi8 = PlaylistItem.create!(playlist_id: p2.id, song_id: s4.id, song_ord: 2)
+p2 = Playlist.create!(user_id: guest.id, title: 'Electro party music')
+p2a = PlaylistItem.create!(playlist_id: p2.id, song_id: s10.id, song_ord: 0)
+p2b = PlaylistItem.create!(playlist_id: p2.id, song_id: s3.id, song_ord: 1)
+p2c = PlaylistItem.create!(playlist_id: p2.id, song_id: s4.id, song_ord: 2)
+
+p3 = Playlist.create!(user_id: sophie.id, title: 'SOPHIE')
+p3a = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie1)
+p3b = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie2)
+p3c = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie3)
