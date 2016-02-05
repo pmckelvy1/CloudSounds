@@ -10,6 +10,18 @@ var _songs = {};
 var _currentSong = null;
 var _currentTime = 0;
 
+var collectGarbage = function () {
+  var id;
+  if (_queuedSongsIdArray.length > 10) {
+    id = _queuedSongsIdArray.shift();
+    delete _songs[id];
+  }
+  if (_pastSongsIdArray.length > 3) {
+    id = _pastSongsIdArray.shift();
+    delete _songs[id];
+  }
+};
+
 var addSong = function (WSObject) {
   if (_currentSong) {
     if (!_songs[WSObject.id]){
@@ -22,6 +34,7 @@ var addSong = function (WSObject) {
       _currentSong = WSObject;
     }
   }
+  collectGarbage();
 };
 
 var addSongs = function (WSPlaylist) {
@@ -39,6 +52,7 @@ var addSongs = function (WSPlaylist) {
         _currentSong = WSObject;
       }
     }
+    collectGarbage();
   });
 };
 
@@ -51,6 +65,7 @@ var nextSong = function () {
   var nextId = _queuedSongsIdArray.shift();
   _currentSong = _songs[nextId];
   _currentSong.wavesurfer.play();
+  collectGarbage();
 };
 
 var lastSong = function () {
