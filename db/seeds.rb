@@ -207,48 +207,52 @@ grimes_songs = [grimes1, grimes2, grimes3]
 # FRANK SONGS
 franksinatra1 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "My Way", info: "From the greatest hits album 'Sinatra: Best of the Best'",
   audio: File.open("app/assets/audio/My Way.mp3"), image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 875593)
-franksinatra2 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "Theme from New York, New York", info: "From the greatest hits album 'Sinatra: Best of the Best'",
-  audio: File.open("app/assets/audio/Theme from New York, New York.mp3"), image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 14225)
-franksinatra3 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "The Way You Look Tonight", info: "From the greatest hits album 'Sinatra: Best of the Best'",
-  audio: File.open("app/assets/audio/The Way You Look Tonight.mp3"), image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 2446328)
+# franksinatra2 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "Theme from New York, New York", info: "From the greatest hits album 'Sinatra: Best of the Best'",
+#   audio: File.open("app/assets/audio/Theme from New York, New York.mp3"), image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 14225)
+# franksinatra3 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "The Way You Look Tonight", info: "From the greatest hits album 'Sinatra: Best of the Best'",
+#   audio: File.open("app/assets/audio/The Way You Look Tonight.mp3"), image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 2446328)
 
-franksinatra_songs = [franksinatra1, franksinatra2, franksinatra3]
+# franksinatra_songs = [franksinatra1, franksinatra2, franksinatra3]
+franksinatra_songs = [franksinatra1]
 
 # FUGEES SONGS
 fugees1 = Song.create!(user_id: fugees.id, username: fugees.username, title: "No Woman, No Cry", info: "The Score was huge in the 90's.  If you haven't listened to it yet, do yourself a favor and go buy it.",
   audio: File.open("app/assets/audio/No Woman, No Cry.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 35667)
-fugees2 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Ready or Not", info: "Ready or not, here i come, you can't hide.  I'm gonna fiiiiind you, and. make. you. love. me.",
-  audio: File.open("app/assets/audio/Ready or Not.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 6758834)
-fugees3 = Song.create!(user_id: fugees.id, username: fugees.username, title: "The Score", info: "Let's settle it.",
-  audio: File.open("app/assets/audio/The Score.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 41277)
-fugees4 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Killing Me Softly with His Song", info: "Lauren Hill is a goddess",
-  audio: File.open("app/assets/audio/Killing Me Softly with His Song.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 1256904)
+# fugees2 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Ready or Not", info: "Ready or not, here i come, you can't hide.  I'm gonna fiiiiind you, and. make. you. love. me.",
+#   audio: File.open("app/assets/audio/Ready or Not.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 6758834)
+# fugees3 = Song.create!(user_id: fugees.id, username: fugees.username, title: "The Score", info: "Let's settle it.",
+#   audio: File.open("app/assets/audio/The Score.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 41277)
+# fugees4 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Killing Me Softly with His Song", info: "Lauren Hill is a goddess",
+#   audio: File.open("app/assets/audio/Killing Me Softly with His Song.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 1256904)
 
-fugees_songs = [fugees1, fugees2, fugees3, fugees4]
+# fugees_songs = [fugees1, fugees2, fugees3, fugees4]
+fugees_songs = [fugees1]
 
 # WHAT SO NOT SONGS
 whatsonot1 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini Intro ft. Tunji Ige", info: "GEMINI out now!",
   audio: File.open("app/assets/audio/Gemini Intro ft. Tunji Ige.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 56376)
-whatsonot2 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini ft. George Maple", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/Gemini ft. George Maple.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 53076)
-whatsonot3 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not X Dillon Francis - Arrows ft. Dawn Golden", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/Arrows ft. Dawn Golden.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 153765)
-whatsonot4 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Death Drive ft. KLP", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/Death Drive ft. KLP.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 86723)
-whatsonot5 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Oddity", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/Oddity.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 11298)
+# whatsonot2 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini ft. George Maple", info: "GEMINI out now!",
+#   audio: File.open("app/assets/audio/Gemini ft. George Maple.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 53076)
+# whatsonot3 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not X Dillon Francis - Arrows ft. Dawn Golden", info: "GEMINI out now!",
+#   audio: File.open("app/assets/audio/Arrows ft. Dawn Golden.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 153765)
+# whatsonot4 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Death Drive ft. KLP", info: "GEMINI out now!",
+#   audio: File.open("app/assets/audio/Death Drive ft. KLP.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 86723)
+# whatsonot5 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Oddity", info: "GEMINI out now!",
+#   audio: File.open("app/assets/audio/Oddity.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 11298)
 
-whatsonot_songs = [whatsonot1, whatsonot2, whatsonot3, whatsonot4, whatsonot5]
+# whatsonot_songs = [whatsonot1, whatsonot2, whatsonot3, whatsonot4, whatsonot5]
+whatsonot_songs = [whatsonot1]
 
 # RUSS LIQUID
 russ1 = Song.create!(user_id: russ.id, username: russ.username, title: "Alpha Bravo Echo Zulu", info: "Download FOREIGN FREQUENCY album now for free!",
   audio: File.open("app/assets/audio/Alpha Bravo Echo Zulu.mp3"), image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 5375)
-russ2 = Song.create!(user_id: russ.id, username: russ.username, title: "Welcome", info: "Download FOREIGN FREQUENCY album now for free!",
-  audio: File.open("app/assets/audio/Welcome.mp3"), image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 3254)
-russ3 = Song.create!(user_id: russ.id, username: russ.username, title: "Euqsom", info: "Download FOREIGN FREQUENCY album now for free!",
-  audio: File.open("app/assets/audio/Euqsom.mp3"), image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 2436)
+# russ2 = Song.create!(user_id: russ.id, username: russ.username, title: "Welcome", info: "Download FOREIGN FREQUENCY album now for free!",
+#   audio: File.open("app/assets/audio/Welcome.mp3"), image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 3254)
+# russ3 = Song.create!(user_id: russ.id, username: russ.username, title: "Euqsom", info: "Download FOREIGN FREQUENCY album now for free!",
+#   audio: File.open("app/assets/audio/Euqsom.mp3"), image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 2436)
 
-russ_songs = [russ1, russ2, russ3]
+# russ_songs = [russ1, russ2, russ3]
+russ_songs = [russ1]
 
 # ALL SONGS
 
