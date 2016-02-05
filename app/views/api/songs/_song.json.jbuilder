@@ -5,6 +5,8 @@ json.user do
   json.image_url asset_path(song.user.image.url)
   json.username song.user.username
   json.id song.user.id
+  json.num_songs song.user.num_songs
+  json.num_followers song.user.followings.length
 end
 json.comments do |commentElement|
   commentElement.array!(song.comments) do |comment|

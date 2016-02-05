@@ -11,10 +11,13 @@ var CommentIndexLargeUserInfo = React.createClass({
     } else {
       followButton = <FollowButton followedId={this.props.user.id} />;
     }
+    debugger
     return (
       <div className="comment-index-large-user-info">
         <img className="thumb-med" src={this.props.user.image_url} />
         <div className="artist-info-name">{this.props.user.username}</div>
+          <div className="num-followers"><i className="fa fa-users"></i> {this.props.user.num_followers}</div>
+          <div className="num-songs"><i className="fa fa-music"></i> {this.props.user.num_songs}</div>
         <div className="follow-button-container">
           {followButton}
         </div>
