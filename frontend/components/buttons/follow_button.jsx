@@ -35,16 +35,20 @@ var FollowButton = React.createClass({
 
   render: function () {
     var followButton;
-    if (this.state.follows) {
-      followButton = <button className="follow-button followed"
-        onClick={this.toggleFollow}>
-        Following
-      </button>;
-    } else {
-      followButton = <button className="follow-button not-followed"
-        onClick={this.toggleFollow}>
-        Follow
-      </button>;
+    if (CurrentUserStore.currentUserId() === this.props.followedId) {
+      followButton = <div></div>;
+    } else {      
+      if (this.state.follows) {
+        followButton = <button className="follow-button followed"
+          onClick={this.toggleFollow}>
+          Following
+        </button>;
+      } else {
+        followButton = <button className="follow-button not-followed"
+          onClick={this.toggleFollow}>
+          Follow
+        </button>;
+      }
     }
     return (
       <div>
