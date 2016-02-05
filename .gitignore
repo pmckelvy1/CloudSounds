@@ -18,3 +18,7 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore media
+/app/assets/images
+/app/assets/audio
