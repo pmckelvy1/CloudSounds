@@ -4,7 +4,7 @@ class Api::PlaylistsController < ApplicationController
     @playlist.user_id = current_user.id
     if @playlist.save
       @playlist_item = PlaylistItem.create!(playlist_id: @playlist.id, song_id: params[:playlist][:song_id], song_ord: 0)
-      @playlist = Playlist.includes(:songs, :user).find(@playlist.id)
+      @playlist = Playlist.includes(:user, playlist_items: [song: [:likes, :user, comments: [:user]]]).find(@playlist.id)
       render :show
     else
       render json: ['playlist could not be saved']
@@ -12,7 +12,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Playlist.includes(:songs, :user).find(params[:id])
+    @playlist = Playlist.includes(:user, playlist_items: [song: [:likes, :user, comments: [:user]]]).find(params[:id])
     render :show
   end
 

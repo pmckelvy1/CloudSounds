@@ -90,6 +90,20 @@ var addNewPlaylist = function (newPlaylist) {
   _playlists[newPlaylist.id] = newPlaylist;
 };
 
+var removeItemFromPlaylist = function (deletedItem) {
+  var playlist = _playlists[deletedItem.playlist_id];
+  var idx;
+  playlist.playlist_items.forEach(function(item, i) {
+    if (item.id === deletedItem.id) {
+      idx = i;
+    }
+  });
+  _playlists[deletedItem.playlist_id].playlist_items.splice(idx, 1);
+  if (_playlists[deletedItem.playlist_id].playlist_items.length === 0) {
+    delete _playlists[deletedItem.playlist_id];
+  }
+};
+
 CurrentUserStore.doesFollow = function(followedId) {
   if (_followedUsers[followedId]) {
     return true;
@@ -207,6 +221,10 @@ CurrentUserStore.__onDispatch = function (payload) {
       break;
     case PlaylistConstants.ADD_NEW_PLAYLIST:
       addNewPlaylist(payload.newPlaylist);
+      CurrentUserStore.__emitChange();
+      break;
+    case PlaylistConstants.REMOVE_SONG_FROM_PLAYLIST:
+      removeItemFromPlaylist(payload.deletedItem);
       CurrentUserStore.__emitChange();
       break;
   }

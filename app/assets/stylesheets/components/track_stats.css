@@ -19,6 +19,7 @@
 .track-stats-playlist-item {
   display: block;
   font-size: 12px;
+  padding: 10px 0px;
   float: right;
 }
 

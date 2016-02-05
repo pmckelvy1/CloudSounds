@@ -182,6 +182,18 @@ var ApiUtil = {
     });
   },
 
+  deletePlaylistItem: function (playlistItemId) {
+    $.ajax({
+      type: 'POST',
+      method: 'DELETE',
+      url: '/api/playlist_items/' + playlistItemId,
+      dataType: 'JSON',
+      success: function (deletedItem) {
+        PlaylistActions.removeSongFromPlaylist(deletedItem);
+      }
+    });
+  },
+
   createPlaylist: function (playlistData) {
     $.ajax({
       type: 'POST',

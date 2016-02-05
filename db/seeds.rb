@@ -49,14 +49,14 @@ s11 = Song.create!(user_id: bach.id, username: bach.username, title: "Moonlight 
 
 
 # SOPHIE SONGS
-sophie1 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
-  audio: File.open('app/assets/audio/Lemonade.m4a'), image: File.open('app/assets/images/sophie_slide1.jpg'), num_plays: 3562)
-sophie2 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Hard', info: "Off the self titled album. \n Latex gloves go so hard.",
-  audio: File.open('app/assets/audio/Hard.m4a'), image: File.open('app/assets/images/sophie_slide2.png'), num_plays: 8574)
-sophie3 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Just Like We Never Said Goodbye', info: "Off the self titled album. \n Remixes coming soon!.",
-  audio: File.open('app/assets/audio/Just Like We Never Said Goodbye.m4a'), image: File.open('app/assets/images/sophie_slide3.jpg'), num_plays: 11453)
-
-sophie_songs = [sophie1, sophie2, sophie3]
+# sophie1 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
+#   audio: File.open('app/assets/audio/Lemonade.m4a'), image: File.open('app/assets/images/sophie_slide1.jpg'), num_plays: 3562)
+# sophie2 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Hard', info: "Off the self titled album. \n Latex gloves go so hard.",
+#   audio: File.open('app/assets/audio/Hard.m4a'), image: File.open('app/assets/images/sophie_slide2.png'), num_plays: 8574)
+# sophie3 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Just Like We Never Said Goodbye', info: "Off the self titled album. \n Remixes coming soon!.",
+#   audio: File.open('app/assets/audio/Just Like We Never Said Goodbye.m4a'), image: File.open('app/assets/images/sophie_slide3.jpg'), num_plays: 11453)
+#
+# sophie_songs = [sophie1, sophie2, sophie3]
 
 Follow.destroy_all
 
@@ -100,14 +100,14 @@ c19 = Comment.create!(user_id: bach.id, song_id: s4.id, body: "quite elementary"
 c20 = Comment.create!(user_id: guest.id, song_id: s4.id, body: "i can dig it")
 c21 = Comment.create!(user_id: bach.id, song_id: s4.id, body: "on second thought, i rather enjoy the groove of this piece.")
 
-robo_users.each do |user|
-  i = 0
-  while (i < 3)
-    song_id = Random.rand(3)
-    Comment.create!(user_id: user.id, song_id: sophie_songs[song_id].id, body: Faker::Hipster.sentence)
-    i += 1
-  end
-end
+# robo_users.each do |user|
+#   i = 0
+#   while (i < 3)
+#     song_id = Random.rand(3)
+#     Comment.create!(user_id: user.id, song_id: sophie_songs[song_id].id, body: Faker::Hipster.sentence)
+#     i += 1
+#   end
+# end
 
 Playlist.destroy_all
 PlaylistItem.destroy_all
@@ -124,7 +124,7 @@ p2a = PlaylistItem.create!(playlist_id: p2.id, song_id: s10.id, song_ord: 0)
 p2b = PlaylistItem.create!(playlist_id: p2.id, song_id: s3.id, song_ord: 1)
 p2c = PlaylistItem.create!(playlist_id: p2.id, song_id: s4.id, song_ord: 2)
 
-p3 = Playlist.create!(user_id: sophie.id, title: 'SOPHIE')
-p3a = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie1)
-p3b = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie2)
-p3c = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie3)
+# p3 = Playlist.create!(user_id: sophie.id, title: 'SOPHIE')
+# p3a = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie1)
+# p3b = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie2)
+# p3c = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie3)

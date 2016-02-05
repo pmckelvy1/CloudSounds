@@ -32,6 +32,14 @@ class Api::PlaylistItemsController < ApplicationController
   end
 
   def destroy
+    @playlist_item = PlaylistItem.find(params[:id])
+    @playlist_item.destroy!
+    playlist = Playlist.includes(:playlist_items).find(@playlist_item.playlist_id)
+    if playlist.playlist_items.length === 0
+      playlist.destroy!
+    end
+    render 'api/playlist_items/show'
+
   end
 
   private

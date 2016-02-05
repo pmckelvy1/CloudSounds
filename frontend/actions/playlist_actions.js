@@ -8,11 +8,18 @@ var PlaylistActions = {
       addedSongData: addedSongData
     });
   },
-  
+
   addNewPlaylist: function (newPlaylist) {
     Dispatcher.dispatch({
       actionType: PlaylistConstants.ADD_NEW_PLAYLIST,
       newPlaylist: newPlaylist
+    });
+  },
+
+  removeSongFromPlaylist: function (deletedItem) {
+    Dispatcher.dispatch({
+      actionType: PlaylistConstants.REMOVE_SONG_FROM_PLAYLIST,
+      deletedItem: deletedItem
     });
   }
 };

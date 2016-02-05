@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       log_in!(@user)
-      @user = User.includes(:followings, :follows, :followed_users, followed_songs: [:likes], liked_songs: [:likes], songs: [:likes]).find(@user.id)
+      @user = User.includes(:followings, :follows, playlists: [:user, playlist_items: [song: [:likes, :user, comments: [:user]]]], followed_users: [:followings], followed_songs: [:likes], liked_songs: [:likes], songs: [:likes]).find(@user.id)
       render :show
     else
       flash[:errors] = @user.errors.full_messages
@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:followings, :follows, playlists: [:songs], followed_users: [:followings], followed_songs: [:likes], liked_songs: [:likes], songs: [:likes]).find(params[:id])
+    @user = User.includes(:followings, :follows, playlists: [:user, playlist_items: [song: [:likes, :user, comments: [:user]]]], followed_users: [:followings], followed_songs: [:likes], liked_songs: [:likes], songs: [:likes]).find(params[:id])
     if @user
       render :show
     else

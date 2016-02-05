@@ -102,6 +102,22 @@ var addNewPlaylist = function (newPlaylist) {
   _playlists[newPlaylist.id] = newPlaylist;
 };
 
+var removeItemFromPlaylist = function (deletedItem) {
+  var playlist = _playlists[deletedItem.playlist_id];
+  if (playlist) {
+    var idx;
+    playlist.playlist_items.forEach(function(item, i) {
+      if (item.id === deletedItem.id) {
+        idx = i;
+      }
+    });
+    _playlists[deletedItem.playlist_id].playlist_items.splice(idx, 1);
+    if (_playlists[deletedItem.playlist_id].playlist_items.length === 0) {
+      delete _playlists[deletedItem.playlist_id];
+    }
+  }
+};
+
 UserStore.getUser = function () {
   return _user;
 };
@@ -200,6 +216,10 @@ UserStore.__onDispatch = function (payload) {
       break;
     case PlaylistConstants.ADD_NEW_PLAYLIST:
       addNewPlaylist(payload.newPlaylist);
+      UserStore.__emitChange();
+      break;
+    case PlaylistConstants.REMOVE_SONG_FROM_PLAYLIST:
+      removeItemFromPlaylist(payload.deletedItem);
       UserStore.__emitChange();
       break;
   }

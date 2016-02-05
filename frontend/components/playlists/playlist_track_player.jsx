@@ -13,62 +13,24 @@ var PlaylistTrackPlayer = React.createClass({
   mixins: [PlaybackFunctions],
 
   getInitialState: function () {
-    var currentSong;
+    var currentPlaylistItem;
     var currentId = CurrentPlayingSongStore.getCurrentPlayingId();
     var idx;
-    this.props.playlist.songs.forEach(function (song, i) {
-      if (song.id == currentId) {
+    this.props.playlist.playlist_items.forEach(function (playlistItem, i) {
+      if (playlistItem.song.id == currentId) {
         idx = i;
-        currentSong = song;
+        currentPlaylistItem = playlistItem;
       }
     });
     if (idx) {
-      return {WSObject: null, currentPlaying: null, currentSong: currentSong };
+      return {WSObject: null, currentPlaying: null, currentPlaylistItem: currentPlaylistItem };
     } else {
-      return { WSObject: null, currentPlaying: null, currentSong: this.props.playlist.songs[0]};
+      return { WSObject: null, currentPlaying: null, currentPlaylistItem: this.props.playlist.playlist_items[0]};
     }
   },
 
   componentDidMount: function () {
-    // this.setState({});
-    // var WSPlaylist = [];
-    // var playerKey;
-    // var wavesurfer;
-    // var WSObject;
-    //
-    // //CREATE PLAYLIST ARRAY OF WSOBJECTS
-    // this.props.playlist.songs.forEach(function (song) {
-    //   playerKey = song.id;
-    //   wavesurfer = WaveSurfer.create({
-    //     container: '.wave' + playerKey,
-    //     waveColor: 'silver',
-    //     progressColor: '#0BF',
-    //     barWidth: 2,
-    //     cursorWidth: 0,
-    //     height: 65,
-    //     width: 645,
-    //     fillParent: true
-    //   });
-    //
-    //   wavesurfer.on('ready', function () {
-    //   }.bind(this));
-    //
-    //   wavesurfer.load(song.audio_url);
-    //
-    //   WSObject = { id: song.id, wavesurfer: wavesurfer };
-    //
-    //   WSPlaylist.push(WSObject);
-    // }.bind(this));
 
-
-    // this.setState({ WSPlaylist: WSPlaylist , currentPlaying: WSPlaylist[0], currentSong: this.props.playlist.songs[0] });
-
-    // setTimeout(function () {
-    //   PlayingSongActions.receivePlaylist(WSPlaylist);
-    // }, 0);
-    //
-    // var storeToken = CurrentPlayingSongStore.addListener(this.setPlaylistPlayStatus);
-    // this.setState({ storeToken: storeToken });
   },
 
   // componentWillUnmount: function () {
@@ -82,79 +44,72 @@ var PlaylistTrackPlayer = React.createClass({
   setPlaylistPlayStatus: function () {
     var currentPlayingId = CurrentPlayingSongStore.getCurrentPlayingId();
     var idx;
-    this.props.playlist.songs.forEach(function (song, i) {
-      if (song.id == currentPlayingId) {
+    this.props.playlist.playlist_items.forEach(function (playlistItem, i) {
+      if (playlistItem.song.id == currentPlayingId) {
         idx = i;
       }
     });
     if (idx) {
-      this.setState({ currentSong: this.props.playlist.songs[idx] });
+      this.setState({ currentPlaylistItem: this.props.playlist.playlist_items[idx] });
     }
   },
 
   pP: function () {
-    var cT = CurrentPlayingSongStore.getCurrentTime(this.state.currentSong.id);
+    var cT = CurrentPlayingSongStore.getCurrentTime(this.state.currentPlaylistItem.song.id);
     if (cT === 0) {
-      ApiUtil.addPlay(this.state.currentSong.id);
+      ApiUtil.addPlay(this.state.currentPlaylistItem.song.id);
     }
-    this.playPause(this.state.currentSong.id);
+    this.playPause(this.state.currentPlaylistItem.song.id);
   },
 
   playSong: function (e) {
-    if (this.isPlaying(this.state.currentSong.id)) {
-      this.playPause(this.state.currentSong.id);
+    if (this.isPlaying(this.state.currentPlaylistItem.song.id)) {
+      this.playPause(this.state.currentPlaylistItem.song.id);
     }
-    var songId = e.currentTarget.dataset.id;
+    var playlistItemId = e.currentTarget.dataset.id;
     var idx;
-    this.props.playlist.songs.forEach(function (song, i) {
-      if (song.id == songId) {
+    this.props.playlist.playlist_items.forEach(function (playlistItem, i) {
+      if (playlistItem.id == playlistItemId) {
         idx = i;
       }
     }.bind(this));
-    this.setState({ currentSong: this.props.playlist.songs[idx], autoplay: true });
+    this.setState({ currentPlaylistItem: this.props.playlist.playlist_items[idx], autoplay: true });
     // this.playPause(songId);
+  },
+
+  deleteFromPlaylist: function (e) {
+    e.preventDefault();
+    var playlistItemId = e.currentTarget.dataset.id;
+    ApiUtil.deletePlaylistItem(playlistItemId);
   },
 
   render: function () {
 
     var userURL = '#/users/' + this.props.playlist.user_id;
-    var songURL = '#/songs/' + this.state.currentSong.id;
-    var playButton;
+    var songURL = '#/songs/' + this.state.currentPlaylistItem.song.id;
 
-    // if (!this.state.currentSong) {
-    //   playButton = <div className="loader">Loading...</div>;
-    // } else {
-    //   if (this.isPlaying(this.state.currentSong.id)) {
-    //       playButton = <button onClick={this.pP}>
-    //         <div className="play-circle">
-    //         <div className="pause"/>
-    //         <div className="pause-right"/>
-    //         </div>
-    //       </button>;
-    //   } else {
-    //     playButton = <button onClick={this.pP}>
-    //         <div className="play-circle">
-    //         <div className="play-triangle"/>
-    //         </div>
-    //       </button>;
-    //   }
-    // }
-    var playerKeyWav = 'wave' + this.state.currentSong.id;
+    var playerKeyWav = 'wave' + this.state.currentPlaylistItem.song.id;
 
     var playlistItems = [];
-    var playlistItem;
     var hidden;
     var trackPlayer;
 
-    this.props.playlist.songs.forEach(function (song) {
+    this.props.playlist.playlist_items.forEach(function (playlistItem) {
       var displayStyle;
-      if (this.state.currentSong.id == song.id) {
-        trackPlayer = <TrackPlayer key={song.id} song={song} autoplay={this.state.autoplay}/>;
+      if (this.state.currentPlaylistItem.id == playlistItem.id) {
+        trackPlayer = <TrackPlayer key={playlistItem.song.id}
+          song={playlistItem.song}
+          autoplay={this.state.autoplay}/>;
       }
-      playlistItems.push(<PlaylistItem key={song.id} song={song} playSong={this.playSong} />);
+        playlistItems.push(<PlaylistItem key={playlistItem.id}
+          deleteFromPlaylist={this.deleteFromPlaylist}
+          playlistItem={playlistItem}
+          playSong={this.playSong}
+          playlistOwnerId={this.props.playlist.user_id} />);
     }.bind(this));
     return (
       <div className="playlist-track-player">
+        <div className="playlist-title">{this.props.playlist.title}</div>
         {trackPlayer}
         <div className="playlist-items">
           {playlistItems}
