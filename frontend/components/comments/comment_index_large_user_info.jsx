@@ -11,7 +11,6 @@ var CommentIndexLargeUserInfo = React.createClass({
     } else {
       followButton = <FollowButton followedId={this.props.user.id} />;
     }
-    debugger
     return (
       <div className="comment-index-large-user-info">
         <img className="thumb-med" src={this.props.user.image_url} />
