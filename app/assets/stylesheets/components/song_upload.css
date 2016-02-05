@@ -236,3 +236,9 @@
   left: 350px;
   font-size: 14px;
 }
+
+.fillheight {
+    min-height: 100%;
+    width: auto;
+    overflow: hidden;
+}

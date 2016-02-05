@@ -69,7 +69,7 @@ var NewUserForm = React.createClass({
             </div>
           </div>
           <div className="upload-image-box">
-            <input id="artwork" type="file" className="profile-picture-input custom-file-input" onChange={this.changeFile}></input>
+            <input id="artwork" type="file" className="song-artwork-input custom-file-input" onChange={this.changeFile}></input>
             <img className="preview-image" src={this.state.imageURL}/>
           </div>
 
