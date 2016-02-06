@@ -63,18 +63,20 @@ var PlaylistTrackPlayer = React.createClass({
   },
 
   playSong: function (e) {
-    if (this.isPlaying(this.state.currentPlaylistItem.song.id)) {
-      this.playPause(this.state.currentPlaylistItem.song.id);
-    }
     var playlistItemId = e.currentTarget.dataset.id;
-    var idx;
-    this.props.playlist.playlist_items.forEach(function (playlistItem, i) {
-      if (playlistItem.id == playlistItemId) {
-        idx = i;
+    if (this.state.currentPlaylistItem.song.id != playlistItemId) {
+      if (this.isPlaying(this.state.currentPlaylistItem.song.id)) {
+        this.playPause(this.state.currentPlaylistItem.song.id);
       }
-    }.bind(this));
-    this.setState({ currentPlaylistItem: this.props.playlist.playlist_items[idx], autoplay: true });
-    // this.playPause(songId);
+      var idx;
+      this.props.playlist.playlist_items.forEach(function (playlistItem, i) {
+        if (playlistItem.song.id == playlistItemId) {
+          idx = i;
+        }
+      }.bind(this));
+      this.setState({ currentPlaylistItem: this.props.playlist.playlist_items[idx], autoplay: true });
+      // this.playPause(songId);
+    }
   },
 
   deleteFromPlaylist: function (e) {
@@ -84,7 +86,6 @@ var PlaylistTrackPlayer = React.createClass({
   },
 
   render: function () {
-
     var userURL = '#/users/' + this.props.playlist.user_id;
     var songURL = '#/songs/' + this.state.currentPlaylistItem.song.id;
 

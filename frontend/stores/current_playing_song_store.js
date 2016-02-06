@@ -12,12 +12,14 @@ var _currentTime = 0;
 
 var collectGarbage = function () {
   var id;
-  if (_queuedSongsIdArray.length > 10) {
+  if (_queuedSongsIdArray.length > 20) {
     id = _queuedSongsIdArray.shift();
+    _songs[id].wavesurfer.destroy();
     delete _songs[id];
   }
-  if (_pastSongsIdArray.length > 3) {
+  if (_pastSongsIdArray.length > 20) {
     id = _pastSongsIdArray.shift();
+    _songs[id].wavesurfer.destroy();
     delete _songs[id];
   }
 };

@@ -12,7 +12,7 @@ var TrackPlayer = React.createClass({
   mixins: [PlaybackFunctions],
 
   getInitialState: function () {
-    return { WSObject: null };
+    return { WSObject: null, ready: false };
   },
 
   componentDidMount: function () {
@@ -39,7 +39,7 @@ var TrackPlayer = React.createClass({
       });
 
       wavesurfer.on('ready', function () {
-        // this.setState({});
+        this.setState({ ready: true });
       }.bind(this));
 
       wavesurfer.load(this.props.song.audio_url);
@@ -81,8 +81,8 @@ var TrackPlayer = React.createClass({
     var songURL = '#/songs/' + this.props.song.id;
     var playButton;
 
-    if (!this.state.WSObject) {
-      playButton = <div className="loader">Loading...</div>;
+    if (!this.state.WSObject || !this.state.ready) {
+      playButton = <div className="loader-play-button-small">Loading...</div>;
     } else {
       if (this.isPlaying(this.state.WSObject.id)) {
           playButton = <button onClick={this.pP}>
