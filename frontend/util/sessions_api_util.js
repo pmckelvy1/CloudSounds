@@ -1,6 +1,7 @@
 var CurrentUserActions = require("./../actions/current_user_actions");
 var UserActions = require('../actions/user_actions');
 var CurrentUserStore = require('../stores/current_user_store');
+var LikeActions = require('../actions/like_actions');
 
 var SessionsApiUtil = {
   login: function (credentials, success) {
@@ -12,6 +13,7 @@ var SessionsApiUtil = {
       success: function (currentUser) {
         CurrentUserActions.receiveCurrentUser(currentUser);
         UserActions.receiveSingleUser(currentUser);
+        LikeActions.receiveLikes(currentUser.followed_songs);
         success && success();
       }
     });
@@ -38,6 +40,7 @@ var SessionsApiUtil = {
       success: function (currentUser) {
         if (Object.keys(currentUser).length != 0) {
           CurrentUserActions.receiveCurrentUser(currentUser);
+          LikeActions.receiveLikes(currentUser.followed_songs);
         }
         cb && cb(currentUser);
       }

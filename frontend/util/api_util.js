@@ -90,6 +90,7 @@ var ApiUtil = {
       url: '/api/songs',
       dataType: 'JSON',
       success: function (songs) {
+        debugger
         SongActions.receiveAllSongs(songs);
         LikeActions.receiveLikes(songs);
       }
