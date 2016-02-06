@@ -44,6 +44,7 @@ var NewUserForm = React.createClass({
   },
 
   render: function() {
+    var imageUpload;
 
     return (
       <div className="sign-in-up-page">
@@ -51,25 +52,25 @@ var NewUserForm = React.createClass({
         <Clouds />
         <form className="sign-in-up-form sign-up-form group" onSubmit={this.submit}>
           <div className="user-info-box">
-            <div>
+            <div  className="group">
               <label htmlFor="email">Email:</label>
-              <input id="email" type="text" name="email" valueLink={this.linkState('email')}/>
+              <input className="user-sign-up-input" id="email" type="text" name="email" valueLink={this.linkState('email')}/>
             </div>
-            <div>
-              <label htmlFor="email">Artist name:</label>
-              <input id="email" type="text" name="username" valueLink={this.linkState('username')}/>
+            <div className="group">
+              <label htmlFor="username">Artist name:</label>
+              <input className="user-sign-up-input" id="username" type="text" name="username" valueLink={this.linkState('username')}/>
             </div>
-            <div>
-              <label htmlFor="email">Artist info:</label>
-              <input id="email" type="text" name="info" valueLink={this.linkState('info')}/>
-            </div>
-            <div>
+            <div className="group">
               <label htmlFor="password">Password:</label>
-              <input id="password" type="password" name="password" valueLink={this.linkState('password')}/>
+              <input className="user-sign-up-input" id="password" type="password" name="password" valueLink={this.linkState('password')}/>
+            </div>
+            <div className="group">
+              <label htmlFor="info">Artist info:</label>
+              <textarea id="info" name="info" valueLink={this.linkState('info')}/>
             </div>
           </div>
           <div className="upload-image-box">
-            <input id="artwork" type="file" className="song-artwork-input custom-file-input" onChange={this.changeFile}></input>
+            <input id="artwork" type="file" className="hidden profile-picture-input custom-file-input" onChange={this.changeFile}></input>
             <img className="preview-image" src={this.state.imageURL}/>
           </div>
 

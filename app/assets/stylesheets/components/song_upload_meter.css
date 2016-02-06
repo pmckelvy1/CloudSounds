@@ -19,10 +19,10 @@
   border-bottom-right-radius: 8px;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  background-color: rgb(43,194,83);
+  background-color: #0BF;
   background-image: linear-gradient(
     center bottom,
-    rgb(43,194,83) 37%,
+    #0BF 37%,
     rgb(84,240,84) 69%
   );
   box-shadow:

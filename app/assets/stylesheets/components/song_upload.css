@@ -161,6 +161,7 @@
 
 .custom-file-input {
   font-size: 6.5px;
+  color: transparent;
 }
 
 .custom-file-input::-webkit-file-upload-button {
@@ -168,6 +169,7 @@
 }
 
 .custom-file-input::before {
+  color: black;
   content: 'Upload artwork';
   display: inline-block;
   background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);

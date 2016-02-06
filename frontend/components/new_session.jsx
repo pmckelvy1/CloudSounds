@@ -36,13 +36,13 @@ var SessionForm = React.createClass({
         <Welcome />
         <Clouds />
         <form className="sign-in-up-form sign-in-form group" onSubmit={this.submit}>
-          <div>
+          <div className="group">
             <label htmlFor="email">Email:</label>
-            <input id="email" type="text" name="email" valueLink={this.linkState('email')}/>
+            <input className="user-sign-up-input" id="email" type="text" name="email" valueLink={this.linkState('email')}/>
           </div>
-          <div>
+          <div className="group">
             <label htmlFor="password">Password:</label>
-            <input id="password" type="password" name="password" valueLink={this.linkState('password')}/>
+            <input className="user-sign-up-input" id="password" type="password" name="password" valueLink={this.linkState('password')}/>
           </div>
           <button type="submit" name="sign-in">Sign In!</button>
         </form>

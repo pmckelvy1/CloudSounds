@@ -30,16 +30,28 @@
 }
 
 .sign-in-up-form div {
-  padding: 25px;
   display: block;
+  padding: 0px 20px;
+  margin: 20px 0px;
 }
 
-.sign-in-up-form input {
-  width: 200px;
+.user-sign-up-input {
+  width: 250px;
   border: 1px solid #ccc;
   display: block;
   float: right;
   background: white;
+  border-radius: 3px;
+}
+
+.sign-in-up-form textarea {
+  width: 250px;
+  height: 100px;
+  background: white;
+  display: block;
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
 .sign-in-up-form label {
@@ -96,11 +108,19 @@
   display: block;
   text-align: center;
   position: absolute;
-  bottom: 30px;
+  bottom: 20px;
   left: 110px;
   outline: none;
   box-sizing: border-box;
   background: transparent;
+}
+
+.hidden {
+  display: none;
+}
+
+.upload-image-box:hover .hidden {
+  display: block;
 }
 
 .user-info-box {

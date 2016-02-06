@@ -107,7 +107,7 @@ var SongUpload = React.createClass({
       </div>;
     } else {
       page = <div className="song-upload-page">
-        <h2 className="upload-title">Upload to CloudSounds</h2>
+        <h2 className="upload-title">Upload to <span className="blue cloud-sounds">CloudSounds!</span></h2>
           <div className="meter animate">
             <span style={widthStyle}><span></span></span>
           </div>
@@ -116,7 +116,7 @@ var SongUpload = React.createClass({
           <input id="audio" type="file" className="song-audio-input custom-audio-input" onChange={this.changeAudioFile}></input>
 
           <div className="upload-image-box">
-            <input id="artwork" type="file" className="song-artwork-input custom-file-input" onChange={this.changeImageFile}></input>
+            <input id="artwork" type="file" className="hidden song-artwork-input custom-file-input" onChange={this.changeImageFile}></input>
             <img className="preview-image" src={this.state.imageURL}/>
           </div>
 
