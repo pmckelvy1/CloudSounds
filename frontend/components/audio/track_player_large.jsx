@@ -48,25 +48,31 @@ var TrackPlayerLarge = React.createClass({
 
       WSObject = { id: this.props.song.id, wavesurfer: wavesurfer, song: this.props.song };
 
-      this.setState({ WSObject: WSObject });
-
-      setTimeout(function () {
+      var timeoutId = setTimeout(function () {
         PlayingSongActions.receiveWavesurfer(WSObject);
       }, 0);
 
       storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
-      this.setState({ storeToken: storeToken });
-
+      this.setState({ WSObject: WSObject, storeToken: storeToken, timeoutId: timeoutId });
     }
   },
 
   componentWillUnmount: function () {
     this.state.storeToken.remove();
-    var playerKey = this.props.song.id;
-    var WSObject = CurrentPlayingSongStore.getSong(playerKey);
-    if (WSObject.wavesurfer.container.children.length === 0) {
-      var selector = '.wave' + playerKey;
-      $(WSObject.wavesurfer.container).append($(selector).children()[0]);
+    if (!this.state.ready) {
+      this.state.WSObject.ajax.xhr.abort();
+      this.state.WSObject.wavesurfer.Observer.unAll();
+      this.state.WSObject.wavesurfer.empty();
+      this.state.WSObject.wavesurfer.destroy();
+      CurrentPlayingSongStore.destroySong(this.props.song.id);
+      clearTimeout(this.state.timeoutId);
+    } else {
+      var playerKey = this.props.song.id;
+      var WSObject = CurrentPlayingSongStore.getSong(playerKey);
+      if (WSObject.wavesurfer.container.children.length === 0) {
+        var selector = '.wave' + playerKey;
+        $(WSObject.wavesurfer.container).append($(selector).children()[0]);
+      }
     }
   },
 

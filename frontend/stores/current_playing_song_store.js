@@ -256,6 +256,19 @@ CurrentPlayingSongStore.isPlaying = function (songId) {
   }
 };
 
+CurrentPlayingSongStore.destroySong = function (id) {
+  delete _songs[id];
+  var idx;
+  idx = _queuedSongsIdArray.indexOf(id);
+  if (idx != -1) {
+    _queuedSongsIdArray.splice(idx, 1);
+  }
+  idx = _pastSongsIdArray.indexOf(id);
+  if( idx != -1) {
+    _pastSongsIdArray.splice(idx, 1);
+  }
+};
+
 CurrentPlayingSongStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case PlayingSongConstants.PLAY_SONG:
