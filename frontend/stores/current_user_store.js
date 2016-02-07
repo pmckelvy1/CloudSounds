@@ -83,7 +83,7 @@ var updateNumPlays = function (playData) {
 };
 
 var addSongToPlaylist = function (addedSongData) {
-  _playlists[addedSongData.playlist_id].songs.push(addedSongData);
+  _playlists[addedSongData.playlist_id].playlist_items.push(addedSongData);
 };
 
 var addNewPlaylist = function (newPlaylist) {

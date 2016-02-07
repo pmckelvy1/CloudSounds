@@ -27,41 +27,7 @@ var TrackPlayerLarge = React.createClass({
       storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
       WSObject = CurrentPlayingSongStore.getSong(playerKey);
       CurrentPlayingSongStore.remount(playerKey, 128);
-      this.setState({ storeToken: storeToken, WSObject: WSObject });
-      // var selector = '.wave' + playerKey;
-      //
-      // var $container = $(WSObject.wavesurfer.container);
-      // var $children = $($container.children()[0]);
-      // var $grand = $($children.children());
-      // debugger
-      // if ($($grand[0]).attr('width') != '815') {
-      //   $($grand[0]).attr('width', '815');
-      //   $($grand[0]).attr('height', '128');
-      //   $($grand[0]).css('width', '815px');
-      //   $($grand[0]).css('height', '128px');
-      //   var $greatgrand = $($($grand[1]).children()[0]);
-      //   $($($($grand[1]).children()[0])).attr('width', '815');
-      //   $($($($grand[1]).children()[0])).attr('height', '128');
-      //   $($($($grand[1]).children()[0])).css('width', '815px');
-      //   $($($($grand[1]).children()[0])).css('height', '128px');
-      // }
-      // if (WSObject.wavesurfer.Drawer.getWidth() < 825) {
-      //   debugger
-      //   WSObject.wavesurfer.Drawer.setWidth(825);
-      //   WSObject.wavesurfer.Drawer.setHeight(128);
-      // }
-      // var container = $(selector)[0];
-      // var wavesurfer = WSObject.wavesurfer;
-      // var child = wavesurfer.container.children[0];
-      //
-      // container.appendChild(child);
-      //
-      // wavesurfer.container = container;
-      // wavesurfer.mediaContainer = container;
-      // wavesurfer.drawer.container = container;
-      // wavesurfer.drawBuffer();
-      // $(selector)[0].appendChild(WSObject.wavesurfer.container.children[0]);
-
+      this.setState({ storeToken: storeToken, WSObject: WSObject, ready: true });
     } else {
       var wavesurfer = WaveSurfer.create({
           container: '.wave'+ playerKey,

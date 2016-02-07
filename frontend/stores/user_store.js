@@ -95,7 +95,7 @@ var updateNumPlays = function (playData) {
 };
 
 var addSongToPlaylist = function (addedSongData) {
-  _playlists[addedSongData.playlist_id].songs.push(addedSongData);
+  _playlists[addedSongData.playlist_id].playlist_items.push(addedSongData);
 };
 
 var addNewPlaylist = function (newPlaylist) {
@@ -211,8 +211,10 @@ UserStore.__onDispatch = function (payload) {
       UserStore.__emitChange();
       break;
     case PlaylistConstants.ADD_SONG_TO_PLAYLIST:
-      addSongToPlaylist(payload.addedSongData);
-      UserStore.__emitChange();
+      if (UserStore.userId() == CurrentUserStore.currentUserId()) {
+        addSongToPlaylist(payload.addedSongData);
+        UserStore.__emitChange();
+      }
       break;
     case PlaylistConstants.ADD_NEW_PLAYLIST:
       addNewPlaylist(payload.newPlaylist);

@@ -25,7 +25,7 @@ var TrackPlayer = React.createClass({
       storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
       WSObject = CurrentPlayingSongStore.getSong(playerKey);
       CurrentPlayingSongStore.remount(playerKey, 65);
-      this.setState({ storeToken: storeToken, WSObject: WSObject });
+      this.setState({ storeToken: storeToken, WSObject: WSObject, ready: true });
     } else {
       var wavesurfer = WaveSurfer.create({
         container: '.wave' + playerKey,
