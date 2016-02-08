@@ -10,7 +10,6 @@ class Api::PlaylistItemsController < ApplicationController
       end
     end
 
-
     if @playlist_item.save
       @playlist_item = PlaylistItem.includes(:playlist, song: [:likes, :user, comments: [:user]]).find(@playlist_item.id)
       # @song = Song.includes(:likes, :user, :playlist_items, comments: [:user]).find(params[:playlist_item][:song_id])
@@ -32,7 +31,7 @@ class Api::PlaylistItemsController < ApplicationController
   end
 
   def destroy
-    @playlist_item = PlaylistItem.find(params[:id])
+    @playlist_item = PlaylistItem.includes(:playlist).find(params[:id])
     @playlist_item.destroy!
     playlist = Playlist.includes(:playlist_items).find(@playlist_item.playlist_id)
     if playlist.playlist_items.length === 0
