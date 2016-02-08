@@ -136,104 +136,108 @@ end
 moonlight = Song.create!(user_id: bach.id, username: bach.username, title: "Moonlight Sonata", info: "I wrote this song first.  This is totally not a Beethoven song.",
   audio: File.open('app/assets/audio/songs/Moonlight Sonata 1st Movement.mp3'), image: File.open('app/assets/images/moonlight.jpg'))
 
-other_songs = [thunderstorm, imperialmarch, moonlight]
+other_songs = [thunderstorm, rain, cloudsounds, imperialmarch, moonlight]
 
 
 # RYON LAWFORD SONGS
 ryon1 = Song.create!(user_id: me.id, username: me.username, title: "Surrender To The Night", info: "Lyrics by Matty J",
   audio: File.open('app/assets/audio/songs/Surrender To The Night.m4a'), image: File.open('app/assets/images/surrender-to-the-night.jpg'), num_plays: 3778)
-ryon2 = Song.create!(user_id: me.id, username: me.username, title: "When Is Love Not Enough", info: "Lyrics and vocals by Cara Onofrio",
-  audio: File.open('app/assets/audio/songs/When Is Love Not Enough.m4a'), image: File.open('app/assets/images/when-is-love.jpg'), num_plays: 876)
-ryon3 = Song.create!(user_id: me.id, username: me.username, title: "Don't You Worry, Love (Ryon Lawford Remix)", info: "Original by Oh Honey.  Out now on iTunes!",
-  audio: File.open("app/assets/audio/songs/Don't You Worry, Love (Ryon Lawford Remix).mp3"), image: File.open('app/assets/images/dont-you-worry-remix.jpg'), num_plays: 29465)
-ryon4 = Song.create!(user_id: me.id, username: me.username, title: "Pop That", info: "Featuring Akon and Snoop Dogg",
-  audio: File.open('app/assets/audio/songs/Pop That.m4a'), image: File.open('app/assets/images/pop-that.jpg'), num_plays: 245)
+# ryon2 = Song.create!(user_id: me.id, username: me.username, title: "When Is Love Not Enough", info: "Lyrics and vocals by Cara Onofrio",
+#   audio: File.open('app/assets/audio/songs/When Is Love Not Enough.m4a'), image: File.open('app/assets/images/when-is-love.jpg'), num_plays: 876)
+# ryon3 = Song.create!(user_id: me.id, username: me.username, title: "Don't You Worry, Love (Ryon Lawford Remix)", info: "Original by Oh Honey.  Out now on iTunes!",
+#   audio: File.open("app/assets/audio/songs/Don't You Worry, Love (Ryon Lawford Remix).mp3"), image: File.open('app/assets/images/dont-you-worry-remix.jpg'), num_plays: 29465)
+# ryon4 = Song.create!(user_id: me.id, username: me.username, title: "Pop That", info: "Featuring Akon and Snoop Dogg",
+#   audio: File.open('app/assets/audio/songs/Pop That.m4a'), image: File.open('app/assets/images/pop-that.jpg'), num_plays: 245)
 
-ryon_songs = [ryon1, ryon2, ryon3, ryon4]
+# ryon_songs = [ryon1, ryon2, ryon3, ryon4]
+ryon_songs = [ryon1]
 
 
 # PITCHSLAP SONGS
 pitchslap1 = Song.create!(user_id: pitchslap.id, username: pitchslap.username, title: "Whatcha Done", info: "From the upcoming mixtape LANIAKEA",
   audio: File.open('app/assets/audio/songs/Whatcha Done.mp3'), image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 9436)
-pitchslap2 = Song.create!(user_id: pitchslap.id, username: pitchslap.username, title: "Painful", info: "From the upcoming mixtape LANIAKEA",
-  audio: File.open('app/assets/audio/songs/Painful.mp3'), image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 7354)
-pitchslap3 = Song.create!(user_id: pitchslap.id, username: pitchslap.username, title: "Take Me Higher", info: "From the upcoming mixtape LANIAKEA",
-  audio: File.open('app/assets/audio/songs/Take Me Higher.mp3'), image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 13426)
+# pitchslap2 = Song.create!(user_id: pitchslap.id, username: pitchslap.username, title: "Painful", info: "From the upcoming mixtape LANIAKEA",
+#   audio: File.open('app/assets/audio/songs/Painful.mp3'), image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 7354)
+# pitchslap3 = Song.create!(user_id: pitchslap.id, username: pitchslap.username, title: "Take Me Higher", info: "From the upcoming mixtape LANIAKEA",
+#   audio: File.open('app/assets/audio/songs/Take Me Higher.mp3'), image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 13426)
 
-pitchslap_songs = [pitchslap1, pitchslap2, pitchslap3]
+# pitchslap_songs = [pitchslap1, pitchslap2, pitchslap3]
+pitchslap_songs = [pitchslap1]
 
 
 # SOPHIE SONGS
 sophie1 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
   audio: File.open('app/assets/audio/songs/Lemonade.m4a'), image: File.open('app/assets/images/sophie_slide1.jpg'), num_plays: 3562)
-sophie2 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Hard', info: "Off the self titled album. \n Latex gloves go so hard.",
-  audio: File.open('app/assets/audio/songs/Hard.m4a'), image: File.open('app/assets/images/sophie_slide2.png'), num_plays: 8574)
-sophie3 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Just Like We Never Said Goodbye', info: "Off the self titled album. \n Remixes coming soon!.",
-  audio: File.open('app/assets/audio/songs/Just Like We Never Said Goodbye.m4a'), image: File.open('app/assets/images/sophie_slide3.jpg'), num_plays: 11453)
+# sophie2 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Hard', info: "Off the self titled album. \n Latex gloves go so hard.",
+#   audio: File.open('app/assets/audio/songs/Hard.m4a'), image: File.open('app/assets/images/sophie_slide2.png'), num_plays: 8574)
+# sophie3 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Just Like We Never Said Goodbye', info: "Off the self titled album. \n Remixes coming soon!.",
+#   audio: File.open('app/assets/audio/songs/Just Like We Never Said Goodbye.m4a'), image: File.open('app/assets/images/sophie_slide3.jpg'), num_plays: 11453)
 
-sophie_songs = [sophie1, sophie2, sophie3]
+# sophie_songs = [sophie1, sophie2, sophie3]
+sophie_songs = [sophie1]
 
 
 # GRIMES SONGS
 grimes1 = Song.create!(user_id: grimes.id, username: grimes.username, title: 'California', info: "From the album ART ANGELS. \n Get it now on iTunes!",
   audio: File.open('app/assets/audio/songs/California.mp3'), image: File.open('app/assets/images/art_angels.jpg'), num_plays: 808797)
-grimes2 = Song.create!(user_id: grimes.id, username: grimes.username, title: 'Flesh Without Blood', info: "From the album ART ANGELS. \n Get it now on iTunes!",
-  audio: File.open('app/assets/audio/songs/Flesh Without Blood.mp3'), image: File.open('app/assets/images/art_angels.jpg'), num_plays: 1415632)
-grimes3 = Song.create!(user_id: grimes.id, username: grimes.username, title: 'Belly of the Beat', info: "From the album ART ANGELS. \n Get it now on iTunes!",
-  audio: File.open('app/assets/audio/songs/Belly of the Beat.mp3'), image: File.open('app/assets/images/art_angels.jpg'), num_plays: 778347)
+# grimes2 = Song.create!(user_id: grimes.id, username: grimes.username, title: 'Flesh Without Blood', info: "From the album ART ANGELS. \n Get it now on iTunes!",
+#   audio: File.open('app/assets/audio/songs/Flesh Without Blood.mp3'), image: File.open('app/assets/images/art_angels.jpg'), num_plays: 1415632)
+# grimes3 = Song.create!(user_id: grimes.id, username: grimes.username, title: 'Belly of the Beat', info: "From the album ART ANGELS. \n Get it now on iTunes!",
+#   audio: File.open('app/assets/audio/songs/Belly of the Beat.mp3'), image: File.open('app/assets/images/art_angels.jpg'), num_plays: 778347)
 
-grimes_songs = [grimes1, grimes2, grimes3]
+# grimes_songs = [grimes1, grimes2, grimes3]
+grimes_songs = [grimes1]
 
 
 # FRANK SONGS
 franksinatra1 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "My Way", info: "From the greatest hits album 'Sinatra: Best of the Best'",
   audio: File.open("app/assets/audio/songs/My Way.mp3"), image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 875593)
-franksinatra2 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "Theme from New York, New York", info: "From the greatest hits album 'Sinatra: Best of the Best'",
-  audio: File.open("app/assets/audio/songs/Theme from New York, New York.mp3"), image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 14225)
-franksinatra3 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "The Way You Look Tonight", info: "From the greatest hits album 'Sinatra: Best of the Best'",
-  audio: File.open("app/assets/audio/songs/The Way You Look Tonight.mp3"), image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 2446328)
+# franksinatra2 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "Theme from New York, New York", info: "From the greatest hits album 'Sinatra: Best of the Best'",
+#   audio: File.open("app/assets/audio/songs/Theme from New York, New York.mp3"), image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 14225)
+# franksinatra3 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "The Way You Look Tonight", info: "From the greatest hits album 'Sinatra: Best of the Best'",
+#   audio: File.open("app/assets/audio/songs/The Way You Look Tonight.mp3"), image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 2446328)
 
-franksinatra_songs = [franksinatra1, franksinatra2, franksinatra3]
-# franksinatra_songs = [franksinatra1]
+# franksinatra_songs = [franksinatra1, franksinatra2, franksinatra3]
+franksinatra_songs = [franksinatra1]
 
 # FUGEES SONGS
 fugees1 = Song.create!(user_id: fugees.id, username: fugees.username, title: "No Woman, No Cry", info: "The Score was huge in the 90's.  If you haven't listened to it yet, do yourself a favor and go buy it.",
   audio: File.open("app/assets/audio/songs/No Woman, No Cry.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 35667)
-fugees2 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Ready or Not", info: "Ready or not, here i come, you can't hide.  I'm gonna fiiiiind you, and. make. you. love. me.",
-  audio: File.open("app/assets/audio/songs/Ready or Not.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 6758834)
-fugees3 = Song.create!(user_id: fugees.id, username: fugees.username, title: "The Score", info: "Let's settle it.",
-  audio: File.open("app/assets/audio/songs/The Score.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 41277)
-fugees4 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Killing Me Softly with His Song", info: "Lauren Hill is a goddess",
-  audio: File.open("app/assets/audio/songs/Killing Me Softly with His Song.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 1256904)
+# fugees2 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Ready or Not", info: "Ready or not, here i come, you can't hide.  I'm gonna fiiiiind you, and. make. you. love. me.",
+#   audio: File.open("app/assets/audio/songs/Ready or Not.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 6758834)
+# fugees3 = Song.create!(user_id: fugees.id, username: fugees.username, title: "The Score", info: "Let's settle it.",
+#   audio: File.open("app/assets/audio/songs/The Score.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 41277)
+# fugees4 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Killing Me Softly with His Song", info: "Lauren Hill is a goddess",
+#   audio: File.open("app/assets/audio/songs/Killing Me Softly with His Song.mp3"), image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 1256904)
 
-fugees_songs = [fugees1, fugees2, fugees3, fugees4]
-# fugees_songs = [fugees1]
+# fugees_songs = [fugees1, fugees2, fugees3, fugees4]
+fugees_songs = [fugees1]
 
 # WHAT SO NOT SONGS
 whatsonot1 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini Intro ft. Tunji Ige", info: "GEMINI out now!",
   audio: File.open("app/assets/audio/songs/Gemini Intro ft. Tunji Ige.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 56376)
-whatsonot2 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini ft. George Maple", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/songs/Gemini ft. George Maple.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 53076)
-whatsonot3 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not X Dillon Francis - Arrows ft. Dawn Golden", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/songs/Arrows ft. Dawn Golden.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 153765)
-whatsonot4 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Death Drive ft. KLP", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/songs/Death Drive ft. KLP.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 86723)
-whatsonot5 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Oddity", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/songs/Oddity.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 11298)
+# whatsonot2 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini ft. George Maple", info: "GEMINI out now!",
+#   audio: File.open("app/assets/audio/songs/Gemini ft. George Maple.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 53076)
+# whatsonot3 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not X Dillon Francis - Arrows ft. Dawn Golden", info: "GEMINI out now!",
+#   audio: File.open("app/assets/audio/songs/Arrows ft. Dawn Golden.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 153765)
+# whatsonot4 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Death Drive ft. KLP", info: "GEMINI out now!",
+#   audio: File.open("app/assets/audio/songs/Death Drive ft. KLP.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 86723)
+# whatsonot5 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Oddity", info: "GEMINI out now!",
+#   audio: File.open("app/assets/audio/songs/Oddity.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 11298)
 
-whatsonot_songs = [whatsonot1, whatsonot2, whatsonot3, whatsonot4, whatsonot5]
-# whatsonot_songs = [whatsonot1]
+# whatsonot_songs = [whatsonot1, whatsonot2, whatsonot3, whatsonot4, whatsonot5]
+whatsonot_songs = [whatsonot1]
 
 # RUSS LIQUID
 russ1 = Song.create!(user_id: russ.id, username: russ.username, title: "Alpha Bravo Echo Zulu", info: "Download FOREIGN FREQUENCY album now for free!",
   audio: File.open("app/assets/audio/songs/Alpha Bravo Echo Zulu.mp3"), image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 5375)
-russ2 = Song.create!(user_id: russ.id, username: russ.username, title: "Welcome", info: "Download FOREIGN FREQUENCY album now for free!",
-  audio: File.open("app/assets/audio/songs/Welcome.mp3"), image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 3254)
-russ3 = Song.create!(user_id: russ.id, username: russ.username, title: "Euqsom", info: "Download FOREIGN FREQUENCY album now for free!",
-  audio: File.open("app/assets/audio/songs/Euqsom.mp3"), image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 2436)
+# russ2 = Song.create!(user_id: russ.id, username: russ.username, title: "Welcome", info: "Download FOREIGN FREQUENCY album now for free!",
+#   audio: File.open("app/assets/audio/songs/Welcome.mp3"), image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 3254)
+# russ3 = Song.create!(user_id: russ.id, username: russ.username, title: "Euqsom", info: "Download FOREIGN FREQUENCY album now for free!",
+#   audio: File.open("app/assets/audio/songs/Euqsom.mp3"), image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 2436)
 
-russ_songs = [russ1, russ2, russ3]
-# russ_songs = [russ1]
+# russ_songs = [russ1, russ2, russ3]
+russ_songs = [russ1]
 
 # ALL SONGS
 
@@ -302,7 +306,7 @@ end
 i = 0
 while (i < robo_users.length)
   j = 0
-  num_to_like = Random.rand(20)
+  num_to_like = Random.rand(5)
   past_likes = []
   while (j < num_to_like)
     what_to_like = Random.rand(all_songs.length)
@@ -352,46 +356,46 @@ end
 
 # CREATE REAL COMMENTS
 
-c1 = Comment.create!(user_id: guest.id, song_id: grimes1.id, body: "awesome song!")
-c2 = Comment.create!(user_id: guest.id, song_id: whatsonot3.id, body: "i love this part")
-c3 = Comment.create!(user_id: guest.id, song_id: imperialmarch.id, body: "oh no! the clone army!")
-c4 = Comment.create!(user_id: guest.id, song_id: pitchslap3.id, body: "awesome song!")
-c5 = Comment.create!(user_id: bowie.id, song_id: pitchslap2.id, body: "wow!")
-c6 = Comment.create!(user_id: bowie.id, song_id: whatsonot4.id, body: "great job with this one!")
-c8 = Comment.create!(user_id: bowie.id, song_id: ryon2.id, body: "when's the album coming out?")
-c9 = Comment.create!(user_id: darth.id, song_id: ryon1.id, body: "terrible")
-c10 = Comment.create!(user_id: darth.id, song_id: moonlight.id, body: "awful")
-c11 = Comment.create!(user_id: darth.id, song_id: pitchslap3.id, body: "a jedi must have made this. horrible.")
-c12 = Comment.create!(user_id: darth.id, song_id: whatsonot1.id, body: "lackluster performance")
-c13 = Comment.create!(user_id: darth.id, song_id: grimes2.id, body: "this must be a joke, right?")
-c14 = Comment.create!(user_id: me.id, song_id: whatsonot4.id, body: "come play a show in NY!")
-c15 = Comment.create!(user_id: me.id, song_id: grimes1.id, body: "when can i get this on itunes?")
-c19 = Comment.create!(user_id: bach.id, song_id: fugees1.id, body: "quite elementary")
-c21 = Comment.create!(user_id: bach.id, song_id: ryon3.id, body: "on second thought, i rather enjoy the groove of this piece.")
-Comment.create!(user_id: grimes.id, song_id: franksinatra1.id, body: "i can't get enough of this album!")
-Comment.create!(user_id: grimes.id, song_id: whatsonot1.id, body: "you guys rock!")
-Comment.create!(user_id: grimes.id, song_id: whatsonot2.id, body: "oh i love this one!")
-Comment.create!(user_id: grimes.id, song_id: whatsonot5.id, body: "funky!")
-Comment.create!(user_id: grimes.id, song_id: moonlight.id, body: "amazing.")
-Comment.create!(user_id: grimes.id, song_id: ryon3.id, body: "cool!")
-Comment.create!(user_id: grimes.id, song_id: pitchslap2.id, body: "i just got pitchslapped!")
-Comment.create!(user_id: fugees.id, song_id: imperialmarch.id, body: "woah")
-Comment.create!(user_id: fugees.id, song_id: grimes3.id, body: "love this album, girl!")
-Comment.create!(user_id: fugees.id, song_id: franksinatra2.id, body: "classic album")
-Comment.create!(user_id: sophie.id, song_id: fugees3.id, body: "amazing song and album")
-Comment.create!(user_id: sophie.id, song_id: whatsonot1.id, body: "funky funky funky funky!")
-Comment.create!(user_id: sophie.id, song_id: russ2.id, body: "ooooo love the trumpet")
-Comment.create!(user_id: sophie.id, song_id: imperialmarch.id, body: "uh oh")
-Comment.create!(user_id: pitchslap.id, song_id: imperialmarch.id, body: "run for your lives!")
-Comment.create!(user_id: pitchslap.id, song_id: grimes1.id, body: "you guys rock!")
-Comment.create!(user_id: pitchslap.id, song_id: russ1.id, body: "oh man it doesn't get much funkier")
-Comment.create!(user_id: pitchslap.id, song_id: whatsonot2.id, body: "dude your music is amazing!")
-Comment.create!(user_id: russ.id, song_id: whatsonot2.id, body: "wow!")
-Comment.create!(user_id: russ.id, song_id: ryon1.id, body: "so good")
-Comment.create!(user_id: russ.id, song_id: pitchslap1.id, body: "one of my favorites!")
-Comment.create!(user_id: russ.id, song_id: grimes1.id, body: "this chick is incredible")
-Comment.create!(user_id: russ.id, song_id: imperialmarch.id, body: "where's luke?!")
-
+# c1 = Comment.create!(user_id: guest.id, song_id: grimes1.id, body: "awesome song!")
+# c2 = Comment.create!(user_id: guest.id, song_id: whatsonot3.id, body: "i love this part")
+# c3 = Comment.create!(user_id: guest.id, song_id: imperialmarch.id, body: "oh no! the clone army!")
+# c4 = Comment.create!(user_id: guest.id, song_id: pitchslap3.id, body: "awesome song!")
+# c5 = Comment.create!(user_id: bowie.id, song_id: pitchslap2.id, body: "wow!")
+# c6 = Comment.create!(user_id: bowie.id, song_id: whatsonot4.id, body: "great job with this one!")
+# c8 = Comment.create!(user_id: bowie.id, song_id: ryon2.id, body: "when's the album coming out?")
+# c9 = Comment.create!(user_id: darth.id, song_id: ryon1.id, body: "terrible")
+# c10 = Comment.create!(user_id: darth.id, song_id: moonlight.id, body: "awful")
+# c11 = Comment.create!(user_id: darth.id, song_id: pitchslap3.id, body: "a jedi must have made this. horrible.")
+# c12 = Comment.create!(user_id: darth.id, song_id: whatsonot1.id, body: "lackluster performance")
+# c13 = Comment.create!(user_id: darth.id, song_id: grimes2.id, body: "this must be a joke, right?")
+# c14 = Comment.create!(user_id: me.id, song_id: whatsonot4.id, body: "come play a show in NY!")
+# c15 = Comment.create!(user_id: me.id, song_id: grimes1.id, body: "when can i get this on itunes?")
+# c19 = Comment.create!(user_id: bach.id, song_id: fugees1.id, body: "quite elementary")
+# c21 = Comment.create!(user_id: bach.id, song_id: ryon3.id, body: "on second thought, i rather enjoy the groove of this piece.")
+# Comment.create!(user_id: grimes.id, song_id: franksinatra1.id, body: "i can't get enough of this album!")
+# Comment.create!(user_id: grimes.id, song_id: whatsonot1.id, body: "you guys rock!")
+# Comment.create!(user_id: grimes.id, song_id: whatsonot2.id, body: "oh i love this one!")
+# Comment.create!(user_id: grimes.id, song_id: whatsonot5.id, body: "funky!")
+# Comment.create!(user_id: grimes.id, song_id: moonlight.id, body: "amazing.")
+# Comment.create!(user_id: grimes.id, song_id: ryon3.id, body: "cool!")
+# Comment.create!(user_id: grimes.id, song_id: pitchslap2.id, body: "i just got pitchslapped!")
+# Comment.create!(user_id: fugees.id, song_id: imperialmarch.id, body: "woah")
+# Comment.create!(user_id: fugees.id, song_id: grimes3.id, body: "love this album, girl!")
+# Comment.create!(user_id: fugees.id, song_id: franksinatra2.id, body: "classic album")
+# Comment.create!(user_id: sophie.id, song_id: fugees3.id, body: "amazing song and album")
+# Comment.create!(user_id: sophie.id, song_id: whatsonot1.id, body: "funky funky funky funky!")
+# Comment.create!(user_id: sophie.id, song_id: russ2.id, body: "ooooo love the trumpet")
+# Comment.create!(user_id: sophie.id, song_id: imperialmarch.id, body: "uh oh")
+# Comment.create!(user_id: pitchslap.id, song_id: imperialmarch.id, body: "run for your lives!")
+# Comment.create!(user_id: pitchslap.id, song_id: grimes1.id, body: "you guys rock!")
+# Comment.create!(user_id: pitchslap.id, song_id: russ1.id, body: "oh man it doesn't get much funkier")
+# Comment.create!(user_id: pitchslap.id, song_id: whatsonot2.id, body: "dude your music is amazing!")
+# Comment.create!(user_id: russ.id, song_id: whatsonot2.id, body: "wow!")
+# Comment.create!(user_id: russ.id, song_id: ryon1.id, body: "so good")
+# Comment.create!(user_id: russ.id, song_id: pitchslap1.id, body: "one of my favorites!")
+# Comment.create!(user_id: russ.id, song_id: grimes1.id, body: "this chick is incredible")
+# Comment.create!(user_id: russ.id, song_id: imperialmarch.id, body: "where's luke?!")
+#
 
 
 
@@ -408,29 +412,29 @@ PlaylistItem.destroy_all
 
 p1 = Playlist.create!(user_id: guest.id, title: 'You guest it!')
 p1a = PlaylistItem.create!(playlist_id: p1.id, song_id: franksinatra1.id, song_ord: 0)
-p1b = PlaylistItem.create!(playlist_id: p1.id, song_id: grimes2.id, song_ord: 1)
-p1c = PlaylistItem.create!(playlist_id: p1.id, song_id: fugees2.id, song_ord: 2)
+p1b = PlaylistItem.create!(playlist_id: p1.id, song_id: grimes1.id, song_ord: 1)
+p1c = PlaylistItem.create!(playlist_id: p1.id, song_id: fugees1.id, song_ord: 2)
 p1d = PlaylistItem.create!(playlist_id: p1.id, song_id: moonlight.id, song_ord: 3)
 p1e = PlaylistItem.create!(playlist_id: p1.id, song_id: russ1.id, song_ord: 4)
 
 p2 = Playlist.create!(user_id: guest.id, title: 'Electro party music')
-p2a = PlaylistItem.create!(playlist_id: p2.id, song_id: whatsonot5.id, song_ord: 0)
-p2b = PlaylistItem.create!(playlist_id: p2.id, song_id: ryon2.id, song_ord: 1)
-p2c = PlaylistItem.create!(playlist_id: p2.id, song_id: pitchslap3.id, song_ord: 2)
+p2a = PlaylistItem.create!(playlist_id: p2.id, song_id: whatsonot1.id, song_ord: 0)
+p2b = PlaylistItem.create!(playlist_id: p2.id, song_id: ryon1.id, song_ord: 1)
+p2c = PlaylistItem.create!(playlist_id: p2.id, song_id: pitchslap1.id, song_ord: 2)
 
-p3 = Playlist.create!(user_id: sophie.id, title: 'SOPHIE')
-p3a = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie1.id, song_ord: 0)
-p3b = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie2.id, song_ord: 1)
-p3c = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie3.id, song_ord: 2)
-
-p4 = Playlist.create!(user_id: grimes.id, title: 'Art Angels')
-PlaylistItem.create!(playlist_id: p4.id, song_id: grimes1.id, song_ord: 0)
-PlaylistItem.create!(playlist_id: p4.id, song_id: grimes2.id, song_ord: 1)
-PlaylistItem.create!(playlist_id: p4.id, song_id: grimes3.id, song_ord: 2)
-
-p6 = Playlist.create!(user_id: whatsonot.id, title: 'Gemini')
-PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot1.id, song_ord: 0)
-PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot2.id, song_ord: 1)
-PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot3.id, song_ord: 2)
-PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot4.id, song_ord: 3)
-PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot5.id, song_ord: 4)
+# p3 = Playlist.create!(user_id: sophie.id, title: 'SOPHIE')
+# p3a = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie1.id, song_ord: 0)
+# p3b = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie2.id, song_ord: 1)
+# p3c = PlaylistItem.create!(playlist_id: p3.id, song_id: sophie3.id, song_ord: 2)
+#
+# p4 = Playlist.create!(user_id: grimes.id, title: 'Art Angels')
+# PlaylistItem.create!(playlist_id: p4.id, song_id: grimes1.id, song_ord: 0)
+# PlaylistItem.create!(playlist_id: p4.id, song_id: grimes2.id, song_ord: 1)
+# PlaylistItem.create!(playlist_id: p4.id, song_id: grimes3.id, song_ord: 2)
+#
+# p6 = Playlist.create!(user_id: whatsonot.id, title: 'Gemini')
+# PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot1.id, song_ord: 0)
+# PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot2.id, song_ord: 1)
+# PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot3.id, song_ord: 2)
+# PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot4.id, song_ord: 3)
+# PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot5.id, song_ord: 4)
