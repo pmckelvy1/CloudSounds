@@ -1,9 +1,23 @@
 var React = require('react');
+var CommentStore = require('../../stores/comment_store');
 
 var TrackStats = React.createClass({
+  getInitialState: function () {
+    return { numComments: this.props.song.comments.length };
+  },
+
+  componentDidMount: function () {
+    var storeToken = CommentStore.addListener(this.updateNumComments);
+    this.setState({ storeToken: storeToken });
+  },
+
+  updateNumComments: function () {
+    this.setState({ numComments: CommentStore.getNumComments(this.props.song.id) });
+  },
+
   render: function () {
     var numPlays = this._convertedNum(this.props.song.num_plays);
-    var numComms = this._convertedNum(this.props.song.comments.length);
+    var numComms = this._convertedNum(this.state.numComments);
     return (
       <div className='track-stats'>
         <div className='track-stat'>

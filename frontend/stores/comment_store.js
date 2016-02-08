@@ -30,6 +30,10 @@ CommentStore.getSongComments = function (songId) {
   return _comments[songId];
 };
 
+CommentStore.getNumComments = function (songId) {
+  return _comments[songId].length;
+};
+
 CommentStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case SongConstants.SONG_RECEIVED:

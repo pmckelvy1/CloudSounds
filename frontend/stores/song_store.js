@@ -1,7 +1,6 @@
 var Store = require('flux/utils').Store,
     Dispatcher = require('../dispatcher/dispatcher'),
     SongConstants = require('../constants/song_constants');
-
 var SongStore = new Store(Dispatcher);
 
 var _song = {};
@@ -26,6 +25,7 @@ var updateNumPlays = function(playData) {
     _song.num_plays = playData.num_plays;
   }
 };
+
 
 SongStore.getNumLikesOfSong = function (songId) {
   return _songs[songId].num_likes;
