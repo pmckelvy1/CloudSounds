@@ -21,33 +21,36 @@ var Notification = React.createClass({
       styling = 'notification-box group with-fadein';
     }
     var notificationItem = this.props.item;
-    if (notificationItem.type === 'Playlist_Item') {
-      return (
-        <div className={styling}>
-          <img className="thumb-notification" src={notificationItem.item.song.image_url} />
-          <div className="notification-text">
-            {notificationItem.item.song.title} added to playlist
-            <div className="blue">{notificationItem.item.playlist_title}</div>
+    switch (notificationItem.type) {
+      case 'Playlist_item':
+        return (
+          <div className={styling}>
+            <img className="thumb-notification" src={notificationItem.item.song.image_url} />
+            <div className="notification-text">
+              {notificationItem.item.song.title} added to playlist
+              <div className="blue">{notificationItem.item.playlist_title}</div>
+            </div>
           </div>
-        </div>
-      );
-    } else if (notificationItem.type === 'Follow'){
-      return (
-        <div className={styling}>
-          <img className="thumb-notification" src={notificationItem.item.image_url} />
-          <div className="notification-text">
-            <div className="blue">{notificationItem.item.username}</div> was added to your followed users
+        );
+      case 'Follow':
+        return (
+          <div className={styling}>
+            <img className="thumb-notification" src={notificationItem.item.image_url} />
+            <div className="notification-text">
+              <div className="blue">{notificationItem.item.username}</div> was added to your followed users
+            </div>
           </div>
-        </div>
-      );
-    } else {
-      return (
-        <div className={styling}>
-        </div>
-      );
+        );
+      case 'Like':
+        return (
+          <div className={styling}>
+            <img className="thumb-notification" src={notificationItem.item.image_url} />
+            <div className="notification-text">
+              <div className="blue">{notificationItem.item.title}</div> was added to your collection
+            </div>
+          </div>
+        );
     }
-
-
   }
 });
 

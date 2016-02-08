@@ -34,6 +34,10 @@ NotificationStore.__onDispatch = function (payload) {
       addNotification({ type: 'Follow', item: payload.followedUser });
       NotificationStore.__emitChange();
       break;
+    case LikeConstants.LIKE_RECEIVED:
+      addNotification({ type: 'Like', item: payload.likedSong });
+      NotificationStore.__emitChange();
+      break;
   }
 };
 
