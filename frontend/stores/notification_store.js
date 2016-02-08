@@ -30,6 +30,10 @@ NotificationStore.__onDispatch = function (payload) {
       addNotification({ type: 'Playlist_Item', item: payload.addedSongData });
       NotificationStore.__emitChange();
       break;
+    case FollowConstants.USER_FOLLOWED:
+      addNotification({ type: 'Follow', item: payload.followedUser });
+      NotificationStore.__emitChange();
+      break;
   }
 };
 

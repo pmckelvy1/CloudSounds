@@ -31,6 +31,15 @@ var Notification = React.createClass({
           </div>
         </div>
       );
+    } else if (notificationItem.type === 'Follow'){
+      return (
+        <div className={styling}>
+          <img className="thumb-notification" src={notificationItem.item.image_url} />
+          <div className="notification-text">
+            <div className="blue">{notificationItem.item.username}</div> was added to your followed users
+          </div>
+        </div>
+      );
     } else {
       return (
         <div className={styling}>
