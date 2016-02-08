@@ -15,7 +15,7 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find_by_song_id(params[:id])
+    @like = Like.where('song_id = ? AND user_id = ?', params[:id], current_user.id)[0]
     @like.destroy!
     @song = Song.where(id: @like.song_id).includes(:likes)[0]
     render 'api/songs/liked'
