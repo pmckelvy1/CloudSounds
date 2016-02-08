@@ -12,7 +12,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Playlist.includes(:user, playlist_items: [song: [:likes, :user, comments: [:user]]]).find(params[:id])
+    @playlist = Playlist.includes(:user, playlist_items: [:playlist, song: [:likes, :user, comments: [:user]]]).find(params[:id])
     render :show
   end
 

@@ -12,7 +12,7 @@ class Api::PlaylistItemsController < ApplicationController
 
 
     if @playlist_item.save
-      @playlist_item = PlaylistItem.includes(song: [:likes, :user, comments: [:user]]).find(@playlist_item.id)
+      @playlist_item = PlaylistItem.includes(:playlist, song: [:likes, :user, comments: [:user]]).find(@playlist_item.id)
       # @song = Song.includes(:likes, :user, :playlist_items, comments: [:user]).find(params[:playlist_item][:song_id])
       # @song.playlist_items = [@playlist_item]
       # render 'api/songs/playlisted'

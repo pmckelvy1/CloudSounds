@@ -1,21 +1,29 @@
 .notification-box {
   display: block;
-  height: 30px;
+  height: 35px;
   width: 250px;
-  border: 1px solid black;
   border-radius: 3px;
   background: white;
-  padding: 5px;
   margin-bottom: 10px;
   font-size: 12px;
+  box-sizing: border-box;
+  -moz-box-shadow: 3px 3px 2px #888, -3px -3px 2px #888;
+  -webkit-box-shadow: 3px 3px 2px #888, -3px -3px 2px #888;
+  box-shadow: 3px 0px 2px #888, -3px 0px 2px #888, 0px 3px 2px #888, 0px -3px 2px #888;
+}
+
+.notification-text {
+  padding-right: 5px;
+  padding-top: 3px;
+  word-wrap: break-word;
 }
 
 .notifications-index {
   display: block;
-  width: 200px;
+  width: 250px;
   position: fixed;
-  top: 50px;
-  right: 30px;
+  top: 80px;
+  right: 40px;
 }
 
 .with-fadein {
