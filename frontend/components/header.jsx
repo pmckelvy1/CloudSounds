@@ -4,6 +4,7 @@ var SessionApiUtil = require('../util/sessions_api_util');
 var History = require('react-router').History;
 var SongPlaybackFooter = require('./audio/song_playback_footer');
 var Search = require('./search');
+var NotificationIndex = require('./notifications/notification_index');
 
 
 var Header = React.createClass({
@@ -75,6 +76,7 @@ var Header = React.createClass({
         </div>
         {this.props.children}
         <SongPlaybackFooter />
+        <NotificationIndex />
       </div>
     );
   }
