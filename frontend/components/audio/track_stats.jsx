@@ -11,6 +11,10 @@ var TrackStats = React.createClass({
     this.setState({ storeToken: storeToken });
   },
 
+  componentWillUnmount: function () {
+    this.state.storeToken.remove();
+  },
+
   updateNumComments: function () {
     this.setState({ numComments: CommentStore.getNumComments(this.props.song.id) });
   },
