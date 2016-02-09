@@ -110,7 +110,11 @@ var SongPlaybackFooter = React.createClass({
         var currentSong = currentWSObject.song;
         var songURL = '#/songs/' + currentWSObject.id;
         currentSongInfo = <div className="song-footer-info">
-          <img className="thumb-tiny-footer" src={currentSong.image_url}></img>
+          <div className="thumb-tiny-footer">
+            <div className="image-centerer">
+              <img src={currentSong.image_url}></img>
+            </div>
+          </div>
           <a href={songURL} className="song-footer-track-title">{currentSong.title}</a>
         </div>;
       } else {

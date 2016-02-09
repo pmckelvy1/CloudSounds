@@ -113,7 +113,11 @@ var TrackPlayerLarge = React.createClass({
     return (
       <div className="track-player-large">
         <div className="play-button-large">{playButton}</div>
-        <div className="thumb-large"><img src={this.props.song.image_url}/></div>
+        <div className="thumb-large">
+          <div className="image-centerer">
+            <img src={this.props.song.image_url}/>
+          </div>
+        </div>
         <h1 className="track-artist-name-div-large"><a className="track-artist-name-large" href={userURL}>{this.props.song.username}</a></h1>
         <h2 className="track-title-large">{this.props.song.title}</h2>
         <div className={playerKeyWav}>

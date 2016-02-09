@@ -40,7 +40,11 @@ var Header = React.createClass({
         <div className="upload-link"><a href="#/upload">Upload</a></div>
         <div className="profile-link">
           <a href={currentUserProfileLink}>
-            <img className="thumb-tiny" src={this.state.currentUser.image_url} />
+            <div className="thumb-tiny">
+              <div className="image-centerer">
+                <img src={this.state.currentUser.image_url} />
+              </div>
+            </div>
           Profile</a></div>
         <div className="alerts white"><ul><i className="fa fa-bell"></i></ul></div>
         <div className="messages white"><ul><i className="fa fa-envelope"></i></ul></div>

@@ -25,7 +25,11 @@ var Notification = React.createClass({
       case 'Playlist_Item':
         return (
           <div className={styling}>
-            <img className="thumb-notification" src={notificationItem.item.song.image_url} />
+            <div className="thumb-notification">
+              <div className="image-centerer">
+                <img src={notificationItem.item.song.image_url} />
+              </div>
+            </div>
             <div className="notification-text">
               {notificationItem.item.song.title} added to playlist
               <span className="blue">{notificationItem.item.playlist_title}</span>
@@ -35,7 +39,11 @@ var Notification = React.createClass({
       case 'Follow':
         return (
           <div className={styling}>
-            <img className="thumb-notification" src={notificationItem.item.image_url} />
+            <div className="thumb-notification">
+              <div className="image-centerer">
+                <img src={notificationItem.item.image_url} />
+              </div>
+            </div>
             <div className="notification-text">
               <span className="blue">{notificationItem.item.username}</span> was added to your followed users
             </div>
@@ -44,7 +52,11 @@ var Notification = React.createClass({
       case 'Like':
         return (
           <div className={styling}>
-            <img className="thumb-notification" src={notificationItem.item.image_url} />
+            <div className="thumb-notification">
+              <div className="image-centerer">
+                <img src={notificationItem.item.image_url} />
+              </div>
+            </div>
             <div className="notification-text">
               <span className="blue">{notificationItem.item.title}</span> was added to your collection
             </div>
@@ -53,7 +65,11 @@ var Notification = React.createClass({
       case 'Invalid_Playlist_Addition':
         return (
           <div className={styling}>
-            <img className="thumb-notification" src={notificationItem.item.song.image_url} />
+            <div className="thumb-notification">
+              <div className="image-centerer">
+                <img src={notificationItem.item.song.image_url} />
+              </div>
+            </div>
             <div className="notification-text">
               <span className="blue">{notificationItem.item.song.title}</span> could not be added to a second playlist
             </div>

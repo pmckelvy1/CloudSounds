@@ -122,7 +122,11 @@ var TrackPlayer = React.createClass({
 
     return (
       <div className="track-player">
-        <div className="thumb"><img src={this.props.song.image_url}/></div>
+        <div className="thumb">
+          <div className="image-centerer">
+            <img src={this.props.song.image_url}/>
+          </div>
+        </div>
         <div className="play-button">{playButton}</div>
         <div className="track-artist-name-div"><h1 className="track-artist-name"><a href={userURL}>{this.props.song.username}</a></h1></div>
         <h2 className="track-title"><a href={songURL}>{this.props.song.title}</a></h2>

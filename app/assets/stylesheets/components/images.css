@@ -3,12 +3,15 @@
   height: 340px;
   display: block;
   float: right;
+  position: relative;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .thumb-large img {
-  width: 300px;
-  height: 300px;
+  max-height: 340px;
+  display: block;
+  margin: auto;
 }
 
 .thumb {
@@ -17,11 +20,14 @@
   display: block;
   float: left;
   margin-right: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .thumb img {
-  width: 160px;
-  height: 160px;
+  max-height: 160px;
+  display: block;
+  margin: auto;
 }
 
 .thumb-med {
@@ -29,6 +35,14 @@
   height: 120px;
   display: block;
   float: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb-med img {
+  max-height: 120px;
+  display: block;
+  margin: auto;
 }
 
 .thumb-mini {
@@ -37,11 +51,14 @@
   display: block;
   float: left;
   margin-right: 6px;
+  position: relative;
+  overflow: hidden;
 }
 
 .thumb-mini img {
-  width: 45px;
-  height: 45px;
+  max-height: 45px;
+  display: block;
+  margin: auto;
 }
 
 .thumb-tiny {
@@ -51,6 +68,13 @@
   width: 26px;
   height: 26px;
   display: block;
+  overflow: hidden;
+}
+
+.thumb-tiny img {
+  max-height: 26px;
+  display: block;
+  margin: auto;
 }
 
 .thumb-tiny-footer {
@@ -59,7 +83,15 @@
   display: block;
   float: left;
   margin-right: 6px;
-  padding: 5px;
+  margin-top: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumb-tiny-footer img {
+  max-height: 35px;
+  display: block;
+  margin: auto;
 }
 
 .thumb-notification {
@@ -68,4 +100,12 @@
   display: block;
   float: left;
   margin-right: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb-notification img {
+  max-height: 35px;
+  display: block;
+  margin: auto;
 }
