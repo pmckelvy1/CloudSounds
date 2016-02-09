@@ -21,6 +21,13 @@ var PlaylistActions = {
       actionType: PlaylistConstants.REMOVE_SONG_FROM_PLAYLIST,
       deletedItem: deletedItem
     });
+  },
+
+  invalidPlaylistAddition: function (playlistItem) {
+    Dispatcher.dispatch({
+      actionType: PlaylistConstants.INVALID_PLAYLIST_ADDITION,
+      playlistItem: playlistItem
+    });
   }
 };
 

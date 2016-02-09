@@ -179,6 +179,10 @@ var ApiUtil = {
       data: { playlist_item: { song_id: songId, playlist_id: playlistId }},
       success: function (addedSongData) {
         PlaylistActions.addSongToPlaylist(addedSongData);
+      },
+      error: function (response) {
+        var playlistItem = JSON.parse(response.responseText);
+        PlaylistActions.invalidPlaylistAddition(playlistItem);
       }
     });
   },

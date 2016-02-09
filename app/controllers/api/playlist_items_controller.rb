@@ -17,7 +17,7 @@ class Api::PlaylistItemsController < ApplicationController
       # render 'api/songs/playlisted'
       render 'api/playlist_items/show'
     else
-      render json: ['could not save playlist item']
+      render 'api/playlist_items/show', status: 422
     end
   end
 

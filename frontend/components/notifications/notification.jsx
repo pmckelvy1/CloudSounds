@@ -22,13 +22,13 @@ var Notification = React.createClass({
     }
     var notificationItem = this.props.item;
     switch (notificationItem.type) {
-      case 'Playlist_item':
+      case 'Playlist_Item':
         return (
           <div className={styling}>
             <img className="thumb-notification" src={notificationItem.item.song.image_url} />
             <div className="notification-text">
               {notificationItem.item.song.title} added to playlist
-              <div className="blue">{notificationItem.item.playlist_title}</div>
+              <span className="blue">{notificationItem.item.playlist_title}</span>
             </div>
           </div>
         );
@@ -37,7 +37,7 @@ var Notification = React.createClass({
           <div className={styling}>
             <img className="thumb-notification" src={notificationItem.item.image_url} />
             <div className="notification-text">
-              <div className="blue">{notificationItem.item.username}</div> was added to your followed users
+              <span className="blue">{notificationItem.item.username}</span> was added to your followed users
             </div>
           </div>
         );
@@ -46,7 +46,16 @@ var Notification = React.createClass({
           <div className={styling}>
             <img className="thumb-notification" src={notificationItem.item.image_url} />
             <div className="notification-text">
-              <div className="blue">{notificationItem.item.title}</div> was added to your collection
+              <span className="blue">{notificationItem.item.title}</span> was added to your collection
+            </div>
+          </div>
+        );
+      case 'Invalid_Playlist_Addition':
+        return (
+          <div className={styling}>
+            <img className="thumb-notification" src={notificationItem.item.song.image_url} />
+            <div className="notification-text">
+              <span className="blue">{notificationItem.item.song.title}</span> could not be added to a second playlist
             </div>
           </div>
         );

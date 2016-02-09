@@ -38,6 +38,11 @@ NotificationStore.__onDispatch = function (payload) {
       addNotification({ type: 'Like', item: payload.likedSong });
       NotificationStore.__emitChange();
       break;
+    case PlaylistConstants.INVALID_PLAYLIST_ADDITION:
+      addNotification({ type: 'Invalid_Playlist_Addition', item: payload.playlistItem });
+      NotificationStore.__emitChange();
+      break;
+
   }
 };
 
