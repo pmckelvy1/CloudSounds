@@ -8,8 +8,7 @@ class Api::UsersController < ApplicationController
       @user = User.includes(:followings, :follows, playlists: [:user, playlist_items: [song: [:likes, :user, comments: [:user]]]], followed_users: [:followings], followed_songs: [:likes], liked_songs: [:likes], songs: [:likes]).find(@user.id)
       render :show
     else
-      flash[:errors] = @user.errors.full_messages
-      render :new
+      render json: @user.errors.full_messages
     end
   end
 
@@ -29,9 +28,15 @@ class Api::UsersController < ApplicationController
     render :index
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update!(user_params)
+    render :show
+  end
+
   private
     def user_params
-      params.require(:user).permit(:email, :username, :info, :password, :session_token)
+      params.require(:user).permit(:email, :username, :info, :password, :session_token, :image)
     end
 
 end

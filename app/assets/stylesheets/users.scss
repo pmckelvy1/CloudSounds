@@ -229,3 +229,57 @@
   border: 1px solid #999;
   // cursor: pointer;
 }
+
+.edit-form {
+  box-sizing: border-box;
+  margin: auto;
+  z-index: 3;
+  display: block;
+  width: 780px;
+}
+
+.edit-form div {
+  display: block;
+  padding: 0px 20px;
+  margin: 20px 0px;
+}
+
+.edit-form textarea {
+  width: 250px;
+  height: 100px;
+  background: white;
+  display: block;
+  float: right;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.edit-form label {
+  display: block;
+  float: left;
+  width: auto;
+}
+
+.edit-form button {
+  display: block;
+  float: none;
+  margin: auto;
+  padding: 10px 20px;
+  background: #ccc;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+
+.edit-form button:hover {
+  background: #0BF;
+  border: 2px solid black;
+}
+
+.edit-form-title {
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+}

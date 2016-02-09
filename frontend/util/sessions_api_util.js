@@ -61,7 +61,25 @@ var SessionsApiUtil = {
         success && success();
       }
     });
+  },
+
+  updateUser: function (userData, userId, success) {
+    $.ajax({
+      url: '/api/users/' + userId,
+      type: 'POST',
+      method: 'PATCH',
+      dataType: 'JSON',
+      data: userData,
+      processData: false,
+      contentType: false,
+      success: function (user) {
+        success && success();
+        CurrentUserActions.receiveCurrentUser(user);
+        UserActions.receiveSingleUser(user);
+      }
+    });
   }
+
 };
 
 module.exports = SessionsApiUtil;
