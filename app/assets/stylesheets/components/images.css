@@ -6,6 +6,7 @@
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
+  background: black;
 }
 
 .thumb-large img {
@@ -22,6 +23,7 @@
   margin-right: 20px;
   position: relative;
   overflow: hidden;
+  background: black;
 }
 
 .thumb img {
@@ -37,6 +39,7 @@
   float: left;
   position: relative;
   overflow: hidden;
+  background: black;
 }
 
 .thumb-med img {
@@ -53,6 +56,7 @@
   margin-right: 6px;
   position: relative;
   overflow: hidden;
+  background: black;
 }
 
 .thumb-mini img {
@@ -69,6 +73,7 @@
   height: 26px;
   display: block;
   overflow: hidden;
+  background: black;
 }
 
 .thumb-tiny img {
@@ -86,6 +91,7 @@
   margin-top: 5px;
   overflow: hidden;
   position: relative;
+  background: black;
 }
 
 .thumb-tiny-footer img {
@@ -102,6 +108,7 @@
   margin-right: 6px;
   position: relative;
   overflow: hidden;
+  background: black;
 }
 
 .thumb-notification img {
