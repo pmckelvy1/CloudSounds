@@ -4,7 +4,7 @@ CloudSounds is a music sharing and discovery platform based on the popular websi
 
 Live demo: www.cloudsounds.xyz
 
-![user-profile-screenshot](/app/assets/images/gh/user-profile.png "User Profile")
+![user-profile-screenshot](/app/assets/gh-images/user-profile.png "User Profile")
 
 
 ## MVP Features
