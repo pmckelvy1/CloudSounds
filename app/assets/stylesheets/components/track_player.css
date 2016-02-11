@@ -7,6 +7,14 @@
   margin-bottom: 40px;
 }
 
+.track-player-info-buttons {
+  display: block;
+  width: 640px;
+  position: absolute;
+  bottom: 0px;
+  left: 175px;
+}
+
 .track-player-large {
   position: relative;
   width: 1240px;
