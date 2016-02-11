@@ -4,6 +4,9 @@ CloudSounds is a music sharing and discovery platform based on the popular websi
 
 Live demo: www.cloudsounds.xyz
 
+![user-profile-screenshot](/app/assets/images/gh/user-profile.png "User Profile")
+
+
 ## MVP Features
 - users can signup and log in
 - users can upload songs to their profile
@@ -13,6 +16,19 @@ Live demo: www.cloudsounds.xyz
 - users can follow other users
 - users can like, repost, and comment on other users' songs
 - users can create playlists of their or other users' music
+
+## External Libraries
+- jQuery
+- React with Flux
+- Wavesurfer.js
+- Font-Awesome
+- serializeJSON
+
+## Database
+- Postgresql
+- Rails / ActiveRecord
+- Ajax requests from Javascript frontend
+- jBuilder to build nested JSON responses from server
 
 ## Implementation Timeline
 
