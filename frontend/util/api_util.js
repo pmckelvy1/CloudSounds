@@ -147,14 +147,14 @@ var ApiUtil = {
     });
   },
 
-  createComment: function(comment, callback) {
+  createComment: function(commentData, callback) {
     $.ajax({
       type: 'POST',
       url: '/api/comments/',
       dataType: 'JSON',
-      data: { comment: comment },
-      success: function (commentData) {
-        CommentActions.receiveComment(commentData);
+      data: { comment: commentData },
+      success: function (comment) {
+        CommentActions.receiveComment(comment);
         callback && callback();
       }
     });
