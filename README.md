@@ -33,16 +33,16 @@ Live demo: www.cloudsounds.xyz
 
 ## Implementation Timeline
 
-### Phase 1: User authentication and basic profile setup (1 day)
+### [Phase 1](planning/phases/phase1.md): User authentication and basic profile setup (1 day)
 Phase 1 will consist of getting basic functionality working for a single user.  This will include signing up with an EMAIL, PASSWORD, and ARTIST-NAME.  Upon signing in, users will land on a basic homepage that will be their profile.
 
-### Phase 2: Browsing and following other artists (1.5 days)
+### [Phase 2](planning/phases/phase2.md): Browsing and following other artists (1.5 days)
 Phase 2 will consist of building basic interaction between users.  Users will be able to search for and follow other users.  Users will be able to visit the profile pages of other users.  From here on out, the website will be a single-page app.  The log-in landing page will now be a browse/stream page consisting of the music of other artists that the user follows.  Phase 2 will consist mainly of styling the website and getting certain components ready for later functionality, i.e. populating user profiles with dummy images (song artwork) inside audio track boxes that will later house playable audio.
 
-### Phase 3: Uploads, user-music interaction (2.5 days)
+### [Phase 3](planning/phases/phase3.md): Uploads, user-music interaction (2.5 days)
 Phase 3 will add music.  Users will be able to upload songs to their profile.  Users will have the option to upload a profile picture, as well as a header picture.  This phase will also consist of implementing functionality to allow users to like, repost, and comment on audio tracks uploaded by other artists.  Users will see the counts of likes and plays on their own profile.  Users will also see the comments left on their songs by other users. Users will be able to listen to their music and the music of other users.  Music will not stop playing as the user browses the website.
 
-### Phase 4: Playlists (1.5 days)
+### [Phase 4](planning/phases/phase4.md): Playlists (1.5 days)
 Phase 4 will consist of giving users the ability to create playlists.  The playlists can consist of their own music, as well as the music of other artists.  The playlists will be ordered by the user.  When a user plays a playlist, it will play all the way through to the end, starting from whatever song the user hit play on.
 
 ### EXTRA Phase: Other ideas to implement
