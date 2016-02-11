@@ -23,8 +23,10 @@
 }
 
 .footer-playback-container {
+  display: block;
+  width: 620px;
   position: absolute;
-  bottom: 25px;
+  bottom: 11px;
   left: 250px;
 }
 
@@ -93,11 +95,19 @@
   display: block;
   float: left;
   position: relative;
+  padding: 10px;
+  bottom: 0px;
+  margin-left: 20px;
+}
+
+.draggable:hover {
+  cursor: pointer;
 }
 
 .status-dot {
   position: absolute;
-  bottom: -12px;
+  bottom: 1px;
+  display: block;
   z-index: 2;
 }
 
@@ -105,7 +115,6 @@
   display: block;
   float: left;
   position: absolute;
-  bottom: -3px;
   height: 2px;
   background: #0BF;
   z-index: 2;
@@ -114,8 +123,6 @@
 .playback-status-incomplete {
   display: block;
   float: left;
-  position: absolute;
-  bottom: -3px;
   height: 2px;
   background: #aaa;
   z-index: 1;
@@ -125,17 +132,16 @@
 .current-time {
   font-size: 12px;
   display: block;
-  position: absolute;
-  left: -50px;
-  bottom: -10px;
+  float: left;
+  width: 30px;
+  line-height: 1.8;
 }
 
 .total-time {
   font-size: 12px;
   display: block;
-  position: absolute;
-  right: -50px;
-  bottom: -10px;
+  float: right;
+  line-height: 1.8;
 }
 
 .next-song-button {

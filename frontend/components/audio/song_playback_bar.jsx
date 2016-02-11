@@ -54,9 +54,11 @@ var SongPlaybackBar = React.createClass({
     }
 
     return (
-      <div className="footer-playback-container">
+      <div className="footer-playback-container group">
         <div className="current-time">{convertedCT}</div>
-        <div className="playback-bar">
+        <div className="playback-bar draggable" role="progressbar"
+          aria-valuemax={this.state.totalTime} aria-valuenow={this.state.time}
+          aria-valuemin='0'>
           <div className="status-dot"
             style={leftStyle}>
             <i className="fa fa-circle blue"></i>
