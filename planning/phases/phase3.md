@@ -1,28 +1,27 @@
-### Phase 3: User-music interaction ###
-#######################################
+# Phase 3: User-music interaction
 
-## MODELS
+## Models
 
-# Like model
+### Like model
   - validations:  user_id, song_id, PRESENCE, UNIQUENESS
   - associations: BELONGS_TO, user, song
 
-# Repost model
+### Repost model
   - validations:  user_id, song_id, PRESENCE, UNIQUENESS
   - associations: BELONGS_TO, user, song
 
-# Comment model
+### Comment model
   - validations:  user_id, song_id, body, time_stamp, PRESENCE
   - associations: BELONGS_TO, user, song
 
-# User model
+### User model
   - associations: HAS_MANY likes
                   HAS_MANY liked_songs THROUGH likes
                   HAS_MANY reposts
                   HAS_MANY reposted_songs THROUGH reposts
                   HAS_MANY comments
 
-# Song model
+### Song model
   - associations: HAS_MANY likes
                   HAS_MANY likers THROUGH likes
                   HAS_MANY reposts
@@ -31,34 +30,34 @@
                   HAS_MANY commenters THROUGH comments
 
 
-## CONTROLLERS
+## Controllers
 
-# likes controller
+### likes controller
   - routes:       create, show [under song]
                   index, destroy
 
-# reposts controller
+### reposts controller
   - routes:       create [under song]
                   destroy
 
-# comments controller
+### comments controller
   - routes:       create, index [under song]
                   destroy
 
-# users controller
+### users controller
   - routes:       show (add INCLUDES (likes, liked_songs, reposted_songs))
 
-# songs controller
+### songs controller
   - routes:       show (add INCLUDES (likes, likers, reposts, reposters, comments, commenters))
                   index (add INCLUDES (likes, reposts, comments, commenters))
 
-## VIEWS
+## Views
   - users/show.json.jbuilder (add likes, reposts)
   - songs/show.json.jbuilder (add comments)
 
-## REACT / FLUX
+## React / Flux
 
-# COMPONENTS    
+### Components
   - likeButton
   - likeFeed
   - repostButton
@@ -67,17 +66,17 @@
   - commentBarn (displays comments along bottom of audio waveform)
   - commentFeed
 
-# STORES        
+### Stores       
   - like_store
   - repost_store
   - comment_store
 
-# CONSTANTS     
+### Constants     
   - like_constants
   - repost_constants
   - comment_constants
 
-# ACTIONS       
+### Actions          
   - like_actions
     - createLike(song_id)
     - destroyLike(like_id)
@@ -96,7 +95,7 @@
     - receiveReposts
     - receiveComments
 
-# UTILS         
+### Utils          
   - api_utils
     - createLike(song_id)
     - destroyLike(like_id)

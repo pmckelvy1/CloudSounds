@@ -1,56 +1,54 @@
-### Phase 2: Basic artist interaction ###
-#########################################
+# Phase 2: Basic artist interaction
 
-## MODELS
+## Models
 
-# Follow model
+## Follow model
   - validations:  user_id, followed_id, PRESENCE, UNIQUENESS
   - associations: BELONGS_TO user, followed
 
-# User model
+## User model
   - associations: HAS_MANY follows, followings
   HAS_MANY followers THROUGH followings
   HAS_MANY followed_artists THROUGH follows
 
 
-## CONTROLLERS
+## Controllers
 
-# follows controller
+### follows controller
   - routes:       create [under user]
                   index (artists that a user follows), show (other users that follow a user), destroy
 
-# users controller
+### users controller
   - routes:       show (add INCLUDES (follows, followers, followings, followed_artists))
                   index (for search function, request includes query-string)
 
-# songs controller
+### songs controller
   - routes:       update (add each play to play count)
                   show (add play count)
 
 
-## VIEWS
+## Views
   - users/show.json.jbuilder (add follow/follower data)
   - songs/show.json.jbuilder (add num_plays data)
 
+  - signed-in root page: '/songs' (feed of currently followed artists' music)
 
-# signed-in root page: '/songs' (feed of currently followed artists' music)
+## React / Flux
 
-## REACT / FLUX
-
-# COMPONENTS    
+### Components  
   - feed
   - followButton
   - follower
   - followFeed
   - searchBar
 
-# STORES        
+### Stores      
   - follow_store
 
-# CONSTANTS     
+### Constants     
   - follow_constants
 
-# ACTIONS       
+### Actions        
   - follow_actions
     - createFollow(artist_id)
     - destroyFollow(follow_id)
@@ -60,7 +58,7 @@
     - receiveFollows (for 'Following' tab)
     - receiveFollowers (for 'Followers' tab)
 
-# UTILS         
+### Utils         
   - api_utils
     - createFollow(artist_id)
     - destroyFollow(follow_id)

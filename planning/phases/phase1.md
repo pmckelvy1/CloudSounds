@@ -1,54 +1,52 @@
-### Phase 1: User Authentication ###
-####################################
+# Phase 1: User Authentication
 
-### MODELS
+## Models
 
-# User model
+### User model
   - validations:  email, username, password, session-token, PRESENCE
                   email, username, UNIQUE
   - associations: HAS_MANY songs, DD
                   HAS_ONE profile_picture, header_picture as imageable, DD
 
-# Song model
+### Song model
   - validations:  user_id, title, body, audio, PRESENCE
   - associations: BELONGS_TO user
                   HAS_ONE imageable as imageable DD
 
-# Image model
+### Image model
   - validations:  imageable_id, imageable_type, url/blob, PRESENCE
                   imageable_id, UNIQUE TRUE IN imageable_type USER
   - associations  BELONGS_TO imageable, polymorphic: true
 
 
-### CONTROLLERS
+## Controllers
 
-# sessions controller
+### sessions controller
   - routes:       new, create, destroy
 
-# users controller
+### users controller
   - routes:       new, create, show, edit, update, destroy
 
-# songs controller
+### songs controller
   - routes:       new, create, show, edit, update, destroy
                   index [under user]
 
-# images controller
+### images controller
   - routes:       create, edit, update (under user)
 
 
-### VIEWS
+## Views
   - users/new.html.erb
   - session/new.html.erb (modal)
   - users/show.json.jbuilder
   - songs/show.json.jbuilder
-
   - root page: '/session/new'
   - signed-in root page: 'staticpages.html.erb' (with current user profile page rendered)
 
 
-### REACT / FLUX
+## React / Flux
 
-# COMPONENTS
+### Components
   - userProfile
     - userInfo
     - userCatalog
@@ -57,15 +55,15 @@
     - playButton
   - jam_box.jsx
 
-# STORES
+### Stores
   - user_store
   - song_store
 
-# CONSTANTS     
+### Constants     
   - user_constants
   - song_constants
 
-# ACTIONS       
+### Actions       
   - user_actions
     - updateUser
   - song_actions
@@ -88,7 +86,7 @@
     - deleteImage
     - receiveUser
 
-# UTILS         
+### Utils         
   - api_utils
     - createSong
     - fetchSingleSong(:song_id)
@@ -101,5 +99,5 @@
     - updateImage(:image_id)
   - audio_track
 
-# DISPATCHER
+### Dispatcher
   - dispatcher

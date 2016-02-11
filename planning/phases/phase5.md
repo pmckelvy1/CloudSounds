@@ -1,49 +1,48 @@
-### Phase 5: User messaging ###
-###############################
+# Phase 5: User messaging
 
-## MODELS
+## Models
 
-# message model
+### message model
   - validations:  user_id, receiver_id, body, PRESENCE
   - associations: BELONGS_TO user, receiver
 
-# Thread model
+### Thread model
   - validations: user_id, receiver_id PRESENCE
   - associations: BELONGS_TO user, receiver
 
-# user model
+### user model
   - associations: HAS_MANY messages
 
 
-## CONTROLLERS
+## Controllers
 
-# messages controller
+### messages controller
   - routes:       create (under user)
                   index (under thread)
 
-# threads controller
+### threads controller
   - routes:       create (under user)
                   update, show, index
 
-# users controllers
+### users controllers
   - routes:       show (add INCLUDES (messages))
 
 
-## REACT / FLUX
+## React / Flux
 
-# COMPONENTS    
+### Components  
   - message
   - thread
 
-# STORES        
+### Stores     
   - message_store
   - thread_store
 
-# CONSTANTS     
+### Constants      
   - message_constants
   - thread_constants
 
-# ACTIONS       
+### Actions         
   - message_actions
     - createMessage
   - thread_actions
@@ -55,7 +54,7 @@
     - receiveSingleThread (all messages)
     - receiveAllThreads (1 message each, all messages for most recent thread)
 
-# UTILS         
+### Utils        
   - api_utils
     - createMessage
     - createThread
