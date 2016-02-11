@@ -29,6 +29,7 @@ Live demo: www.cloudsounds.xyz
 - Rails / ActiveRecord
 - Ajax requests from Javascript frontend
 - jBuilder to build nested JSON responses from server
+- [Schema](planning/schema.md)
 
 ## Implementation Timeline
 
