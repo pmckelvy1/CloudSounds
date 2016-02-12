@@ -17,6 +17,7 @@
     "babel-core": "^6.1.4",
     "babel-loader": "^6.1.0",
     "babel-preset-react": "^6.1.4",
+    "dragdealer": "^0.9.9",
     "element-class": "^0.2.2",
     "file-loader": "^0.8.5",
     "flux": "^2.1.1",
