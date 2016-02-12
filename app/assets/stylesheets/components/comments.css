@@ -150,3 +150,39 @@
   bottom: -10px;
   opacity: 1;
 }
+
+.comment-input-box-small {
+  font-size: 12px;
+  padding: 7px;
+  display: block;
+  float: right;
+  background: #f5f5f5;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  width: 645px;
+}
+
+.comment-body-input-small {
+  background: white;
+  display: block;
+  width: 605px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 3px;
+  box-sizing: border-box;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.comment-input-thumb-small {
+  width: 22px;
+  height: 22px;
+  display: block;
+  float: left;
+}
+
+.comment-input-thumb-enlcosure-small {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  width: 645px;
+}

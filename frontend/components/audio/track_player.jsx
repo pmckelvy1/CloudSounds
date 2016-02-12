@@ -8,6 +8,7 @@ var TrackStats = require('./track_stats');
 var ApiUtil = require('../../util/api_util');
 var AddToPlaylist = require('../buttons/add_to_playlist');
 var CommentLayer = require('../comments/comment_layer_track_player');
+var CommentInputBoxSmall = require('../comments/comment_input_box_small');
 
 var TrackPlayer = React.createClass({
   mixins: [PlaybackFunctions],
@@ -126,7 +127,7 @@ var TrackPlayer = React.createClass({
     // var hideStyle = { visibility: hidden, position: position };
     var heightStyle;
     if (this.state.extended) {
-      heightStyle = { height: 200, transition: 'height 1s ease' };
+      heightStyle = { height: 220, transition: 'height 1s ease' };
     }
 
     return (
@@ -144,6 +145,7 @@ var TrackPlayer = React.createClass({
         </div>
         <CommentLayer songLength={CurrentPlayingSongStore.getDuration(this.props.song.id)}
             comments={this.props.song.comments} extendPlayer={this.extendPlayer}/>
+          <CommentInputBoxSmall song={this.props.song} />
         <div className="track-player-info-buttons group">
           <LikeButton song={this.props.song} />
           <AddToPlaylist song={this.props.song} />
