@@ -31,7 +31,11 @@ CommentStore.getSongComments = function (songId) {
 };
 
 CommentStore.getNumComments = function (songId) {
-  return _comments[songId].length;
+  if (_comments[songId]) {
+    return _comments[songId].length;
+  } else {
+    return 0;
+  }
 };
 
 CommentStore.__onDispatch = function (payload) {
