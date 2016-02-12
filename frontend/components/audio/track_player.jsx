@@ -85,6 +85,10 @@ var TrackPlayer = React.createClass({
     this.playPause(this.state.WSObject.id);
   },
 
+  extendPlayer: function () {
+    this.setState({ extended: true });
+  },
+
   render: function () {
     var userURL = '#/users/' + this.props.song.user_id;
     var songURL = '#/songs/' + this.props.song.id;
@@ -120,9 +124,13 @@ var TrackPlayer = React.createClass({
     //   hidden = 'visible';
     // }
     // var hideStyle = { visibility: hidden, position: position };
+    var heightStyle;
+    if (this.state.extended) {
+      heightStyle = { height: 200, transition: 'height 1s ease' };
+    }
 
     return (
-      <div className="track-player">
+      <div className="track-player" style={heightStyle}>
         <div className="thumb">
           <div className="image-centerer">
             <img src={this.props.song.image_url}/>
@@ -135,7 +143,7 @@ var TrackPlayer = React.createClass({
 
         </div>
         <CommentLayer songLength={CurrentPlayingSongStore.getDuration(this.props.song.id)}
-            comments={this.props.song.comments} />
+            comments={this.props.song.comments} extendPlayer={this.extendPlayer}/>
         <div className="track-player-info-buttons group">
           <LikeButton song={this.props.song} />
           <AddToPlaylist song={this.props.song} />

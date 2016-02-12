@@ -10,8 +10,8 @@ var CommentLayer = React.createClass({
     }
     var comments = this.props.comments.map(function (comment) {
       return <CommentComponentMini key={comment.id} comment={comment}
-        songLength={songLength}/>;
-    });
+        songLength={songLength} extendPlayer={this.props.extendPlayer}/>;
+    }.bind(this));
     return (
       <div className="comment-layer">
         {comments}

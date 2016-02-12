@@ -16,7 +16,7 @@ var CommentComponentMini = React.createClass({
 
     return (
       <div className="comment-component-mini" style={leftStyle}
-        onMouseEnter={this.setHovering} onMouseLeave={this.unSetHovering}>
+        onMouseEnter={this.props.extendPlayer}>
         <img className="thumb-super-mini" src={this.props.comment.user.image_url}/>
         {body}
       </div>

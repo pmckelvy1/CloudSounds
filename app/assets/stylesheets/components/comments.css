@@ -94,7 +94,7 @@
 .comment-layer {
   display: block;
   position: absolute;
-  bottom: 25px;
+  top: 135px;
   left: 175px;
   width: 645px;
   height: 10px;
