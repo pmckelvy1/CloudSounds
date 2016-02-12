@@ -1,0 +1,57 @@
+.volume-component {
+  display: block;
+  float: right;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  box-sizing: border-box;
+  right: 35px;
+}
+
+.volume-slider {
+  display: block;
+  position: absolute;
+  bottom: 45px;
+  height: 150px;
+  padding: 15px;
+  box-sizing: border-box;
+  visibility: hidden;
+}
+
+.volume-button {
+  width: 45px;
+  height: 45px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.volume-button:hover {
+  cursor: pointer;
+}
+
+.volume-button:hover .volume-slider {
+  visibility: visible;
+}
+
+.volume-state-bar {
+  display: block;
+  margin: auto;
+  background: #999;
+  width: 4px;
+  z-index: 2;
+}
+
+.volume-potential-bar {
+  display: block;
+  margin: auto;
+  background: #eee;
+  width: 4px;
+  height: 135px;
+  z-index: 3;
+}
+
+.volume-slider-handle {
+  position: absolute;
+  color: #ccc;
+  z-index: 4;
+}

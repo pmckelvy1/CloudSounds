@@ -4,6 +4,7 @@ var PlayingSongActions = require('../../actions/playing_song_actions');
 var SongPlaybackBar = require('./song_playback_bar');
 var PlaybackFunctions = require('../../mixins/playback_functions');
 var CurrentUserStore = require('../../stores/current_user_store');
+var VolumeSlider = require('./volume_slider');
 
 var SongPlaybackFooter = React.createClass({
 
@@ -65,13 +66,13 @@ var SongPlaybackFooter = React.createClass({
       if (!this.isPlaying()) {
         playButton = <button onClick={this.pP}>
           <div className="playback-play-button">
-            <i className="fa fa-play fa-2x"></i>
+            <i className="fa fa-play"></i>
           </div>
         </button>;
       } else {
         playButton = <button onClick={this.pP}>
           <div className="playback-pause-button">
-            <i className="fa fa-pause fa-2x"></i>
+            <i className="fa fa-pause"></i>
           </div>
         </button>;
       }
@@ -79,13 +80,13 @@ var SongPlaybackFooter = React.createClass({
       if (CurrentPlayingSongStore.hasNext()) {
         forwardButton = <div className="next-song-button">
           <button onClick={this.nextSong}>
-          <i className="fa fa-step-forward fa-2x"></i>
+          <i className="fa fa-step-forward"></i>
           </button>
         </div>;
       } else {
         forwardButton = <div className="next-song-button disabled">
           <button disabled="true">
-          <i className="fa fa-step-forward fa-2x"></i>
+          <i className="fa fa-step-forward"></i>
           </button>
         </div>;
       }
@@ -93,13 +94,13 @@ var SongPlaybackFooter = React.createClass({
       if (CurrentPlayingSongStore.hasPrev()) {
         backButton = <div className="last-song-button">
           <button onClick={this.lastSong}>
-          <i className="fa fa-step-backward fa-2x"></i>
+          <i className="fa fa-step-backward"></i>
           </button>
         </div>;
       } else {
         backButton = <div className="last-song-button disabled">
           <button disabled="true">
-          <i className="fa fa-step-backward fa-2x"></i>
+          <i className="fa fa-step-backward"></i>
           </button>
         </div>;
       }
@@ -130,8 +131,9 @@ var SongPlaybackFooter = React.createClass({
             </div>
             {forwardButton}
             <SongPlaybackBar />
-            {currentSongInfo}
           </div>
+          {currentSongInfo}
+          <VolumeSlider />
         </div>
       );
     }
