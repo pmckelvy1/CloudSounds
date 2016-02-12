@@ -57,7 +57,7 @@ var VolumeSlider = React.createClass({
   },
 
   render: function () {
-    var sliderDisplay = { display: 'block' };
+    var sliderDisplay = { display: 'none' };
     // if (this.state.sliderOpen) {
     //   sliderDisplay = { display: 'block' };
     // } else {
