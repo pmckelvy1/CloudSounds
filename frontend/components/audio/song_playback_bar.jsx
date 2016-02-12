@@ -13,9 +13,9 @@ var SongPlaybackBar = React.createClass({
     this.onPlayback();
     var options = {
       disabled: false,
-      verticle: false,
       x: 0,
       y: 0,
+      css3: false,
       steps: 0,
       snap: false,
       speed: 1,
