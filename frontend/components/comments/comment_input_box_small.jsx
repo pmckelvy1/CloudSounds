@@ -31,9 +31,12 @@ var CommentInputBoxSmall = React.createClass({
 
   render: function () {
     var imgURL = CurrentUserStore.getCurrentUserProfilePic();
-
+    var extendStyle;
+    if (this.props.extended) {
+      extendStyle = { opacity: 1, transition: 'opacity 1s ease' };
+    }
     return (
-      <div className="comment-input-box-small">
+      <div className="comment-input-box-small" style={extendStyle}>
         <form onSubmit={this.submit}>
           <img className="comment-input-thumb-small" src={imgURL} />
           <input id="body" type="text" onInput={this.getTimeStamp} className="comment-body-input-small" valueLink={this.linkState('body')}></input>

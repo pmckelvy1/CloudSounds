@@ -4,6 +4,7 @@ var CommentComponentMini = require('./comment_component_mini');
 var CommentLayer = React.createClass({
 
   render: function () {
+
     var songLength;
     if (this.props.songLength) {
       songLength = this.props.songLength;

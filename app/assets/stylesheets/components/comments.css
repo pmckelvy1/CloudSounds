@@ -160,6 +160,7 @@
   box-sizing: border-box;
   border: 1px solid #eee;
   width: 645px;
+  opacity: 0;
 }
 
 .comment-body-input-small {
