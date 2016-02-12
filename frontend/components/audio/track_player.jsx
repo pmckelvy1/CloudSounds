@@ -29,7 +29,7 @@ var TrackPlayer = React.createClass({
     } else {
       var wavesurfer = WaveSurfer.create({
         container: '.wave' + playerKey,
-        waveColor: 'silver',
+        waveColor: '#999',
         progressColor: '#0BF',
         barWidth: 2,
         cursorWidth: 0,
@@ -133,7 +133,7 @@ var TrackPlayer = React.createClass({
         <div className={playerKeyWav}>
 
         </div>
-        <div className="track-player-info-buttons group">          
+        <div className="track-player-info-buttons group">
           <LikeButton song={this.props.song} />
           <AddToPlaylist song={this.props.song} />
           <div className="track-stats-reg">
