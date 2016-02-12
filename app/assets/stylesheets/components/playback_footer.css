@@ -106,7 +106,7 @@
   display: block;
   float: left;
   position: absolute;
-  padding: 10px;
+  margin-bottom: 10px;
   bottom: 0px;
 }
 
@@ -117,7 +117,7 @@
   position: absolute;
   padding: 10px;
   bottom: 0px;
-  left: 20px;
+  left: 28px;
   margin-left: 20px;
 }
 
@@ -136,20 +136,21 @@
   display: block;
   float: left;
   position: absolute;
+  bottom: 0px;
   height: 2px;
   background: #0BF;
   z-index: 2;
-  left: 10px;
 }
 
 .playback-status-incomplete {
   display: block;
   float: left;
+  position: absolute;
+  bottom: 0px;
   height: 2px;
   background: #aaa;
   z-index: 1;
   width: 500px;
-  left: 10px;
 }
 
 .current-time {
