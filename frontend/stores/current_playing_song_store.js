@@ -9,6 +9,7 @@ var _pastSongsIdArray = [];
 var _songs = {};
 var _currentSong = null;
 var _currentTime = 0;
+var muted = false;
 
 var collectGarbage = function () {
   var id;
@@ -58,6 +59,12 @@ var addSongs = function (WSPlaylist) {
   });
 };
 
+var setMuted = function () {
+  if (muted) {
+    _currentSong.wavesurfer.toggleMute();
+  }
+};
+
 var nextSong = function () {
   // _pastSongs.push(Object.assign({}, _currentSong));
   if (_currentSong.wavesurfer.isPlaying()) {
@@ -66,6 +73,7 @@ var nextSong = function () {
   _pastSongsIdArray.push(_currentSong.id);
   var nextId = _queuedSongsIdArray.shift();
   _currentSong = _songs[nextId];
+  setMuted();
   _currentSong.wavesurfer.play();
   collectGarbage();
 };
@@ -78,6 +86,7 @@ var lastSong = function () {
   _queuedSongsIdArray.unshift(_currentSong.id);
   var lastId = _pastSongsIdArray.pop();
   _currentSong = _songs[lastId];
+  setMuted();
   _currentSong.wavesurfer.play();
 };
 
@@ -111,6 +120,7 @@ var queueSong = function (songId) {
   _currentSong = _songs[songId];
 
   // PLAY IT
+  setMuted();
   _currentSong.wavesurfer.play();
 };
 
@@ -135,6 +145,15 @@ var resetSong = function (WSObject) {
     _pastSongsIdArray.push(_currentSong.id);
   }
   _currentSong = WSObject;
+};
+
+var toggleMute = function () {
+  _currentSong.wavesurfer.toggleMute();
+  muted = !muted;
+};
+
+var seekTo = function (percent) {
+  _currentSong.wavesurfer.seekTo(percent);
 };
 
 CurrentPlayingSongStore.remount = function (songId, height) {
@@ -256,10 +275,6 @@ CurrentPlayingSongStore.isPlaying = function (songId) {
   }
 };
 
-CurrentPlayingSongStore.seekTo = function (percent) {
-  _currentSong.wavesurfer.seekTo(percent);
-};
-
 CurrentPlayingSongStore.destroySong = function (id) {
   delete _songs[id];
   var idx;
@@ -272,6 +287,8 @@ CurrentPlayingSongStore.destroySong = function (id) {
     _pastSongsIdArray.splice(idx, 1);
   }
 };
+
+
 
 CurrentPlayingSongStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
@@ -301,6 +318,14 @@ CurrentPlayingSongStore.__onDispatch = function (payload) {
       break;
     case PlayingSongConstants.PLAY_PAUSE:
       playPause(payload.songId);
+      CurrentPlayingSongStore.__emitChange();
+      break;
+    case PlayingSongConstants.SEEK_TO:
+      seekTo(payload.x);
+      CurrentPlayingSongStore.__emitChange();
+      break;
+    case PlayingSongConstants.TOGGLE_MUTE:
+      toggleMute();
       CurrentPlayingSongStore.__emitChange();
       break;
   }

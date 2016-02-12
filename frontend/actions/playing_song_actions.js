@@ -45,6 +45,19 @@ var PlayingSongActions = {
       actionType: PlayingSongConstants.NEW_PLAYLIST,
       WSPlaylist: WSPlaylist
     });
+  },
+
+  seekTo: function (x) {
+    Dispatcher.dispatch({
+      actionType: PlayingSongConstants.SEEK_TO,
+      x: x
+    });
+  },
+
+  toggleMute: function () {
+    Dispatcher.dispatch({
+      actionType: PlayingSongConstants.TOGGLE_MUTE
+    });
   }
 };
 

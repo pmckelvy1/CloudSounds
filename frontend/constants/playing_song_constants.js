@@ -5,7 +5,9 @@ var PlayingSongConstants = {
   PLAY_PAUSE: "PLAY_PAUSE",
   NEXT_SONG: "NEXT_SONG",
   LAST_SONG: "LAST_SONG",
-  NEW_PLAYLIST: "NEW_PLAYLIST"
+  NEW_PLAYLIST: "NEW_PLAYLIST",
+  TOGGLE_MUTE: "TOGGLE_MUTE",
+  SEEK_TO: "SEEK_TO"
 };
 
 module.exports = PlayingSongConstants;

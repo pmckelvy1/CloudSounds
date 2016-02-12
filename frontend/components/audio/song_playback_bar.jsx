@@ -1,6 +1,7 @@
 var React = require('react');
 var CurrentPlayingSongStore = require('../../stores/current_playing_song_store');
 var DragDealer = require('../../../vendor/assets/javascripts/dragdealer');
+var PlayingSongActions = require('../../actions/playing_song_actions');
 
 var SongPlaybackBar = React.createClass({
   getInitialState: function () {
@@ -31,7 +32,7 @@ var SongPlaybackBar = React.createClass({
   },
 
   setPlaybackState: function (x) {
-    CurrentPlayingSongStore.seekTo(x);
+    PlayingSongActions.seekTo(x);
     $('.handle').css('transform', 'translateX(0px)');
     this.setState({ dragging: false });
   },
