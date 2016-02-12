@@ -106,13 +106,14 @@ var SongPlaybackBar = React.createClass({
             aria-valuemin='0'>
             <div className="status-dot handle"
               style={leftStyle}>
-              <i className="fa fa-circle blue"></i></div>
-              <div className="under-bar">
-                <div className="playback-status"
-                  style={widthStyle}>
-                </div>
-                <div className="playback-status-incomplete"></div>
+              <i className="fa fa-circle blue"></i>
+            </div>
+            <div className="under-bar">
+              <div className="playback-status"
+                style={widthStyle}>
               </div>
+              <div className="playback-status-incomplete"></div>
+            </div>
           </div>
           <div className="total-time">{convertedTT}</div>
         </div>
@@ -138,13 +139,13 @@ var SongPlaybackBar = React.createClass({
             aria-valuemin='0'>
             <div className="status-dot handle">
               <i className="fa fa-circle blue"></i>
+            </div>
+            <div className="under-bar">
+              <div className="playback-status"
+                style={this.state.widthStyle}>
               </div>
-              <div className="under-bar">
-                <div className="playback-status"
-                  style={this.state.widthStyle}>
-                </div>
-                <div className="playback-status-incomplete"></div>
-              </div>
+              <div className="playback-status-incomplete"></div>
+            </div>
           </div>
           <div className="total-time">{convertedTT}</div>
         </div>
