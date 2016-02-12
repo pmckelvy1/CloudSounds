@@ -256,6 +256,10 @@ CurrentPlayingSongStore.isPlaying = function (songId) {
   }
 };
 
+CurrentPlayingSongStore.seekTo = function (percent) {
+  _currentSong.wavesurfer.seekTo(percent);
+};
+
 CurrentPlayingSongStore.destroySong = function (id) {
   delete _songs[id];
   var idx;

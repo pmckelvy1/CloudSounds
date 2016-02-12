@@ -27,7 +27,7 @@
   width: 620px;
   position: absolute;
   bottom: 11px;
-  left: 250px;
+  left: 220px;
 }
 
 .playback-footer-play-pause-button {
@@ -94,9 +94,30 @@
   width: 500px;
   display: block;
   float: left;
-  position: relative;
+  position: absolute;
   padding: 10px;
   bottom: 0px;
+  left: 28px;
+  margin-left: 20px;
+}
+
+.under-bar {
+  width: 500px;
+  display: block;
+  float: left;
+  position: absolute;
+  padding: 10px;
+  bottom: 0px;
+}
+
+.playback-bar-dot {
+  width: 500px;
+  display: block;
+  float: left;
+  position: absolute;
+  padding: 10px;
+  bottom: 0px;
+  left: 20px;
   margin-left: 20px;
 }
 
@@ -118,6 +139,7 @@
   height: 2px;
   background: #0BF;
   z-index: 2;
+  left: 10px;
 }
 
 .playback-status-incomplete {
@@ -127,6 +149,7 @@
   background: #aaa;
   z-index: 1;
   width: 500px;
+  left: 10px;
 }
 
 .current-time {

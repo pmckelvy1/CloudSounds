@@ -7,14 +7,14 @@
  */
 
 .dragdealer {
-  position: relative;
+  /*position: relative;
   height: 30px;
-  background: #EEE;
+  background: #EEE;*/
 }
 .dragdealer .handle {
-  position: absolute;
-  top: 0;
-  left: 0;
+  /*position: absolute;*/
+  /*top: 0;
+  left: 0;*/
   cursor: pointer;
 }
 .dragdealer .red-bar {
