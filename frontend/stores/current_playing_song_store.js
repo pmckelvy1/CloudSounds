@@ -251,8 +251,12 @@ CurrentPlayingSongStore.getCurrentTime = function (songId) {
   }
 };
 
-CurrentPlayingSongStore.getDuration = function () {
-  if (_currentSong) {
+CurrentPlayingSongStore.getDuration = function (songId) {
+  if (songId) {
+    if (_songs[songId]) {
+      return _songs[songId].wavesurfer.getDuration();
+    }
+  } else if (_currentSong) {
     return _currentSong.wavesurfer.getDuration();
   }
 };

@@ -90,3 +90,63 @@
 .leave-a-comment {
 
 }
+
+.comment-layer {
+  display: block;
+  position: absolute;
+  bottom: 25px;
+  left: 175px;
+  width: 645px;
+  height: 10px;
+  z-index: 3;
+}
+
+.comment-component-username {
+  display: block;
+  float: left;
+  margin-right: 10px;
+  color: #0BF;
+}
+
+.comment-component-body {
+  display: block;
+  float: left;
+  color: #777;
+}
+
+.comment-component-mini {
+  display: block;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  bottom: 0px;
+  overflow: hidden;
+}
+
+.comment-component-mini:hover {
+  overflow: visible;
+}
+
+/*.comment-component-mini:hover .comment-component-innards {
+  visibility: visible;
+}*/
+
+.comment-component-innards {
+  text-overflow: ellipsis;
+  width: 200px;
+  display: block;
+  position: relative;
+  bottom: 0px;
+  font-size: 12px;
+  opacity: 0;
+
+  -webkit-transition: bottom 0.5s, opacity 0.5s ease;
+  -moz-transition: bottom 0.5s, opacity 0.5s ease;
+  -o-transition: bottom 0.5s, opacity 0.5s ease;
+  transition: bottom 0.5s, opacity 0.5s ease;
+}
+
+.comment-component-innards:hover {
+  bottom: -10px;
+  opacity: 1;
+}

@@ -116,3 +116,11 @@
   display: block;
   margin: auto;
 }
+
+.thumb-super-mini {
+  height: 10px;
+  width: 10px;
+  margin-right: 5px;
+  display: block;
+  float: left;
+}

@@ -7,6 +7,7 @@ var PlaybackFunctions = require('../../mixins/playback_functions');
 var TrackStats = require('./track_stats');
 var ApiUtil = require('../../util/api_util');
 var AddToPlaylist = require('../buttons/add_to_playlist');
+var CommentLayer = require('../comments/comment_layer_track_player');
 
 var TrackPlayer = React.createClass({
   mixins: [PlaybackFunctions],
@@ -133,6 +134,8 @@ var TrackPlayer = React.createClass({
         <div className={playerKeyWav}>
 
         </div>
+        <CommentLayer songLength={CurrentPlayingSongStore.getDuration(this.props.song.id)}
+            comments={this.props.song.comments} />
         <div className="track-player-info-buttons group">
           <LikeButton song={this.props.song} />
           <AddToPlaylist song={this.props.song} />
