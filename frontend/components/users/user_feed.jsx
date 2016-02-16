@@ -35,7 +35,7 @@ var UserFeed = React.createClass({
       );
     } else {
       return (
-        <div className="loader">Loading...</div>
+        <div className="loader"></div>
       );
     }
     // var userItems = this.state.users.map(function(user) {

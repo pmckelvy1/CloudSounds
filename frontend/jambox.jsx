@@ -21,6 +21,7 @@ var ReactRouter = require('react-router');
 var Route = ReactRouter.Route;
 var Router = ReactRouter.Router;
 var IndexRoute = ReactRouter.IndexRoute;
+window.React = require('react');
 //
 // var App = React.createClass({
 //
