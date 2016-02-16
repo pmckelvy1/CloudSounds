@@ -7,7 +7,11 @@ var CommentIndexItemLarge = React.createClass({
     var timeStamp = this._timeFormatting(Math.round(this.props.comment.time_stamp));
     return (
       <div className="comment-index-item-large">
-        <img className="thumb-mini" src={this.props.comment.user.image_url} />
+        <div className="thumb-mini">
+          <div className="image-centerer">
+            <img src={this.props.comment.user.image_url} />
+          </div>
+        </div>
         <div className="comment-user-name"><a href={user_url}>{this.props.comment.user.username}</a></div>
         <div className="says-at"> says at {timeStamp}:</div>
         <div className="comment-body-large">{this.props.comment.body}</div>

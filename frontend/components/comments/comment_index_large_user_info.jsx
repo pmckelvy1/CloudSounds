@@ -13,7 +13,11 @@ var CommentIndexLargeUserInfo = React.createClass({
     }
     return (
       <div className="comment-index-large-user-info">
-        <img className="thumb-med" src={this.props.user.image_url} />
+        <div className="thumb-med">
+          <div className="image-centerer">
+            <img src={this.props.user.image_url} />
+          </div>
+        </div>
         <div className="artist-info-name">{this.props.user.username}</div>
           <div className="num-followers"><i className="fa fa-users"></i> {this.props.user.num_followers}</div>
           <div className="num-songs"><i className="fa fa-music"></i> {this.props.user.num_songs}</div>
