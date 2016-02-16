@@ -10,8 +10,8 @@ var CommentComponentMini = React.createClass({
     var leftStyle = { left: left };
 
     var body = <div className="comment-component-innards group open-comment">
-        <div className="comment-component-username">{this.props.comment.user.username}:</div>
-        <div className="comment-component-body">{this.props.comment.body}</div>
+        <span className="comment-component-username">{this.props.comment.user.username}:</span>
+        <span className="comment-component-body">{this.props.comment.body}</span>
       </div>;
 
     return (

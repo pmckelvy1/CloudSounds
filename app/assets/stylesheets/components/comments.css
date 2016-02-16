@@ -102,15 +102,11 @@
 }
 
 .comment-component-username {
-  display: block;
-  float: left;
-  margin-right: 10px;
+  margin-right: 5px;
   color: #0BF;
 }
 
 .comment-component-body {
-  display: block;
-  float: left;
   color: #777;
 }
 
@@ -127,14 +123,21 @@
   overflow: visible;
 }
 
+.comment-component-mini:hover .comment-component-innards {
+  opacity: 1;
+}
+
 /*.comment-component-mini:hover .comment-component-innards {
   visibility: visible;
 }*/
 
 .comment-component-innards {
-  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
   width: 200px;
   display: block;
+  text-overflow: ellipsis;
   position: relative;
   bottom: 0px;
   font-size: 12px;
