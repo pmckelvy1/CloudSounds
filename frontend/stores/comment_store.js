@@ -26,8 +26,16 @@ var addComment = function (comment) {
   }
 };
 
-CommentStore.getSongComments = function (songId) {
-  return _comments[songId];
+CommentStore.getSongComments = function (songId, startIdx, endIdx) {
+  return _comments[songId].slice(startIdx, endIdx);
+};
+
+CommentStore.hasComments = function (songId) {
+  if (_comments[songId]) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 CommentStore.getNumComments = function (songId) {
