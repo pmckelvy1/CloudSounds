@@ -1,6 +1,7 @@
 var React = require('react');
 var CommentComponentMini = require('./comment_component_mini');
 
+
 var CommentLayer = React.createClass({
 
   render: function () {

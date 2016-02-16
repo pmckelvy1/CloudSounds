@@ -21,10 +21,6 @@ var CommentInputBoxSmall = React.createClass({
     ApiUtil.createComment(commentData, this.clearForm);
   },
 
-  getTimeStamp: function () {
-
-  },
-
   clearForm: function () {
     this.setState({ body: "" });
   },
