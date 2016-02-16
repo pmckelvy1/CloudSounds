@@ -38,7 +38,7 @@ body {
   margin-bottom: 45px;
 }
 
-ul {
+ul, div {
   list-style: none;
 }
 
