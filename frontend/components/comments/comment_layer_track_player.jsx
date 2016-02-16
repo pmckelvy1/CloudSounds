@@ -5,6 +5,19 @@ var CommentStore = require('../../stores/comment_store');
 
 var CommentLayer = React.createClass({
 
+  componentDidMount: function () {
+    var storeToken = CommentStore.addListener(this.updateComments);
+    this.setState({ storeToken: storeToken });
+  },
+
+  componentWillUnmount: function () {
+    this.state.storeToken.remove();
+  },
+
+  updateComments: function () {
+    this.setState({});
+  },
+
   render: function () {
 
     var songLength;
