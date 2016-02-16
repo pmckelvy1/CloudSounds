@@ -25,10 +25,16 @@ var CommentLayer = React.createClass({
       songLength = this.props.songLength;
     }
     var comments = CommentStore.getSongComments(this.props.songId);
-    var commentsObject = comments.map(function (comment) {
-      return <CommentComponentMini key={comment.id} comment={comment}
-        songLength={songLength} extendPlayer={this.props.extendPlayer}/>;
-    }.bind(this));
+    var commentsObject;
+    if (comments.length > 0) {
+      commentsObject = comments.map(function (comment) {
+        return <CommentComponentMini key={comment.id} comment={comment}
+          songLength={songLength} extendPlayer={this.props.extendPlayer}/>;
+      }.bind(this));
+    } else {
+      commentsObject = <div className="leave-a-comment-track-player" 
+        onMouseOver={this.props.extendPlayer}>Leave a comment...</div>;
+    }
     return (
       <div className="comment-layer">
         {commentsObject}

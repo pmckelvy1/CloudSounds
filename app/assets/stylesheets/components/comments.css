@@ -190,3 +190,8 @@
   box-sizing: border-box;
   width: 645px;
 }
+
+.leave-a-comment-track-player {
+  font-size: 12px;
+  color: #ccc;
+}
