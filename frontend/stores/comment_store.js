@@ -37,7 +37,7 @@ var addManySongs = function (songs) {
 };
 
 CommentStore.getSongComments = function (songId, startIdx, endIdx) {
-  if (startIdx) {
+  if (typeof startIdx !== 'undefined') {
     return _comments[songId].slice(startIdx, endIdx);
   } else {
     if (_comments[songId]) {

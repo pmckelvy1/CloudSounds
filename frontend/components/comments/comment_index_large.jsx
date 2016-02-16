@@ -56,6 +56,7 @@ var CommentIndexLarge = React.createClass({
   },
 
   handleInfiniteLoad: function () {
+    console.log('infinite')
     if (this.canInfiniteLoad()) {
       this.setState({ isInfiniteLoading: true });
       setTimeout(function () {
