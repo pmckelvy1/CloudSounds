@@ -144,7 +144,7 @@ var TrackPlayer = React.createClass({
 
         </div>
         <CommentLayer songLength={CurrentPlayingSongStore.getDuration(this.props.song.id)}
-            comments={this.props.song.comments} extendPlayer={this.extendPlayer}/>
+            songId={this.props.song.id} extendPlayer={this.extendPlayer}/>
           <CommentInputBoxSmall extended={this.state.extended} songId={this.props.song.id} />
         <div className="track-player-info-buttons group">
           <LikeButton song={this.props.song} />
