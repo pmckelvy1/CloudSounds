@@ -115,16 +115,6 @@ var TrackPlayer = React.createClass({
     }
     var playerKeyWav = 'track-waveform wave' + this.props.song.id;
 
-    // var hidden;
-    // var position;
-    // if (this.props.hidden) {
-    //   position = 'absolute';
-    //   hidden = 'hidden';
-    // } else {
-    //   position = 'relative';
-    //   hidden = 'visible';
-    // }
-    // var hideStyle = { visibility: hidden, position: position };
     var heightStyle;
     if (this.state.extended) {
       heightStyle = { height: 220, transition: 'height 1s ease' };
