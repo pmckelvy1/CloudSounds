@@ -48,7 +48,7 @@ var AddToPlaylist = React.createClass({
         borderRadius               : '4px',
         outline                    : 'none',
         color                      : 'black',
-        width                      : '200px',
+        width                      : '400px',
         height                     : '200px',
         margin                     : 'auto',
         padding                    : '0px'
