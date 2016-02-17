@@ -1,11 +1,16 @@
 class Api::PlaylistsController < ApplicationController
   def create
-    @playlist = Playlist.create(playlist_params)
+    @playlist = Playlist.new(playlist_params)
     @playlist.user_id = current_user.id
     if @playlist.save
-      @playlist_item = PlaylistItem.create!(playlist_id: @playlist.id, song_id: params[:playlist][:song_id], song_ord: 0)
-      @playlist = Playlist.includes(:user, playlist_items: [song: [:likes, :user, comments: [:user]]]).find(@playlist.id)
-      render :show
+      @playlist_item = PlaylistItem.new(playlist_id: @playlist.id, song_id: params[:playlist][:song_id], song_ord: 0)
+      if @playlist_item.save
+        @playlist = Playlist.includes(:user, playlist_items: [song: [:likes, :user, comments: [:user]]]).find(@playlist.id)
+        render :show
+      else
+        @playlist.destroy!
+        render json: ['that song is already in another playlist'], status: 422
+      end
     else
       render json: ['playlist could not be saved']
     end

@@ -31,8 +31,10 @@ var NotificationIndex = React.createClass({
   },
 
   render: function () {
+    var key;
     var notificationIndexItems = this.state.notifications.map(function(notification_item) {
-      return <Notification key={notification_item.item.id} item={notification_item} />;
+      key = notification_item.item.id || Math.random(1000);
+      return <Notification key={key} item={notification_item} />;
     });
     return (
       <div className="notifications-index group">

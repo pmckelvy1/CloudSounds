@@ -75,6 +75,17 @@ var Notification = React.createClass({
             </div>
           </div>
         );
+      case 'Message':
+      return (
+        <div className={styling}>
+          <div className="exclamation">
+            <i className="fa fa-exclamation-triangle fa-2x"></i>
+          </div>
+          <div className="notification-text">
+            {notificationItem.item}
+          </div>
+        </div>
+      );
     }
   }
 });

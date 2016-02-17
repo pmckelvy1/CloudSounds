@@ -4,6 +4,7 @@ var SongActions = require('../actions/song_actions');
 var LikeActions = require('../actions/like_actions');
 var CommentActions = require('../actions/comment_actions');
 var PlaylistActions = require('../actions/playlist_actions');
+var NotificationActions = require('../actions/notification_actions');
 
 var ApiUtil = {
 
@@ -90,7 +91,6 @@ var ApiUtil = {
       url: '/api/songs',
       dataType: 'JSON',
       success: function (songs) {
-        debugger
         SongActions.receiveAllSongs(songs);
         LikeActions.receiveLikes(songs);
       }
@@ -207,6 +207,9 @@ var ApiUtil = {
       data: { playlist: playlistData },
       success: function (newPlaylist) {
         PlaylistActions.addNewPlaylist(newPlaylist);
+      },
+      error: function (response) {
+        NotificationActions.invalidPlaylistCreation(response);
       }
     });
   }

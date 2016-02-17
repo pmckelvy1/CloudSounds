@@ -29,3 +29,12 @@
 .cloud-sounds {
   font-weight: 700;
 }
+
+.exclamation {
+  display: block;
+  float: left;
+  width: 35px;
+  height: 35px;
+  margin-right: 6px;
+  padding: 5px;
+}

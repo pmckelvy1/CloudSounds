@@ -5,7 +5,8 @@ var Store = require('flux/utils').Store,
     PlaylistConstants = require('../constants/playlist_constants'),
     CurrentUserConstants = require('../constants/current_user_constants'),
     CurrentUserStore = require('./current_user_store'),
-    UserStore = require('./user_store');
+    UserStore = require('./user_store'),
+    NotificationConstants = require('../constants/notification_constants');
 
 var NotificationStore = new Store(Dispatcher);
 
@@ -42,7 +43,10 @@ NotificationStore.__onDispatch = function (payload) {
       addNotification({ type: 'Invalid_Playlist_Addition', item: payload.playlistItem });
       NotificationStore.__emitChange();
       break;
-
+    case NotificationConstants.INVALID_PLAYLIST_CREATION:
+      addNotification({ type: 'Message', item: payload.message });
+      NotificationStore.__emitChange();
+      break;
   }
 };
 
