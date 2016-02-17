@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :index, :destroy, :show]
     resources :reposts, only: [:create, :index, :destroy, :show]
     resources :images, only: [:create, :destroy, :show]
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :update]
     get 'songs/:id/play', to: 'songs#add_play'
     resources :playlists do
       resources :playlist_items

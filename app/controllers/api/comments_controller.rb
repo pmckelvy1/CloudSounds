@@ -15,6 +15,13 @@ class Api::CommentsController < ApplicationController
     render :index
   end
 
+  def update
+    @comment = Comment.find(params[:id])
+    @comment.time_stamp = params[:comment][:time_stamp]
+    @comment.save!
+    render :show
+  end
+
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy

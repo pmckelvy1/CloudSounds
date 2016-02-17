@@ -160,6 +160,18 @@ var ApiUtil = {
     });
   },
 
+  updateCommentTimeStamp: function (commentData) {
+    $.ajax({
+      type: 'POST',
+      method: 'PATCH',
+      url: '/api/comments/' + commentData.comment_id,
+      dataType: 'JSON',
+      data: { comment: commentData },
+      success: function (comment) {
+      }
+    });
+  },
+
   addPlay: function(songId) {
     $.ajax({
       type: 'GET',

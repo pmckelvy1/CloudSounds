@@ -41,6 +41,13 @@ var TrackPlayer = React.createClass({
       });
 
       wavesurfer.on('ready', function () {
+        // var timeStamp;
+        // var commentData;
+        // this.props.song.comments.forEach(function(comment) {
+        //   timeStamp = Math.random() * WSObject.wavesurfer.getDuration();
+        //   commentData = { comment_id: comment.id, time_stamp: timeStamp };
+        //   ApiUtil.updateCommentTimeStamp(commentData);
+        // });
         this.setState({ ready: true });
       }.bind(this));
 
@@ -50,7 +57,7 @@ var TrackPlayer = React.createClass({
 
       var timeoutId = setTimeout(function () {
         PlayingSongActions.receiveWavesurfer(WSObject);
-      }, 0);
+      }.bind(this), 0);
 
       storeToken = CurrentPlayingSongStore.addListener(this.setPlayStatus);
 
