@@ -49,6 +49,12 @@ CommentStore.getSongComments = function (songId, startIdx, endIdx) {
   }
 };
 
+CommentStore.getMostRecentComment = function (songId) {
+  if (_comments[songId]) {
+    return _comments[songId][0];
+  }
+};
+
 CommentStore.hasComments = function (songId) {
   if (_comments[songId]) {
     return true;

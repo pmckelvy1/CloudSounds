@@ -20,8 +20,11 @@ var CommentIndexLarge = React.createClass({
   },
 
   onChange: function () {
-    this.setState({ comments: this.buildComments(0,1).concat(this.state.comments),
-                    hasComments: CommentStore.hasComments(this.props.songId) });
+    var mostRecentComment = CommentStore.getMostRecentComment(this.props.songId);
+    if (mostRecentComment && mostRecentComment.id !== this.state.comments[0].props.children.props.comment.id) {
+      this.setState({ comments: this.buildComments(0,1).concat(this.state.comments),
+        hasComments: CommentStore.hasComments(this.props.songId) });
+    }
   },
 
   buildComments: function (start, end) {
