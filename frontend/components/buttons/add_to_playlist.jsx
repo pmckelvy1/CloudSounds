@@ -46,10 +46,12 @@ var AddToPlaylist = React.createClass({
         );
       } else {
         return (
-          <ul className="playlist-selection-dialog group" onMouseLeave={this.closeDialog}>
-            {playlists}
-            <NewPLaylist song={this.props.song} />
-          </ul>
+          <div className="dialog-container group">
+            <ul className="playlist-selection-dialog group" onMouseLeave={this.closeDialog}>
+              {playlists}
+              <NewPLaylist song={this.props.song} />
+            </ul>
+          </div>
         );
       }
     } else {

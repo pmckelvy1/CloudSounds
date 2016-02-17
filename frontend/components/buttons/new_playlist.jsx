@@ -24,11 +24,13 @@ var NewPLaylist = React.createClass({
   render: function () {
     if (this.state.open === true) {
       return (
-        <form className="new-playlist-form group" onSubmit={this.onSubmit}>
-          <label forHTML="title" className="new-playlist-form-title">Title:</label>
-          <input id="title" type="text" valueLink={this.linkState('title')}></input>
-          <button className="new-playlist-button">Create playlist</button>
-        </form>
+        <li>
+          <form className="new-playlist-form group" onSubmit={this.onSubmit}>
+            <label forHTML="title" className="new-playlist-form-title">Title:</label>
+            <input id="title" type="text" valueLink={this.linkState('title')}></input>
+            <button className="new-playlist-button">Create playlist</button>
+          </form>
+        </li>
       );
     } else {
       return (

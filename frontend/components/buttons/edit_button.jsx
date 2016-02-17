@@ -17,11 +17,13 @@ var EditButton = React.createClass({
   },
 
   openModal: function () {
+    $('.thumb-super-mini').hide();
     $('canvas').hide();
     this.setState({ modalOpenBool: true });
   },
 
   closeModal: function () {
+    $('.thumb-super-mini').show();
     $('canvas').show();
     this.setState({ modalOpenBool: false });
   },

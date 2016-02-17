@@ -99,13 +99,18 @@
   border: 1px solid #999;
 }
 
+.dialog-container {
+  position: relative;
+  display: block;
+}
+
 .playlist-selection-dialog {
   background: white;
   border-radius: 3px;
   display: block;
   position: absolute;
-  bottom: 5px;
-  left: 225px;
+  bottom: 0px;
+  left: 0px;
   width: 200px;
   z-index: 2;
   border: 1px solid #ccc;
@@ -189,7 +194,6 @@
 
 .new-playlist-form {
   display: block;
-  position: absolute;
   width: 320px;
   border: 1px solid #aaa;
   background: white;

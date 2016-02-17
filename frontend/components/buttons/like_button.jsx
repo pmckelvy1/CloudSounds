@@ -39,21 +39,20 @@ var LikeButton = React.createClass({
     var likeButtonText;
     var likeButton;
     if (this.state.likes) {
-      likeButton = <button className="like-button liked"
+      return (
+        <button className="like-button liked"
         onClick={this.toggleLike}>
         <i className="fa fa-heart"></i> {this.state.numLikes}
-      </button>;
+        </button>
+      );
     } else {
-      likeButton = <button className="like-button not-liked"
+      return (
+        <button className="like-button not-liked"
         onClick={this.toggleLike}>
         <i className="fa fa-heart-o"></i> {this.state.numLikes}
-      </button>;
+        </button>
+      );
     }
-    return (
-      <div>
-        {likeButton}
-      </div>
-    );
   }
 
 });
