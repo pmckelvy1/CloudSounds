@@ -34,7 +34,9 @@ var Header = React.createClass({
   render: function () {
     var currentUserProfileLink = '#/users/' + this.state.currentUser.id;
     var sessionButtons;
+    var home;
     if (CurrentUserStore.isLoggedIn()) {
+      home = <div className="home header-left"><a href="#">Home</a></div>;
       sessionButtons =  <div>
         <Search />
         <div className="upload-link"><a href="#/upload">Upload</a></div>
@@ -46,12 +48,10 @@ var Header = React.createClass({
               </div>
             </div>
           Profile</a></div>
-        <div className="alerts white"><ul><i className="fa fa-bell"></i></ul></div>
-        <div className="messages white"><ul><i className="fa fa-envelope"></i></ul></div>
-        <div className="settings white"><a href="#"><i className="fa fa-cog"></i></a></div>
         <button onClick={this.logout} className="sign-out-button">Sign Out</button>
       </div>;
     } else {
+      home = <div></div>;
       sessionButtons =  <div className="sign-in-or-up group">
         <a href="#/signup">Sign Up!</a>
         <a href="#/login">Sign In!</a>
@@ -68,8 +68,7 @@ var Header = React.createClass({
                 <i className="fa fa-music blue header-logo-note"></i>
                 <i className="fa fa-cloud fa-2x header-logo-cloud"></i>
               </div>
-              <div className="home header-left"><a href="#">Home</a></div>
-              <div className="collection header-left"><a href="#">Collection</a></div>
+              {home}
             </div>
 
             <div className="header-nav-profile-nav group">
