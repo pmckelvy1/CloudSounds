@@ -36,7 +36,7 @@ var TrackFeed = React.createClass({
         var newTracks = this.buildTracks(numTracks, numTracks + 5);
         this.setState({ tracks: this.state.tracks.concat(newTracks),
           isInfiniteLoading: false });
-        }.bind(this), 2500);
+        }.bind(this), 1000);
     }
   },
 

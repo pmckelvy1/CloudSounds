@@ -38,7 +38,7 @@ var ApiUtil = {
       dataType: 'JSON',
       data: { user: userInfo },
       success: function (user) {
-        UserActions.receiveUser(user);
+        UserActions.receiveSingleUser(user);
         // FollowActions.receiveCurrentUserFollows(user.follows);
       }
     });

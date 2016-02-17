@@ -2,7 +2,8 @@ var Store = require('flux/utils').Store,
     Dispatcher = require('../dispatcher/dispatcher'),
     CommentConstants = require('../constants/comment_constants'),
     SongConstants = require('../constants/song_constants'),
-    CurrentUserConstants = require('../constants/current_user_constants');
+    CurrentUserConstants = require('../constants/current_user_constants'),
+    UserConstants = require('../constants/user_constants');
 
 var CommentStore = new Store(Dispatcher);
 
@@ -84,6 +85,11 @@ CommentStore.__onDispatch = function (payload) {
       break;
     case CurrentUserConstants.RECEIVE_CURRENT_USER:
       addManySongs(payload.currentUser.followed_songs);
+      CommentStore.__emitChange();
+      break;
+    case UserConstants.USER_RECEIVED:
+      addManySongs(payload.user.songs);
+      addManySongs(payload.user.liked_songs);
       CommentStore.__emitChange();
       break;
   }

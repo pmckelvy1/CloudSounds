@@ -56,7 +56,6 @@ var CommentIndexLarge = React.createClass({
   },
 
   handleInfiniteLoad: function () {
-    console.log('infinite')
     if (this.canInfiniteLoad()) {
       this.setState({ isInfiniteLoading: true });
       setTimeout(function () {
@@ -64,7 +63,7 @@ var CommentIndexLarge = React.createClass({
         var newComments = this.buildComments(numComments, numComments + 10);
         this.setState({ comments: this.state.comments.concat(newComments),
           isInfiniteLoading: false });
-        }.bind(this), 2500);
+        }.bind(this), 1000);
     }
   },
 
