@@ -39,7 +39,6 @@ var VolumeSlider = React.createClass({
     if (this.state.dragDealer) {
       var coord = this.state.dragDealer.getValue();
     }
-    console.log('setting volume');
     // PlayingSongActions.setVolume(coord[1]);
   },
 

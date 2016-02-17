@@ -20,7 +20,7 @@ var resetComments = function (comments) {
 };
 
 var addSong = function (song) {
-  _comments[song.id] = song.comments;
+  _comments[song.id] = song.comments.reverse();
 };
 
 var addComment = function (comment) {
@@ -33,7 +33,7 @@ var addComment = function (comment) {
 
 var addManySongs = function (songs) {
   songs.forEach(function(song) {
-    _comments[song.id] = song.comments;
+    _comments[song.id] = song.comments.reverse();
   });
 };
 

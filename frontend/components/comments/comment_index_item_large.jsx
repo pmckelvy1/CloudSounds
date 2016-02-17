@@ -20,10 +20,25 @@ var CommentIndexItemLarge = React.createClass({
   },
 
   _timeFormatting: function (number) {
+    var hour, min, sec;
     if (number > 3600) {
-      return Math.floor((number / 3600)) + ':' + Math.floor((number / 60)) + ':' + (number % 60);
+      hour = Math.floor((number / 3600));
+      min = Math.floor((number / 60));
+      if (min < 10) {
+        min = '0' + min;
+      }
+      sec = (number % 60);
+      if (sec < 10) {
+        sec = '0' + sec;
+      }
+      return hour + ':' + min + ':' + sec;
     } else {
-      return Math.floor((number / 60)) + ':' + (number % 60);
+      min = Math.floor((number / 60));
+      sec = (number % 60);
+      if (sec < 10) {
+        sec = '0' + sec;
+      }
+      return min + ':' + sec;
     }
   }
 });

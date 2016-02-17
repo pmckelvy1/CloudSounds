@@ -5,14 +5,15 @@ var Infinite = require('react-infinite');
 
 var CommentIndexLarge = React.createClass({
   getInitialState: function () {
-    return { comments: this.buildComments(0, 10),
-              isInfiniteLoading: false,
+    return {  isInfiniteLoading: false,
               hasComments: CommentStore.hasComments(this.props.songId) };
   },
 
   componentDidMount: function () {
     var cs = CommentStore.addListener(this.onChange);
-    this.setState({ csToken: cs });
+    this.setState({ csToken: cs,
+        hasComments: CommentStore.hasComments(this.props.songId),
+        comments: this.buildComments(0, 10) });
   },
 
   componentWillUnmount: function () {
@@ -21,8 +22,13 @@ var CommentIndexLarge = React.createClass({
 
   onChange: function () {
     var mostRecentComment = CommentStore.getMostRecentComment(this.props.songId);
-    if (mostRecentComment && mostRecentComment.id !== this.state.comments[0].props.children.props.comment.id) {
-      this.setState({ comments: this.buildComments(0,1).concat(this.state.comments),
+    if (this.state.comments) {
+      if (mostRecentComment && mostRecentComment.id !== this.state.comments[0].props.children.props.comment.id) {
+        this.setState({ comments: this.buildComments(0,1).concat(this.state.comments),
+          hasComments: CommentStore.hasComments(this.props.songId) });
+      }
+    } else {
+      this.setState({ comments: this.buildComments(0,10),
         hasComments: CommentStore.hasComments(this.props.songId) });
     }
   },
@@ -41,7 +47,13 @@ var CommentIndexLarge = React.createClass({
   },
 
   canInfiniteLoad: function () {
-    return !(this.state.comments.length === CommentStore.getNumComments(this.props.songId));
+    if (!this.state.hasComments) {
+      return false;
+    } else if (!this.state.comments && this.state.hasComments) {
+      return true;
+    } else {
+      return !(this.state.comments.length === CommentStore.getNumComments(this.props.songId));
+    }
   },
 
   infiniteLoading: function () {

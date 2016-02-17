@@ -16,14 +16,14 @@ darth = User.create!(num_songs: 1, email: 'darth_vader@gmail.com', username: 'Da
 bach = User.create!(num_songs: 1, email: 'johansebass@gmail.com', username: 'Bach', password: 'classical', info: "I play piano.  I also crochet.", image: File.open('app/assets/images/bach_shades.jpg'))
 bowie = User.create!(num_songs: 0, email: 'dbowie@gmail.com', username: 'David Bowie', password: 'ziggystardust', info: "Call me ziggy.", image: File.open('app/assets/images/bowie.jpg'))
 sophie = User.create!(num_songs: 3, email: 'sophiebeats@gmail.com', username: 'SOPHIE', password: 'latexhard', info: "Mysterious beat-maker from the nether. \n \n Noises \n Nonsense \n \n I like weird sounds.", image: File.open('app/assets/images/sophie_artwork.jpg'))
-grimes = User.create!(num_songs: 3, email: 'grimes@gmail.com', username: 'Grimes', password: 'sogrimey', info: "I make music because i like the way it makes me feel.  I hope you like it as well.  \n new album ART-ANGELS out now!", image: File.open('app/assets/images/grimes_prof.jpg'))
+grimes = User.create!(num_songs: 3, email: 'grimes@gmail.com', username: 'Grimes', password: 'sogrimey', info: "I make music because i like the way it makes me feel.  I hope you like it as well.  \n new album ART-ANGELS out now!", image: File.open('app/assets/images/g-prof.jpeg'))
 franksinatra = User.create!(num_songs: 3, email: 'frank@gmail.com', username: 'Frank Sinatra', password: 'frankies', info: "A tribute profile for one of the greatest entertainers of all time. \n Leader of the Ratpack, and Las Vegas star.  New York, New York, It's a hell of a town!", image: File.open('app/assets/images/frank_sinatra.jpg'))
 fugees = User.create!(num_songs: 4, email: 'fugees@gmail.com', username: 'The Fugees', password: 'wyclefftheman', info: "Soulful r&b reggae goodness.  Planning a reunion for anydaynow 20-never", image: File.open('app/assets/images/fugees-profile.jpg'))
 pitchslap = User.create!(num_songs: 3, email: 'pitchslap@gmail.com', username: 'Pitchslap', password: 'pitchslap', info: "Potomac, MD to the rest of the world. \n Get ready to dance.", image: File.open('app/assets/images/pitch-slap-prof.jpg'))
 whatsonot = User.create!(num_songs: 5, email: 'whatsonot@gmail.com', username: 'What So Not', password: 'whatsonot', info: "Australian beat-making duo.  Flume + Chet Faker.  We tour the world and make you twerk.", image: File.open('app/assets/images/what-so-not-profile.jpg'))
 russ = User.create!(num_songs: 3, email: 'russLiq@gmail.com', username: 'Russ Liquid', password: 'russliquid', info: "Funky trumpet player.  Funkytown mayor.", image: File.open('app/assets/images/russ_liquid.jpeg'))
 thedude = User.create!(num_songs: 1, email: 'dude_the@hotmail.com', username: 'Lebowski', password: 'dudesauce', info: "Look, let me explain something to you. I'm not Mr. Lebowski. You're Mr. Lebowski. I'm the Dude. So that's what you call me. That, or His Dudeness … Duder … or El Duderino, if, you know, you're not into the whole brevity thing.", image: File.open('app/assets/images/thedude.jpg'))
-eveningfools = User.create!(num_songs: 2, email: 'theeveningfools@gmail.com', username: 'The Evening Fools', password: 'foolish1', info: "Go see the four boys in Birmingham, they'll take ya to the hazy sanctuary, for the broken man.", image: File.open('app/assets/images/fools.jpg'))
+eveningfools = User.create!(num_songs: 2, email: 'theeveningfools@gmail.com', username: 'The Evening Fools', password: 'foolish1', info: "Go see the four boys in Birmingham, they'll take ya to the hazy sanctuary, for the broken man.", image: File.open('app/assets/images/fools2.jpg'))
 dillonf = User.create!(num_songs: 3, email: 'dillonfrancis@hotmail.com', username: 'DJ Hanzel', password: 'dillonfrancis', info: "Burn up the dance.", image: File.open('app/assets/images/dillon-francis.png'))
 
 real_users = [me, darth, bach, bowie, sophie, grimes, franksinatra, fugees, pitchslap, whatsonot, russ, thedude, eveningfools, dillonf]
@@ -37,9 +37,9 @@ audio: File.open('app/assets/audio/songs/Star Wars-Imperial March.mp3'), image: 
 thunderstorm = Song.create(user_id: guest.id, username: guest.username, title: "Thunder", info: "A frightening thunderstorm!",
   image: File.open('app/assets/images/lightning.jpg'), num_plays: 35)
 rain = Song.create(user_id: guest.id, username: guest.username, title: "Mellow Rain", info: "Relax to the calming sounds of the rain.",
-  audio: File.open('app/assets/audio/Rain.m4a'), image: File.open('app/assets/images/rain.jpg'), num_plays: 58)
+  audio: File.open('app/assets/audio/Rain.m4a'), image: File.open('app/assets/images/rain1.jpg'), num_plays: 58)
 cloudsounds = Song.create(user_id: guest.id, username: guest.username, title: "Cloud Sounds!", info: "I love cloudy days...",
-  audio: File.open('app/assets/audio/Cloud Sounds 2.m4a'), image: File.open('app/assets/images/clouds.jpg'), num_plays: 42)
+  audio: File.open('app/assets/audio/Cloud Sounds 2.m4a'), image: File.open('app/assets/images/cloudsclouds.jpg'), num_plays: 42)
 
 
 # all_songs = [thunderstorm, rain, cloudsounds]
@@ -196,7 +196,7 @@ pitchslap_songs = [pitchslap1, pitchslap2, pitchslap3]
 #
 # # SOPHIE SONGS
 sophie1 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
-  audio: File.open('app/assets/audio/songs/Lemonade.m4a'), image: File.open('app/assets/images/sophie_slide1.jpg'), num_plays: 3562)
+  audio: File.open('app/assets/audio/songs/Lemonade.m4a'), image: File.open('app/assets/images/sophie_slide4.jpg'), num_plays: 3562)
 sophie2 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Hard', info: "Off the self titled album. \n Latex gloves go so hard.",
   audio: File.open('app/assets/audio/songs/Hard.m4a'), image: File.open('app/assets/images/sophie_slide2.png'), num_plays: 8574)
 sophie3 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Just Like We Never Said Goodbye', info: "Off the self titled album. \n Remixes coming soon!.",
@@ -244,15 +244,15 @@ fugees_songs = [fugees1, fugees2, fugees3, fugees4]
 #
 # # WHAT SO NOT SONGS
 whatsonot1 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini Intro ft. Tunji Ige", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/songs/Gemini Intro ft. Tunji Ige.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 56376)
+  audio: File.open("app/assets/audio/songs/Gemini Intro ft. Tunji Ige.mp3"), image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 56376)
 whatsonot2 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini ft. George Maple", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/songs/Gemini ft. George Maple.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 53076)
+  audio: File.open("app/assets/audio/songs/Gemini ft. George Maple.mp3"), image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 53076)
 whatsonot3 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not X Dillon Francis - Arrows ft. Dawn Golden", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/songs/Arrows ft. Dawn Golden.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 153765)
+  audio: File.open("app/assets/audio/songs/Arrows ft. Dawn Golden.mp3"), image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 153765)
 whatsonot4 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Death Drive ft. KLP", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/songs/Death Drive ft. KLP.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 86723)
+  audio: File.open("app/assets/audio/songs/Death Drive ft. KLP.mp3"), image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 86723)
 whatsonot5 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Oddity", info: "GEMINI out now!",
-  audio: File.open("app/assets/audio/songs/Oddity.mp3"), image: File.open('app/assets/images/what-so-not-gemini.jpg'), num_plays: 11298)
+  audio: File.open("app/assets/audio/songs/Oddity.mp3"), image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 11298)
 
 whatsonot_songs = [whatsonot1, whatsonot2, whatsonot3, whatsonot4, whatsonot5]
 # whatsonot_songs = [whatsonot1]
@@ -376,7 +376,7 @@ Comment.destroy_all
 robo_users.each do |user|
   j = 0
   num_to_comment = Random.rand(5)
-  while (j < num_to_like)
+  while (j < num_to_comment)
     where_to_comment = Random.rand(all_songs.length)
     song = all_songs[where_to_comment]
     Comment.create!(user_id: user.id, song_id: song.id, body: Faker::Hipster.sentence)
