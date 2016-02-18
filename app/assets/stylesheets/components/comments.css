@@ -143,14 +143,13 @@
   font-size: 12px;
   opacity: 0;
 
-  -webkit-transition: bottom 0.5s, opacity 0.5s ease;
-  -moz-transition: bottom 0.5s, opacity 0.5s ease;
-  -o-transition: bottom 0.5s, opacity 0.5s ease;
-  transition: bottom 0.5s, opacity 0.5s ease;
+  -webkit-transition: opacity 0.5s ease;
+  -moz-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .comment-component-innards:hover {
-  bottom: -10px;
   opacity: 1;
 }
 
