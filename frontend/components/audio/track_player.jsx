@@ -41,13 +41,13 @@ var TrackPlayer = React.createClass({
       });
 
       wavesurfer.on('ready', function () {
-        // var timeStamp;
-        // var commentData;
-        // this.props.song.comments.forEach(function(comment) {
-        //   timeStamp = Math.random() * WSObject.wavesurfer.getDuration();
-        //   commentData = { comment_id: comment.id, time_stamp: timeStamp };
-        //   ApiUtil.updateCommentTimeStamp(commentData);
-        // });
+        var timeStamp;
+        var commentData;
+        this.props.song.comments.forEach(function(comment) {
+          timeStamp = Math.random() * WSObject.wavesurfer.getDuration();
+          commentData = { comment_id: comment.id, time_stamp: timeStamp };
+          ApiUtil.updateCommentTimeStamp(commentData);
+        });
         this.setState({ ready: true });
       }.bind(this));
 
