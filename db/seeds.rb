@@ -241,12 +241,12 @@ whatsonot2 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, t
   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/338/original/Gemini_ft._George_Maple.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 53076)
 # whatsonot3 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not X Dillon Francis - Arrows ft. Dawn Golden", info: "GEMINI out now!",
 #   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/339/original/Arrows_ft._Dawn_Golden.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 153765)
-whatsonot4 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Death Drive ft. KLP", info: "GEMINI out now!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/340/original/Death_Drive_ft._KLP.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 86723)
-whatsonot5 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Oddity", info: "GEMINI out now!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/341/original/Oddity.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 11298)
+# whatsonot4 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Death Drive ft. KLP", info: "GEMINI out now!",
+#   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/340/original/Death_Drive_ft._KLP.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 86723)
+# whatsonot5 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Oddity", info: "GEMINI out now!",
+#   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/341/original/Oddity.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 11298)
 
-whatsonot_songs = [whatsonot1, whatsonot2, whatsonot4, whatsonot5]
+whatsonot_songs = [whatsonot1, whatsonot2]
 # whatsonot_songs = [whatsonot1]
 #
 # # RUSS LIQUID
@@ -357,8 +357,8 @@ c10 = Comment.create!(user_id: darth.id, song_id: moonlight.id, body: "awful")
 Comment.create!(user_id: pitchslap.id, song_id: imperialmarch.id, body: "run for your lives!")
 c12 = Comment.create!(user_id: darth.id, song_id: whatsonot1.id, body: "lackluster performance")
 c4 = Comment.create!(user_id: guest.id, song_id: pitchslap3.id, body: "awesome song!")
-c14 = Comment.create!(user_id: me.id, song_id: whatsonot4.id, body: "come play a show in NY!")
-c6 = Comment.create!(user_id: bowie.id, song_id: whatsonot4.id, body: "great job with this one!")
+c14 = Comment.create!(user_id: me.id, song_id: whatsonot2.id, body: "come play a show in NY!")
+c6 = Comment.create!(user_id: bowie.id, song_id: whatsonot1.id, body: "great job with this one!")
 c21 = Comment.create!(user_id: bach.id, song_id: ryon3.id, body: "on second thought, i rather enjoy the groove of this piece.")
 Comment.create!(user_id: eveningfools.id, song_id: ryon1.id, body: "i don't know what to do here")
 Comment.create!(user_id: grimes.id, song_id: franksinatra1.id, body: "i can't get enough of this album!")
@@ -388,7 +388,7 @@ Comment.create!(user_id: thedude.id, song_id: ryon2.id, body: "this guys got som
 Comment.create!(user_id: eveningfools.id, song_id: pitchslap3.id, body: "could use more banjo")
 Comment.create!(user_id: thedude.id, song_id: pitchslap3.id, body: "i could, like, party to this, yknow?")
 Comment.create!(user_id: thedude.id, song_id: franksinatra2.id, body: "this song, is like, rad")
-Comment.create!(user_id: grimes.id, song_id: whatsonot5.id, body: "funky!")
+Comment.create!(user_id: grimes.id, song_id: whatsonot2.id, body: "funky!")
 Comment.create!(user_id: dillonf.id, song_id: ryon3.id, body: "oh gimme da bassssss")
 Comment.create!(user_id: sophie.id, song_id: whatsonot1.id, body: "funky funky funky funky!")
 Comment.create!(user_id: dillonf.id, song_id: pitchslap3.id, body: "DJ Hanzel approves.")
@@ -396,7 +396,7 @@ Comment.create!(user_id: russ.id, song_id: ryon1.id, body: "so good")
 Comment.create!(user_id: sophie.id, song_id: russ2.id, body: "ooooo love the trumpet")
 Comment.create!(user_id: dillonf.id, song_id: fools1.id, body: "needs more BASS")
 Comment.create!(user_id: grimes.id, song_id: pitchslap2.id, body: "i just got pitchslapped!")
-Comment.create!(user_id: eveningfools.id, song_id: whatsonot4.id, body: "yes yes yes")
+Comment.create!(user_id: eveningfools.id, song_id: whatsonot1.id, body: "yes yes yes")
 Comment.create!(user_id: eveningfools.id, song_id: ryon2.id, body: "oh what a jam!")
 Comment.create!(user_id: pitchslap.id, song_id: whatsonot2.id, body: "dude your music is amazing!")
 Comment.create!(user_id: eveningfools.id, song_id: imperialmarch.id, body: "wtf man")
