@@ -263,7 +263,7 @@ whatsonot_songs = [whatsonot1, whatsonot2]
 # # ALL SONGS
 #
 
-all_songs =  dude_songs + fools_songs + other_songs + ryon_songs + pitchslap_songs + sophie_songs + grimes_songs + franksinatra_songs + fugees_songs + whatsonot_songs + russ_songs
+all_songs =  dude_songs + fools_songs + other_songs + ryon_songs + pitchslap_songs + sophie_songs + grimes_songs + franksinatra_songs + fugees_songs + whatsonot_songs
 #
 #
 
