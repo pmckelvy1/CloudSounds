@@ -226,12 +226,12 @@ fugees1 = Song.create!(user_id: fugees.id, username: fugees.username, title: "No
   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/333/original/No_Woman__No_Cry.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 35667)
 fugees2 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Ready or Not", info: "Ready or not, here i come, you can't hide.  I'm gonna fiiiiind you, and. make. you. love. me.",
   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/334/original/Ready_or_Not.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 6758834)
-fugees3 = Song.create!(user_id: fugees.id, username: fugees.username, title: "The Score", info: "Let's settle it.",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/335/original/The_Score.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 41277)
+# fugees3 = Song.create!(user_id: fugees.id, username: fugees.username, title: "The Score", info: "Let's settle it.",
+#   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/335/original/The_Score.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 41277)
 fugees4 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Killing Me Softly with His Song", info: "Lauren Hill is a goddess",
   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/336/original/Killing_Me_Softly_with_His_Song.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 1256904)
 
-fugees_songs = [fugees1, fugees2, fugees3, fugees4]
+fugees_songs = [fugees1, fugees2, fugees4]
 # fugees_songs = [fugees1]
 #
 # # WHAT SO NOT SONGS
@@ -239,25 +239,25 @@ whatsonot1 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, t
   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/337/original/Gemini_Intro_ft._Tunji_Ige.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 56376)
 whatsonot2 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini ft. George Maple", info: "GEMINI out now!",
   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/338/original/Gemini_ft._George_Maple.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 53076)
-whatsonot3 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not X Dillon Francis - Arrows ft. Dawn Golden", info: "GEMINI out now!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/339/original/Arrows_ft._Dawn_Golden.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 153765)
+# whatsonot3 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not X Dillon Francis - Arrows ft. Dawn Golden", info: "GEMINI out now!",
+#   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/339/original/Arrows_ft._Dawn_Golden.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 153765)
 whatsonot4 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Death Drive ft. KLP", info: "GEMINI out now!",
   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/340/original/Death_Drive_ft._KLP.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 86723)
 whatsonot5 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Oddity", info: "GEMINI out now!",
   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/341/original/Oddity.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 11298)
 
-whatsonot_songs = [whatsonot1, whatsonot2, whatsonot3, whatsonot4, whatsonot5]
+whatsonot_songs = [whatsonot1, whatsonot2, whatsonot4, whatsonot5]
 # whatsonot_songs = [whatsonot1]
 #
 # # RUSS LIQUID
-russ1 = Song.create!(user_id: russ.id, username: russ.username, title: "Alpha Bravo Echo Zulu", info: "Download FOREIGN FREQUENCY album now for free!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/342/original/Alpha_Bravo_Echo_Zulu.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 875)
-russ2 = Song.create!(user_id: russ.id, username: russ.username, title: "Welcome", info: "Download FOREIGN FREQUENCY album now for free!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/343/original/Welcome.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 1254)
-russ3 = Song.create!(user_id: russ.id, username: russ.username, title: "Euqsom", info: "Download FOREIGN FREQUENCY album now for free!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/344/original/Euqsom.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 936)
-
-russ_songs = [russ1, russ2, russ3]
+# russ1 = Song.create!(user_id: russ.id, username: russ.username, title: "Alpha Bravo Echo Zulu", info: "Download FOREIGN FREQUENCY album now for free!",
+#   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/342/original/Alpha_Bravo_Echo_Zulu.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 875)
+# russ2 = Song.create!(user_id: russ.id, username: russ.username, title: "Welcome", info: "Download FOREIGN FREQUENCY album now for free!",
+#   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/343/original/Welcome.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 1254)
+# russ3 = Song.create!(user_id: russ.id, username: russ.username, title: "Euqsom", info: "Download FOREIGN FREQUENCY album now for free!",
+#   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/344/original/Euqsom.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 936)
+#
+# russ_songs = [russ1, russ2, russ3]
 # russ_songs = [russ1]
 #
 # # ALL SONGS
@@ -369,12 +369,12 @@ Comment.create!(user_id: dillonf.id, song_id: fools2.id, body: "i can't dance to
 c13 = Comment.create!(user_id: darth.id, song_id: grimes2.id, body: "this must be a joke, right?")
 Comment.create!(user_id: eveningfools.id, song_id: dude1.id, body: "dude you done it again!")
 Comment.create!(user_id: fugees.id, song_id: imperialmarch.id, body: "woah")
-c2 = Comment.create!(user_id: guest.id, song_id: whatsonot3.id, body: "i love this part")
+c2 = Comment.create!(user_id: guest.id, song_id: whatsonot2.id, body: "i love this part")
 Comment.create!(user_id: fugees.id, song_id: grimes3.id, body: "love this album, girl!")
-Comment.create!(user_id: sophie.id, song_id: fugees3.id, body: "amazing song and album")
+Comment.create!(user_id: sophie.id, song_id: fugees4.id, body: "amazing song and album")
 Comment.create!(user_id: grimes.id, song_id: whatsonot1.id, body: "you guys rock!")
 c11 = Comment.create!(user_id: darth.id, song_id: pitchslap3.id, body: "a jedi must have made this. horrible.")
-Comment.create!(user_id: dillonf.id, song_id: whatsonot3.id, body: "this song is terrible!")
+Comment.create!(user_id: dillonf.id, song_id: whatsonot2.id, body: "this song is terrible!")
 Comment.create!(user_id: sophie.id, song_id: imperialmarch.id, body: "uh oh")
 Comment.create!(user_id: thedude.id, song_id: thunderstorm.id, body: "wooooaaaaaa")
 Comment.create!(user_id: pitchslap.id, song_id: grimes1.id, body: "you guys rock!")
@@ -435,6 +435,6 @@ PlaylistItem.create!(playlist_id: p4.id, song_id: grimes3.id, song_ord: 2)
 p6 = Playlist.create!(user_id: whatsonot.id, title: 'Gemini')
 PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot1.id, song_ord: 0)
 PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot2.id, song_ord: 1)
-PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot3.id, song_ord: 2)
+# PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot3.id, song_ord: 2)
 PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot4.id, song_ord: 3)
 PlaylistItem.create!(playlist_id: p6.id, song_id: whatsonot5.id, song_ord: 4)
