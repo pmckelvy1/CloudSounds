@@ -125,29 +125,29 @@ Song.destroy_all
 #
 # # THE DUDE
 dude1 = Song.create!(user_id: thedude.id, username: thedude.username, title: 'Blase (Louis the Child Remix)', info: 'Its like, a dope, funky song, man.  Just listen to it, and like, get down.',
-   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/273/original/Blase_(Louis_The_Child_Remix).m4a", image: File.open('app/assets/images/dude-music.jpeg'), num_plays: 354)
+   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/313/original/Blase_(Louis_The_Child_Remix).m4a", image: File.open('app/assets/images/dude-music.jpeg'), num_plays: 354)
 
 dude_songs = [dude1]
 
 # # THE EVENING FOOLS
 fools1 = Song.create!(user_id: eveningfools.id, username: eveningfools.username, title: 'For The Chance', info: "Keep me babe, darlin i got to know ya. And I promise that my love won't be in vain.  I have prayed, over and over, for the chance that we would meet some shiney day. \n Lord I'm on the way.",
-   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/274/original/For_The_Chance.m4a", image: File.open('app/assets/images/hazy-sanc.jpg'), num_plays: 107)
+   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/314/original/For_The_Chance.m4a", image: File.open('app/assets/images/hazy-sanc.jpg'), num_plays: 107)
 fools2 = Song.create!(user_id: eveningfools.id, username: eveningfools.username, title: 'Summer Tangerine', info: "She's brightest on the vine, of ruby gold elixer she is made. My summer tangerine, be sweet until the winder come again.",
-   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/275/original/Summer_Tangerine.m4a", image: File.open('app/assets/images/hazy-sanc.jpg'), num_plays:88)
+   audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/315/original/Summer_Tangerine.m4a", image: File.open('app/assets/images/hazy-sanc.jpg'), num_plays:88)
 
 fools_songs = [fools1, fools2]
 
 
 
 imperialmarch = Song.create!(user_id: darth.id, username: darth.username, title: "Imperial March", info: "Original music by John Williams.",
-audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/276/original/Star_Wars-Imperial_March.mp3", image: File.open('app/assets/images/vader-army.jpg'))
+audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/309/original/Star_Wars-Imperial_March.mp3", image: File.open('app/assets/images/vader-army.jpg'))
 
 thunderstorm = Song.create(user_id: guest.id, username: guest.username, title: "Thunder", info: "A frightening thunderstorm!",
   image: File.open('app/assets/images/lightning.jpg'), num_plays: 35)
 rain = Song.create(user_id: guest.id, username: guest.username, title: "Mellow Rain", info: "Relax to the calming sounds of the rain.",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/278/original/Rain.m4a", image: File.open('app/assets/images/rain1.jpg'), num_plays: 58)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/311/original/Rain.m4a", image: File.open('app/assets/images/rain1.jpg'), num_plays: 58)
 cloudsounds = Song.create(user_id: guest.id, username: guest.username, title: "Cloud Sounds!", info: "I love cloudy days...",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/279/original/Cloud_Sounds_2.m4a", image: File.open('app/assets/images/cloudsclouds.jpg'), num_plays: 42)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/312/original/Cloud_Sounds_2.m4a", image: File.open('app/assets/images/cloudsclouds.jpg'), num_plays: 42)
 
 
 
@@ -155,20 +155,20 @@ cloudsounds = Song.create(user_id: guest.id, username: guest.username, title: "C
 # # s7 = Song.create!(user_id: bowie.id, username: bowie.username, title: "Ziggy Stardust", info: "We were ziggy's band.")
 #
 moonlight = Song.create!(user_id: bach.id, username: bach.username, title: "Moonlight Sonata", info: "I wrote this song first.  This is totally not a Beethoven song.",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/280/original/Moonlight_Sonata_1st_Movement.mp3", image: File.open('app/assets/images/moonlight.jpg'), num_plays: 45)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/316/original/Moonlight_Sonata_1st_Movement.mp3", image: File.open('app/assets/images/moonlight.jpg'), num_plays: 45)
 
 other_songs = [thunderstorm, rain, cloudsounds, imperialmarch, moonlight]
 
 #
 # # RYON LAWFORD SONGS
 ryon1 = Song.create!(user_id: me.id, username: me.username, title: "Surrender To The Night", info: "Lyrics by Matty J",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/281/original/Surrender_To_The_Night.m4a", image: File.open('app/assets/images/surrender-to-the-night.jpg'), num_plays: 3778)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/317/original/Surrender_To_The_Night.m4a", image: File.open('app/assets/images/surrender-to-the-night.jpg'), num_plays: 3778)
 ryon2 = Song.create!(user_id: me.id, username: me.username, title: "When Is Love Not Enough", info: "Lyrics and vocals by Cara Onofrio",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/282/original/When_Is_Love_Not_Enough.m4a", image: File.open('app/assets/images/when-is-love.jpg'), num_plays: 876)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/318/original/When_Is_Love_Not_Enough.m4a", image: File.open('app/assets/images/when-is-love.jpg'), num_plays: 876)
 ryon3 = Song.create!(user_id: me.id, username: me.username, title: "Don't You Worry, Love (Ryon Lawford Remix)", info: "Original by Oh Honey.  Out now on iTunes!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/283/original/Don%27t_You_Worry__Love_(Ryon_Lawford_Remix).mp3", image: File.open('app/assets/images/dont-you-worry-remix.jpg'), num_plays: 2465)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/319/original/Don%27t_You_Worry__Love_(Ryon_Lawford_Remix).mp3", image: File.open('app/assets/images/dont-you-worry-remix.jpg'), num_plays: 2465)
 ryon4 = Song.create!(user_id: me.id, username: me.username, title: "Pop That", info: "Featuring Akon and Snoop Dogg",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/284/original/Pop_That.m4a", image: File.open('app/assets/images/pop-that.jpg'), num_plays: 245)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/320/original/Pop_That.m4a", image: File.open('app/assets/images/pop-that.jpg'), num_plays: 245)
 
 ryon_songs = [ryon1, ryon2, ryon3, ryon4]
 # ryon_songs = [ryon1]
@@ -176,11 +176,11 @@ ryon_songs = [ryon1, ryon2, ryon3, ryon4]
 #
 # # PITCHSLAP SONGS
 pitchslap1 = Song.create!(user_id: pitchslap.id, username: pitchslap.username, title: "Whatcha Done", info: "From the upcoming mixtape LANIAKEA",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/285/original/Whatcha_Done.mp3", image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 9436)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/321/original/Whatcha_Done.mp3", image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 9436)
 pitchslap2 = Song.create!(user_id: pitchslap.id, username: pitchslap.username, title: "Painful", info: "From the upcoming mixtape LANIAKEA",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/286/original/Painful.mp3", image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 7354)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/322/original/Painful.mp3", image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 7354)
 pitchslap3 = Song.create!(user_id: pitchslap.id, username: pitchslap.username, title: "Take Me Higher", info: "From the upcoming mixtape LANIAKEA",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/287/original/Take_Me_Higher.mp3", image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 13426)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/323/original/Take_Me_Higher.mp3", image: File.open('app/assets/images/pitchslap-art.jpg'), num_plays: 13426)
 
 pitchslap_songs = [pitchslap1, pitchslap2, pitchslap3]
 # pitchslap_songs = [pitchslap1]
@@ -188,11 +188,11 @@ pitchslap_songs = [pitchslap1, pitchslap2, pitchslap3]
 #
 # # SOPHIE SONGS
 sophie1 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Lemonade', info: "Off the self titled album. \n Also from that McDonalds commercial. \n Lemonade, \n le- le- lemonade.",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/288/original/Lemonade.m4a", image: File.open('app/assets/images/sophie_slide4.jpg'), num_plays: 3562)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/324/original/Lemonade.m4a", image: File.open('app/assets/images/sophie_slide4.jpg'), num_plays: 3562)
 sophie2 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Hard', info: "Off the self titled album. \n Latex gloves go so hard.",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/289/original/Hard.m4a", image: File.open('app/assets/images/sophie_slide2.png'), num_plays: 8574)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/325/original/Hard.m4a", image: File.open('app/assets/images/sophie_slide2.png'), num_plays: 8574)
 sophie3 = Song.create!(user_id: sophie.id, username: sophie.username, title: 'Just Like We Never Said Goodbye', info: "Off the self titled album. \n Remixes coming soon!.",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/290/original/Just_Like_We_Never_Said_Goodbye.m4a", image: File.open('app/assets/images/sophie_slide3.jpg'), num_plays: 11453)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/326/original/Just_Like_We_Never_Said_Goodbye.m4a", image: File.open('app/assets/images/sophie_slide3.jpg'), num_plays: 11453)
 
 sophie_songs = [sophie1, sophie2, sophie3]
 # sophie_songs = [sophie1]
@@ -200,11 +200,11 @@ sophie_songs = [sophie1, sophie2, sophie3]
 #
 # # GRIMES SONGS
 grimes1 = Song.create!(user_id: grimes.id, username: grimes.username, title: 'California', info: "From the album ART ANGELS. \n Get it now on iTunes!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/291/original/California.mp3", image: File.open('app/assets/images/art_angels.jpg'), num_plays: 808797)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/327/original/California.mp3", image: File.open('app/assets/images/art_angels.jpg'), num_plays: 808797)
 grimes2 = Song.create!(user_id: grimes.id, username: grimes.username, title: 'Flesh Without Blood', info: "From the album ART ANGELS. \n Get it now on iTunes!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/292/original/Flesh_Without_Blood.mp3", image: File.open('app/assets/images/art_angels.jpg'), num_plays: 1415632)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/328/original/Flesh_Without_Blood.mp3", image: File.open('app/assets/images/art_angels.jpg'), num_plays: 1415632)
 grimes3 = Song.create!(user_id: grimes.id, username: grimes.username, title: 'Belly of the Beat', info: "From the album ART ANGELS. \n Get it now on iTunes!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/293/original/Belly_of_the_Beat.mp3", image: File.open('app/assets/images/art_angels.jpg'), num_plays: 778347)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/329/original/Belly_of_the_Beat.mp3", image: File.open('app/assets/images/art_angels.jpg'), num_plays: 778347)
 
 grimes_songs = [grimes1, grimes2, grimes3]
 # grimes_songs = [grimes1]
@@ -212,50 +212,50 @@ grimes_songs = [grimes1, grimes2, grimes3]
 #
 # # FRANK SONGS
 franksinatra1 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "My Way", info: "From the greatest hits album 'Sinatra: Best of the Best'",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/294/original/My_Way.mp3", image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 875593)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/330/original/My_Way.mp3", image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 875593)
 franksinatra2 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "Theme from New York, New York", info: "From the greatest hits album 'Sinatra: Best of the Best'",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/295/original/Theme_from_New_York__New_York.mp3", image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 14225)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/331/original/Theme_from_New_York__New_York.mp3", image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 14225)
 franksinatra3 = Song.create!(user_id: franksinatra.id, username: franksinatra.username, title: "The Way You Look Tonight", info: "From the greatest hits album 'Sinatra: Best of the Best'",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/296/original/The_Way_You_Look_Tonight.mp3", image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 246328)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/332/original/The_Way_You_Look_Tonight.mp3", image: File.open('app/assets/images/frank_sinatra.jpg'), num_plays: 246328)
 
 franksinatra_songs = [franksinatra1, franksinatra2, franksinatra3]
 # franksinatra_songs = [franksinatra1]
 #
 # # FUGEES SONGS
 fugees1 = Song.create!(user_id: fugees.id, username: fugees.username, title: "No Woman, No Cry", info: "The Score was huge in the 90's.  If you haven't listened to it yet, do yourself a favor and go buy it.",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/297/original/No_Woman__No_Cry.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 35667)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/333/original/No_Woman__No_Cry.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 35667)
 fugees2 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Ready or Not", info: "Ready or not, here i come, you can't hide.  I'm gonna fiiiiind you, and. make. you. love. me.",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/298/original/Ready_or_Not.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 6758834)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/334/original/Ready_or_Not.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 6758834)
 fugees3 = Song.create!(user_id: fugees.id, username: fugees.username, title: "The Score", info: "Let's settle it.",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/299/original/The_Score.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 41277)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/335/original/The_Score.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 41277)
 fugees4 = Song.create!(user_id: fugees.id, username: fugees.username, title: "Killing Me Softly with His Song", info: "Lauren Hill is a goddess",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/300/original/Killing_Me_Softly_with_His_Song.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 1256904)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/336/original/Killing_Me_Softly_with_His_Song.mp3", image: File.open('app/assets/images/fugees-art.jpg'), num_plays: 1256904)
 
 fugees_songs = [fugees1, fugees2, fugees3, fugees4]
 # fugees_songs = [fugees1]
 #
 # # WHAT SO NOT SONGS
 whatsonot1 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini Intro ft. Tunji Ige", info: "GEMINI out now!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/301/original/Gemini_Intro_ft._Tunji_Ige.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 56376)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/337/original/Gemini_Intro_ft._Tunji_Ige.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 56376)
 whatsonot2 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Gemini ft. George Maple", info: "GEMINI out now!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/302/original/Gemini_ft._George_Maple.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 53076)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/338/original/Gemini_ft._George_Maple.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 53076)
 whatsonot3 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not X Dillon Francis - Arrows ft. Dawn Golden", info: "GEMINI out now!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/303/original/Arrows_ft._Dawn_Golden.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 153765)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/339/original/Arrows_ft._Dawn_Golden.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 153765)
 whatsonot4 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Death Drive ft. KLP", info: "GEMINI out now!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/304/original/Death_Drive_ft._KLP.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 86723)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/340/original/Death_Drive_ft._KLP.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 86723)
 whatsonot5 = Song.create!(user_id: whatsonot.id, username: whatsonot.username, title: "What So Not - Oddity", info: "GEMINI out now!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/305/original/Oddity.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 11298)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/341/original/Oddity.mp3", image: File.open('app/assets/images/wsn-gemini.jpg'), num_plays: 11298)
 
 whatsonot_songs = [whatsonot1, whatsonot2, whatsonot3, whatsonot4, whatsonot5]
 # whatsonot_songs = [whatsonot1]
 #
 # # RUSS LIQUID
 russ1 = Song.create!(user_id: russ.id, username: russ.username, title: "Alpha Bravo Echo Zulu", info: "Download FOREIGN FREQUENCY album now for free!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/306/original/Alpha_Bravo_Echo_Zulu.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 875)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/342/original/Alpha_Bravo_Echo_Zulu.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 875)
 russ2 = Song.create!(user_id: russ.id, username: russ.username, title: "Welcome", info: "Download FOREIGN FREQUENCY album now for free!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/307/original/Welcome.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 1254)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/343/original/Welcome.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 1254)
 russ3 = Song.create!(user_id: russ.id, username: russ.username, title: "Euqsom", info: "Download FOREIGN FREQUENCY album now for free!",
-  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/308/original/Euqsom.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 936)
+  audio: "https://s3.amazonaws.com/jambox-dev/songs/audios/000/000/344/original/Euqsom.mp3", image: File.open('app/assets/images/russ_liquid.jpeg'), num_plays: 936)
 
 russ_songs = [russ1, russ2, russ3]
 # russ_songs = [russ1]
