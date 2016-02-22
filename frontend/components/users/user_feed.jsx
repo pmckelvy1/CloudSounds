@@ -24,18 +24,32 @@ var UserFeed = React.createClass({
     this.state.ssToken.remove();
   },
 
+  followRandomUsers: function () {
+    var randomIds = [];
+    var id;
+    while(randomIds.length < 3) {
+      id = Math.floor(Math.random() * 14.9999);
+      if (!randomIds.includes(id)) {
+        randomIds.push(id);
+      }
+    }
+    ApiUtil.followRandomUsers(randomIds);
+  },
+
   render: function () {
-    if (this.state.songs) {
+    if (this.state.songs.length > 0) {
       return (
         <div className="user-feed">
         <div className="user-feed-header">Hear the latest posts from the people you're following</div>
           <TrackFeed songs={this.state.songs} />
         </div>
-
       );
     } else {
       return (
-        <div className="loader"></div>
+        <div className="user-feed">
+          <div className="user-feed-header">New to <span className="blue">CloudSounds</span>? Use the searchbar to find some artists to follow, or simply click below!</div>
+          <button onClick={this.followRandomUsers} className="get-random-songs-button">Explore!</button>
+      </div>
       );
     }
     // var userItems = this.state.users.map(function(user) {

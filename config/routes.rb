@@ -18,10 +18,10 @@ Rails.application.routes.draw do
     end
     resources :playlist_items, only: [:destroy, :edit, :update]
     get "search", to: "utils#search"
+    get 'users/first_id', to: 'users#get_first_id'
   end
 
   get 'auth/facebook/callback', to: 'sessions#omniauth_facebook'
-
 
 
 end

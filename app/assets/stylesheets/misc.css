@@ -38,3 +38,19 @@
   margin-right: 6px;
   padding: 5px;
 }
+
+.get-random-songs-button {
+  border-radius: 3px;
+  background: #eee;
+  color: #aaa;
+  border: 2px solid #aaa;
+  padding: 10px;
+  display: block;
+  margin: auto;
+}
+
+.get-random-songs-button:hover {
+  color: black;
+  background: #0BF;
+  border: 2px solid black;
+}

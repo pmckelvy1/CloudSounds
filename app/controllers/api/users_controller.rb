@@ -24,14 +24,21 @@ class Api::UsersController < ApplicationController
 
   def index
     # @users = User.where('users.id != ?', current_user.id)
-    @users = User.all
-    render :index
+    # @users = User.all
+    # render :index
+    id = User.first.id
+    render json: [id]
   end
 
   def update
     @user = User.find(params[:id])
     @user.update!(user_params)
     render :show
+  end
+
+  def get_first_id
+    id = User.first.id
+    render json: [id]
   end
 
   private

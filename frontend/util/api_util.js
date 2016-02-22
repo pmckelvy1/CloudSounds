@@ -224,6 +224,30 @@ var ApiUtil = {
         NotificationActions.invalidPlaylistCreation(response);
       }
     });
+  },
+
+  followRandomUsers: function (userIds) {
+    $.ajax({
+      type: 'GET',
+      url: '/api/users',
+      dataType: 'JSON',
+      contentType: 'JSON',
+      success: function (first_user_id) {
+        var follow_id;
+        userIds.forEach(function(userId) {
+          follow_id = userId + JSON.parse(first_user_id);
+          $.ajax({
+            type: 'POST',
+            url: '/api/follows',
+            dataType: 'JSON',
+            data: { followed_id: follow_id },
+            success: function (followedUser) {
+              FollowActions.receiveFollow(followedUser);
+            }
+          });
+        });
+      }
+    });
   }
 
 };
