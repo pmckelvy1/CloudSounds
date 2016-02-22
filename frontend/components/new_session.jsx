@@ -47,7 +47,7 @@ var SessionForm = React.createClass({
           <button type="submit" name="sign-in">Sign In!</button>
         </form>
 
-        
+        <a className="fb-login-button" href="/auth/facebook">Login With Facebook</a>
 
 
         <form className="guest-user-sign-in  group" onSubmit={this.guestSubmit} method="post">

@@ -39,6 +39,8 @@ gem 'pg_search'
 gem 'kaminari'
 
 gem 'faker'
+
+gem 'open_uri_redirections'
 # image processing
 # gem "mini_magick"
 # Use Unicorn as the app server

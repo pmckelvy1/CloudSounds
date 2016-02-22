@@ -122,6 +122,7 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    open_uri_redirections (0.2.1)
     paperclip (4.3.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -225,6 +226,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   omniauth-facebook
+  open_uri_redirections
   paperclip
   pg (~> 0.15)
   pg_search

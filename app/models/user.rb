@@ -77,13 +77,15 @@ class User < ActiveRecord::Base
     user = User.find_by(provider: provider, uid: uid)
 
     return user if user
+    img_url = auth_hash.info.image + "?type=large"
 
     User.create(
       provider: provider,
       uid: uid,
       email: auth_hash.extra.raw_info.email,
       username: auth_hash.extra.raw_info.name,
-      password: SecureRandom::urlsafe_base64
+      password: SecureRandom::urlsafe_base64,
+      image: process_uri(img_url)
     )
   end
 
@@ -110,5 +112,15 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64
   end
+
+  private
+
+    def self.process_uri(uri)
+      require 'open-uri'
+      require 'open_uri_redirections'
+      open(uri, :allow_redirections => :safe) do |r|
+        r.base_uri.to_s
+      end
+    end
 
 end
