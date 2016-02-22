@@ -41,7 +41,7 @@ var TrackFeed = React.createClass({
   },
 
   infiniteLoading: function () {
-    if (this.canInfiniteLoad()) {
+    if (this.canInfiniteLoad() && this.props.songs.length > 0) {
       return (
         <div className="loader"></div>
       );
