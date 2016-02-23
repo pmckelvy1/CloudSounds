@@ -1,4 +1,3 @@
-require 'byebug'
 class Api::SessionsController < ApplicationController
   def show
     if current_user
