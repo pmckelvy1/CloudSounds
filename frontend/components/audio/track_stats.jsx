@@ -1,18 +1,28 @@
 var React = require('react');
 var CommentStore = require('../../stores/comment_store');
+var SongStore = require('../../stores/song_store');
+var CurrentPlayingSongStore = require('../../stores/current_playing_song_store');
 
 var TrackStats = React.createClass({
   getInitialState: function () {
-    return { numComments: this.props.song.comments.length };
+    return { numComments: this.props.song.comments.length,
+              numPlays: this.props.song.num_plays };
   },
 
   componentDidMount: function () {
-    var storeToken = CommentStore.addListener(this.updateNumComments);
-    this.setState({ storeToken: storeToken });
+    var commentStoreToken = CommentStore.addListener(this.updateNumComments);
+    var songStoreToken = CurrentPlayingSongStore.addListener(this.updateNumPlays);
+    this.setState({ commentStoreToken: commentStoreToken,
+                    songStoreToken: songStoreToken });
   },
 
   componentWillUnmount: function () {
-    this.state.storeToken.remove();
+    this.state.commentStoreToken.remove();
+    this.state.songStoreToken.remove();
+  },
+
+  updateNumPlays: function () {
+    this.setState({ numPlays: CurrentPlayingSongStore.getNumPlays(this.props.song.id) });
   },
 
   updateNumComments: function () {
@@ -20,7 +30,7 @@ var TrackStats = React.createClass({
   },
 
   render: function () {
-    var numPlays = this._convertedNum(this.props.song.num_plays);
+    var numPlays = this._convertedNum(this.state.numPlays);
     var numComms = this._convertedNum(this.state.numComments);
     return (
       <div className='track-stats'>

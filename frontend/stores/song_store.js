@@ -26,7 +26,6 @@ var updateNumPlays = function(playData) {
   }
 };
 
-
 SongStore.getNumLikesOfSong = function (songId) {
   return _songs[songId].num_likes;
 };

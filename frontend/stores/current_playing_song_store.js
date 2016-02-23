@@ -1,6 +1,7 @@
 var Store = require('flux/utils').Store;
 var Dispatcher = require('../dispatcher/dispatcher');
 var PlayingSongConstants = require('../constants/playing_song_constants');
+var SongConstants = require('../constants/song_constants');
 
 var CurrentPlayingSongStore = new Store(Dispatcher);
 
@@ -156,6 +157,12 @@ var seekTo = function (percent) {
   _currentSong.wavesurfer.seekTo(percent);
 };
 
+var updateNumPlays = function(playData) {
+  if (_songs[playData.id]) {
+    _songs[playData.id].song.num_plays = playData.num_plays;
+  }
+};
+
 CurrentPlayingSongStore.remount = function (songId, height) {
   var selector = '.wave' + songId;
   var WSObject = _songs[songId];
@@ -292,6 +299,9 @@ CurrentPlayingSongStore.destroySong = function (id) {
   }
 };
 
+CurrentPlayingSongStore.getNumPlays = function (songId) {
+  return _songs[songId].song.num_plays;
+};
 
 
 CurrentPlayingSongStore.__onDispatch = function (payload) {
@@ -330,6 +340,10 @@ CurrentPlayingSongStore.__onDispatch = function (payload) {
       break;
     case PlayingSongConstants.TOGGLE_MUTE:
       toggleMute();
+      CurrentPlayingSongStore.__emitChange();
+      break;
+    case SongConstants.NUM_PLAYS_RECEIVED:
+      updateNumPlays(payload.playData);
       CurrentPlayingSongStore.__emitChange();
       break;
   }
