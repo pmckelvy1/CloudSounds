@@ -20,7 +20,7 @@ var NewUserForm = React.createClass({
     userData.append("user[username]", this.state.username);
     userData.append("user[password]", this.state.password);
     userData.append("user[info]", this.state.info);
-    // userData.append("user[image]", this.state.imageFile);
+    userData.append("user[image]", this.state.imageFile);
 
     SessionsApiUtil.createNewUser(userData, function () {
       // this.resetForm();
@@ -71,7 +71,9 @@ var NewUserForm = React.createClass({
           </div>
           <div className="upload-image-box">
             <input id="artwork" type="file" className="hidden profile-picture-input custom-file-input" onChange={this.changeFile}></input>
-            <img className="preview-image" src={this.state.imageURL}/>
+            <figure className="preview-image">
+              <img src={this.state.imageURL}/>
+            </figure>
           </div>
 
           <button type="submit" name="sign-in">Sign Up!</button>

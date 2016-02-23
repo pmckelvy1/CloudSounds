@@ -115,10 +115,12 @@ var SongUpload = React.createClass({
 
           <input id="audio" type="file" className="song-audio-input custom-audio-input" onChange={this.changeAudioFile}></input>
 
-          <div className="upload-image-box">
+          <figure className="upload-image-box">
             <input id="artwork" type="file" className="hidden song-artwork-input custom-file-input" onChange={this.changeImageFile}></input>
-            <img className="preview-image" src={this.state.imageURL}/>
-          </div>
+              <div className="preview-image">
+                <img src={this.state.imageURL}/>
+              </div>
+          </figure>
 
           <div className="upload-info-box">
           <label htmlFor="title" className="song-title-label upload-label">Title: <span className="blue">*</span></label>

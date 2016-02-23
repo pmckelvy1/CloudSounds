@@ -18,7 +18,7 @@
 body, div, ul, li, span, p,
 a, h1, h2, h3, h4, h5,
 input, textarea, button,
-form, label {
+form, label, figure {
   padding: 0px;
   margin: 0px;
   border: 0px;
