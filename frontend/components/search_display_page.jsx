@@ -23,8 +23,7 @@ var SearchDisplayPage = React.createClass({
 
     return (
       <div className="search-results-page">
-        Displaying {SearchResultsStore.all().length} of
-        {SearchResultsStore.meta().totalCount}
+        Displaying {SearchResultsStore.all().length} of {SearchResultsStore.meta().totalCount}
         <ul className="search-results-index">
           {searchResults}
         </ul>
