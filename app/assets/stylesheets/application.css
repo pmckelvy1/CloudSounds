@@ -31,6 +31,12 @@ form, label, figure {
   color: inherit;
 }
 
+div:hover, ul:hover, li:hover, span:hover, p:hover,
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover,
+label:hover, figure:hover {
+  cursor: default;
+}
+
 body {
   background: #ccc;
   font-family: sans-serif;
