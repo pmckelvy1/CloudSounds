@@ -22,6 +22,21 @@ var Notification = React.createClass({
     }
     var notificationItem = this.props.item;
     switch (notificationItem.type) {
+      case 'Playlist':
+        return (
+          <div className={styling}>
+            <div className="thumb-notification">
+              <div className="image-centerer">
+                <img src={notificationItem.item.playlist_items[0].song.image_url} />
+              </div>
+            </div>
+            <div className="notification-text">
+              Playlist
+              <span className="blue"> {notificationItem.item.title} </span>
+              was created
+            </div>
+          </div>
+        );
       case 'Playlist_Item':
         return (
           <div className={styling}>
@@ -31,8 +46,8 @@ var Notification = React.createClass({
               </div>
             </div>
             <div className="notification-text">
-              {notificationItem.item.song.title} added to playlist
-              <span className="blue">{notificationItem.item.playlist_title}</span>
+              {notificationItem.item.song.title} added to the playlist
+              <span className="blue"> {notificationItem.item.playlist_title}</span>
             </div>
           </div>
         );
