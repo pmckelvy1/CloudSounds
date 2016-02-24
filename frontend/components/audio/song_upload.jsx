@@ -91,7 +91,10 @@ var SongUpload = React.createClass({
     this.renderProgressBar();
 
     var saveButton;
-    if (this.state.audioFile === null || this.state.imageFile === null) {
+    if (this.state.audioFile === null
+      || this.state.imageFile === null
+      || this.state.title === ""
+      || this.state.info === "") {
       saveButton = <div className="upload-button disabled">Save</div>;
     } else {
       saveButton = <button className="upload-button enabled">Save</button>;
@@ -108,13 +111,12 @@ var SongUpload = React.createClass({
     } else {
       page = <div className="song-upload-page">
         <h2 className="upload-title">Upload to <span className="blue cloud-sounds">CloudSounds!</span></h2>
-          <div className="meter animate">
-            <span style={widthStyle}><span></span></span>
-          </div>
+
         <form className="song-upload-form group" onSubmit={this.handleSubmit}>
 
           <input id="audio" type="file" className="song-audio-input custom-audio-input" onChange={this.changeAudioFile}></input>
 
+          <span className="blue">*</span>
           <div className="upload-artwork-box">
             <input id="artwork" type="file" className="hidden song-artwork-input custom-file-input" onChange={this.changeImageFile}></input>
               <figure className="preview-artwork">
@@ -123,10 +125,10 @@ var SongUpload = React.createClass({
           </div>
 
           <div className="upload-info-box">
-          <label htmlFor="title" className="song-title-label upload-label">Title: <span className="blue">*</span></label>
-            <input id="title" type="text" className="song-title-input" valueLink={this.linkState('title')}></input>
-          <label htmlFor="info" className="song-info-label upload-label">Description: <span className="blue">*</span></label>
-            <textarea id="info" className="song-info-input" valueLink={this.linkState('info')}></textarea>
+            <label htmlFor="title" className="song-title-label upload-label">Title: <span className="blue">*</span></label>
+              <input id="title" type="text" className="song-title-input" valueLink={this.linkState('title')}></input>
+            <label htmlFor="info" className="song-info-label upload-label">Description: <span className="blue">*</span></label>
+              <textarea id="info" className="song-info-input" valueLink={this.linkState('info')}></textarea>
           </div>
 
           <div className="required-fields"><span className="blue">*</span> Required fields</div>
