@@ -15,6 +15,7 @@ var NewPLaylist = React.createClass({
     var playlistData = { title: this.state.title, song_id: this.props.song.id };
     ApiUtil.createPlaylist(playlistData);
     this.setState({ open: false });
+    this.props.closeDialog();
   },
 
   openForm: function () {

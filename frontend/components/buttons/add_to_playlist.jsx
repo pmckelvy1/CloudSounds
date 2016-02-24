@@ -86,7 +86,7 @@ var AddToPlaylist = React.createClass({
             <ul className="playlist-selection-dialog group">
               {playlists}
             </ul>
-            <NewPLaylist song={this.props.song} />
+            <NewPLaylist closeDialog={this.closeModal} song={this.props.song} />
           </div>
         </Modal>
         {button}
